@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@layer base {
+  @media print {
+    /* 1. EXCLUSIVE VISIBILITY: Hide everything except the target print content */
+    /* First, hide the entire application structure */
+    html, body, #__next, main, [data-reactroot], header, footer {
+      display: none !important;
+    }
+
+    /* Second, re-enable ONLY the print-specific containers and their parents */
+    /* This ensures NO other portal content (like the main site) leaks into the PDF */
+    html, body, #course-presentation-print {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      overflow: visible !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: white !important;
+    }
+
+    /* Force the specific modal wrappers to be visible and non-restrictive */
+    div.fixed.inset-0, 
+    div.absolute.inset-0,
+    [role="dialog"],
+    .fixed.inset-0,
+    .print-modal {
+      display: block !important;
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      transform: none !important;
+      opacity: 1 !important;
+      box-shadow: none !important;
+    }
+
+    #schedule-content {
+      display: block !important;
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+    }
+
+    /* 2. TARGET CONTENT: The only things allowed to render */
+    #public-schedule-pdf,
+    #public-print-table-content,
+    #print-table-content,
+    #executive-print-content,
+    #course-presentation-print {
+      /* Remove forced display: block !important here */
+      visibility: visible !important;
+      position: relative !important;
+      width: 100% !important;
+      max-width: 210mm !important;
+      margin: 0 auto !important;
+      padding: 1cm !important;
+      box-shadow: none !important;
+      border: none !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Use a specific class to trigger display only for the desired content */
+    .print-show {
+      display: block !important;
+    }
+
+    /* 3. PAGINATION ENGINE: Natural flow with forced breaks */
+    .page-break {
+      display: block !important;
+      width: 100% !important;
+      max-width: 210mm !important;
+      min-height: 10mm !important; /* Allow natural growth */
+      padding: 1.5cm !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+      background: white !important;
+      page-break-after: always !important;
+      break-after: page !important;
+    }
+
+    /* Force the first section to start on a fresh page to avoid ghost offsets */
+    section:first-of-type {
+      break-before: page !important;
+      page-break-before: always !important;
+    }
+
+    /* Prevent splitting of atomic elements */
+    .break-inside-avoid, 
+    tr, td, th, 
+    .card, 
+    .course-card,
+    .info-box {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+
+    /* 4. CLEANUP */
+    .no-print, button, .close-button, [aria-hidden="true"], .fixed.top-6.right-6 {
+      display: none !important;
+    }
+
+    /* Kill any empty space artifacts */
+    div:empty {
+      display: none !important;
+    }
+  }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
