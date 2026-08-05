@@ -1,23 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { 
-  collection, 
-  onSnapshot, 
-  query, 
-  orderBy, 
-  doc, 
-  updateDoc, 
-  deleteDoc,
-  getDoc
-} from 'firebase/firestore';
-import { 
-  ref, 
-  uploadBytes, 
-  getDownloadURL 
-} from 'firebase/storage';
-import imageCompression from 'browser-image-compression';
-import { db, storage, OperationType, handleFirestoreError } from '@/lib/firebase';
+import { supabase } from '@/lib/supabase';
 import { 
   Check, 
   X, 
@@ -49,40 +33,75 @@ export function TeacherSubmissionsManager() {
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    const q = query(collection(db, 'submissoes_professores'), orderBy('submittedAt', 'desc'));
-    const unsub = onSnapshot(q, (snap) => {
-      setSubmissions(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    const fetchSubmissions = async () => {
+      const { data, error } = await supabase
+        .from('submissoes_professores')
+        .select('*')
+        .order('created_at', { ascending: false });
+      if (error) {
+        console.error("Erro ao carregar submissões:", error);
+        return;
+      }
+      setSubmissions((data || []).map(row => ({
+        id: row.id,
+        name: row.name,
+        titulacao: row.titulacao,
+        email: row.email,
+        cpf: row.cpf,
+        phone: row.phone,
+        photoUrl: row.photo_url,
+        linkedin: row.linkedin,
+        lattes: row.lattes,
+        instagram: row.instagram,
+        status: row.status,
+        teacherId: row.teacher_id,
+        submittedAt: row.created_at
+      })));
       setLoading(false);
-    }, (err) => {
-      handleFirestoreError(err, OperationType.LIST, 'submissoes_professores');
-    });
-    return unsub;
+    };
+
+    fetchSubmissions();
+
+    const channel = supabase
+      .channel('submissoes_professores_changes')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'submissoes_professores' },
+        () => {
+          fetchSubmissions();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const handleApprove = async (submission: any) => {
     if (!confirm(`Deseja aprovar e publicar os dados de ${submission.name}?`)) return;
 
     try {
-      // 1. Update the official teacher document
-      const teacherRef = doc(db, 'teachers', submission.teacherId);
-      await updateDoc(teacherRef, {
+      const { error: tErr } = await supabase.from('teachers').update({
         titulacao: submission.titulacao,
         email: submission.email || '',
         cpf: submission.cpf || '',
         phone: submission.phone || '',
-        photoUrl: submission.photoUrl || '',
+        photo_url: submission.photoUrl || '',
         linkedin: submission.linkedin || '',
         lattes: submission.lattes || '',
         instagram: submission.instagram || '',
-        hasSubmitted: true
-      });
+        has_submitted: true
+      }).eq('id', submission.teacherId);
 
-      // 2. Delete the submission
-      await deleteDoc(doc(db, 'submissoes_professores', submission.id));
+      if (tErr) throw tErr;
+
+      const { error: sErr } = await supabase.from('submissoes_professores').delete().eq('id', submission.id);
+      if (sErr) throw sErr;
       
       alert('Professor aprovado com sucesso!');
     } catch (err) {
-      handleFirestoreError(err, OperationType.UPDATE, 'teachers');
+      console.error("Erro ao aprovar professor:", err);
       alert('Erro ao aprovar professor.');
     }
   };
@@ -90,9 +109,9 @@ export function TeacherSubmissionsManager() {
   const handleReject = async (id: string) => {
     if (!confirm('Deseja rejeitar e excluir esta submissão?')) return;
     try {
-      await deleteDoc(doc(db, 'submissoes_professores', id));
+      await supabase.from('submissoes_professores').delete().eq('id', id);
     } catch (err) {
-      handleFirestoreError(err, OperationType.DELETE, 'submissoes_professores');
+      console.error("Erro ao rejeitar:", err);
     }
   };
 
@@ -105,11 +124,24 @@ export function TeacherSubmissionsManager() {
     if (!editingId || !editData) return;
     setIsSaving(true);
     try {
-      await updateDoc(doc(db, 'submissoes_professores', editingId), editData);
+      const { error } = await supabase.from('submissoes_professores').update({
+        name: editData.name,
+        titulacao: editData.titulacao,
+        email: editData.email,
+        cpf: editData.cpf,
+        phone: editData.phone,
+        photo_url: editData.photoUrl,
+        linkedin: editData.linkedin,
+        lattes: editData.lattes,
+        instagram: editData.instagram
+      }).eq('id', editingId);
+
+      if (error) throw error;
       setEditingId(null);
       setEditData(null);
     } catch (err) {
-      handleFirestoreError(err, OperationType.UPDATE, 'submissoes_professores');
+      console.error("Erro ao salvar submissão:", err);
+      alert("Erro ao salvar alterações.");
     } finally {
       setIsSaving(false);
     }
@@ -161,7 +193,7 @@ export function TeacherSubmissionsManager() {
                         <GraduationCap className="w-3 h-3" /> {s.titulacao}
                       </p>
                       <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest mt-1">
-                        Enviado em: {s.submittedAt?.toDate ? format(s.submittedAt.toDate(), "dd/MM/yyyy 'às' HH:mm", { locale: ptBR }) : 'Recentemente'}
+                        Enviado em: {s.submittedAt ? format(new Date(s.submittedAt), "dd/MM/yyyy 'às' HH:mm", { locale: ptBR }) : 'Recentemente'}
                       </p>
                     </div>
                     <div className="flex gap-2">

@@ -14,11 +14,13 @@ import {
   LogOut, 
   Menu, 
   X, 
-  Plus 
+  Plus,
+  UserCog
 } from 'lucide-react';
 import Image from 'next/image';
-import { collection, getDocs, updateDoc, doc } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
+import { supabase } from '@/lib/supabase';
+import { useAuth } from '@/lib/auth-context';
+import { ForcePasswordChange } from '../ForcePasswordChange';
 import { Button } from '../ui/Button';
 import { SidebarItem } from './SidebarItem';
 import { DashboardOverview } from './DashboardOverview';
@@ -29,6 +31,7 @@ import { HolidaysManager } from './HolidaysManager';
 import { CommonDisciplinesManager } from './CommonDisciplinesManager';
 import { TeacherSubmissionsManager } from './TeacherSubmissionsManager';
 import { TeacherListGenerator } from './TeacherListGenerator';
+import { AccessManager } from './AccessManager';
 import { NewScheduleModal } from './NewScheduleModal';
 import { NewCourseModal } from './NewCourseModal';
 import { NewTeacherModal } from './NewTeacherModal';
@@ -57,6 +60,7 @@ export function AdminPortal({
   isAdmin, 
   seedData 
 }: AdminPortalProps) {
+  const { adminProfile, isAdminGeral } = useAuth();
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isNewScheduleModalOpen, setIsNewScheduleModalOpen] = useState(false);
@@ -69,7 +73,9 @@ export function AdminPortal({
     if (isAdmin) {
       const fixImages = async () => {
         try {
-          const snap = await getDocs(collection(db, 'courses'));
+          const { data: coursesList } = await supabase.from('courses').select('*');
+          if (!coursesList) return;
+
           const imageMapping: Record<string, string> = {
             'Design de Interiores Contemporâneo': 'https://i.postimg.cc/1z7b2pRB/DESIGN-DE-INTER-CApa.png',
             'Neuroarquitetura': 'https://i.postimg.cc/tJ8qjKX7/NEUROARQUITETURA-CAPA.png',
@@ -80,81 +86,63 @@ export function AdminPortal({
             'Tecnologia BIM': 'https://i.postimg.cc/8Ps4XqJ0/TECNOLOGIA-BIM-CAPA-1.png'
           };
 
-          for (const courseDoc of snap.docs) {
-            const data = courseDoc.data();
-            const courseName = data.name;
-            
-            // Check if we have a specific new image for this course
+          for (const courseData of coursesList) {
+            const courseName = courseData.name;
             const matchKey = Object.keys(imageMapping).find(key => courseName.includes(key));
             
             if (matchKey) {
               const newUrl = imageMapping[matchKey];
-              if (data.imageUrl !== newUrl) {
-                await updateDoc(doc(db, 'courses', courseDoc.id), { imageUrl: newUrl });
-                console.log(`Updated image for course: ${courseName}`);
+              if (courseData.image_url !== newUrl) {
+                await supabase.from('courses').update({ image_url: newUrl }).eq('id', courseData.id);
               }
-            } else if (data.imageUrl && data.imageUrl.includes('esuda.edu.br')) {
-              // Fallback for other esuda images that might still be broken
-              const fallbackUrl = `https://picsum.photos/seed/${courseDoc.id}/800/600`;
-              await updateDoc(doc(db, 'courses', courseDoc.id), { imageUrl: fallbackUrl });
-              console.log(`Auto-fixed esuda image for course: ${courseName}`);
+            } else if (courseData.image_url && courseData.image_url.includes('esuda.edu.br')) {
+              const fallbackUrl = `https://picsum.photos/seed/${courseData.id}/800/600`;
+              await supabase.from('courses').update({ image_url: fallbackUrl }).eq('id', courseData.id);
             }
           }
 
-          // Also auto-fix schedule course names and IDs
-          const schedulesSnap = await getDocs(collection(db, 'schedules'));
-          const classesSnap = await getDocs(collection(db, 'classes'));
-          const globalCourseNameMap = new Map();
-          classesSnap.docs.forEach(d => {
-            const data = d.data();
-            if (data.courseId && data.courseName) {
-              globalCourseNameMap.set(data.courseId, data.courseName);
-            }
-          });
+          const { data: schedulesList } = await supabase.from('schedules').select('*');
+          const { data: classesList } = await supabase.from('classes').select('*');
 
-          // Fix Classes first so they match the new IDs we might set in schedules
-          for (const cDoc of classesSnap.docs) {
-            const cData = cDoc.data();
-            if (!cData.isCommon && cData.courseId) {
-              const course = courses.find(c => c.id === cData.courseId);
-              if (!course && cData.courseName) {
-                const matchingCourse = courses.find(c => c.name === cData.courseName);
-                if (matchingCourse) {
-                  await updateDoc(cDoc.ref, { courseId: matchingCourse.id });
-                  console.log(`Auto-fixed courseId for class: ${cData.disciplineName}`);
+          if (classesList) {
+            for (const cData of classesList) {
+              if (!cData.is_common && cData.course_id) {
+                const course = courses.find(c => c.id === cData.course_id);
+                if (!course && cData.course_name) {
+                  const matchingCourse = courses.find(c => c.name === cData.course_name);
+                  if (matchingCourse) {
+                    await supabase.from('classes').update({ course_id: matchingCourse.id }).eq('id', cData.id);
+                  }
                 }
               }
             }
           }
 
-          for (const sDoc of schedulesSnap.docs) {
-            const sData = sDoc.data();
-            let changed = false;
-            
-            const newIds = [...(sData.courseIds || [])];
-            const newNames = sData.courseIds.map((cid: string, idx: number) => {
-              const course = courses.find(c => c.id === cid);
-              if (course) return course.name;
-              
-              // If course not found by ID, try to find by name from courseNames array
-              const oldName = sData.courseNames?.[idx] || globalCourseNameMap.get(cid);
-              if (oldName) {
-                const matchingCourse = courses.find(c => c.name === oldName);
-                if (matchingCourse) {
-                  newIds[idx] = matchingCourse.id;
-                  changed = true;
-                  return matchingCourse.name;
+          if (schedulesList) {
+            for (const sData of schedulesList) {
+              let changed = false;
+              const newIds = [...(sData.course_ids || [])];
+              const newNames = (sData.course_ids || []).map((cid: string, idx: number) => {
+                const course = courses.find(c => c.id === cid);
+                if (course) return course.name;
+                const oldName = sData.course_names?.[idx];
+                if (oldName) {
+                  const matchingCourse = courses.find(c => c.name === oldName);
+                  if (matchingCourse) {
+                    newIds[idx] = matchingCourse.id;
+                    changed = true;
+                    return matchingCourse.name;
+                  }
                 }
-              }
-              return cid;
-            });
-
-            if (JSON.stringify(sData.courseNames) !== JSON.stringify(newNames) || changed) {
-              await updateDoc(sDoc.ref, { 
-                courseNames: newNames,
-                courseIds: newIds
+                return cid;
               });
-              console.log(`Auto-fixed names/IDs for schedule: ${sData.className}`);
+
+              if (JSON.stringify(sData.course_names) !== JSON.stringify(newNames) || changed) {
+                await supabase.from('schedules').update({
+                  course_names: newNames,
+                  course_ids: newIds
+                }).eq('id', sData.id);
+              }
             }
           }
         } catch (e) {
@@ -165,10 +153,14 @@ export function AdminPortal({
     }
   }, [isAdmin, courses]);
 
+  if (adminProfile?.precisa_trocar_senha) {
+    return <ForcePasswordChange />;
+  }
+
   const viewingSchedule = schedules.find(s => s.id === viewingScheduleId);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row font-sans">
       {/* Mobile Header */}
       <header className="md:hidden bg-white border-b border-gray-200 p-4 flex justify-between items-center sticky top-0 z-40">
         <h2 className="text-xl font-bold text-indigo-600">Esuda Acadêmico</h2>
@@ -251,10 +243,18 @@ export function AdminPortal({
             active={activeTab === 'teacher-list'} 
             onClick={() => { setActiveTab('teacher-list'); setIsSidebarOpen(false); }} 
           />
+          {isAdminGeral && (
+            <SidebarItem 
+              icon={<UserCog />} 
+              label="Gestão de Acesso" 
+              active={activeTab === 'gestao-acesso'} 
+              onClick={() => { setActiveTab('gestao-acesso'); setIsSidebarOpen(false); }} 
+            />
+          )}
           {isAdmin && courses.length === 0 && (
             <button 
               onClick={() => { seedData(); setIsSidebarOpen(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all text-amber-600 hover:bg-amber-50 mt-4 border border-dashed border-amber-200"
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all text-amber-600 hover:bg-amber-50 mt-4 border border-dashed border-amber-200 text-xs font-bold"
             >
               <Save className="w-5 h-5" /> Popular Banco (2026)
             </button>
@@ -262,19 +262,12 @@ export function AdminPortal({
         </nav>
         <div className="p-4 border-t border-gray-200">
           <div className="flex items-center gap-3 mb-4">
-            {user?.photoURL && (
-              <Image 
-                src={user.photoURL} 
-                width={40} 
-                height={40} 
-                className="rounded-full" 
-                alt={user.displayName || ''} 
-                referrerPolicy="no-referrer"
-              />
-            )}
+            <div className="w-10 h-10 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shrink-0">
+              {(adminProfile?.nome?.[0] || user?.email?.[0] || 'A').toUpperCase()}
+            </div>
             <div className="overflow-hidden">
-              <p className="text-sm font-medium truncate">{user?.displayName}</p>
-              <p className="text-xs text-gray-500 truncate">{user?.email}</p>
+              <p className="text-sm font-medium truncate">{adminProfile?.nome || user?.email}</p>
+              <p className="text-xs text-gray-500 truncate">{adminProfile?.papel === 'admin_geral' ? 'Admin Geral' : 'Coordenador Adjunto'}</p>
             </div>
           </div>
           <Button onClick={logout} variant="secondary" className="w-full justify-center">
@@ -293,9 +286,10 @@ export function AdminPortal({
              activeTab === 'curadoria' ? 'Curadoria de Docentes' :
              activeTab === 'common-disciplines' ? 'Tronco Comum' :
              activeTab === 'holidays' ? 'Feriados' :
-             activeTab === 'teacher-list' ? 'Relação de Docentes' : 'Dashboard'}
+             activeTab === 'teacher-list' ? 'Relação de Docentes' :
+             activeTab === 'gestao-acesso' ? 'Gestão de Acesso' : 'Dashboard'}
           </h1>
-          {isAdmin && activeTab !== 'dashboard' && activeTab !== 'teacher-list' && (
+          {isAdmin && activeTab !== 'dashboard' && activeTab !== 'teacher-list' && activeTab !== 'gestao-acesso' && (
             <Button className="w-full sm:w-auto" onClick={() => {
               if (activeTab === 'schedules') setIsNewScheduleModalOpen(true);
               if (activeTab === 'courses') setIsNewCourseModalOpen(true);
@@ -330,6 +324,7 @@ export function AdminPortal({
             {activeTab === 'common-disciplines' && <CommonDisciplinesManager isAdmin={isAdmin} />}
             {activeTab === 'holidays' && <HolidaysManager holidays={holidays} isAdmin={isAdmin} />}
             {activeTab === 'teacher-list' && <TeacherListGenerator courses={courses} teachers={teachers} commonDisciplines={commonDisciplines} />}
+            {activeTab === 'gestao-acesso' && <AccessManager courses={courses} />}
           </motion.div>
         </AnimatePresence>
       </main>

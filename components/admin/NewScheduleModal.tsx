@@ -11,11 +11,7 @@ import {
   Save, 
   LayoutDashboard 
 } from 'lucide-react';
-import { 
-  collection, 
-  addDoc, 
-  serverTimestamp 
-} from 'firebase/firestore';
+import { supabase, mapScheduleToDb, mapClassToDb } from '@/lib/supabase';
 import { 
   DndContext, 
   closestCenter, 
@@ -31,7 +27,6 @@ import {
   verticalListSortingStrategy 
 } from '@dnd-kit/sortable';
 import { format, parseISO } from 'date-fns';
-import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { COMMON_DISCIPLINES, generateFullScheduleWithOrder } from '@/lib/calendar';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
@@ -180,43 +175,49 @@ export function NewScheduleModal({ courses, holidays, teachers, commonDiscipline
 
   const saveSchedule = async () => {
     try {
-      const scheduleRef = await addDoc(collection(db, 'schedules'), {
+      const scheduleDb = mapScheduleToDb({
         courseIds: selectedCourses,
         courseNames: selectedCourses.map(id => courses.find(c => c.id === id)?.name || 'Curso'),
         startDate,
         className,
-        status: 'active',
-        createdAt: serverTimestamp()
+        status: 'active'
       });
 
+      const { data: scheduleData, error: scheduleError } = await supabase.from('schedules').insert(scheduleDb).select().single();
+      if (scheduleError || !scheduleData) throw scheduleError;
+
+      const scheduleId = scheduleData.id;
       const allClassPromises = [];
       
       // Common classes
       for (const c of preview.common) {
-        allClassPromises.push(addDoc(collection(db, 'classes'), {
+        const classDb = mapClassToDb({
           ...c,
           teacherId: c.teacherIds?.[0] || '',
           teacherIds: c.teacherIds || [],
-          scheduleId: scheduleRef.id
-        }));
+          scheduleId
+        });
+        allClassPromises.push(supabase.from('classes').insert(classDb));
       }
 
       // Specific classes
       for (const courseId in preview.specific) {
         for (const c of preview.specific[courseId]) {
-          allClassPromises.push(addDoc(collection(db, 'classes'), {
+          const classDb = mapClassToDb({
             ...c,
             teacherId: c.teacherIds?.[0] || '',
             teacherIds: c.teacherIds || [],
-            scheduleId: scheduleRef.id
-          }));
+            scheduleId
+          });
+          allClassPromises.push(supabase.from('classes').insert(classDb));
         }
       }
 
       await Promise.all(allClassPromises);
       onClose();
     } catch (e) {
-      handleFirestoreError(e, OperationType.WRITE, 'schedules');
+      console.error("Erro ao salvar cronograma:", e);
+      alert("Erro ao salvar cronograma.");
     }
   };
 

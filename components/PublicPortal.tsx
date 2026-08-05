@@ -21,6 +21,8 @@ import { PublicScheduleViewer } from './PublicScheduleViewer';
 import { CourseDetailsDrawer } from './CourseDetailsDrawer';
 import { TeacherRegistrationForm } from './TeacherRegistrationForm';
 
+import { LoginForm } from './LoginForm';
+
 interface PublicPortalProps {
   teachers: any[];
   courses: any[];
@@ -28,13 +30,16 @@ interface PublicPortalProps {
   schedules: any[];
   commonDisciplines: any[];
   onLogin: () => void;
-  isLoggingIn: boolean;
+  isLoggingIn?: boolean;
   user: any;
   logout: () => void;
   initialScheduleId?: string | null;
+  showLoginModal?: boolean;
+  setShowLoginModal?: (show: boolean) => void;
 }
 
-export function PublicPortal({ teachers, courses, holidays, schedules, commonDisciplines, onLogin, isLoggingIn, user, logout, initialScheduleId }: PublicPortalProps) {
+export function PublicPortal({ teachers, courses, holidays, schedules, commonDisciplines, onLogin, isLoggingIn, user, logout, initialScheduleId, showLoginModal, setShowLoginModal }: PublicPortalProps) {
+
   const [selectedScheduleId, setSelectedScheduleId] = useState<string | null>(null);
   const [viewingCourseId, setViewingCourseId] = useState<string | null>(null);
   const [isRegistering, setIsRegistering] = useState(false);
@@ -300,6 +305,23 @@ export function PublicPortal({ teachers, courses, holidays, schedules, commonDis
           />
         )}
       </AnimatePresence>
+
+      <AnimatePresence>
+        {showLoginModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+            <div className="relative w-full max-w-md">
+              <button 
+                onClick={() => setShowLoginModal?.(false)} 
+                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 font-black text-sm z-10"
+              >
+                ✕
+              </button>
+              <LoginForm onSuccess={() => setShowLoginModal?.(false)} />
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
+
