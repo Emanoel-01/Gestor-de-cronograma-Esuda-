@@ -12,7 +12,17 @@ import {
   ChevronUp,
   BookOpen
 } from 'lucide-react';
-import { supabase, mapCourseToDb, mapCourseFromDb } from '@/lib/supabase';
+import { 
+  collection, 
+  addDoc, 
+  deleteDoc, 
+  doc, 
+  updateDoc, 
+  query, 
+  where, 
+  getDocs, 
+  serverTimestamp 
+} from 'firebase/firestore';
 import { 
   DndContext, 
   closestCenter, 
@@ -27,6 +37,7 @@ import {
   sortableKeyboardCoordinates, 
   verticalListSortingStrategy 
 } from '@dnd-kit/sortable';
+import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { syncTeacherAssignments } from '@/lib/sync';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
@@ -69,107 +80,112 @@ export function CoursesManager({ courses, isAdmin }: CoursesManagerProps) {
           const slaveIds = slaves.map((c: any) => c.id);
 
           // Update all classes pointing to slaves
-          const { data: classesData } = await supabase.from('classes').select('*');
-          if (classesData) {
-            for (const classItem of classesData) {
-              if (slaveIds.includes(classItem.course_id)) {
-                await supabase.from('classes').update({ course_id: master.id }).eq('id', classItem.id);
-              }
+          const classesSnap = await getDocs(collection(db, 'classes'));
+          for (const classDoc of classesSnap.docs) {
+            const data = classDoc.data();
+            if (slaveIds.includes(data.courseId)) {
+              await updateDoc(classDoc.ref, { courseId: master.id });
             }
           }
 
           // Update all schedules pointing to slaves
-          const { data: schedulesData } = await supabase.from('schedules').select('*');
-          if (schedulesData) {
-            for (const scheduleItem of schedulesData) {
-              if (scheduleItem.course_ids && scheduleItem.course_ids.some((id: string) => slaveIds.includes(id))) {
-                const newCourseIds = Array.from(new Set(scheduleItem.course_ids.map((id: string) => slaveIds.includes(id) ? master.id : id)));
-                await supabase.from('schedules').update({ course_ids: newCourseIds }).eq('id', scheduleItem.id);
-              }
+          const schedulesSnap = await getDocs(collection(db, 'schedules'));
+          for (const scheduleDoc of schedulesSnap.docs) {
+            const data = scheduleDoc.data();
+            if (data.courseIds && data.courseIds.some((id: string) => slaveIds.includes(id))) {
+              const newCourseIds = Array.from(new Set(data.courseIds.map((id: string) => slaveIds.includes(id) ? master.id : id)));
+              await updateDoc(scheduleDoc.ref, { courseIds: newCourseIds });
             }
           }
 
           // Update teacher specialties
-          const { data: teachersData } = await supabase.from('teachers').select('*');
-          if (teachersData) {
-            for (const teacherItem of teachersData) {
-              if (teacherItem.specialties && teacherItem.specialties.some((s: any) => slaveIds.includes(s.courseId))) {
-                const newSpecialties = teacherItem.specialties.map((s: any) => 
-                  slaveIds.includes(s.courseId) ? { ...s, courseId: master.id } : s
-                );
-                await supabase.from('teachers').update({ specialties: newSpecialties }).eq('id', teacherItem.id);
-              }
+          const teachersSnap = await getDocs(collection(db, 'teachers'));
+          for (const teacherDoc of teachersSnap.docs) {
+            const data = teacherDoc.data();
+            if (data.specialties && data.specialties.some((s: any) => slaveIds.includes(s.courseId))) {
+              const newSpecialties = data.specialties.map((s: any) => 
+                slaveIds.includes(s.courseId) ? { ...s, courseId: master.id } : s
+              );
+              await updateDoc(teacherDoc.ref, { specialties: newSpecialties });
             }
           }
 
           // Delete slaves
           for (const slave of slaves) {
-            await supabase.from('courses').delete().eq('id', slave.id);
+            await deleteDoc(doc(db, 'courses', slave.id));
             totalCleaned++;
           }
         }
       }
 
       // 2. Cross-reference teachers from schedules
-      const { data: allTeachersData } = await supabase.from('teachers').select('*');
+      const allSchedulesSnap = await getDocs(collection(db, 'schedules'));
+      const allTeachersSnap = await getDocs(collection(db, 'teachers'));
       const teachersMap = new Map();
-      (allTeachersData || []).forEach(d => teachersMap.set(d.id, d));
+      allTeachersSnap.docs.forEach(d => teachersMap.set(d.id, { ref: d.ref, ...d.data() }));
 
-      const { data: allClassesData } = await supabase.from('classes').select('*');
-      if (allClassesData) {
-        for (const classData of allClassesData) {
-          if (classData.teacher_id && classData.course_id && classData.discipline_name) {
-            const teacher = teachersMap.get(classData.teacher_id);
-            if (teacher) {
-              const specialties = teacher.specialties || [];
-              const alreadyHas = specialties.some((s: any) => 
-                s.courseId === classData.course_id && s.disciplineName === classData.discipline_name
-              );
-              
-              if (!alreadyHas) {
-                const newSpecialties = [...specialties, { 
-                  courseId: classData.course_id, 
-                  disciplineName: classData.discipline_name 
-                }];
-                await supabase.from('teachers').update({ specialties: newSpecialties }).eq('id', teacher.id);
-                teacher.specialties = newSpecialties;
-                totalSynced++;
-              }
+      const allClassesSnap = await getDocs(collection(db, 'classes'));
+      for (const classDoc of allClassesSnap.docs) {
+        const classData = classDoc.data();
+        if (classData.teacherId && classData.courseId && classData.disciplineName) {
+          const teacher = teachersMap.get(classData.teacherId);
+          if (teacher) {
+            const specialties = teacher.specialties || [];
+            const alreadyHas = specialties.some((s: any) => 
+              s.courseId === classData.courseId && s.disciplineName === classData.disciplineName
+            );
+            
+            if (!alreadyHas) {
+              const newSpecialties = [...specialties, { 
+                courseId: classData.courseId, 
+                disciplineName: classData.disciplineName 
+              }];
+              await updateDoc(teacher.ref, { specialties: newSpecialties });
+              teacher.specialties = newSpecialties; // Update local map to avoid redundant writes
+              totalSynced++;
             }
           }
         }
       }
 
       // 3. Fix broken course names in schedules
-      const { data: schedulesForFix } = await supabase.from('schedules').select('*');
-      const { data: classesForFix } = await supabase.from('classes').select('*');
+      const schedulesToFixSnap = await getDocs(collection(db, 'schedules'));
+      const classesForFixSnap = await getDocs(collection(db, 'classes'));
       let schedulesFixed = 0;
 
+      // Build a global map of courseId -> courseName from all classes
       const globalCourseNameMap = new Map();
-      (classesForFix || []).forEach(d => {
-        if (d.course_id && d.course_name) {
-          globalCourseNameMap.set(d.course_id, d.course_name);
+      classesForFixSnap.docs.forEach(d => {
+        const data = d.data();
+        if (data.courseId && data.courseName) {
+          globalCourseNameMap.set(data.courseId, data.courseName);
         }
       });
 
-      if (schedulesForFix) {
-        for (const scheduleData of schedulesForFix) {
-          const newCourseNames = (scheduleData.course_ids || []).map((cid: string) => {
-            const course = courses.find(c => c.id === cid);
-            if (course) return course.name;
-            if (globalCourseNameMap.has(cid)) return globalCourseNameMap.get(cid);
-            if (cid.length > 15 && !cid.includes(' ')) return 'Curso';
-            return cid;
-          });
+      for (const scheduleDoc of schedulesToFixSnap.docs) {
+        const scheduleData = scheduleDoc.data();
+        
+        const newCourseNames = scheduleData.courseIds.map((cid: string) => {
+          // 1. Try to find in current courses list (passed as prop)
+          const course = courses.find(c => c.id === cid);
+          if (course) return course.name;
 
-          const currentNames = scheduleData.course_names || [];
-          const hasMissingNames = currentNames.length !== newCourseNames.length;
-          const namesChanged = JSON.stringify(currentNames) !== JSON.stringify(newCourseNames);
+          // 2. Try to find in our global map from classes
+          if (globalCourseNameMap.has(cid)) return globalCourseNameMap.get(cid);
 
-          if (hasMissingNames || namesChanged) {
-            await supabase.from('schedules').update({ course_names: newCourseNames }).eq('id', scheduleData.id);
-            schedulesFixed++;
-          }
+          // 3. If cid itself looks like a name (not a Firebase ID)
+          if (cid.length > 15 && !cid.includes(' ')) return 'Curso'; // Likely an ID
+          return cid; // Likely already a name
+        });
+
+        // Only update if names changed or were missing
+        const currentNames = scheduleData.courseNames || [];
+        const hasMissingNames = currentNames.length !== newCourseNames.length;
+        const namesChanged = JSON.stringify(currentNames) !== JSON.stringify(newCourseNames);
+
+        if (hasMissingNames || namesChanged) {
+          await updateDoc(scheduleDoc.ref, { courseNames: newCourseNames });
+          schedulesFixed++;
         }
       }
 
@@ -186,17 +202,16 @@ export function CoursesManager({ courses, isAdmin }: CoursesManagerProps) {
     if (!deletingCourseId) return;
     setIsDeleting(true);
     try {
-      const { error } = await supabase.from('courses').delete().eq('id', deletingCourseId);
-      if (error) throw error;
+      await deleteDoc(doc(db, 'courses', deletingCourseId));
       setDeletingCourseId(null);
     } catch (e) {
-      console.error("Erro ao deletar curso:", e);
-      alert("Erro ao excluir curso.");
+      handleFirestoreError(e, OperationType.DELETE, 'courses');
     } finally {
       setIsDeleting(false);
     }
   };
 
+  // Função específica para corrigir a matriz do curso de Neuroarquitetura conforme solicitado pelo usuário
   const fixNeuroMatrix = async () => {
     if (!isAdmin) return;
     setIsCleaning(true);
@@ -219,11 +234,12 @@ export function CoursesManager({ courses, isAdmin }: CoursesManagerProps) {
         "Neurourbanismo"
       ];
 
+      // Convert to new object structure if needed
       const objectMatrix = newMatrix.map(name => ({ name, syllabus: '' }));
 
-      await supabase.from('courses').update({
-        specific_disciplines: objectMatrix
-      }).eq('id', neuroCourse.id);
+      await updateDoc(doc(db, 'courses', neuroCourse.id), {
+        specificDisciplines: objectMatrix
+      });
 
       alert("Matriz de Neuroarquitetura corrigida com sucesso!");
     } catch (e) {
@@ -233,7 +249,6 @@ export function CoursesManager({ courses, isAdmin }: CoursesManagerProps) {
       setIsCleaning(false);
     }
   };
-
 
   const generateCoursePDF = (course: any) => {
     const printWindow = window.open('', '_blank');
@@ -508,7 +523,8 @@ function CourseEditModal({ course, isAdmin, onClose }: any) {
       }));
       const disciplineNames = disciplineData.map((d: any) => d.name);
       
-      const updatedCourseDb = mapCourseToDb({
+      // Update course document
+      await updateDoc(doc(db, 'courses', course.id), {
         name,
         marketingSummary,
         fullDescription,
@@ -525,9 +541,6 @@ function CourseEditModal({ course, isAdmin, onClose }: any) {
         specificDisciplines: disciplineData
       });
 
-      const { error: courseError } = await supabase.from('courses').update(updatedCourseDb).eq('id', course.id);
-      if (courseError) throw courseError;
-
       // Create a map of renamed disciplines
       const oldDisciplines = course.specificDisciplines || [];
       const renamedMap = new Map();
@@ -540,42 +553,47 @@ function CourseEditModal({ course, isAdmin, onClose }: any) {
       });
 
       // 1. Propagate changes to all classes of this course
-      const { data: classesData } = await supabase.from('classes').select('*').eq('course_id', course.id);
-      if (classesData) {
-        for (const classData of classesData) {
-          const updateData: any = { course_name: name };
-          if (renamedMap.has(classData.discipline_name)) {
-            updateData.discipline_name = renamedMap.get(classData.discipline_name);
-          }
-          await supabase.from('classes').update(updateData).eq('id', classData.id);
+      const classesQuery = query(collection(db, 'classes'), where('courseId', '==', course.id));
+      const classesSnap = await getDocs(classesQuery);
+      
+      const classUpdatePromises = classesSnap.docs.map(classDoc => {
+        const classData = classDoc.data();
+        const updateData: any = { courseName: name };
+        
+        // If the discipline name was changed, update it
+        if (renamedMap.has(classData.disciplineName)) {
+          updateData.disciplineName = renamedMap.get(classData.disciplineName);
         }
-      }
+        
+        return updateDoc(classDoc.ref, updateData);
+      });
 
       // 2. Propagate changes to teacher specialties
-      const { data: teachersData } = await supabase.from('teachers').select('*');
-      if (teachersData) {
-        for (const teacherData of teachersData) {
-          if (!teacherData.specialties) continue;
-          let changed = false;
-          const newSpecialties = teacherData.specialties.map((s: any) => {
-            if (s.courseId === course.id && renamedMap.has(s.disciplineName)) {
-              changed = true;
-              return { ...s, disciplineName: renamedMap.get(s.disciplineName) };
-            }
-            return s;
-          });
-
-          if (changed) {
-            await supabase.from('teachers').update({ specialties: newSpecialties }).eq('id', teacherData.id);
+      const teachersSnap = await getDocs(collection(db, 'teachers'));
+      const teacherUpdatePromises = teachersSnap.docs.map(teacherDoc => {
+        const teacherData = teacherDoc.data();
+        if (!teacherData.specialties) return Promise.resolve();
+        
+        let changed = false;
+        const newSpecialties = teacherData.specialties.map((s: any) => {
+          if (s.courseId === course.id && renamedMap.has(s.disciplineName)) {
+            changed = true;
+            return { ...s, disciplineName: renamedMap.get(s.disciplineName) };
           }
-        }
-      }
+          return s;
+        });
 
+        if (changed) {
+          return updateDoc(teacherDoc.ref, { specialties: newSpecialties });
+        }
+        return Promise.resolve();
+      });
+
+      await Promise.all([...classUpdatePromises, ...teacherUpdatePromises]);
       await syncTeacherAssignments();
       onClose();
     } catch (e) {
-      console.error("Erro ao salvar curso:", e);
-      alert("Erro ao salvar alterações no curso.");
+      handleFirestoreError(e, OperationType.UPDATE, 'courses');
     } finally {
       setSaving(false);
     }

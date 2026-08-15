@@ -9,7 +9,11 @@ import {
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
-import { supabase, mapCourseToDb } from '@/lib/supabase';
+import { 
+  collection, 
+  addDoc, 
+  serverTimestamp 
+} from 'firebase/firestore';
 import { 
   DndContext, 
   closestCenter, 
@@ -24,6 +28,7 @@ import {
   sortableKeyboardCoordinates, 
   verticalListSortingStrategy 
 } from '@dnd-kit/sortable';
+import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
 import { TextArea } from '../ui/TextArea';
@@ -74,7 +79,7 @@ export function NewCourseModal({ isAdmin, onClose }: NewCourseModalProps) {
     if (!name || disciplines.length === 0) return;
     setSaving(true);
     try {
-      const courseDb = mapCourseToDb({
+      await addDoc(collection(db, 'courses'), {
         name,
         marketingSummary,
         fullDescription,
@@ -92,15 +97,12 @@ export function NewCourseModal({ isAdmin, onClose }: NewCourseModalProps) {
           name: d.name, 
           syllabus: d.syllabus || '',
           teacherCount: d.teacherCount || 1
-        }))
+        })),
+        createdAt: serverTimestamp()
       });
-
-      const { error } = await supabase.from('courses').insert(courseDb);
-      if (error) throw error;
       onClose();
     } catch (e) {
-      console.error("Erro ao criar curso:", e);
-      alert("Erro ao criar curso.");
+      handleFirestoreError(e, OperationType.WRITE, 'courses');
     } finally {
       setSaving(false);
     }

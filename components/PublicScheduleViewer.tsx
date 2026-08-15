@@ -15,7 +15,8 @@ import {
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
-import { supabase, mapClassFromDb } from '@/lib/supabase';
+import { collection, query, where, getDocs, onSnapshot } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 import { Holiday } from '@/lib/calendar';
 import { Button } from './ui/Button';
 
@@ -52,82 +53,70 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
   }, []);
 
   useEffect(() => {
-    const fetchClasses = () => {
-      supabase.from('classes').select('*').eq('schedule_id', schedule.id).then(({ data, error }) => {
-        if (error) {
-          console.error("Error fetching classes:", error);
-          setLoading(false);
-          return;
+    const q = query(collection(db, 'classes'), where('scheduleId', '==', schedule.id));
+    
+    const unsubscribe = onSnapshot(q, (snap) => {
+      const classes = snap.docs.map(doc => doc.data());
+      
+      // Group by discipline for the selected course
+      const disciplineGroups: { [key: string]: any } = {};
+      const dates: string[] = [];
+      
+      classes.forEach((c: any) => {
+        const isRelevant = c.isCommon || c.courseId === selectedCourseId;
+        if (!isRelevant) return;
+        
+        dates.push(c.date);
+        const key = c.disciplineName;
+        if (!disciplineGroups[key]) {
+          disciplineGroups[key] = {
+            type: 'discipline',
+            name: c.disciplineName,
+            isCommon: c.isCommon,
+            teacherIds: c.teacherIds || (c.teacherId ? [c.teacherId] : []),
+            dates: []
+          };
         }
-        const classes = (data || []).map(mapClassFromDb);
-        
-        // Group by discipline for the selected course
-        const disciplineGroups: { [key: string]: any } = {};
-        const dates: string[] = [];
-        
-        classes.forEach((c: any) => {
-          const isRelevant = c.isCommon || c.courseId === selectedCourseId;
-          if (!isRelevant) return;
-          
-          dates.push(c.date);
-          const key = c.disciplineName;
-          if (!disciplineGroups[key]) {
-            disciplineGroups[key] = {
-              type: 'discipline',
-              name: c.disciplineName,
-              isCommon: c.isCommon,
-              teacherIds: c.teacherIds || (c.teacherId ? [c.teacherId] : []),
-              dates: []
-            };
-          }
-          if (!disciplineGroups[key].dates.includes(c.date)) {
-            disciplineGroups[key].dates.push(c.date);
-          }
-        });
-        
-        const items: any[] = Object.values(disciplineGroups);
-        
-        // Add relevant holidays
-        if (dates.length > 0) {
-          const sortedDates = [...dates].sort();
-          const minDate = sortedDates[0];
-          const maxDate = sortedDates[sortedDates.length - 1];
-          
-          holidays.forEach((h: any) => {
-            if (h.date >= minDate && h.date <= maxDate) {
-              items.push({
-                type: 'holiday',
-                date: h.date,
-                description: h.description
-              });
-            }
-          });
+        if (!disciplineGroups[key].dates.includes(c.date)) {
+          disciplineGroups[key].dates.push(c.date);
         }
-        
-        // Sort items by date
-        items.sort((a, b) => {
-          const dateA = a.type === 'discipline' ? [...a.dates].sort()[0] : a.date;
-          const dateB = b.type === 'discipline' ? [...b.dates].sort()[0] : b.date;
-          return dateA.localeCompare(dateB);
-        });
-        
-        setScheduleData(items);
-        setLoading(false);
       });
-    };
+      
+      const items: any[] = Object.values(disciplineGroups);
+      
+      // Add relevant holidays
+      if (dates.length > 0) {
+        const sortedDates = [...dates].sort();
+        const minDate = sortedDates[0];
+        const maxDate = sortedDates[sortedDates.length - 1];
+        
+        holidays.forEach((h: any) => {
+          if (h.date >= minDate && h.date <= maxDate) {
+            items.push({
+              type: 'holiday',
+              date: h.date,
+              description: h.description
+            });
+          }
+        });
+      }
+      
+      // Sort items by date
+      items.sort((a, b) => {
+        const dateA = a.type === 'discipline' ? [...a.dates].sort()[0] : a.date;
+        const dateB = b.type === 'discipline' ? [...b.dates].sort()[0] : b.date;
+        return dateA.localeCompare(dateB);
+      });
+      
+      setScheduleData(items);
+      setLoading(false);
+    }, (e) => {
+      console.error("Error fetching classes:", e);
+      setLoading(false);
+    });
 
-    fetchClasses();
-
-    const channel = supabase
-      .channel(`classes-${schedule.id}`)
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'classes', filter: `schedule_id=eq.${schedule.id}` }, fetchClasses)
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
+    return () => unsubscribe();
   }, [schedule, selectedCourseId, holidays]);
-
 
   const selectedCourse = courses.find((c: any) => c.id === selectedCourseId);
 

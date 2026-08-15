@@ -5,7 +5,12 @@ import { motion } from 'motion/react';
 import { 
   Plus 
 } from 'lucide-react';
-import { supabase, mapTeacherToDb } from '@/lib/supabase';
+import { 
+  collection, 
+  addDoc, 
+  serverTimestamp 
+} from 'firebase/firestore';
+import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { COMMON_DISCIPLINES } from '@/lib/calendar';
 import { syncTeacherAssignments } from '@/lib/sync';
 import { Button } from '../ui/Button';
@@ -37,17 +42,15 @@ export function NewTeacherModal({ courses, isAdmin, commonDisciplines, onClose }
     if (!form.name || !form.titulacao) return;
     setSaving(true);
     try {
-      const dbTeacher = mapTeacherToDb({
+      await addDoc(collection(db, 'teachers'), {
         ...form,
-        hasSubmitted: false
+        hasSubmitted: false,
+        createdAt: serverTimestamp()
       });
-      const { error } = await supabase.from('teachers').insert(dbTeacher);
-      if (error) throw error;
       await syncTeacherAssignments();
       onClose();
     } catch (e) {
-      console.error("Erro ao criar docente:", e);
-      alert("Erro ao criar docente.");
+      handleFirestoreError(e, OperationType.WRITE, 'teachers');
     } finally {
       setSaving(false);
     }

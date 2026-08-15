@@ -10,8 +10,13 @@ import {
   SortAsc,
   Filter
 } from 'lucide-react';
-import { supabase, mapTeacherToDb } from '@/lib/supabase';
+import { 
+  deleteDoc, 
+  doc, 
+  updateDoc 
+} from 'firebase/firestore';
 import Image from 'next/image';
+import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { COMMON_DISCIPLINES } from '@/lib/calendar';
 import { syncTeacherAssignments } from '@/lib/sync';
 import { Card } from '../ui/Card';
@@ -39,12 +44,10 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
     if (!deletingTeacherId) return;
     setIsDeleting(true);
     try {
-      const { error } = await supabase.from('teachers').delete().eq('id', deletingTeacherId);
-      if (error) throw error;
+      await deleteDoc(doc(db, 'teachers', deletingTeacherId));
       setDeletingTeacherId(null);
     } catch (e) {
-      console.error("Erro ao excluir docente:", e);
-      alert("Erro ao excluir docente.");
+      handleFirestoreError(e, OperationType.DELETE, 'teachers');
     } finally {
       setIsDeleting(false);
     }
@@ -209,14 +212,11 @@ function TeacherEditModal({ teacher, courses, isAdmin, commonDisciplines, onClos
   const handleSave = async () => {
     setSaving(true);
     try {
-      const dbData = mapTeacherToDb(form);
-      const { error } = await supabase.from('teachers').update(dbData).eq('id', teacher.id);
-      if (error) throw error;
+      await updateDoc(doc(db, 'teachers', teacher.id), form);
       await syncTeacherAssignments();
       onClose();
     } catch (e) {
-      console.error("Erro ao atualizar docente:", e);
-      alert("Erro ao salvar alterações no docente.");
+      handleFirestoreError(e, OperationType.UPDATE, 'teachers');
     } finally {
       setSaving(false);
     }

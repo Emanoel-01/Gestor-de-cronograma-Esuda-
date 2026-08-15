@@ -8,7 +8,16 @@ import {
   Edit2,
   GripVertical
 } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+import { 
+  collection, 
+  addDoc, 
+  deleteDoc, 
+  doc, 
+  updateDoc, 
+  onSnapshot,
+  query,
+  orderBy
+} from 'firebase/firestore';
 import { 
   DndContext, 
   closestCenter, 
@@ -23,6 +32,7 @@ import {
   sortableKeyboardCoordinates, 
   verticalListSortingStrategy 
 } from '@dnd-kit/sortable';
+import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
 import { TextArea } from '../ui/TextArea';
@@ -46,24 +56,12 @@ export function CommonDisciplinesManager({ isAdmin }: CommonDisciplinesManagerPr
   const [form, setForm] = useState({ name: '', description: '' });
 
   useEffect(() => {
-    const fetchDisciplines = async () => {
-      const { data } = await supabase.from('common_disciplines').select('*').order('order', { ascending: true });
-      if (data) setDisciplines(data);
+    const q = query(collection(db, 'commonDisciplines'), orderBy('order', 'asc'));
+    const unsub = onSnapshot(q, (snap) => {
+      setDisciplines(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
       setLoading(false);
-    };
-
-    fetchDisciplines();
-
-    const channel = supabase
-      .channel('common_disciplines_changes')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'common_disciplines' }, () => {
-        fetchDisciplines();
-      })
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
+    });
+    return unsub;
   }, []);
 
   const sensors = useSensors(
@@ -82,10 +80,12 @@ export function CommonDisciplinesManager({ isAdmin }: CommonDisciplinesManagerPr
       const newItems = arrayMove(disciplines, oldIndex, newIndex);
       setDisciplines(newItems);
 
+      // Update orders in Firestore
       try {
-        for (let index = 0; index < newItems.length; index++) {
-          await supabase.from('common_disciplines').update({ order: index + 1 }).eq('id', newItems[index].id);
-        }
+        const promises = newItems.map((item, index) => 
+          updateDoc(doc(db, 'commonDisciplines', item.id), { order: index + 1 })
+        );
+        await Promise.all(promises);
       } catch (e) {
         console.error("Error updating order:", e);
       }
@@ -97,12 +97,12 @@ export function CommonDisciplinesManager({ isAdmin }: CommonDisciplinesManagerPr
     setIsSaving(true);
     try {
       if (editingDisc) {
-        await supabase.from('common_disciplines').update({
+        await updateDoc(doc(db, 'commonDisciplines', editingDisc.id), {
           name: form.name,
           description: form.description
-        }).eq('id', editingDisc.id);
+        });
       } else {
-        await supabase.from('common_disciplines').insert({
+        await addDoc(collection(db, 'commonDisciplines'), {
           name: form.name,
           description: form.description,
           order: disciplines.length + 1
@@ -111,8 +111,7 @@ export function CommonDisciplinesManager({ isAdmin }: CommonDisciplinesManagerPr
       setForm({ name: '', description: '' });
       setEditingDisc(null);
     } catch (e) {
-      console.error("Error saving discipline:", e);
-      alert("Erro ao salvar disciplina.");
+      handleFirestoreError(e, OperationType.WRITE, 'commonDisciplines');
     } finally {
       setIsSaving(false);
     }
@@ -122,11 +121,10 @@ export function CommonDisciplinesManager({ isAdmin }: CommonDisciplinesManagerPr
     if (!deletingId) return;
     setIsDeleting(true);
     try {
-      await supabase.from('common_disciplines').delete().eq('id', deletingId);
+      await deleteDoc(doc(db, 'commonDisciplines', deletingId));
       setDeletingId(null);
     } catch (e) {
-      console.error("Error deleting discipline:", e);
-      alert("Erro ao excluir disciplina.");
+      handleFirestoreError(e, OperationType.DELETE, 'commonDisciplines');
     } finally {
       setIsDeleting(false);
     }

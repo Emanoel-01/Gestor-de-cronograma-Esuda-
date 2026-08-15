@@ -9,8 +9,15 @@ import {
   ChevronRight,
   Download
 } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+import { 
+  collection, 
+  addDoc, 
+  updateDoc, 
+  deleteDoc, 
+  doc 
+} from 'firebase/firestore';
 import { format, parseISO, addDays } from 'date-fns';
+import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { getHolidaysForYear } from '@/lib/calendar';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
@@ -43,7 +50,7 @@ export function HolidaysManager({ holidays, isAdmin }: HolidaysManagerProps) {
       
       for (const h of yearHolidays) {
         if (!existingDates.has(h.date)) {
-          await supabase.from('holidays').insert(h);
+          await addDoc(collection(db, 'holidays'), h);
           added++;
         }
       }
@@ -54,8 +61,7 @@ export function HolidaysManager({ holidays, isAdmin }: HolidaysManagerProps) {
         alert(`Todos os feriados de ${selectedYear} já estão cadastrados.`);
       }
     } catch (e) {
-      console.error("Erro ao carregar feriados do ano:", e);
-      alert("Erro ao carregar feriados.");
+      handleFirestoreError(e, OperationType.WRITE, 'holidays');
     } finally {
       setLoadingYear(false);
     }
@@ -87,13 +93,12 @@ export function HolidaysManager({ holidays, isAdmin }: HolidaysManagerProps) {
     setIsDeleting(true);
     try {
       for (const id of duplicateIds) {
-        await supabase.from('holidays').delete().eq('id', id);
+        await deleteDoc(doc(db, 'holidays', id));
       }
       setShowDuplicateConfirm(false);
       setDuplicateIds([]);
     } catch (e) {
-      console.error("Erro ao remover duplicados:", e);
-      alert("Erro ao remover duplicados.");
+      handleFirestoreError(e, OperationType.DELETE, 'holidays');
     } finally {
       setIsDeleting(false);
     }
@@ -115,14 +120,13 @@ export function HolidaysManager({ holidays, isAdmin }: HolidaysManagerProps) {
       const toDelete = holidays.filter((h: any) => h.date.startsWith(yearPrefix));
       
       for (const h of toDelete) {
-        await supabase.from('holidays').delete().eq('id', h.id);
+        await deleteDoc(doc(db, 'holidays', h.id));
       }
       
       setShowYearDeleteConfirm(false);
       alert(`${toDelete.length} feriados de ${selectedYear} foram removidos com sucesso!`);
     } catch (e) {
-      console.error("Erro ao apagar feriados do ano:", e);
-      alert("Erro ao apagar feriados.");
+      handleFirestoreError(e, OperationType.DELETE, 'holidays');
     } finally {
       setIsDeleting(false);
     }
@@ -132,7 +136,7 @@ export function HolidaysManager({ holidays, isAdmin }: HolidaysManagerProps) {
     if (!form.date || !form.description) return;
     try {
       if (editingId) {
-        await supabase.from('holidays').update({ ...form }).eq('id', editingId);
+        await updateDoc(doc(db, 'holidays', editingId), { ...form });
         setEditingId(null);
       } else {
         // Carnaval Expansion Logic
@@ -155,7 +159,7 @@ export function HolidaysManager({ holidays, isAdmin }: HolidaysManagerProps) {
             const dateStr = format(currentDate, 'yyyy-MM-dd');
             
             if (!existingDates.has(dateStr)) {
-              await supabase.from('holidays').insert({
+              await addDoc(collection(db, 'holidays'), {
                 date: dateStr,
                 description: day.desc
               });
@@ -167,13 +171,12 @@ export function HolidaysManager({ holidays, isAdmin }: HolidaysManagerProps) {
             alert(`Bloco de Carnaval expandido: ${expandedCount} dias registrados.`);
           }
         } else {
-          await supabase.from('holidays').insert({ ...form });
+          await addDoc(collection(db, 'holidays'), { ...form });
         }
       }
       setForm({ date: '', description: '' });
     } catch (e) {
-      console.error("Erro ao salvar feriado:", e);
-      alert("Erro ao salvar feriado.");
+      handleFirestoreError(e, editingId ? OperationType.UPDATE : OperationType.WRITE, 'holidays');
     }
   };
 
@@ -181,11 +184,10 @@ export function HolidaysManager({ holidays, isAdmin }: HolidaysManagerProps) {
     if (!deletingId) return;
     setIsDeleting(true);
     try {
-      await supabase.from('holidays').delete().eq('id', deletingId);
+      await deleteDoc(doc(db, 'holidays', deletingId));
       setDeletingId(null);
     } catch (e) {
-      console.error("Erro ao excluir feriado:", e);
-      alert("Erro ao excluir feriado.");
+      handleFirestoreError(e, OperationType.DELETE, 'holidays');
     } finally {
       setIsDeleting(false);
     }
@@ -313,6 +315,15 @@ export function HolidaysManager({ holidays, isAdmin }: HolidaysManagerProps) {
         message={`Deseja excluir os ${duplicateIds.length} feriados duplicados encontrados? Esta ação manterá apenas um registro para cada data/nome.`}
         onConfirm={confirmRemoveDuplicates}
         onCancel={() => setShowDuplicateConfirm(false)}
+        loading={isDeleting}
+      />
+
+      <ConfirmationModal 
+        isOpen={showYearDeleteConfirm}
+        title={`Esvaziar Ano ${selectedYear}`}
+        message={`Tem certeza que deseja apagar TODOS os feriados de ${selectedYear}? Esta ação não pode ser desfeita.`}
+        onConfirm={confirmDeleteYearHolidays}
+        onCancel={() => setShowYearDeleteConfirm(false)}
         loading={isDeleting}
       />
 

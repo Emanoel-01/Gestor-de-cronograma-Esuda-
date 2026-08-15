@@ -21,7 +21,18 @@ import {
   CheckCircle2,
   RefreshCw
 } from 'lucide-react';
-import { supabase, mapClassFromDb, mapClassToDb } from '@/lib/supabase';
+import { 
+  collection, 
+  query, 
+  where, 
+  onSnapshot, 
+  getDocs, 
+  deleteDoc, 
+  doc, 
+  updateDoc,
+  addDoc,
+  serverTimestamp
+} from 'firebase/firestore';
 import { 
   DndContext, 
   closestCenter, 
@@ -39,6 +50,7 @@ import {
 import { format, parseISO, addDays } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
+import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { HOLIDAYS_2026, getNextAvailableSaturday } from '@/lib/calendar';
 import { syncTeacherAssignments } from '@/lib/sync';
 import { Button } from '../ui/Button';
@@ -95,17 +107,15 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
   );
 
   useEffect(() => {
-    const fetchClasses = async () => {
-      const { data, error } = await supabase
-        .from('classes')
-        .select('*')
-        .eq('schedule_id', schedule.id);
-      if (error) {
-        console.error("Error fetching classes:", error);
-        return;
-      }
-      const mapped = (data || []).map(mapClassFromDb);
-      const sortedData = [...mapped].sort((a: any, b: any) => {
+    const q = query(collection(db, 'classes'), where('scheduleId', '==', schedule.id));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const data = snapshot.docs.map(doc => {
+        const d = doc.data();
+        // Migração em tempo real: se não tem teacherIds mas tem teacherId, encapsula em array
+        const teacherIds = d.teacherIds || (d.teacherId ? [d.teacherId] : []);
+        return { id: doc.id, ...d, teacherIds };
+      });
+      const sortedData = [...data].sort((a: any, b: any) => {
         if (!a.date) return 1;
         if (!b.date) return -1;
         return a.date.localeCompare(b.date);
@@ -118,49 +128,32 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
         setEditedStartDate(schedule.startDate || '');
       }
       setLoading(false);
-    };
-
-    fetchClasses();
-
-    const channel = supabase
-      .channel(`classes-schedule-${schedule.id}`)
-      .on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'classes', filter: `schedule_id=eq.${schedule.id}` },
-        () => {
-          fetchClasses();
-        }
-      )
-      .subscribe();
+    }, (e) => handleFirestoreError(e, OperationType.GET, 'classes'));
 
     const fetchAllClasses = async () => {
       try {
-        const { data } = await supabase
-          .from('classes')
-          .select('*')
-          .gte('date', schedule.startDate);
-        const mapped = (data || []).map(mapClassFromDb);
-        setAllOtherClasses(mapped.filter((c: any) => c.scheduleId !== schedule.id));
+        const qAll = query(collection(db, 'classes'), where('date', '>=', schedule.startDate));
+        const snap = await getDocs(qAll);
+        const fetchedClasses = snap.docs.map(d => ({ id: d.id, ...d.data() } as any));
+        setAllOtherClasses(fetchedClasses.filter((c: any) => c.scheduleId !== schedule.id));
       } catch (e) {
         console.error("Error fetching other classes:", e);
       }
     };
     fetchAllClasses();
 
-    return () => {
-      supabase.removeChannel(channel);
-    };
+    return () => unsubscribe();
   }, [schedule.id, schedule.startDate, schedule.className, isEditing]);
 
   const handleTogglePublish = async () => {
     setPublishing(true);
     try {
       const newStatus = schedule.status === 'active' ? 'draft' : 'active';
-      const { error } = await supabase.from('schedules').update({ status: newStatus }).eq('id', schedule.id);
-      if (error) throw error;
+      await updateDoc(doc(db, 'schedules', schedule.id), {
+        status: newStatus
+      });
     } catch (e) {
-      console.error("Error toggling publish:", e);
-      alert("Erro ao alterar status.");
+      handleFirestoreError(e, OperationType.WRITE, 'schedules');
     } finally {
       setPublishing(false);
     }
@@ -187,8 +180,12 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
   const handleDelete = async () => {
     setIsDeleting(true);
     try {
-      await supabase.from('classes').delete().eq('schedule_id', schedule.id);
-      await supabase.from('schedules').delete().eq('id', schedule.id);
+      const q = query(collection(db, 'classes'), where('scheduleId', '==', schedule.id));
+      const snap = await getDocs(q);
+      const deletePromises = snap.docs.map(d => deleteDoc(doc(db, 'classes', d.id)));
+      await Promise.all(deletePromises);
+
+      await deleteDoc(doc(db, 'schedules', schedule.id));
       onClose();
     } catch (e) {
       console.error("Error deleting schedule:", e);
@@ -202,8 +199,18 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
     setSaving(true);
     try {
       const promises = editedClasses.map(c => {
-        const classDb = mapClassToDb(c);
-        return supabase.from('classes').update(classDb).eq('id', c.id);
+        const updateData: any = {
+          disciplineName: c.disciplineName || '',
+          teacherIds: c.teacherIds || [],
+          // Mantemos teacherId (o primeiro da lista) por compatibilidade com algumas views legadas se existirem
+          teacherId: c.teacherIds?.[0] || '',
+          courseName: c.courseName || (c.isCommon ? 'Fase Comum' : (courses.find((co: any) => co.id === c.courseId)?.name || '')),
+          date: c.date,
+          order: c.order,
+          classNumber: c.classNumber || 1,
+          observation: c.observation || ''
+        };
+        return updateDoc(doc(db, 'classes', c.id), updateData);
       });
       
       const courseNameChanges = new Map();
@@ -216,7 +223,7 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
       for (const [courseId, newName] of courseNameChanges.entries()) {
         const course = courses.find((c: any) => c.id === courseId);
         if (course && course.name !== newName) {
-          await supabase.from('courses').update({ name: newName }).eq('id', courseId);
+          await updateDoc(doc(db, 'courses', courseId), { name: newName });
         }
       }
       
@@ -230,21 +237,18 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
         return cid;
       });
 
-      const { error } = await supabase.from('schedules').update({
-        class_name: editedClassName,
-        start_date: editedStartDate,
-        course_names: scheduleCourseNames,
-        updated_at: new Date().toISOString()
-      }).eq('id', schedule.id);
-
-      if (error) throw error;
+      await updateDoc(doc(db, 'schedules', schedule.id), {
+        lastUpdated: serverTimestamp(),
+        className: editedClassName,
+        startDate: editedStartDate,
+        courseNames: scheduleCourseNames
+      });
 
       setSaveSuccess(true);
       setTimeout(() => setSaveSuccess(false), 3000);
       setIsEditing(false);
     } catch (e) {
-      console.error("Error saving schedule details:", e);
-      alert("Erro ao salvar alterações.");
+      handleFirestoreError(e, OperationType.UPDATE, 'classes');
     } finally {
       setSaving(false);
     }

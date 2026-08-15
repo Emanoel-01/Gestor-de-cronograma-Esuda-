@@ -19,7 +19,18 @@ import {
   GraduationCap
 } from 'lucide-react';
 import Image from 'next/image';
-import { supabase } from '@/lib/supabase';
+import { 
+  collection, 
+  addDoc, 
+  serverTimestamp 
+} from 'firebase/firestore';
+import { 
+  ref, 
+  uploadBytes, 
+  getDownloadURL 
+} from 'firebase/storage';
+import imageCompression from 'browser-image-compression';
+import { db, storage, OperationType, handleFirestoreError } from '@/lib/firebase';
 
 interface TeacherRegistrationFormProps {
   teachers: any[];
@@ -72,35 +83,29 @@ export function TeacherRegistrationForm({ teachers, onClose }: TeacherRegistrati
 
     try {
       const submissionData = {
-        teacher_id: selectedTeacherId,
-        name: selectedTeacher?.name || '',
+        teacherId: selectedTeacherId,
+        name: selectedTeacher.name,
         titulacao: formData.titulacao,
         email: formData.email,
         cpf: formData.cpf,
         phone: formData.phone,
-        photo_url: '',
+        photoUrl: '', // Admin will provide this
         linkedin: formData.linkedin,
         lattes: formData.lattes,
         instagram: formData.instagram,
         status: 'pendente',
-        submitted_at: new Date().toISOString()
+        submittedAt: serverTimestamp()
       };
 
-      const { error: insertError } = await supabase.from('teacher_submissions').insert(submissionData);
-      if (insertError) {
-        console.error('Submission error:', insertError);
-        setError('Erro ao enviar formulário. Tente novamente.');
-      } else {
-        setStep(4);
-      }
-    } catch (err: any) {
-      console.error('Submission catch error:', err);
+      await addDoc(collection(db, 'submissoes_professores'), submissionData);
+      setStep(4);
+    } catch (err) {
+      handleFirestoreError(err, OperationType.CREATE, 'submissoes_professores');
       setError('Erro ao enviar formulário. Tente novamente.');
     } finally {
       setLoading(false);
     }
   };
-
 
   return (
     <motion.div 

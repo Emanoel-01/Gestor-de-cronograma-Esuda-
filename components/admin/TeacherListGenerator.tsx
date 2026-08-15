@@ -12,7 +12,8 @@ import {
   Calendar as CalendarIcon
 } from 'lucide-react';
 import { motion } from 'motion/react';
-import { supabase, mapClassFromDb } from '@/lib/supabase';
+import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
+import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { format, parseISO } from 'date-fns';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
@@ -48,39 +49,42 @@ export function TeacherListGenerator({ courses, teachers, commonDisciplines }: T
     }
     setLoadingTeacherClasses(true);
     try {
-      const { data: dataArray } = await supabase
-        .from('classes')
-        .select('*')
-        .contains('teacher_ids', [teacherId]);
+      // Search in both legacy teacherId and new teacherIds array
+      const qLegacy = query(
+        collection(db, 'classes'), 
+        where('teacherId', '==', teacherId)
+      );
+      const qArray = query(
+        collection(db, 'classes'),
+        where('teacherIds', 'array-contains', teacherId)
+      );
+      
+      const [snapLegacy, snapArray] = await Promise.all([
+        getDocs(qLegacy),
+        getDocs(qArray)
+      ]);
 
-      const { data: dataLegacy } = await supabase
-        .from('classes')
-        .select('*')
-        .eq('teacher_id', teacherId);
-
-      const combined = [...(dataArray || []), ...(dataLegacy || [])];
       const seenIds = new Set();
       const classesData: any[] = [];
 
-      combined.forEach(row => {
-        if (!seenIds.has(row.id)) {
-          seenIds.add(row.id);
-          classesData.push(mapClassFromDb(row));
+      [...snapLegacy.docs, ...snapArray.docs].forEach(doc => {
+        if (!seenIds.has(doc.id)) {
+          seenIds.add(doc.id);
+          classesData.push({ id: doc.id, ...doc.data() });
         }
       });
       
+      // Fetch schedule names for each class
       const scheduleIds = Array.from(new Set(classesData.map((c: any) => c.scheduleId)));
       const scheduleNames: Record<string, string> = {};
       
-      if (scheduleIds.length > 0) {
-        const { data: schedulesData } = await supabase
-          .from('schedules')
-          .select('id, class_name')
-          .in('id', scheduleIds);
-        
-        (schedulesData || []).forEach((s: any) => {
-          scheduleNames[s.id] = s.class_name || 'Sem Nome';
-        });
+      for (const sId of scheduleIds) {
+        if (sId) {
+          const sSnap = await getDocs(query(collection(db, 'schedules'), where('__name__', '==', sId)));
+          if (!sSnap.empty) {
+            scheduleNames[sId] = sSnap.docs[0].data().className || 'Sem Nome';
+          }
+        }
       }
 
       const enrichedClasses = classesData.map((c: any) => ({

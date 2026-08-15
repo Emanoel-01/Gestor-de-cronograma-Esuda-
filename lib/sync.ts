@@ -1,4 +1,12 @@
-import { supabase } from './supabase';
+import { 
+  collection, 
+  getDocs, 
+  doc, 
+  updateDoc,
+  query,
+  where
+} from 'firebase/firestore';
+import { db } from './firebase';
 
 /**
  * Sincroniza as atribuições de professores nos cronogramas existentes.
@@ -9,8 +17,8 @@ import { supabase } from './supabase';
 export async function syncTeacherAssignments() {
   try {
     // 1. Buscar todos os professores
-    const { data: teachers } = await supabase.from('teachers').select('*');
-    if (!teachers) return;
+    const teachersSnap = await getDocs(collection(db, 'teachers'));
+    const teachers = teachersSnap.docs.map(d => ({ id: d.id, ...d.data() } as any));
 
     // 2. Mapear especialidades para professores
     // Estrutura: { "Nome da Disciplina": [teacherId1, teacherId2] }
@@ -33,26 +41,28 @@ export async function syncTeacherAssignments() {
     });
 
     // 4. Buscar todos os cronogramas
-    const { data: schedules } = await supabase.from('schedules').select('*');
-    if (!schedules) return;
+    const schedulesSnap = await getDocs(collection(db, 'schedules'));
     
-    for (const schedule of schedules) {
-      // 5. Buscar todas as aulas deste cronograma
-      const { data: classes } = await supabase.from('classes').select('*').eq('schedule_id', schedule.id);
-      if (!classes) continue;
+    for (const scheduleDoc of schedulesSnap.docs) {
+      const scheduleId = scheduleDoc.id;
       
-      for (const classItem of classes) {
-        const disciplineName = classItem.discipline_name;
+      // 5. Buscar todas as aulas deste cronograma na coleção global 'classes'
+      const classesQuery = query(collection(db, 'classes'), where('scheduleId', '==', scheduleId));
+      const classesSnap = await getDocs(classesQuery);
+      
+      for (const classDoc of classesSnap.docs) {
+        const classData = classDoc.data();
+        const disciplineName = classData.disciplineName;
         
         // Se existe um especialista único para esta disciplina
         if (uniqueSpecialists[disciplineName]) {
           const targetTeacherId = uniqueSpecialists[disciplineName];
           
           // Só atualiza se o professor for diferente do atual
-          if (classItem.teacher_id !== targetTeacherId) {
-            await supabase.from('classes').update({
-              teacher_id: targetTeacherId
-            }).eq('id', classItem.id);
+          if (classData.teacherId !== targetTeacherId) {
+            await updateDoc(doc(db, 'classes', classDoc.id), {
+              teacherId: targetTeacherId
+            });
           }
         }
       }

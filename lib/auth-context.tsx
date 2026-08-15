@@ -1,111 +1,67 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Session, User } from '@supabase/supabase-js';
-import { supabase } from './supabase';
-
-interface AdminProfile {
-  id: string;
-  email: string;
-  nome: string;
-  papel: 'admin_geral' | 'coordenador_adjunto';
-  ativo: boolean;
-  precisa_trocar_senha: boolean;
-}
+import { onAuthStateChanged, signInWithPopup, GoogleAuthProvider, User, signOut } from 'firebase/auth';
+import { auth } from './firebase';
 
 interface AuthContextType {
   user: User | null;
-  session: Session | null;
-  adminProfile: AdminProfile | null;
   loading: boolean;
-  loginWithPassword: (email: string, password: string) => Promise<{ error: string | null }>;
+  login: () => Promise<void>;
   logout: () => Promise<void>;
-  updateOwnPassword: (newPassword: string) => Promise<{ error: string | null }>;
   isAdmin: boolean;
-  isAdminGeral: boolean;
+  isLoggingIn: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
-  const [adminProfile, setAdminProfile] = useState<AdminProfile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  async function loadAdminProfile(currentUser: User | null) {
-    if (!currentUser) {
-      setAdminProfile(null);
-      return;
-    }
-    const { data } = await supabase
-      .from('admin_users')
-      .select('id, email, nome, papel, ativo, precisa_trocar_senha')
-      .eq('auth_user_id', currentUser.id)
-      .maybeSingle();
-
-    // Se não está ativo, trata como se não estivesse logado como admin
-    if (data && !data.ativo) {
-      setAdminProfile(null);
-      await supabase.auth.signOut();
-      return;
-    }
-    setAdminProfile(data as AdminProfile | null);
-  }
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   useEffect(() => {
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      await loadAdminProfile(session?.user ?? null);
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setUser(user);
+      if (user) {
+        // Check if user is the admin email
+        setIsAdmin(user.email?.toLowerCase() === 'emanoel.s.amorim@gmail.com');
+      } else {
+        setIsAdmin(false);
+      }
       setLoading(false);
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      await loadAdminProfile(session?.user ?? null);
-      setLoading(false);
-    });
-
-    return () => subscription.unsubscribe();
+    return () => unsubscribe();
   }, []);
 
-  const loginWithPassword = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) return { error: 'E-mail ou senha incorretos.' };
-    return { error: null };
+  const login = async () => {
+    if (isLoggingIn) return;
+    setIsLoggingIn(true);
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+    } catch (error: any) {
+      if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
+        console.error('Login error:', error);
+      }
+    } finally {
+      setIsLoggingIn(false);
+    }
   };
 
   const logout = async () => {
-    await supabase.auth.signOut();
-  };
-
-  const updateOwnPassword = async (newPassword: string) => {
-    const { error } = await supabase.auth.updateUser({ password: newPassword });
-    if (error) return { error: error.message };
-    if (adminProfile) {
-      await supabase
-        .from('admin_users')
-        .update({ precisa_trocar_senha: false })
-        .eq('id', adminProfile.id);
-      setAdminProfile({ ...adminProfile, precisa_trocar_senha: false });
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error('Logout error:', error);
     }
-    return { error: null };
   };
 
   return (
-    <AuthContext.Provider value={{
-      user,
-      session,
-      adminProfile,
-      loading,
-      loginWithPassword,
-      logout,
-      updateOwnPassword,
-      isAdmin: !!adminProfile,
-      isAdminGeral: adminProfile?.papel === 'admin_geral',
-    }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, isAdmin, isLoggingIn }}>
       {children}
     </AuthContext.Provider>
   );
@@ -118,4 +74,3 @@ export function useAuth() {
   }
   return context;
 }
-
