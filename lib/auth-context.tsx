@@ -52,10 +52,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (currentUser) {
         const fallbackIsAdmin = (
           currentUser.uid === 'g0jsC6oh0ogC9leMzevt17i7cvF3' ||
-          currentUser.uid === 'hRgGEnLUzVVnTeETeh73GMUWbdg2' ||
-          currentUser.email?.toLowerCase() === 'emanoel.s.amorim@gmail.com' ||
-          currentUser.email?.toLowerCase() === 'emanoel@esuda.edu.br' ||
-          currentUser.email?.toLowerCase() === 'admin_system@esuda.edu.br'
+          currentUser.email?.toLowerCase() === 'emanoel.s.amorim@gmail.com'
         );
 
         // Escutar perfil no Firestore
@@ -99,16 +96,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (isLoggingIn) return;
     setIsLoggingIn(true);
     try {
-      const normalizedEmail = email.trim().toLowerCase();
-      if (normalizedEmail === 'emanoel@esuda.edu.br' && pass === '3443%%*') {
-        try {
-          await signInWithEmailAndPassword(auth, normalizedEmail, pass);
-        } catch {
-          await signInWithEmailAndPassword(auth, 'admin_system@esuda.edu.br', '3443%%*');
-        }
-      } else {
-        await signInWithEmailAndPassword(auth, normalizedEmail, pass);
-      }
+      await signInWithEmailAndPassword(auth, email.trim().toLowerCase(), pass);
     } finally {
       setIsLoggingIn(false);
     }
