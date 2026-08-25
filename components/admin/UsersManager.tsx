@@ -34,6 +34,7 @@ import { db } from '@/lib/firebase';
 import firebaseConfig from '@/firebase-applet-config.json';
 import { Button } from '../ui/Button';
 import { Card } from '../ui/Card';
+import { ConfirmationModal } from '../ui/ConfirmationModal';
 
 interface UserRecord {
   id: string;
@@ -59,6 +60,13 @@ export function UsersManager({ currentUser, isAdmin }: UsersManagerProps) {
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [notificationError, setNotificationError] = useState<string | null>(null);
+
+  // States for confirmation modals
+  const [userToToggleRole, setUserToToggleRole] = useState<UserRecord | null>(null);
+  const [isTogglingRole, setIsTogglingRole] = useState(false);
+  const [userToDelete, setUserToDelete] = useState<UserRecord | null>(null);
+  const [isDeletingUser, setIsDeletingUser] = useState(false);
 
   useEffect(() => {
     const q = query(collection(db, 'users'));
@@ -144,41 +152,62 @@ export function UsersManager({ currentUser, isAdmin }: UsersManagerProps) {
     }
   };
 
-  const handleToggleRole = async (userRec: UserRecord) => {
+  const handleRequestToggleRole = (userRec: UserRecord) => {
     if (!isAdmin) return;
     if (userRec.id === currentUser?.uid) {
-      alert('Você não pode alterar o próprio perfil de acesso.');
+      setNotificationError('Você não pode alterar o próprio perfil de acesso.');
+      setTimeout(() => setNotificationError(null), 5000);
       return;
     }
+    setUserToToggleRole(userRec);
+  };
 
-    const nextRole = userRec.role === 'admin' ? 'restrito' : 'admin';
-    const confirmMsg = `Deseja alterar o perfil de "${userRec.email}" para ${nextRole.toUpperCase()}?`;
-    if (!window.confirm(confirmMsg)) return;
+  const handleConfirmToggleRole = async () => {
+    if (!userToToggleRole) return;
+    setIsTogglingRole(true);
+    const nextRole = userToToggleRole.role === 'admin' ? 'restrito' : 'admin';
 
     try {
-      await updateDoc(doc(db, 'users', userRec.id), {
+      await updateDoc(doc(db, 'users', userToToggleRole.id), {
         role: nextRole
       });
+      setSuccessMessage(`Perfil de "${userToToggleRole.email}" alterado para ${nextRole === 'admin' ? 'ADMINISTRADOR' : 'RESTRITO'}.`);
+      setTimeout(() => setSuccessMessage(null), 4000);
     } catch (err) {
       console.error('Erro ao atualizar papel do usuário:', err);
-      alert('Erro ao atualizar papel do usuário.');
+      setNotificationError('Erro ao atualizar papel do usuário.');
+      setTimeout(() => setNotificationError(null), 5000);
+    } finally {
+      setIsTogglingRole(false);
+      setUserToToggleRole(null);
     }
   };
 
-  const handleDeleteUserDoc = async (userRec: UserRecord) => {
+  const handleRequestDeleteUser = (userRec: UserRecord) => {
     if (!isAdmin) return;
     if (userRec.id === currentUser?.uid) {
-      alert('Você não pode remover seu próprio acesso.');
+      setNotificationError('Você não pode remover seu próprio acesso.');
+      setTimeout(() => setNotificationError(null), 5000);
       return;
     }
+    setUserToDelete(userRec);
+  };
 
-    if (!window.confirm(`Deseja remover as permissões do usuário "${userRec.email}"?`)) return;
+  const handleConfirmDeleteUser = async () => {
+    if (!userToDelete) return;
+    setIsDeletingUser(true);
 
     try {
-      await deleteDoc(doc(db, 'users', userRec.id));
+      await deleteDoc(doc(db, 'users', userToDelete.id));
+      setSuccessMessage(`Permissões do usuário "${userToDelete.email}" removidas com sucesso.`);
+      setTimeout(() => setSuccessMessage(null), 4000);
     } catch (err) {
       console.error('Erro ao remover usuário:', err);
-      alert('Erro ao remover usuário.');
+      setNotificationError('Erro ao remover usuário.');
+      setTimeout(() => setNotificationError(null), 5000);
+    } finally {
+      setIsDeletingUser(false);
+      setUserToDelete(null);
     }
   };
 
@@ -204,6 +233,26 @@ export function UsersManager({ currentUser, isAdmin }: UsersManagerProps) {
           </Button>
         )}
       </div>
+
+      {notificationError && (
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="p-4 bg-red-50 border border-red-200 text-red-800 rounded-xl flex items-center justify-between gap-3 text-xs font-bold"
+        >
+          <div className="flex items-center gap-3">
+            <AlertCircle className="w-5 h-5 text-red-600 shrink-0" />
+            <span>{notificationError}</span>
+          </div>
+          <button 
+            type="button"
+            onClick={() => setNotificationError(null)} 
+            className="text-red-500 hover:text-red-800 p-1 text-[10px] uppercase font-black cursor-pointer"
+          >
+            Fechar
+          </button>
+        </motion.div>
+      )}
 
       {successMessage && (
         <motion.div 
@@ -274,14 +323,16 @@ export function UsersManager({ currentUser, isAdmin }: UsersManagerProps) {
                         {isAdmin && !isCurrent && (
                           <div className="flex items-center justify-end gap-2">
                             <button
-                              onClick={() => handleToggleRole(u)}
+                              id={`btn-toggle-role-${u.id}`}
+                              onClick={() => handleRequestToggleRole(u)}
                               title="Alternar Perfil"
                               className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-[10px] font-black uppercase tracking-wider transition-colors cursor-pointer"
                             >
                               Mudar p/ {u.role === 'admin' ? 'Restrito' : 'Admin'}
                             </button>
                             <button
-                              onClick={() => handleDeleteUserDoc(u)}
+                              id={`btn-delete-user-${u.id}`}
+                              onClick={() => handleRequestDeleteUser(u)}
                               title="Excluir Permissão"
                               className="p-1.5 text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
                             >
@@ -298,6 +349,30 @@ export function UsersManager({ currentUser, isAdmin }: UsersManagerProps) {
           </div>
         )}
       </Card>
+
+      {/* Confirmation Modal - Toggle Role */}
+      <ConfirmationModal
+        isOpen={!!userToToggleRole}
+        title="Alterar Perfil de Acesso"
+        message={`Deseja alterar o perfil do usuário "${userToToggleRole?.email}" para ${userToToggleRole?.role === 'admin' ? 'RESTRITO (VISUALIZADOR)' : 'ADMINISTRADOR'}?`}
+        onConfirm={handleConfirmToggleRole}
+        onCancel={() => setUserToToggleRole(null)}
+        loading={isTogglingRole}
+        confirmText="Alterar Perfil"
+        confirmVariant="primary"
+      />
+
+      {/* Confirmation Modal - Delete User */}
+      <ConfirmationModal
+        isOpen={!!userToDelete}
+        title="Remover Permissões do Usuário"
+        message={`Tem certeza que deseja remover as permissões de acesso do usuário "${userToDelete?.email}"?`}
+        onConfirm={handleConfirmDeleteUser}
+        onCancel={() => setUserToDelete(null)}
+        loading={isDeletingUser}
+        confirmText="Confirmar Exclusão"
+        confirmVariant="danger"
+      />
 
       {/* Modal Novo Usuário */}
       <AnimatePresence>

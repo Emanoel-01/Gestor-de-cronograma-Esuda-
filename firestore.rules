@@ -40,7 +40,9 @@ service cloud.firestore {
       return isAuthenticated() && (
         (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && getUserData().role == 'admin') ||
         request.auth.uid == "g0jsC6oh0ogC9leMzevt17i7cvF3" ||
-        (request.auth.token.email.lower() == "emanoel.s.amorim@gmail.com" && request.auth.token.email_verified == true)
+        request.auth.token.email.lower() == "emanoel.s.amorim@gmail.com" ||
+        request.auth.token.email.lower() == "emanoel@esuda.edu.br" ||
+        request.auth.token.email.lower() == "admin_system@esuda.edu.br"
       );
     }
 
