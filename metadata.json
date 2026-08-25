@@ -1,5 +1,6 @@
 {
   "name": "Gestor de Cronograma Esuda: Arquitetura e Engenharia",
   "description": "Plataforma para gestão automatizada de cronogramas de pós-graduação com regras de feriados e turmas integradas.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
