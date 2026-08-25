@@ -2,14 +2,10 @@
 
 import React from 'react';
 
-interface ButtonProps {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'danger' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
-  className?: string;
-  disabled?: boolean;
-  type?: 'button' | 'submit' | 'reset';
 }
 
 export const Button = ({ 
@@ -19,7 +15,8 @@ export const Button = ({
   size = 'md',
   className = '', 
   disabled = false, 
-  type = 'button' 
+  type = 'button',
+  ...props
 }: ButtonProps) => {
   const variants: Record<string, string> = {
     primary: 'bg-indigo-600 text-white hover:bg-indigo-700',
@@ -40,6 +37,7 @@ export const Button = ({
       disabled={disabled}
       onClick={onClick} 
       className={`rounded-lg font-medium transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed ${variants[variant]} ${sizes[size]} ${className}`}
+      {...props}
     >
       {children}
     </button>

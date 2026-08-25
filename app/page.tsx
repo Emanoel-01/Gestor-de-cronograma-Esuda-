@@ -19,7 +19,7 @@ import { Suspense } from 'react';
 // --- Dashboard ---
 
 function DashboardContent() {
-  const { user, loading, login, logout, isAdmin, isLoggingIn } = useAuth();
+  const { user, loading, logout, isAdmin, isRestricted } = useAuth();
   const searchParams = useSearchParams();
   const initialScheduleId = searchParams.get('schedule');
   
@@ -57,9 +57,10 @@ function DashboardContent() {
     };
   }, []);
 
-  if (loading) return <div className="h-screen flex items-center justify-center bg-gray-50">Carregando...</div>;
+  if (loading) return <div className="h-screen flex items-center justify-center bg-gray-50 text-xs font-black uppercase tracking-widest text-slate-500">Carregando Sistema...</div>;
 
-  if (!isAdmin) {
+  // Se não estiver logado, exibe o portal público com opções de visualização e modal de login
+  if (!user) {
     return (
       <PublicPortal 
         teachers={teachers} 
@@ -67,15 +68,14 @@ function DashboardContent() {
         holidays={holidays} 
         schedules={schedules} 
         commonDisciplines={commonDisciplines}
-        onLogin={login}
-        isLoggingIn={isLoggingIn}
-        user={user}
+        user={null}
         logout={logout}
         initialScheduleId={initialScheduleId}
       />
     );
   }
 
+  // Usuário autenticado (Admin ou Restrito)
   return (
     <AdminPortal 
       user={user}
@@ -86,14 +86,14 @@ function DashboardContent() {
       schedules={schedules}
       commonDisciplines={commonDisciplines}
       isAdmin={isAdmin}
-      seedData={() => seedData(() => {})} // Pass a dummy setActiveTab if needed, or refactor seedData
+      seedData={() => seedData(() => {})}
     />
   );
 }
 
 export default function Dashboard() {
   return (
-    <Suspense fallback={<div className="h-screen flex items-center justify-center bg-gray-50">Carregando...</div>}>
+    <Suspense fallback={<div className="h-screen flex items-center justify-center bg-gray-50 text-xs font-black uppercase tracking-widest text-slate-500">Carregando Sistema...</div>}>
       <DashboardContent />
     </Suspense>
   );

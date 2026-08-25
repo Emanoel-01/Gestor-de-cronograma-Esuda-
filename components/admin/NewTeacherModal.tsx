@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
-  Plus 
+  Plus,
+  RefreshCw 
 } from 'lucide-react';
 import { 
   collection, 
@@ -16,6 +17,15 @@ import { syncTeacherAssignments } from '@/lib/sync';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
 
+function generateRandomCode(): string {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let result = '';
+  for (let i = 0; i < 6; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
 interface NewTeacherModalProps {
   courses: any[];
   isAdmin: boolean;
@@ -27,6 +37,7 @@ export function NewTeacherModal({ courses, isAdmin, commonDisciplines, onClose }
   const [form, setForm] = useState({ 
     name: '', 
     titulacao: '',
+    accessCode: generateRandomCode(),
     email: '', 
     cpf: '', 
     phone: '', 
@@ -44,6 +55,7 @@ export function NewTeacherModal({ courses, isAdmin, commonDisciplines, onClose }
     try {
       await addDoc(collection(db, 'teachers'), {
         ...form,
+        accessCode: form.accessCode.trim().toUpperCase() || generateRandomCode(),
         hasSubmitted: false,
         createdAt: serverTimestamp()
       });
@@ -56,6 +68,10 @@ export function NewTeacherModal({ courses, isAdmin, commonDisciplines, onClose }
     }
   };
 
+  const handleRegenerateCode = () => {
+    setForm({ ...form, accessCode: generateRandomCode() });
+  };
+
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-2 sm:p-4 z-50">
       <motion.div 
@@ -65,14 +81,38 @@ export function NewTeacherModal({ courses, isAdmin, commonDisciplines, onClose }
       >
         <div className="p-4 sm:p-6 border-b border-gray-200 flex justify-between items-center bg-indigo-600 text-white shrink-0">
           <h2 className="text-lg sm:text-xl font-bold">Novo Docente</h2>
-          <button onClick={onClose} className="text-white/80 hover:text-white p-1">
+          <button onClick={onClose} className="text-white/80 hover:text-white p-1 cursor-pointer">
             <Plus className="w-6 h-6 rotate-45" />
           </button>
         </div>
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Input label="Nome Completo" placeholder="Ex: João Silva" value={form.name} onChange={(e: any) => setForm({...form, name: e.target.value})} />
-            <Input label="Titulação / Grau" placeholder="Ex: Mestre em Engenharia" value={form.titulacao} onChange={(e: any) => setForm({...form, titulacao: e.target.value})} />
+            <Input label="Nome Completo *" placeholder="Ex: João Silva" value={form.name} onChange={(e: any) => setForm({...form, name: e.target.value})} />
+            <Input label="Titulação / Grau *" placeholder="Ex: Mestre em Engenharia" value={form.titulacao} onChange={(e: any) => setForm({...form, titulacao: e.target.value})} />
+            
+            {/* Código de Acesso Individual */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-gray-700 uppercase tracking-wider block">
+                Código de Acesso Individual (Docente)
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={form.accessCode}
+                  onChange={(e) => setForm({...form, accessCode: e.target.value.toUpperCase()})}
+                  className="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-mono font-bold text-indigo-700 tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <button
+                  type="button"
+                  onClick={handleRegenerateCode}
+                  title="Gerar novo código aleatório"
+                  className="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors cursor-pointer"
+                >
+                  <RefreshCw className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
             <Input label="E-mail (Opcional)" placeholder="joao@esuda.edu.br" value={form.email} onChange={(e: any) => setForm({...form, email: e.target.value})} />
             <Input label="CPF (Opcional)" placeholder="000.000.000-00" value={form.cpf} onChange={(e: any) => setForm({...form, cpf: e.target.value})} />
             <Input label="Telefone (Opcional)" placeholder="(00) 00000-0000" value={form.phone} onChange={(e: any) => setForm({...form, phone: e.target.value})} />

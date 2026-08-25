@@ -8,7 +8,11 @@ import {
   Plus,
   Search,
   SortAsc,
-  Filter
+  KeyRound,
+  Copy,
+  Check,
+  RefreshCw,
+  Sparkles
 } from 'lucide-react';
 import { 
   deleteDoc, 
@@ -25,6 +29,15 @@ import { Input } from '../ui/Input';
 import { Select } from '../ui/Select';
 import { ConfirmationModal } from '../ui/ConfirmationModal';
 
+function generateRandomCode(): string {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let result = '';
+  for (let i = 0; i < 6; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
 interface TeachersManagerProps {
   teachers: any[];
   courses: any[];
@@ -39,6 +52,8 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
   const [filterCourseId, setFilterCourseId] = useState<string>('');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [searchTerm, setSearchTerm] = useState('');
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [generatingBatch, setGeneratingBatch] = useState(false);
 
   const handleDelete = async () => {
     if (!deletingTeacherId) return;
@@ -53,9 +68,37 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
     }
   };
 
+  const handleCopyCode = (code: string, teacherId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!code) return;
+    navigator.clipboard.writeText(code);
+    setCopiedId(teacherId);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  const handleGenerateMissingCodes = async () => {
+    if (!isAdmin) return;
+    setGeneratingBatch(true);
+    try {
+      for (const t of teachers) {
+        if (!t.accessCode) {
+          const code = generateRandomCode();
+          await updateDoc(doc(db, 'teachers', t.id), { accessCode: code });
+        }
+      }
+    } catch (err) {
+      console.error('Erro ao gerar códigos em lote:', err);
+    } finally {
+      setGeneratingBatch(false);
+    }
+  };
+
+  const teachersWithoutCode = teachers.filter(t => !t.accessCode);
+
   const filteredTeachers = (teachers || [])
     .filter(t => {
-      const matchesSearch = t.name.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesSearch = t.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                            (t.accessCode && t.accessCode.toLowerCase().includes(searchTerm.toLowerCase()));
       const matchesCourse = !filterCourseId || t.specialties?.some((s: any) => s.courseId === filterCourseId);
       return matchesSearch && matchesCourse;
     })
@@ -68,15 +111,33 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
 
   return (
     <div className="space-y-6">
+      {/* Batch notice if any teachers miss code */}
+      {isAdmin && teachersWithoutCode.length > 0 && (
+        <div className="bg-amber-50 border border-amber-200 p-4 rounded-xl flex items-center justify-between gap-4">
+          <div className="text-xs text-amber-900 font-bold">
+            Existem {teachersWithoutCode.length} docentes sem Código de Acesso Individual gerado.
+          </div>
+          <Button 
+            size="sm"
+            onClick={handleGenerateMissingCodes}
+            disabled={generatingBatch}
+            className="bg-amber-600 hover:bg-amber-700 text-white text-xs font-black uppercase cursor-pointer"
+          >
+            <Sparkles className="w-3.5 h-3.5 mr-1.5" />
+            {generatingBatch ? 'Gerando...' : 'Gerar Códigos Automaticamente'}
+          </Button>
+        </div>
+      )}
+
       {/* Filters and Sorting */}
       <Card className="p-4 bg-white border-gray-100 shadow-sm">
         <div className="flex flex-col md:flex-row gap-4 items-end">
           <div className="flex-1 w-full">
-            <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5 block">Buscar por Nome</label>
+            <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5 block">Buscar por Nome ou Código</label>
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <Input 
-                placeholder="Nome do docente..." 
+                placeholder="Nome ou código do docente..." 
                 value={searchTerm} 
                 onChange={(e: any) => setSearchTerm(e.target.value)}
                 className="pl-10"
@@ -102,7 +163,7 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
             <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5 block">Ordem Alfabética</label>
             <Button 
               variant="secondary" 
-              className="w-full justify-between h-10"
+              className="w-full justify-between h-10 cursor-pointer"
               onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
             >
               <span className="flex items-center gap-2">
@@ -118,7 +179,7 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
         {filteredTeachers.map((teacher: any) => (
           <Card 
             key={teacher.id} 
-            className="p-4 flex items-center gap-3 sm:gap-4 cursor-pointer hover:border-indigo-300 transition-all"
+            className="p-4 flex items-center gap-3 sm:gap-4 cursor-pointer hover:border-indigo-300 transition-all group"
             onClick={() => setEditingTeacher(teacher)}
           >
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-100 text-indigo-600 flex items-center justify-center rounded-full font-bold text-lg sm:text-xl shadow-inner shrink-0 overflow-hidden">
@@ -137,8 +198,26 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
             </div>
             <div className="flex-1 overflow-hidden">
               <h4 className="font-bold text-gray-900 truncate text-sm sm:text-base">{teacher.name}</h4>
-              <p className="text-[10px] sm:text-xs text-gray-500 truncate">{teacher.email || teacher.phone || 'Sem contato'}</p>
-              <div className="flex flex-wrap gap-1 mt-1">
+              <p className="text-[10px] sm:text-xs text-gray-500 truncate">{teacher.titulacao || teacher.email || 'Docente'}</p>
+              
+              {/* Código de Acesso do Professor */}
+              <div className="mt-1.5 flex items-center gap-2">
+                <div 
+                  onClick={(e) => handleCopyCode(teacher.accessCode, teacher.id, e)}
+                  title="Clique para copiar código individual"
+                  className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md text-[10px] font-mono font-bold transition-colors cursor-pointer border border-slate-200"
+                >
+                  <KeyRound className="w-2.5 h-2.5 text-indigo-600" />
+                  <span>{teacher.accessCode || 'Sem código'}</span>
+                  {copiedId === teacher.id ? (
+                    <Check className="w-2.5 h-2.5 text-emerald-600" />
+                  ) : (
+                    <Copy className="w-2.5 h-2.5 text-slate-400 group-hover:text-slate-600" />
+                  )}
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-1 mt-1.5">
                 {Array.from(new Set(teacher.specialties?.map((s: any) => s.courseId === 'common' ? 'Fase Comum' : courses.find((c: any) => c.id === s.courseId)?.name).filter(Boolean))).slice(0, 2).map((courseName: any, i: number) => (
                   <span key={i} className="px-1.5 py-0.5 bg-indigo-50 text-indigo-600 rounded text-[8px] font-bold uppercase">
                     {courseName}
@@ -151,7 +230,7 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
             </div>
             <div className="flex items-center gap-0.5 sm:gap-1">
               {isAdmin && (
-                <button onClick={(e) => { e.stopPropagation(); setEditingTeacher(teacher); }} className="text-indigo-400 hover:text-indigo-600 p-1.5 sm:p-2 hover:bg-indigo-50 rounded transition-colors">
+                <button onClick={(e) => { e.stopPropagation(); setEditingTeacher(teacher); }} className="text-indigo-400 hover:text-indigo-600 p-1.5 sm:p-2 hover:bg-indigo-50 rounded transition-colors cursor-pointer">
                   <Edit2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
               )}
@@ -161,7 +240,7 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
                     e.stopPropagation();
                     setDeletingTeacherId(teacher.id);
                   }} 
-                  className="text-red-400 hover:text-red-600 p-1.5 sm:p-2 hover:bg-red-50 rounded transition-colors"
+                  className="text-red-400 hover:text-red-600 p-1.5 sm:p-2 hover:bg-red-50 rounded transition-colors cursor-pointer"
                 >
                   <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
@@ -197,6 +276,7 @@ function TeacherEditModal({ teacher, courses, isAdmin, commonDisciplines, onClos
   const [form, setForm] = useState({ 
     name: teacher.name || '', 
     titulacao: teacher.titulacao || '',
+    accessCode: teacher.accessCode || generateRandomCode(),
     email: teacher.email || '', 
     cpf: teacher.cpf || '', 
     phone: teacher.phone || '', 
@@ -222,6 +302,10 @@ function TeacherEditModal({ teacher, courses, isAdmin, commonDisciplines, onClos
     }
   };
 
+  const handleRegenerateCode = () => {
+    setForm({ ...form, accessCode: generateRandomCode() });
+  };
+
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-2 sm:p-4 z-50">
       <motion.div 
@@ -231,7 +315,7 @@ function TeacherEditModal({ teacher, courses, isAdmin, commonDisciplines, onClos
       >
         <div className="p-4 sm:p-6 border-b border-gray-200 flex justify-between items-center bg-indigo-600 text-white shrink-0">
           <h2 className="text-lg sm:text-xl font-bold">Editar Docente</h2>
-          <button onClick={onClose} className="text-white/80 hover:text-white p-1">
+          <button onClick={onClose} className="text-white/80 hover:text-white p-1 cursor-pointer">
             <Plus className="w-6 h-6 rotate-45" />
           </button>
         </div>
@@ -239,6 +323,33 @@ function TeacherEditModal({ teacher, courses, isAdmin, commonDisciplines, onClos
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input className="mb-4" label="Nome Completo" value={form.name} onChange={(e: any) => setForm({...form, name: e.target.value})} disabled={!isAdmin} />
             <Input className="mb-4" label="Titulação / Grau" value={form.titulacao} onChange={(e: any) => setForm({...form, titulacao: e.target.value})} disabled={!isAdmin} />
+            
+            {/* Código de Acesso Individual */}
+            <div className="mb-4 space-y-1.5">
+              <label className="text-xs font-bold text-gray-700 uppercase tracking-wider block">
+                Código de Acesso Individual (Docente)
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={form.accessCode}
+                  onChange={(e) => setForm({...form, accessCode: e.target.value.toUpperCase()})}
+                  disabled={!isAdmin}
+                  className="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-mono font-bold text-indigo-700 tracking-wider uppercase focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                {isAdmin && (
+                  <button
+                    type="button"
+                    onClick={handleRegenerateCode}
+                    title="Gerar novo código aleatório"
+                    className="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors cursor-pointer"
+                  >
+                    <RefreshCw className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+            </div>
+
             <Input className="mb-4" label="E-mail (Opcional)" value={form.email} onChange={(e: any) => setForm({...form, email: e.target.value})} disabled={!isAdmin} />
             <Input className="mb-4" label="CPF (Opcional)" value={form.cpf} onChange={(e: any) => setForm({...form, cpf: e.target.value})} disabled={!isAdmin} />
             <Input className="mb-4" label="Telefone (Opcional)" value={form.phone} onChange={(e: any) => setForm({...form, phone: e.target.value})} disabled={!isAdmin} />
@@ -246,6 +357,7 @@ function TeacherEditModal({ teacher, courses, isAdmin, commonDisciplines, onClos
             <Input className="mb-4" label="LinkedIn (Opcional)" value={form.linkedin} onChange={(e: any) => setForm({...form, linkedin: e.target.value})} disabled={!isAdmin} />
             <Input className="mb-4" label="Lattes (Opcional)" value={form.lattes} onChange={(e: any) => setForm({...form, lattes: e.target.value})} disabled={!isAdmin} />
             <Input label="Instagram (Opcional)" value={form.instagram} onChange={(e: any) => setForm({...form, instagram: e.target.value})} disabled={!isAdmin} />
+            
             <div className="flex items-center gap-2 pt-6">
               <input 
                 type="checkbox" 

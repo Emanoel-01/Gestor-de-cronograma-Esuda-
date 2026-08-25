@@ -14,7 +14,8 @@ import {
   LogOut, 
   Menu, 
   X, 
-  Plus 
+  Plus,
+  ShieldCheck
 } from 'lucide-react';
 import Image from 'next/image';
 import { collection, getDocs, updateDoc, doc } from 'firebase/firestore';
@@ -29,6 +30,7 @@ import { HolidaysManager } from './HolidaysManager';
 import { CommonDisciplinesManager } from './CommonDisciplinesManager';
 import { TeacherSubmissionsManager } from './TeacherSubmissionsManager';
 import { TeacherListGenerator } from './TeacherListGenerator';
+import { UsersManager } from './UsersManager';
 import { NewScheduleModal } from './NewScheduleModal';
 import { NewCourseModal } from './NewCourseModal';
 import { NewTeacherModal } from './NewTeacherModal';
@@ -171,10 +173,17 @@ export function AdminPortal({
     <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
       {/* Mobile Header */}
       <header className="md:hidden bg-white border-b border-gray-200 p-4 flex justify-between items-center sticky top-0 z-40">
-        <h2 className="text-xl font-bold text-indigo-600">Esuda Acadêmico</h2>
+        <div className="flex items-center gap-2">
+          <h2 className="text-xl font-bold text-indigo-600">Esuda Acadêmico</h2>
+          {!isAdmin && (
+            <span className="px-2 py-0.5 bg-slate-100 text-slate-600 rounded text-[9px] font-black uppercase">
+              Restrito
+            </span>
+          )}
+        </div>
         <button 
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg"
+          className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg cursor-pointer"
         >
           {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -199,8 +208,13 @@ export function AdminPortal({
         md:relative md:translate-x-0
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
-        <div className="p-6 border-b border-gray-200 hidden md:block">
+        <div className="p-6 border-b border-gray-200 hidden md:flex items-center justify-between">
           <h2 className="text-xl font-bold text-indigo-600">Esuda Acadêmico</h2>
+          {!isAdmin && (
+            <span className="px-2 py-0.5 bg-slate-100 text-slate-600 rounded text-[9px] font-black uppercase">
+              Restrito
+            </span>
+          )}
         </div>
         <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
           <SidebarItem 
@@ -227,34 +241,47 @@ export function AdminPortal({
             active={activeTab === 'teachers'} 
             onClick={() => { setActiveTab('teachers'); setIsSidebarOpen(false); }} 
           />
-          <SidebarItem 
-            icon={<Clock />} 
-            label="Curadoria" 
-            active={activeTab === 'curadoria'} 
-            onClick={() => { setActiveTab('curadoria'); setIsSidebarOpen(false); }} 
-          />
-          <SidebarItem 
-            icon={<BookOpen />} 
-            label="Tronco Comum" 
-            active={activeTab === 'common-disciplines'} 
-            onClick={() => { setActiveTab('common-disciplines'); setIsSidebarOpen(false); }} 
-          />
-          <SidebarItem 
-            icon={<AlertCircle />} 
-            label="Feriados" 
-            active={activeTab === 'holidays'} 
-            onClick={() => { setActiveTab('holidays'); setIsSidebarOpen(false); }} 
-          />
+          
+          {isAdmin && (
+            <>
+              <SidebarItem 
+                icon={<Clock />} 
+                label="Curadoria" 
+                active={activeTab === 'curadoria'} 
+                onClick={() => { setActiveTab('curadoria'); setIsSidebarOpen(false); }} 
+              />
+              <SidebarItem 
+                icon={<BookOpen />} 
+                label="Tronco Comum" 
+                active={activeTab === 'common-disciplines'} 
+                onClick={() => { setActiveTab('common-disciplines'); setIsSidebarOpen(false); }} 
+              />
+              <SidebarItem 
+                icon={<AlertCircle />} 
+                label="Feriados" 
+                active={activeTab === 'holidays'} 
+                onClick={() => { setActiveTab('holidays'); setIsSidebarOpen(false); }} 
+              />
+              <SidebarItem 
+                icon={<ShieldCheck />} 
+                label="Acessos & Usuários" 
+                active={activeTab === 'users'} 
+                onClick={() => { setActiveTab('users'); setIsSidebarOpen(false); }} 
+              />
+            </>
+          )}
+
           <SidebarItem 
             icon={<FileText />} 
             label="Relação de Docentes" 
             active={activeTab === 'teacher-list'} 
             onClick={() => { setActiveTab('teacher-list'); setIsSidebarOpen(false); }} 
           />
+
           {isAdmin && courses.length === 0 && (
             <button 
               onClick={() => { seedData(); setIsSidebarOpen(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all text-amber-600 hover:bg-amber-50 mt-4 border border-dashed border-amber-200"
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all text-amber-600 hover:bg-amber-50 mt-4 border border-dashed border-amber-200 cursor-pointer"
             >
               <Save className="w-5 h-5" /> Popular Banco (2026)
             </button>
@@ -262,7 +289,7 @@ export function AdminPortal({
         </nav>
         <div className="p-4 border-t border-gray-200">
           <div className="flex items-center gap-3 mb-4">
-            {user?.photoURL && (
+            {user?.photoURL ? (
               <Image 
                 src={user.photoURL} 
                 width={40} 
@@ -271,13 +298,17 @@ export function AdminPortal({
                 alt={user.displayName || ''} 
                 referrerPolicy="no-referrer"
               />
+            ) : (
+              <div className="w-10 h-10 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-black text-sm">
+                {(user?.email?.[0] || 'U').toUpperCase()}
+              </div>
             )}
             <div className="overflow-hidden">
-              <p className="text-sm font-medium truncate">{user?.displayName}</p>
+              <p className="text-sm font-medium truncate">{user?.displayName || user?.email?.split('@')[0]}</p>
               <p className="text-xs text-gray-500 truncate">{user?.email}</p>
             </div>
           </div>
-          <Button onClick={logout} variant="secondary" className="w-full justify-center">
+          <Button onClick={logout} variant="secondary" className="w-full justify-center cursor-pointer">
             <LogOut className="w-4 h-4" /> Sair
           </Button>
         </div>
@@ -293,10 +324,11 @@ export function AdminPortal({
              activeTab === 'curadoria' ? 'Curadoria de Docentes' :
              activeTab === 'common-disciplines' ? 'Tronco Comum' :
              activeTab === 'holidays' ? 'Feriados' :
+             activeTab === 'users' ? 'Gestão de Usuários' :
              activeTab === 'teacher-list' ? 'Relação de Docentes' : 'Dashboard'}
           </h1>
-          {isAdmin && activeTab !== 'dashboard' && activeTab !== 'teacher-list' && (
-            <Button className="w-full sm:w-auto" onClick={() => {
+          {isAdmin && activeTab !== 'dashboard' && activeTab !== 'teacher-list' && activeTab !== 'users' && (
+            <Button className="w-full sm:w-auto cursor-pointer" onClick={() => {
               if (activeTab === 'schedules') setIsNewScheduleModalOpen(true);
               if (activeTab === 'courses') setIsNewCourseModalOpen(true);
               if (activeTab === 'teachers') setIsNewTeacherModalOpen(true);
@@ -329,6 +361,7 @@ export function AdminPortal({
             {activeTab === 'curadoria' && <TeacherSubmissionsManager />}
             {activeTab === 'common-disciplines' && <CommonDisciplinesManager isAdmin={isAdmin} />}
             {activeTab === 'holidays' && <HolidaysManager holidays={holidays} isAdmin={isAdmin} />}
+            {activeTab === 'users' && <UsersManager currentUser={user} isAdmin={isAdmin} />}
             {activeTab === 'teacher-list' && <TeacherListGenerator courses={courses} teachers={teachers} commonDisciplines={commonDisciplines} />}
           </motion.div>
         </AnimatePresence>
