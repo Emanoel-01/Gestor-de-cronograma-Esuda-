@@ -64,7 +64,9 @@ service cloud.firestore {
              (!('linkedin' in data) || (data.linkedin is string && data.linkedin.size() < 200)) &&
              (!('lattes' in data) || (data.lattes is string && data.lattes.size() < 200)) &&
              (!('instagram' in data) || (data.instagram is string && data.instagram.size() < 100)) &&
-             (!('hasSubmitted' in data) || data.hasSubmitted is bool);
+             (!('specialties' in data) || data.specialties is list) &&
+             (!('hasSubmitted' in data) || data.hasSubmitted is bool) &&
+             (!('createdAt' in data) || data.createdAt is timestamp);
     }
 
     function isValidTeacherSubmission(data) {
@@ -98,7 +100,8 @@ service cloud.firestore {
       return data.courseIds is list && data.courseIds.size() > 0 &&
              data.className is string && data.className.size() > 0 &&
              isValidDateString(data.startDate) &&
-             data.status in ['active', 'archived'] &&
+             data.status in ['active', 'archived', 'draft'] &&
+             (!('courseNames' in data) || data.courseNames is list) &&
              (!('createdAt' in data) || data.createdAt is timestamp) &&
              (!('lastUpdated' in data) || data.lastUpdated is timestamp);
     }
@@ -107,12 +110,16 @@ service cloud.firestore {
       return data.scheduleId is string &&
              isValidDateString(data.date) &&
              data.disciplineName is string &&
-             data.order is int &&
+             (data.order is int || data.order is float) &&
              data.isCommon is bool &&
              (!('teacherId' in data) || data.teacherId is string) &&
+             (!('teacherIds' in data) || data.teacherIds is list) &&
              (!('courseId' in data) || data.courseId is string) &&
              (!('courseName' in data) || data.courseName is string) &&
-             (!('classNumber' in data) || data.classNumber is int);
+             (!('classNumber' in data) || data.classNumber is int) &&
+             (!('sessionCount' in data) || data.sessionCount is int) &&
+             (!('sessionGapWeeks' in data) || data.sessionGapWeeks == null || data.sessionGapWeeks is int) &&
+             (!('observation' in data) || data.observation is string);
     }
 
     function isValidCommonDiscipline(data) {
