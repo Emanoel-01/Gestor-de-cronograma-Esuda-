@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # A Firebase Web API Key ("AIzaSy...") é um identificador público por design —
+  # ela sozinha não concede acesso a nada; quem protege os dados de verdade são as
+  # Firestore Security Rules (firestore.rules) e os domínios autorizados no Firebase
+  # Console (Authentication > Settings > Authorized domains). Por isso é seguro e
+  # esperado que essa chave apareça no código-fonte / build de um app Firebase
+  # client-side. Sem esta linha, o scanner de segredos do Netlify bloqueia o build.
+  SECRETS_SCAN_SMART_DETECTION_OMIT_VALUES = "AIzaSyBprE6-67rzZ2ZZ6JpNIwrwmjK3zJLURsw"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
