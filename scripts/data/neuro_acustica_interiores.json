@@ -1,0 +1,866 @@
+[
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Fundamentos de Neurociência Aplicada à Arquitetura",
+    "numero": "10",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Alicerce teórico do curso: como o ambiente físico altera a estrutura do cérebro a longo prazo. Introdução histórica e científica da neuroarquitetura, neuroplasticidade e epigenética aplicada ao design, anatomia cerebral básica para projetistas (sistema límbico, lobos cerebrais e córtex pré-frontal), neurotransmissores e a relação com a ambiência, e a conexão ancestral do cérebro humano com a ideia de abrigo.",
+    "conteudos_programaticos": [
+      "Introdução histórica e científica da neuroarquitetura.",
+      "Neuroplasticidade e epigenética aplicadas ao design.",
+      "Anatomia cerebral para projetistas: sistema límbico, lobos e córtex pré-frontal.",
+      "Neurotransmissores e sua relação com a ambiência.",
+      "Bases da neuroestética.",
+      "A evolução do cérebro e a conexão ancestral com o abrigo."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "EBERHARD, John P. Brain landscape: the coexistence of neuroscience and architecture. New York: Oxford University Press, 2009.",
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021."
+    ],
+    "bibliografia_complementar": [
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "PALLASMAA, Juhani. Os olhos da pele: a arquitetura e os sentidos. Porto Alegre: Bookman, 2011.",
+      "KAPLAN, Rachel; KAPLAN, Stephen. The experience of nature: a psychological perspective. Cambridge: Cambridge University Press, 1989."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Psicofisiologia do Bem-Estar: Percepção e Comportamento Humano",
+    "numero": "11",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Ciclo completo da experiência do usuário, da captação do estímulo pelos sentidos à reação no ambiente. Bases da psicofisiologia aplicadas ao espaço construído, funcionamento dos sistemas sensoriais (visão, audição, olfato, paladar e sistema háptico), percepção multissensorial e propriocepção, teorias da psicologia ambiental e estudo da proxêmica, da territorialidade e do espaço pessoal.",
+    "conteudos_programaticos": [
+      "Bases da psicofisiologia aplicadas ao espaço construído.",
+      "Sistemas sensoriais: visão, audição, olfato, paladar e tato (háptico).",
+      "Percepção multissensorial e propriocepção.",
+      "Teorias da psicologia ambiental e comportamento.",
+      "Proxêmica, territorialidade e espaço pessoal.",
+      "Estímulos físicos e respostas psicológicas no ambiente."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "PALLASMAA, Juhani. Os olhos da pele: a arquitetura e os sentidos. Porto Alegre: Bookman, 2011.",
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021."
+    ],
+    "bibliografia_complementar": [
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "BECHTEL, Robert B.; CHURCHMAN, Arza (org.). Handbook of environmental psychology. New York: John Wiley & Sons, 2002.",
+      "KAPLAN, Rachel; KAPLAN, Stephen. The experience of nature: a psychological perspective. Cambridge: Cambridge University Press, 1989."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Neuroiluminação e Ritmos Biológicos",
+    "numero": "12",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Impacto da luz natural e artificial na saúde hormonal e no equilíbrio do sono. Fundamentos da cronobiologia e dos ritmos biológicos, o sistema visual humano e as células fotorreceptoras não visuais, o impacto do ciclo circadiano na regulação do cortisol e da melatonina, tecnologias de iluminação centrada no ser humano (Human Centric Lighting) e estratégias de temperatura de cor e intensidade ao longo do dia.",
+    "conteudos_programaticos": [
+      "Cronobiologia e ritmos biológicos.",
+      "Sistema visual humano e fotorreceptores não visuais (ipRGCs).",
+      "Ciclo circadiano e regulação de cortisol e melatonina.",
+      "Iluminação centrada no ser humano (Human Centric Lighting).",
+      "Temperatura de cor e intensidade ao longo do dia.",
+      "Estratégias de iluminação para sono e saúde."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "INTERNATIONAL WELL BUILDING INSTITUTE. The WELL Building Standard. New York: IWBI, 2023.",
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017."
+    ],
+    "bibliografia_complementar": [
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Design Biofílico aplicado em Ambientes Restauradores e Espaços Verdes",
+    "numero": "13",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Uso de elementos da natureza (plantas, água, luz e formas orgânicas) para reduzir o estresse e promover a cura. A hipótese da biofilia e a evolução humana, a Teoria da Restauração da Atenção (ART) aplicada ao design, os 14 padrões do design biofílico, o paisagismo terapêutico e os benefícios psicológicos da conexão com elementos naturais e materiais orgânicos.",
+    "conteudos_programaticos": [
+      "A hipótese da biofilia e a evolução humana.",
+      "Teoria da Restauração da Atenção (ART).",
+      "Os 14 padrões do design biofílico.",
+      "Paisagismo terapêutico e inclusão do verde no interior.",
+      "Materiais orgânicos e conexão com a natureza.",
+      "Ambientes restauradores e redução do estresse."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "KELLERT, Stephen R.; HEERWAGEN, Judith; MADOR, Martin. Biophilic design: the theory, science and practice of bringing buildings to life. Hoboken: Wiley, 2008.",
+      "BROWNING, William; RYAN, Catherine; CLANCY, Joseph. 14 patterns of biophilic design. New York: Terrapin Bright Green, 2014.",
+      "KAPLAN, Rachel; KAPLAN, Stephen. The experience of nature: a psychological perspective. Cambridge: Cambridge University Press, 1989."
+    ],
+    "bibliografia_complementar": [
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "ULRICH, Roger S. View through a window may influence recovery from surgery. Science, v. 224, n. 4647, p. 420-421, 1984.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Neuroarquitetura em Ambientes Residenciais e Comerciais",
+    "numero": "14",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "As duas escalas de maior demanda: o morar emocional e o vender estratégico. O conceito de lar como refúgio biológico, memória afetiva, personalização e identidade no projeto residencial, fundamentos da psicologia do varejo e neuromarketing no ponto de venda, comportamento do consumidor, gatilhos sensoriais e fluxos e layouts comerciais baseados na jornada cognitiva do cliente.",
+    "conteudos_programaticos": [
+      "O lar como refúgio biológico e porto seguro.",
+      "Memória afetiva, personalização e identidade no residencial.",
+      "Psicologia do varejo e neuromarketing no ponto de venda.",
+      "Comportamento do consumidor e gatilhos sensoriais.",
+      "Fluxos e layouts comerciais e jornada cognitiva.",
+      "Ambiência e decisão de compra."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014."
+    ],
+    "bibliografia_complementar": [
+      "PALLASMAA, Juhani. Os olhos da pele: a arquitetura e os sentidos. Porto Alegre: Bookman, 2011.",
+      "LINDSTROM, Martin. A lógica do consumo: verdades e mentiras sobre por que compramos. Rio de Janeiro: Nova Fronteira, 2009.",
+      "BECHTEL, Robert B.; CHURCHMAN, Arza (org.). Handbook of environmental psychology. New York: John Wiley & Sons, 2002."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Neuroarquitetura e Neuroergonomia em Ambientes de Trabalho e Corporativos",
+    "numero": "15",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Escritórios e áreas de produção sob a ótica da performance cerebral e da saúde ocupacional. Fundamentos da neuroergonomia física e cognitiva, gestão da carga mental e estímulo à produtividade saudável, design para o estado de fluxo (flow), criação de ambientes de foco, estratégias para colaboração e inovação e prevenção do estresse ocupacional e do burnout por meio do design.",
+    "conteudos_programaticos": [
+      "Neuroergonomia física e cognitiva.",
+      "Gestão da carga cognitiva e produtividade saudável.",
+      "Design para o estado de fluxo (flow) e ambientes de foco.",
+      "Estratégias espaciais para colaboração e inovação.",
+      "Prevenção do estresse ocupacional e do burnout.",
+      "Conforto ambiental e desempenho no trabalho."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "INTERNATIONAL WELL BUILDING INSTITUTE. The WELL Building Standard. New York: IWBI, 2023."
+    ],
+    "bibliografia_complementar": [
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021.",
+      "PALLASMAA, Juhani. Os olhos da pele: a arquitetura e os sentidos. Porto Alegre: Bookman, 2011.",
+      "BECHTEL, Robert B.; CHURCHMAN, Arza (org.). Handbook of environmental psychology. New York: John Wiley & Sons, 2002."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Neuroarquitetura em Ambientes de Saúde (Healthcare) e Aprendizado",
+    "numero": "16",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Projetos críticos em hospitais, clínicas, escolas e universidades. Ambientes restauradores em contextos hospitalares (Healing Environments), neurociência aplicada aos processos de aprendizado e retenção de memória, gestão da atenção seletiva no design de salas de aula, design inclusivo focado na neurodiversidade (TEA, TDAH) e o impacto das variáveis ambientais no desenvolvimento cognitivo infantil.",
+    "conteudos_programaticos": [
+      "Ambientes que curam (Healing Environments).",
+      "Neurociência do aprendizado e retenção de memória.",
+      "Atenção seletiva e design de salas de aula.",
+      "Design inclusivo e neurodiversidade (TEA, TDAH).",
+      "Variáveis ambientais e desenvolvimento cognitivo infantil.",
+      "Evidências em ambientes hospitalares e educacionais."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "ULRICH, Roger S. View through a window may influence recovery from surgery. Science, v. 224, n. 4647, p. 420-421, 1984.",
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "KELLERT, Stephen R.; HEERWAGEN, Judith; MADOR, Martin. Biophilic design: the theory, science and practice of bringing buildings to life. Hoboken: Wiley, 2008."
+    ],
+    "bibliografia_complementar": [
+      "KAPLAN, Rachel; KAPLAN, Stephen. The experience of nature: a psychological perspective. Cambridge: Cambridge University Press, 1989.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Neurourbanismo e a Experiência da Cidade",
+    "numero": "17",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Transição da escala do edifício para a da rua, do bairro e do planejamento urbano. Percepção urbana e o impacto do estresse nas metrópoles, conceitos de caminhabilidade (walkability) e coerência espacial, neurociência aplicada ao planejamento de espaços públicos, a relação entre densidade, espaços de lazer e saúde mental coletiva e estratégias de design para cidades mais humanas e seguras.",
+    "conteudos_programaticos": [
+      "Percepção urbana e estresse nas metrópoles.",
+      "Caminhabilidade (walkability) e coerência espacial.",
+      "Neurociência aplicada aos espaços públicos.",
+      "Densidade urbana, lazer e saúde mental coletiva.",
+      "Design para cidades humanas e seguras.",
+      "Experiência sensorial e interação social na cidade."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "MONTGOMERY, Charles. Cidade feliz: transformando nossas vidas por meio do desenho urbano. São Paulo: Manole, 2018.",
+      "GEHL, Jan. Cidades para pessoas. 3. ed. São Paulo: Perspectiva, 2015.",
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017."
+    ],
+    "bibliografia_complementar": [
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "KAPLAN, Rachel; KAPLAN, Stephen. The experience of nature: a psychological perspective. Cambridge: Cambridge University Press, 1989."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Tecnologias de Monitoramento e Avaliação Pós-Ocupação para Resultados",
+    "numero": "18",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Validação científica do projeto por meio de tecnologia para medir se o espaço entrega o que prometeu. Métodos de pesquisa baseados em evidências, uso de ferramentas biométricas (EEG, eye tracking e sensores de resposta galvânica), softwares de simulação ambiental e mapas de calor, metodologias práticas de Avaliação Pós-Ocupação (APO) e cálculo e apresentação do Retorno sobre Investimento (ROI) de projetos baseados em neurociência.",
+    "conteudos_programaticos": [
+      "Pesquisa baseada em evidências na arquitetura (EBD).",
+      "Ferramentas biométricas: EEG, eye tracking e resposta galvânica.",
+      "Softwares de simulação ambiental e mapas de calor.",
+      "Metodologias de Avaliação Pós-Ocupação (APO).",
+      "Indicadores e Retorno sobre Investimento (ROI) em design.",
+      "Tradução de dados em argumento de projeto."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017."
+    ],
+    "bibliografia_complementar": [
+      "BECHTEL, Robert B.; CHURCHMAN, Arza (org.). Handbook of environmental psychology. New York: John Wiley & Sons, 2002.",
+      "INTERNATIONAL WELL BUILDING INSTITUTE. The WELL Building Standard. New York: IWBI, 2023.",
+      "ULRICH, Roger S. View through a window may influence recovery from surgery. Science, v. 224, n. 4647, p. 420-421, 1984."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Fundamentos de Acústica: Física do Som, Gráficos e Normas de Desempenho",
+    "numero": "10",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Ponto de partida técnico do curso: fenômenos físicos do som, grandezas e unidades de medida acústica e introdução ao projeto gráfico acústico. Estudo das normas brasileiras de desempenho e de ruído ambiental — ABNT NBR 10151 e NBR 10152 — e das ferramentas de medição inicial, nivelando o conhecimento físico e normativo para uma linguagem técnica comum.",
+    "conteudos_programaticos": [
+      "Fenômenos físicos do som: ondas, frequência e propagação.",
+      "Grandezas e unidades acústicas; o decibel (dB).",
+      "Introdução ao projeto gráfico acústico.",
+      "Avaliação de ruído em áreas habitadas (ABNT NBR 10151:2019).",
+      "Níveis de ruído para conforto acústico (ABNT NBR 10152:2017).",
+      "Ferramentas e procedimentos de medição inicial."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "BISTAFA, Sylvio R. Acústica aplicada ao controle do ruído. 2. ed. São Paulo: Blucher, 2011.",
+      "CARVALHO, Régio Paniago. Acústica arquitetônica. 2. ed. Brasília: Thesaurus, 2010.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10151: Acústica — Medição e avaliação de níveis de pressão sonora em áreas habitadas. Rio de Janeiro: ABNT, 2019."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10152: Acústica — Níveis de pressão sonora em ambientes internos a edificações. Rio de Janeiro: ABNT, 2017.",
+      "MEHTA, Madan; JOHNSON, Jim; ROCAFORT, Jorge. Architectural acoustics: principles and design. Upper Saddle River: Prentice Hall, 1999.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15575: Edificações habitacionais — Desempenho (desempenho acústico). Rio de Janeiro: ABNT, 2013 (Emenda 1:2021)."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Fundamentos de Iluminação: Teoria da Luz, Eficiência e Normatização",
+    "numero": "11",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Nivelamento sobre a ciência da luz: radiação eletromagnética e espectro visível, fotometria (fluxo, intensidade e iluminância) e tecnologias de fontes de luz e sistemas de controle. Estudo da norma de iluminação de ambientes de trabalho (ABNT NBR ISO/CIE 8995-1) e dos critérios de eficiência energética, capacitando a escolha técnica de lâmpadas e luminárias com base em conforto e desempenho.",
+    "conteudos_programaticos": [
+      "Radiação eletromagnética e espectro visível.",
+      "Fotometria: fluxo luminoso, intensidade, iluminância e luminância.",
+      "Tecnologias de fontes de luz (LED) e sistemas de controle.",
+      "Iluminação de ambientes de trabalho (ABNT NBR ISO/CIE 8995-1:2013).",
+      "Conforto visual e índice de reprodução de cor.",
+      "Critérios de eficiência energética em iluminação."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "MOREIRA, Vinícius de Araújo. Iluminação elétrica. São Paulo: Edgard Blücher, 1999.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013."
+    ],
+    "bibliografia_complementar": [
+      "COSTA, Gilberto José Corrêa da. Iluminação econômica: cálculo e avaliação. 4. ed. Porto Alegre: EDIPUCRS, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5101: Iluminação pública — Procedimento. Rio de Janeiro: ABNT, 2018.",
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Acústica Arquitetônica para Ambientes de Convivência, Hospitalidade e Trabalho",
+    "numero": "12",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Acústica organizada por tipologia de uso — residências, comércio, escolas, escritórios, bibliotecas, hotéis e hospitais — com foco em privacidade, concentração e redução do ruído de fundo. Isolamento entre unidades residenciais (ABNT NBR 15575), inteligibilidade da fala em salas de aula e bibliotecas, tratamento sonoro em hotéis e hospitais e controle de ruído em escritórios abertos.",
+    "conteudos_programaticos": [
+      "Isolamento sonoro entre unidades residenciais (ABNT NBR 15575).",
+      "Inteligibilidade da fala em salas de aula e bibliotecas.",
+      "Tratamento acústico de hotéis e hospitais para repouso.",
+      "Controle do ruído de fundo em escritórios abertos.",
+      "Privacidade acústica e condicionamento de ambientes.",
+      "Materiais absorventes e índices de desempenho."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CARVALHO, Régio Paniago. Acústica arquitetônica. 2. ed. Brasília: Thesaurus, 2010.",
+      "BISTAFA, Sylvio R. Acústica aplicada ao controle do ruído. 2. ed. São Paulo: Blucher, 2011.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15575: Edificações habitacionais — Desempenho (desempenho acústico). Rio de Janeiro: ABNT, 2013 (Emenda 1:2021)."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10152: Acústica — Níveis de pressão sonora em ambientes internos a edificações. Rio de Janeiro: ABNT, 2017.",
+      "MEHTA, Madan; JOHNSON, Jim; ROCAFORT, Jorge. Architectural acoustics: principles and design. Upper Saddle River: Prentice Hall, 1999.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10151: Acústica — Medição e avaliação de níveis de pressão sonora em áreas habitadas. Rio de Janeiro: ABNT, 2019."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Luminotécnica para Ambientes de Convivência, Hospitalidade e Trabalho",
+    "numero": "13",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Iluminação funcional e bem-estar em residências, escolas, hospitais e escritórios. Integração da luz natural com a artificial, iluminação para recuperação em ambientes de saúde, cenografia de luz para hotéis e residências e iluminação para foco e funcionalidade em ambientes educacionais e corporativos, em conformidade com a ABNT NBR ISO/CIE 8995-1.",
+    "conteudos_programaticos": [
+      "Iluminação funcional para escritórios e escolas (NBR ISO/CIE 8995-1).",
+      "Luz e bem-estar em ambientes de saúde.",
+      "Integração entre luz natural e artificial.",
+      "Cenografia de luz para hotéis e residências.",
+      "Conforto visual, ofuscamento e uniformidade.",
+      "Eficiência e controle em ambientes de convivência."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013.",
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015."
+    ],
+    "bibliografia_complementar": [
+      "MOREIRA, Vinícius de Araújo. Iluminação elétrica. São Paulo: Edgard Blücher, 1999.",
+      "COSTA, Gilberto José Corrêa da. Iluminação econômica: cálculo e avaliação. 4. ed. Porto Alegre: EDIPUCRS, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5101: Iluminação pública — Procedimento. Rio de Janeiro: ABNT, 2018."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Acústica Arquitetônica para Ambientes de Performance e Eventos",
+    "numero": "14",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Tipologias de alta complexidade — estúdios, teatros, cinemas, salões de festa, restaurantes, boates e igrejas — com foco em qualidade sonora extrema, controle de reflexões e contenção de ruído para o exterior. Tempo de reverberação para música e fala, acústica de templos e salões, isolamento pesado para boates e estúdios e uso de materiais absorventes e difusores.",
+    "conteudos_programaticos": [
+      "Tempo de reverberação para música e fala.",
+      "Acústica de teatros, cinemas e templos religiosos.",
+      "Isolamento pesado para boates e estúdios.",
+      "Controle de reflexões e tratamento de superfícies.",
+      "Materiais absorventes e difusores acústicos.",
+      "Contenção de ruído para o exterior."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CARVALHO, Régio Paniago. Acústica arquitetônica. 2. ed. Brasília: Thesaurus, 2010.",
+      "MEHTA, Madan; JOHNSON, Jim; ROCAFORT, Jorge. Architectural acoustics: principles and design. Upper Saddle River: Prentice Hall, 1999.",
+      "BISTAFA, Sylvio R. Acústica aplicada ao controle do ruído. 2. ed. São Paulo: Blucher, 2011."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10152: Acústica — Níveis de pressão sonora em ambientes internos a edificações. Rio de Janeiro: ABNT, 2017.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15575: Edificações habitacionais — Desempenho (desempenho acústico). Rio de Janeiro: ABNT, 2013 (Emenda 1:2021).",
+      "SCHAFER, R. Murray. A afinação do mundo. São Paulo: Editora Unesp, 2001."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Luminotécnica para Ambientes de Performance e Eventos",
+    "numero": "15",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Iluminação voltada à emoção, à dramaturgia e à ambiência em teatros, boates, restaurantes e templos religiosos. Iluminação cênica, uso de cores e contrastes para criar atmosferas de impacto e sistemas de automação para eventos, dominando a luz como elemento de ambientação e impacto psicológico.",
+    "conteudos_programaticos": [
+      "Iluminação cênica para teatros e igrejas.",
+      "Luz para gastronomia e entretenimento noturno.",
+      "Cor, contraste e temperatura de cor na criação de atmosferas.",
+      "Sistemas de automação e controle (DMX) para eventos.",
+      "Equipamentos e projetores cênicos.",
+      "Luz como elemento de dramaturgia e impacto."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015.",
+      "MOREIRA, Vinícius de Araújo. Iluminação elétrica. São Paulo: Edgard Blücher, 1999."
+    ],
+    "bibliografia_complementar": [
+      "COSTA, Gilberto José Corrêa da. Iluminação econômica: cálculo e avaliação. 4. ed. Porto Alegre: EDIPUCRS, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5101: Iluminação pública — Procedimento. Rio de Janeiro: ABNT, 2018."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Engenharia Acústica para Grandes Ambientes e Complexos",
+    "numero": "16",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Acústica de grandes ambientes — estádios, quadras, galpões e indústrias — com foco no controle de grandes volumes sonoros, na saúde ocupacional e na inteligibilidade em espaços vastos. Acústica industrial e controle de ruído em máquinas, soluções para grandes vãos, propagação sonora em grandes volumes, proteção auricular e normas de higiene ocupacional (NR-15).",
+    "conteudos_programaticos": [
+      "Acústica industrial e controle de ruído em máquinas.",
+      "Propagação sonora em espaços de grande volume.",
+      "Soluções acústicas para estádios, ginásios e galpões.",
+      "Saúde ocupacional e exposição ao ruído (NR-15).",
+      "Inteligibilidade em grandes ambientes e sistemas de som.",
+      "Proteção auricular e higiene ocupacional."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "BISTAFA, Sylvio R. Acústica aplicada ao controle do ruído. 2. ed. São Paulo: Blucher, 2011.",
+      "CARVALHO, Régio Paniago. Acústica arquitetônica. 2. ed. Brasília: Thesaurus, 2010.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10152: Acústica — Níveis de pressão sonora em ambientes internos a edificações. Rio de Janeiro: ABNT, 2017."
+    ],
+    "bibliografia_complementar": [
+      "BRASIL. Ministério do Trabalho e Emprego. NR-15: Atividades e operações insalubres — Anexos 1 e 2 (ruído). Brasília, DF.",
+      "MEHTA, Madan; JOHNSON, Jim; ROCAFORT, Jorge. Architectural acoustics: principles and design. Upper Saddle River: Prentice Hall, 1999.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10151: Acústica — Medição e avaliação de níveis de pressão sonora em áreas habitadas. Rio de Janeiro: ABNT, 2019."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Iluminação Externa: Jardins, Praças e Patrimônio Histórico",
+    "numero": "17",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Iluminação aplicada ao paisagismo e à valorização de fachadas de valor histórico, com técnicas de up light e down light. Iluminação de vegetação e caminhos, valorização arquitetônica de monumentos, especificação de projetores e índices de proteção (IP) e efeitos de sombra e volume em fachadas, unindo segurança, beleza e preservação da identidade histórica.",
+    "conteudos_programaticos": [
+      "Técnicas de iluminação de vegetação, caminhos e jardins.",
+      "Up light, down light e efeitos de sombra e volume.",
+      "Valorização arquitetônica de monumentos e fachadas históricas.",
+      "Especificação de projetores e índices de proteção (IP).",
+      "Segurança e ambiência em espaços abertos.",
+      "Preservação da identidade histórica por meio da luz."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015.",
+      "COSTA, Gilberto José Corrêa da. Iluminação econômica: cálculo e avaliação. 4. ed. Porto Alegre: EDIPUCRS, 2006."
+    ],
+    "bibliografia_complementar": [
+      "MOREIRA, Vinícius de Araújo. Iluminação elétrica. São Paulo: Edgard Blücher, 1999.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5101: Iluminação pública — Procedimento. Rio de Janeiro: ABNT, 2018.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Acústica e Iluminação na Escala da Cidade",
+    "numero": "18",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Fechamento do núcleo técnico com a visão macro da cidade: poluição sensorial e qualidade de vida urbana. Elaboração de mapas de ruído para gestão urbana, barreiras acústicas em rodovias e ferrovias, iluminação pública focada no pedestre e na segurança (caminhabilidade) e impactos da poluição luminosa e sonora no ecossistema urbano, conforme a ABNT NBR 5101.",
+    "conteudos_programaticos": [
+      "Mapas de ruído e gestão sonora urbana.",
+      "Barreiras acústicas em rodovias e ferrovias.",
+      "Iluminação pública e caminhabilidade (ABNT NBR 5101:2018).",
+      "Segurança do pedestre por meio da luz.",
+      "Poluição luminosa e sonora no ecossistema urbano.",
+      "Conforto ambiental urbano e qualidade de vida."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5101: Iluminação pública — Procedimento. Rio de Janeiro: ABNT, 2018.",
+      "BISTAFA, Sylvio R. Acústica aplicada ao controle do ruído. 2. ed. São Paulo: Blucher, 2011.",
+      "SCHAFER, R. Murray. A afinação do mundo. São Paulo: Editora Unesp, 2001."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10151: Acústica — Medição e avaliação de níveis de pressão sonora em áreas habitadas. Rio de Janeiro: ABNT, 2019.",
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "CARVALHO, Régio Paniago. Acústica arquitetônica. 2. ed. Brasília: Thesaurus, 2010."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Design de Superfícies",
+    "numero": "10",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Curadoria estratégica de materiais e acabamentos que definem a identidade visual e tátil do espaço contemporâneo. Estudo técnico de revestimentos inovadores, com exploração de texturas e propriedades físicas que elevam a sofisticação dos projetos. Capacita o profissional para especificações de alto impacto estético e durabilidade, fazendo das superfícies elementos narrativos no design autoral.",
+    "conteudos_programaticos": [
+      "Curadoria de materiais e acabamentos no projeto contemporâneo.",
+      "Revestimentos inovadores: tipologias e aplicações.",
+      "Texturas, cor e propriedades físicas dos materiais.",
+      "Desempenho e durabilidade de superfícies.",
+      "Especificação técnica e compatibilização de acabamentos.",
+      "As superfícies como elementos narrativos do design autoral."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013.",
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017.",
+      "PEDROSA, Israel. Da cor à cor inexistente. Rio de Janeiro: Editora Senac Nacional, 2009."
+    ],
+    "bibliografia_complementar": [
+      "GIBBS, Jenny. Design de interiores: guia útil para estudantes e profissionais. Barcelona: Editorial Gustavo Gili, 2010.",
+      "NEUFERT, Ernst. Arte de projetar em arquitetura. 18. ed. Barcelona: Editorial Gustavo Gili, 2013.",
+      "BROOKER, Graeme; STONE, Sally. O que é design de interiores? São Paulo: Editora Senac São Paulo, 2014."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Iluminação de Interiores: Comerciais e Residenciais",
+    "numero": "11",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "A luz como matéria-prima para a criação de cenografias e do conforto visual em diferentes escalas. Uso estratégico da luminotécnica para valorizar detalhes arquitetônicos e influenciar a percepção emocional dos ambientes, integrando luz natural e artificial em sistemas funcionais e decorativos para espaços comerciais e moradias de alto padrão, em conformidade com a ABNT NBR ISO/CIE 8995-1.",
+    "conteudos_programaticos": [
+      "Grandezas fotométricas e conforto visual.",
+      "Luz natural e artificial: integração e controle.",
+      "Iluminação funcional e decorativa em interiores.",
+      "Valorização de detalhes arquitetônicos pela luz.",
+      "Temperatura de cor e percepção emocional dos ambientes.",
+      "Iluminação de ambientes de trabalho (ABNT NBR ISO/CIE 8995-1:2013)."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013."
+    ],
+    "bibliografia_complementar": [
+      "MOREIRA, Vinícius de Araújo. Iluminação elétrica. São Paulo: Edgard Blücher, 1999.",
+      "COSTA, Gilberto José Corrêa da. Iluminação econômica: cálculo e avaliação. 4. ed. Porto Alegre: EDIPUCRS, 2006.",
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Automação, Internet das Coisas e Eficiência dos Ambientes de Interiores",
+    "numero": "12",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Convergência entre tecnologia e design para projetar ambientes inteligentes e conectados. Implementação de sistemas de automação e Internet das Coisas (IoT) que otimizam a operação do espaço e ampliam a conveniência do usuário, com especificação de soluções que garantam a eficiência energética e a modernidade em projetos residenciais e corporativos de vanguarda.",
+    "conteudos_programaticos": [
+      "Fundamentos de automação residencial e predial.",
+      "Internet das Coisas (IoT) aplicada aos interiores.",
+      "Integração de sistemas: iluminação, climatização e segurança.",
+      "Infraestrutura e instalações para automação (ABNT NBR 5410).",
+      "Eficiência energética e conforto operacional.",
+      "Conveniência do usuário e cenários inteligentes."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "BOLZANI, Caio Augustus Morais. Residências inteligentes. São Paulo: Editora Livraria da Física, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5410: Instalações elétricas de baixa tensão. Rio de Janeiro: ABNT, 2004 (Versão Corrigida 2008).",
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013."
+    ],
+    "bibliografia_complementar": [
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013.",
+      "GIBBS, Jenny. Design de interiores: guia útil para estudantes e profissionais. Barcelona: Editorial Gustavo Gili, 2010."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Inclusão e Ergonomia",
+    "numero": "13",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Projeto centrado no ser humano, respeitando a diversidade de corpos e necessidades. Integra ergonomia física e desenho universal para garantir que o design contemporâneo seja acessível, seguro e confortável para todos, transformando a conformidade técnica (ABNT NBR 9050) em diferencial competitivo e promovendo autonomia e bem-estar sem comprometer a estética autoral.",
+    "conteudos_programaticos": [
+      "Ergonomia física aplicada aos espaços de interiores.",
+      "Antropometria e dimensionamento humano dos ambientes.",
+      "Desenho universal e princípios da inclusão.",
+      "Acessibilidade em edificações (ABNT NBR 9050:2020).",
+      "Segurança, conforto e autonomia do usuário.",
+      "Conformidade técnica como diferencial competitivo."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "PANERO, Julius; ZELNIK, Martin. Dimensionamento humano para espaços interiores. Barcelona: Editorial Gustavo Gili, 2002.",
+      "IIDA, Itiro. Ergonomia: projeto e produção. 2. ed. São Paulo: Edgard Blücher, 2005.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 9050: Acessibilidade a edificações, mobiliário, espaços e equipamentos urbanos. Rio de Janeiro: ABNT, 2020."
+    ],
+    "bibliografia_complementar": [
+      "GRANDJEAN, Etienne. Manual de ergonomia: adaptando o trabalho ao homem. 4. ed. Porto Alegre: Bookman, 1998.",
+      "NEUFERT, Ernst. Arte de projetar em arquitetura. 18. ed. Barcelona: Editorial Gustavo Gili, 2013.",
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Antropologia do Espaço",
+    "numero": "14",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Dinâmicas sociais e comportamentais que regem a ocupação dos ambientes construídos. Explora como a cultura e os hábitos influenciam o design, fundamentando o projeto em evidências antropológicas (Evidence Based Design) para criar espaços com maior significado e conexão com o usuário, verdadeiramente assertivos e acolhedores.",
+    "conteudos_programaticos": [
+      "Cultura, hábitos e ocupação do espaço construído.",
+      "Proxêmica, territorialidade e comportamento.",
+      "A casa e o significado do habitar.",
+      "Evidence Based Design aplicado aos interiores.",
+      "Percepção, identidade e apropriação dos ambientes.",
+      "Projeto fundamentado em evidências antropológicas."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "HALL, Edward T. A dimensão oculta. São Paulo: Martins Fontes, 2005.",
+      "RYBCZYNSKI, Witold. Casa: pequena história de uma ideia. Rio de Janeiro: Record, 1996.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014."
+    ],
+    "bibliografia_complementar": [
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017.",
+      "BROOKER, Graeme; STONE, Sally. O que é design de interiores? São Paulo: Editora Senac São Paulo, 2014.",
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Design do Mobiliário",
+    "numero": "15",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Criação e detalhamento técnico de móveis que unem forma, função e exclusividade. Da escolha de materiais às técnicas de fabricação e marcenaria fina aplicada ao mobiliário autoral, capacitando o aluno a projetar peças personalizadas que atendam a demandas específicas de layout, agregando valor artístico e funcional aos projetos de interiores.",
+    "conteudos_programaticos": [
+      "História e linguagem do design de mobiliário.",
+      "Materiais e técnicas de fabricação e marcenaria fina.",
+      "Ergonomia e dimensionamento aplicados ao móvel.",
+      "Detalhamento técnico e desenho de mobiliário.",
+      "Mobiliário autoral e personalização para layout.",
+      "Valor artístico e funcional da peça de interiores."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013.",
+      "PANERO, Julius; ZELNIK, Martin. Dimensionamento humano para espaços interiores. Barcelona: Editorial Gustavo Gili, 2002.",
+      "NEUFERT, Ernst. Arte de projetar em arquitetura. 18. ed. Barcelona: Editorial Gustavo Gili, 2013."
+    ],
+    "bibliografia_complementar": [
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017.",
+      "IIDA, Itiro. Ergonomia: projeto e produção. 2. ed. São Paulo: Edgard Blücher, 2005.",
+      "GIBBS, Jenny. Design de interiores: guia útil para estudantes e profissionais. Barcelona: Editorial Gustavo Gili, 2010."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Design Técnico para Ambientes Residenciais",
+    "numero": "16",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Tipologia do morar contemporâneo, com foco na criação de lares que funcionem como refúgios de identidade e conforto. Aborda as novas necessidades domésticas, integrando áreas de convivência e espaços de trabalho residencial com fluidez, para entregar residências que reflitam o estilo de vida do cliente com alta percepção de valor e sofisticação técnica.",
+    "conteudos_programaticos": [
+      "Programa de necessidades do morar contemporâneo.",
+      "Setorização, fluxos e integração de ambientes.",
+      "Áreas de convivência e trabalho residencial (home office).",
+      "Conforto ambiental e identidade no projeto residencial.",
+      "Detalhamento técnico e especificação para obra.",
+      "Percepção de valor e sofisticação no projeto autoral."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013.",
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017.",
+      "NEUFERT, Ernst. Arte de projetar em arquitetura. 18. ed. Barcelona: Editorial Gustavo Gili, 2013."
+    ],
+    "bibliografia_complementar": [
+      "PANERO, Julius; ZELNIK, Martin. Dimensionamento humano para espaços interiores. Barcelona: Editorial Gustavo Gili, 2002.",
+      "GIBBS, Jenny. Design de interiores: guia útil para estudantes e profissionais. Barcelona: Editorial Gustavo Gili, 2010.",
+      "RYBCZYNSKI, Witold. Casa: pequena história de uma ideia. Rio de Janeiro: Record, 1996."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Design Aplicado para Ambientes Comerciais e Corporativos",
+    "numero": "17",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Estratégia espacial voltada à produtividade e à experiência de consumo. Explora como o layout e o design guiam comportamentos, incentivam a colaboração e fortalecem a identidade de marcas em pontos de venda e escritórios modernos, projetando ambientes que potencializem resultados comerciais e promovam uma cultura corporativa saudável e inovadora.",
+    "conteudos_programaticos": [
+      "Layout e fluxos em ambientes comerciais e corporativos.",
+      "Experiência de consumo e jornada do cliente no varejo.",
+      "Identidade de marca e ambientação (branding espacial).",
+      "Ambientes de trabalho: colaboração, foco e bem-estar.",
+      "Ergonomia e conforto no espaço corporativo.",
+      "Estratégia espacial e resultados de negócio."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013.",
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017.",
+      "PANERO, Julius; ZELNIK, Martin. Dimensionamento humano para espaços interiores. Barcelona: Editorial Gustavo Gili, 2002."
+    ],
+    "bibliografia_complementar": [
+      "BROOKER, Graeme; STONE, Sally. O que é design de interiores? São Paulo: Editora Senac São Paulo, 2014.",
+      "IIDA, Itiro. Ergonomia: projeto e produção. 2. ed. São Paulo: Edgard Blücher, 2005.",
+      "GIBBS, Jenny. Design de interiores: guia útil para estudantes e profissionais. Barcelona: Editorial Gustavo Gili, 2010."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Design de Interiores para o Mercado de Luxo",
+    "numero": "18",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Consolidação da visão estratégica com foco no atendimento e na curadoria para nichos de altíssimo padrão. Detalha as particularidades do mercado premium, onde o luxo se manifesta na discrição, na exclusividade e na perfeição dos detalhes, preparando o aluno para lidar com orçamentos de alto ticket e entregar projetos autorais no topo da pirâmide de valor do design contemporâneo.",
+    "conteudos_programaticos": [
+      "O conceito de luxo e o mercado premium contemporâneo.",
+      "Curadoria, exclusividade e perfeição dos detalhes.",
+      "Atendimento e relacionamento com o cliente de alto padrão.",
+      "Gestão de projetos de alto ticket e orçamento premium.",
+      "Materiais, acabamentos e fornecedores de luxo.",
+      "Posicionamento autoral no topo da cadeia de valor."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "LIPOVETSKY, Gilles; ROUX, Elyette. O luxo eterno: da idade do sagrado ao tempo das marcas. São Paulo: Companhia das Letras, 2005.",
+      "D'ANGELO, André Cauduro. Precisar, não precisa: um olhar sobre o consumo de luxo no Brasil. São Paulo: Lazuli Editora, 2006.",
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017."
+    ],
+    "bibliografia_complementar": [
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013.",
+      "BROOKER, Graeme; STONE, Sally. O que é design de interiores? São Paulo: Editora Senac São Paulo, 2014.",
+      "PEDROSA, Israel. Da cor à cor inexistente. Rio de Janeiro: Editora Senac Nacional, 2009."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  }
+]

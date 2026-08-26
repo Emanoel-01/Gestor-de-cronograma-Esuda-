@@ -1,0 +1,2088 @@
+[
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Inteligência Artificial Aplicada",
+    "numero": "1",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Exploração avançada de IA Generativa aplicada ao ecossistema da construção civil e aos projetos arquitetônicos. Domínio de ferramentas para criação e edição de imagens e vídeos de alta performance para apresentações conceituais e marketing imobiliário, desenvolvimento de agentes de automação e fluxos de trabalho inteligentes, introdução à programação assistida e ao uso de ferramentas low code, e análise preditiva de dados para relatórios técnicos e documentação automatizada. O objetivo é inserir o aluno na vanguarda da produtividade, entregando resultados com maior velocidade e precisão tecnológica.",
+    "conteudos_programaticos": [
+      "Fundamentos de IA Generativa aplicada à arquitetura e à engenharia.",
+      "Engenharia de prompts para texto, imagem e vídeo.",
+      "Geração e edição de imagens conceituais e vídeos para marketing imobiliário.",
+      "Agentes de automação e fluxos de trabalho inteligentes.",
+      "Programação assistida e ferramentas low code no canteiro e no escritório.",
+      "Análise preditiva de dados e documentação técnica automatizada.",
+      "Ética, direitos autorais, LGPD e validação humana (human in the loop)."
+    ],
+    "atividade_avaliativa": "Desenvolvimento de um fluxo de trabalho assistido por IA (imagem, texto ou automação) aplicado a uma rotina real do escritório ou do canteiro, com apresentação dos ganhos de produtividade e da revisão técnica humana.",
+    "bibliografia_basica": [
+      "RUSSELL, Stuart; NORVIG, Peter. Inteligência artificial. 3. ed. Rio de Janeiro: Elsevier, 2013.",
+      "SHARDA, Ramesh; DELEN, Dursun; TURBAN, Efraim. Business Intelligence e análise de dados para gestão do negócio. 4. ed. Porto Alegre: Bookman, 2019.",
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM. Porto Alegre: Bookman, 2014."
+    ],
+    "bibliografia_complementar": [
+      "TEDESCHI, Arturo. AAD Algorithms-Aided Design. Brienza: Le Penseur, 2014.",
+      "KAUFMAN, Josh. O primeiro emprego: MBA. São Paulo: Sextante, 2018.",
+      "BRASIL. Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD). Brasília, DF, 2018."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Gestão de Escritórios de Arquitetura e Engenharia: Branding e Precificação",
+    "numero": "2",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Estudo do empreendedorismo aplicado a serviços técnicos. Elaboração de planos de negócios dinâmicos, desenvolvimento de estratégias de posicionamento de marca (branding) e autoridade de mercado e aplicação de técnicas de precificação estratégica baseada no valor percebido pelo cliente (Value Based Pricing) em substituição aos modelos de custos fixos. O objetivo é transformar um escritório de uma operação técnica em uma marca de desejo, focando na lucratividade real por meio da percepção de valor e não apenas na hora trabalhada.",
+    "conteudos_programaticos": [
+      "Empreendedorismo e modelos de negócio em serviços técnicos.",
+      "Business Model Canvas e plano de negócios do escritório.",
+      "Branding, posicionamento e construção de autoridade de mercado.",
+      "Precificação estratégica: custo, valor e Value Based Pricing.",
+      "Estrutura de honorários e tabelas de referência (CAU/CONFEA).",
+      "Gestão financeira, margens e lucratividade.",
+      "Proposta comercial e jornada de captação de clientes."
+    ],
+    "atividade_avaliativa": "Elaboração de um plano de negócios enxuto (Canvas) e de uma proposta comercial com precificação por valor para um serviço do escritório, com justificativa de posicionamento de marca.",
+    "bibliografia_basica": [
+      "OSTERWALDER, Alexander; PIGNEUR, Yves. Business Model Generation: inovação em modelos de negócios. Rio de Janeiro: Alta Books, 2011.",
+      "KOTLER, Philip; KELLER, Kevin Lane. Administração de marketing. 15. ed. São Paulo: Pearson, 2018.",
+      "GONÇALVES, Eduardo. Gestão de escritórios de arquitetura e engenharia. São Paulo: [s.n.], 2019."
+    ],
+    "bibliografia_complementar": [
+      "AAKER, David A. Construindo marcas fortes. Porto Alegre: Bookman, 2007.",
+      "DOLABELA, Fernando. O segredo de Luísa. Rio de Janeiro: Sextante, 2008.",
+      "CONSELHO DE ARQUITETURA E URBANISMO (CAU/BR). Tabela de honorários de serviços de arquitetura e urbanismo. Brasília: CAU/BR."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Competências Estratégicas, Liderança e Alta Performance",
+    "numero": "3",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "EAD (a distância)",
+    "ementa": "Desenvolvimento de liderança situacional e transformacional para a gestão de equipes multidisciplinares. Gestão de power skills e estratégias de feedback construtivo, planejamento de carreira por meio do Plano de Desenvolvimento Individual (PDI) e ferramentas de alta performance. O objetivo é preparar o profissional para ocupar cargos de diretoria e coordenação, com foco na retenção de talentos e no aumento da performance coletiva.",
+    "conteudos_programaticos": [
+      "Liderança situacional e transformacional.",
+      "Gestão de equipes multidisciplinares e delegação.",
+      "Power skills e inteligência emocional.",
+      "Feedback construtivo e cultura de desenvolvimento.",
+      "Plano de Desenvolvimento Individual (PDI) e carreira.",
+      "Produtividade, foco e alta performance.",
+      "Retenção de talentos e performance coletiva."
+    ],
+    "atividade_avaliativa": "Elaboração de um Plano de Desenvolvimento Individual (PDI) e de um plano de ação de liderança para uma equipe, com definição de metas, indicadores e rotina de feedback.",
+    "bibliografia_basica": [
+      "HERSEY, Paul; BLANCHARD, Kenneth H. Psicologia para administradores: a teoria e as técnicas da liderança situacional. São Paulo: EPU, 1986.",
+      "GOLEMAN, Daniel. Inteligência emocional. Rio de Janeiro: Objetiva, 2011.",
+      "COVEY, Stephen R. Os 7 hábitos das pessoas altamente eficazes. Rio de Janeiro: BestSeller, 2017."
+    ],
+    "bibliografia_complementar": [
+      "MAXWELL, John C. As 21 irrefutáveis leis da liderança. Rio de Janeiro: Thomas Nelson Brasil, 2007.",
+      "LENCIONI, Patrick. Os cinco desafios das equipes. Rio de Janeiro: Sextante, 2015.",
+      "DWECK, Carol S. Mindset: a nova psicologia do sucesso. São Paulo: Objetiva, 2017."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Marketing Pessoal e Digital para Arquitetos e Engenheiros",
+    "numero": "4",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Construção de autoridade técnica e posicionamento estratégico no LinkedIn e no Instagram. Uso do Inbound Marketing e de funis de vendas (AIDA) para atração e conversão de clientes qualificados no mercado de construção civil. O objetivo é transformar o conhecimento técnico em visibilidade comercial, garantindo que o profissional saiba vender seu próprio valor e atrair projetos de alto ticket.",
+    "conteudos_programaticos": [
+      "Marca pessoal e autoridade técnica no ambiente digital.",
+      "Estratégia de conteúdo para LinkedIn e Instagram.",
+      "Inbound Marketing e funil de vendas (AIDA).",
+      "Atração, nutrição e conversão de clientes qualificados.",
+      "Produção de portfólio e prova social.",
+      "Métricas, tráfego e geração de leads.",
+      "Prospecção de projetos de alto ticket."
+    ],
+    "atividade_avaliativa": "Elaboração de um plano de marketing digital pessoal com calendário de conteúdo e um funil de captação (AIDA) para atrair clientes qualificados, com definição de métricas de acompanhamento.",
+    "bibliografia_basica": [
+      "KOTLER, Philip; KARTAJAYA, Hermawan; SETIAWAN, Iwan. Marketing 5.0: tecnologia para a humanidade. Rio de Janeiro: Sextante, 2021.",
+      "TORRES, Cláudio. A bíblia do marketing digital. 2. ed. São Paulo: Novatec, 2018.",
+      "GABRIEL, Martha. Marketing na era digital. 2. ed. São Paulo: Atlas, 2020."
+    ],
+    "bibliografia_complementar": [
+      "VAYNERCHUK, Gary. Nocaute: como contar sua história em um mundo distraído. São Paulo: HSM, 2014.",
+      "REZ, Rafael. Marketing de conteúdo: a moeda do século XXI. São Paulo: DVS, 2016.",
+      "PEÇANHA, Vitor. Obrigado pelo marketing. São Paulo: Benvirá, 2017."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Metodologia da Pesquisa e Didática do Ensino Superior",
+    "numero": "5",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "EAD (a distância)",
+    "ementa": "Fundamentos científicos e métodos de pesquisa quantitativa e qualitativa. Normatização de trabalhos acadêmicos segundo a ABNT e introdução ao Evidence Based Design (Design Baseado em Evidências) como ferramenta de validação de projetos e inovação técnica. Garante o rigor científico necessário ao desenvolvimento de artigos e TCCs, ao mesmo tempo em que prepara o aluno para a docência e para a defesa técnica de suas decisões projetuais.",
+    "conteudos_programaticos": [
+      "Fundamentos da pesquisa científica: problema, hipótese e objetivos.",
+      "Métodos quantitativos e qualitativos.",
+      "Normalização ABNT (NBR 6023, 6024, 6027, 6028, 10520 e 14724).",
+      "Estrutura de artigos científicos e do TCC.",
+      "Evidence Based Design como método de validação.",
+      "Didática do ensino superior e planejamento de aula.",
+      "Defesa técnica e comunicação científica."
+    ],
+    "atividade_avaliativa": "Elaboração de um projeto de pesquisa (pré-projeto de TCC/artigo) com problema, objetivos, metodologia e referências normalizadas em ABNT.",
+    "bibliografia_basica": [
+      "GIL, Antônio Carlos. Como elaborar projetos de pesquisa. 6. ed. São Paulo: Atlas, 2017.",
+      "MARCONI, Marina de Andrade; LAKATOS, Eva Maria. Fundamentos de metodologia científica. 8. ed. São Paulo: Atlas, 2017.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 14724: Informação e documentação — Trabalhos acadêmicos — Apresentação. Rio de Janeiro: ABNT, 2011."
+    ],
+    "bibliografia_complementar": [
+      "SEVERINO, Antônio Joaquim. Metodologia do trabalho científico. 24. ed. São Paulo: Cortez, 2016.",
+      "MASETTO, Marcos Tarciso. Competência pedagógica do professor universitário. São Paulo: Summus, 2012.",
+      "CRESWELL, John W. Projeto de pesquisa: métodos qualitativo, quantitativo e misto. Porto Alegre: Penso, 2021."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Práticas Simuladas: Estrutura Legal, Contábil e Empreendedorismo",
+    "numero": "6",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Análise da transição de pessoa física para jurídica (PJ). Estudo de regimes tributários e noções contábeis essenciais para o setor da construção, blindagem jurídica de contratos e fundamentos estratégicos para participação em licitações públicas e contratos administrativos. Tem como objetivo oferecer segurança jurídica e financeira para o profissional, minimizando riscos de glosas em contratos e otimizando a carga tributária da empresa.",
+    "conteudos_programaticos": [
+      "Transição de pessoa física para jurídica (PJ) e tipos societários.",
+      "Regimes tributários (Simples, Lucro Presumido e Real) na construção.",
+      "Noções contábeis essenciais e fluxo de caixa da empresa.",
+      "Blindagem jurídica e cláusulas de contratos técnicos.",
+      "Licitações e contratos administrativos (Lei nº 14.133/2021).",
+      "Gestão de riscos contratuais e prevenção de glosas.",
+      "Formalização e compliance da empresa de engenharia/arquitetura."
+    ],
+    "atividade_avaliativa": "Elaboração de um estudo de estruturação empresarial simulado: escolha do regime tributário, minuta de cláusulas contratuais de proteção e checklist de habilitação para uma licitação.",
+    "bibliografia_basica": [
+      "CREPALDI, Silvio Aparecido. Contabilidade gerencial: teoria e prática. 8. ed. São Paulo: Atlas, 2019.",
+      "FABRETTI, Láudio Camargo. Contabilidade tributária. 16. ed. São Paulo: Atlas, 2017.",
+      "BRASIL. Lei nº 14.133, de 1º de abril de 2021. Lei de Licitações e Contratos Administrativos. Brasília, DF, 2021."
+    ],
+    "bibliografia_complementar": [
+      "CHIAVENATO, Idalberto. Empreendedorismo: dando asas ao espírito empreendedor. 4. ed. Barueri: Manole, 2012.",
+      "MEIRELLES, Hely Lopes. Direito administrativo brasileiro. 43. ed. São Paulo: Malheiros, 2020.",
+      "BRASIL. Lei nº 10.406, de 10 de janeiro de 2002. Código Civil. Brasília, DF, 2002."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Novas Fontes de Receita: Elaboração de Laudos e Perícias",
+    "numero": "7",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "EAD (a distância)",
+    "ementa": "Fundamentos da atuação como perito judicial e assistente técnico. Metodologias e normas aplicadas à redação de laudos técnicos e diagnósticos de vistorias, com exploração de nichos de mercado em inspeção predial e vistorias cautelares como estratégia de diversificação de faturamento. Capacita o aluno a identificar oportunidades de receita recorrente em fases do ciclo de vida das edificações que geralmente são ignoradas por profissionais generalistas.",
+    "conteudos_programaticos": [
+      "O mercado de perícias, laudos e vistorias.",
+      "Perito judicial e assistente técnico (CPC — Lei nº 13.105/2015).",
+      "Metodologia e estrutura do laudo técnico (NBR 13752).",
+      "Inspeção predial como serviço recorrente (NBR 16747).",
+      "Vistorias cautelares de vizinhança e de recebimento.",
+      "Precificação e proposta de serviços periciais.",
+      "Diversificação de faturamento e receita recorrente."
+    ],
+    "atividade_avaliativa": "Elaboração de um portfólio de serviços periciais com uma proposta técnica e comercial e um modelo de laudo estruturado para um nicho escolhido.",
+    "bibliografia_basica": [
+      "ABUNAHMAN, Sérgio Antônio. Curso básico de engenharia legal e de avaliações. 4. ed. São Paulo: Pini, 2008.",
+      "GOMIDE, Tito Lívio Ferreira; PUJADAS, Flávia Zoéga Andreatta; FAGUNDES NETO, Jerônimo Cabral. Técnicas de inspeção e manutenção predial. São Paulo: Pini, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 13752: Perícias de engenharia na construção civil. Rio de Janeiro: ABNT, 1996."
+    ],
+    "bibliografia_complementar": [
+      "DANTAS, Rubens Alves. Engenharia de avaliações. 3. ed. São Paulo: Pini, 2012.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16747: Inspeção predial. Rio de Janeiro: ABNT, 2020.",
+      "BRASIL. Lei nº 13.105, de 16 de março de 2015. Código de Processo Civil. Brasília, DF, 2015."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Solução Criativa de Problemas Complexos (Design Thinking)",
+    "numero": "8",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "EAD (a distância)",
+    "ementa": "Introdução ao mindset ágil e às fases do Design Thinking: imersão, ideação e prototipagem. Aplicação de ferramentas de criatividade para a resolução de gargalos em processos construtivos e desafios técnicos complexos, fomentando uma cultura de inovação dentro dos canteiros de obra e escritórios e permitindo que o profissional crie soluções personalizadas e eficientes para problemas imprevistos.",
+    "conteudos_programaticos": [
+      "Mindset ágil e cultura de inovação.",
+      "As fases do Design Thinking: imersão, ideação e prototipagem.",
+      "Ferramentas de empatia e definição do problema.",
+      "Técnicas de ideação e cocriação.",
+      "Prototipagem rápida e teste de soluções.",
+      "Aplicação a gargalos construtivos e desafios técnicos.",
+      "Implementação e cultura de inovação no escritório e no canteiro."
+    ],
+    "atividade_avaliativa": "Aplicação do processo de Design Thinking a um problema real de projeto ou obra, entregando o mapa de empatia, a definição do problema e um protótipo de solução testado.",
+    "bibliografia_basica": [
+      "BROWN, Tim. Design Thinking: uma metodologia poderosa para decretar o fim das velhas ideias. Rio de Janeiro: Elsevier, 2010.",
+      "VIANNA, Maurício et al. Design Thinking: inovação em negócios. Rio de Janeiro: MJV Press, 2012.",
+      "PINHEIRO, Tennyson; ALT, Luis. Design Thinking Brasil. Rio de Janeiro: Alta Books, 2017."
+    ],
+    "bibliografia_complementar": [
+      "KELLEY, Tom; KELLEY, David. Confiança criativa. Rio de Janeiro: Alta Books, 2019.",
+      "OSTERWALDER, Alexander et al. Value Proposition Design. Rio de Janeiro: Alta Books, 2014.",
+      "LUPTON, Ellen. Intuição, ação, criação: Graphic Design Thinking. São Paulo: Gustavo Gili, 2013."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Negociação e Gestão de Conflitos",
+    "numero": "9",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "EAD (a distância)",
+    "ementa": "Aplicação do Método Harvard de negociação em cenários de engenharia e arquitetura. Estratégias para mediação de conflitos entre stakeholders, gestão de expectativas de clientes e resolução de disputas com fornecedores e equipes de campo. Tem o objetivo de desenvolver a inteligência emocional e a capacidade persuasiva, competências críticas para garantir o sucesso de projetos sem comprometer os relacionamentos profissionais.",
+    "conteudos_programaticos": [
+      "Fundamentos e estilos de negociação.",
+      "O Método Harvard de negociação por princípios.",
+      "Interesses, posições e a MAANA (BATNA).",
+      "Gestão de conflitos entre stakeholders.",
+      "Mediação e resolução de disputas em obra.",
+      "Gestão de expectativas de clientes e fornecedores.",
+      "Comunicação persuasiva e inteligência emocional."
+    ],
+    "atividade_avaliativa": "Preparação e simulação de uma negociação de engenharia (pleito, aditivo ou disputa), com mapa de interesses, definição da MAANA e roteiro de condução baseado no Método Harvard.",
+    "bibliografia_basica": [
+      "FISHER, Roger; URY, William; PATTON, Bruce. Como chegar ao sim: a negociação de acordos sem concessões. Rio de Janeiro: Solomon, 2014.",
+      "URY, William. Como chegar ao sim com você mesmo. Rio de Janeiro: Sextante, 2015.",
+      "GOLEMAN, Daniel. Inteligência emocional. Rio de Janeiro: Objetiva, 2011."
+    ],
+    "bibliografia_complementar": [
+      "SHELL, G. Richard. Negociar é preciso: estratégias de negociação para pessoas de bom senso. São Paulo: Elsevier, 2001.",
+      "COHEN, Herb. Você pode negociar qualquer coisa. Rio de Janeiro: Record, 2013.",
+      "MELLO, José Carlos Martins F. de. Negociação baseada em estratégia. São Paulo: Atlas, 2015."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "BIM Conceituação Básica do Planejamento ao Pós-Obra",
+    "numero": "1",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Introdução e fundamentação do ecossistema BIM (Building Information Modeling) ao longo de todo o ciclo de vida da edificação. Compreensão conceitual e prática dos fluxos de trabalho integrados, partindo do planejamento macro (BIM 4D), passando pela orçamentação (BIM 5D) e pela sustentabilidade (BIM 6D), até a operação de ativos e a manutenção no pós-obra (BIM 7D). Alinhamento de visões estratégicas para capacitar o coordenador a liderar a transição digital na construção civil, à luz da ABNT NBR ISO 19650 e da Estratégia BIM BR (Decreto nº 11.888/2024). O ensino integra ferramentas de Inteligência Artificial (IA) para a análise conceitual e o mapeamento de escopo técnico.",
+    "conteudos_programaticos": [
+      "Conceito de BIM e o ciclo de vida do empreendimento.",
+      "Dimensões do BIM: do 3D ao 7D (planejamento, custo, sustentabilidade e operação).",
+      "Níveis de maturidade BIM e usos do modelo (BIM uses).",
+      "Marco normativo e estratégico: ABNT NBR ISO 19650 e Estratégia BIM BR (Decreto nº 11.888/2024).",
+      "Fluxos de trabalho integrados e papéis na coordenação BIM.",
+      "Requisitos de informação (EIR, OIR e AIR) e mapeamento de escopo.",
+      "Gestão da transição digital em escritórios e construtoras.",
+      "Análise conceitual e mapeamento de escopo assistidos por IA."
+    ],
+    "atividade_avaliativa": "Desenvolvimento de uma Matriz de Alinhamento de Ciclo de Vida e de um Plano de Diretrizes BIM para Empreendimentos, com análise conceitual e mapeamento de escopo assistidos por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022.",
+      "BRASIL. Decreto nº 11.888, de 22 de janeiro de 2024. Institui a Estratégia Nacional de Disseminação do BIM no Brasil (Estratégia BIM BR). Brasília, DF, 2024."
+    ],
+    "bibliografia_complementar": [
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016.",
+      "KASSEM, Mohamad; AMORIM, Sérgio R. Leusin de. BIM Building Information Modeling no Brasil e na União Europeia. Brasília: Diálogos Setoriais Brasil–União Europeia, 2015.",
+      "AGÊNCIA BRASILEIRA DE DESENVOLVIMENTO INDUSTRIAL (ABDI). Guia BIM ABDI-MDIC: coletânea de guias BIM. Brasília: ABDI, 2017."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Modelagem Arquitetônica",
+    "numero": "2",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Domínio completo do fluxo de trabalho BIM direcionado ao desenvolvimento de projetos arquitetônicos estratégicos. Critérios para a criação, a padronização e a gestão de bibliotecas e templates corporativos. Definição e aplicação prática dos requisitos de Nível de Desenvolvimento (LOD) 200 e 300, com foco na extração automatizada de documentação técnica rigorosa para processos de licenciamento, aprovação municipal e execução de obras. A prática utiliza softwares líderes de modelagem de mercado (como Revit ou Archicad) e recursos de Inteligência Artificial (IA) para a checagem automatizada de regras de códigos de obras no modelo.",
+    "conteudos_programaticos": [
+      "Fluxo de trabalho BIM aplicado ao projeto arquitetônico.",
+      "Convenções e padrões de modelagem e organização de vistas.",
+      "Criação e gestão de bibliotecas e templates corporativos.",
+      "Níveis de Desenvolvimento (LOD) 200 e 300 e seus requisitos.",
+      "Parametrização geométrica inicial e modelagem de elementos arquitetônicos.",
+      "Extração automatizada de documentação técnica e pranchas.",
+      "Documentação para licenciamento e aprovação municipal.",
+      "Checagem automatizada de regras de códigos de obras por IA."
+    ],
+    "atividade_avaliativa": "Entrega de um Template BIM Corporativo configurado e da Documentação Técnica de Projeto para Licenciamento (LOD 300), com checagem automatizada de regras por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016.",
+      "BIMFORUM. Level of Development (LOD) Specification: guia para especificação do nível de desenvolvimento de modelos BIM. [S.l.]: BIMForum, 2023."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022.",
+      "AGÊNCIA BRASILEIRA DE DESENVOLVIMENTO INDUSTRIAL (ABDI). Guia BIM ABDI-MDIC: coletânea de guias BIM. Brasília: ABDI, 2017.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16636-1 e NBR 16636-2: Elaboração e desenvolvimento de serviços técnicos especializados de projetos arquitetônicos e urbanísticos. Rio de Janeiro: ABNT, 2017."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Modelagem Paramétrica",
+    "numero": "3",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Estudo e desenvolvimento de parametrização avançada aplicada a componentes e famílias BIM complexas. Introdução aos conceitos de lógica de projeto, modelagem computacional e automação de rotinas de detalhamento geométrico por meio de programação visual. Estruturação de dados inteligentes em objetos e auditoria de tabelas de quantitativos consistentes para subsidiar com precisão a extração de insumos da construção. A disciplina aplica fundamentos de programação visual (Dynamo ou Grasshopper) e Inteligência Artificial (IA) para a geração de códigos de automação e a validação da qualidade dos dados (data quality) das tabelas.",
+    "conteudos_programaticos": [
+      "Lógica de projeto e fundamentos da modelagem paramétrica.",
+      "Criação de famílias paramétricas com restrições e fórmulas complexas.",
+      "Estruturação de dados inteligentes e parâmetros em objetos BIM.",
+      "Programação visual aplicada (Dynamo ou Grasshopper).",
+      "Automação de rotinas de detalhamento geométrico.",
+      "Tabelas de quantitativos e extração de insumos da construção.",
+      "Auditoria e qualidade de dados (data quality) de modelos e tabelas.",
+      "Geração de códigos de automação e validação de dados por IA."
+    ],
+    "atividade_avaliativa": "Geração de uma Família BIM Paramétrica avançada associada a uma Tabela de Quantitativos auditada, com automação de rotinas e validação de qualidade de dados assistidas por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15965: Sistema de classificação da informação da construção. Rio de Janeiro: ABNT."
+    ],
+    "bibliografia_complementar": [
+      "AGÊNCIA BRASILEIRA DE DESENVOLVIMENTO INDUSTRIAL (ABDI). Guia BIM ABDI-MDIC: coletânea de guias BIM. Brasília: ABDI, 2017.",
+      "KASSEM, Mohamad; AMORIM, Sérgio R. Leusin de. BIM Building Information Modeling no Brasil e na União Europeia. Brasília: Diálogos Setoriais Brasil–União Europeia, 2015.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Modelagem Estrutural",
+    "numero": "4",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Modelagem tridimensional avançada de sistemas estruturais de concreto armado, pré-moldado e estruturas metálicas. Foco no detalhamento rigoroso voltado à fase de fabricação e montagem de componentes industrializados (LOD 400). Integração do modelo com os fluxos produtivos da Construção 4.0, gerando desenhos de oficina (shop drawings) e o mapeamento de armaduras e conexões metálicas com precisão de canteiro, em conformidade com a ABNT NBR 6118, a NBR 8800 e a NBR 9062. O aprendizado envolve ferramentas especializadas de detalhamento estrutural e rotinas de Inteligência Artificial (IA) para a simulação e a conferência de armados.",
+    "conteudos_programaticos": [
+      "Modelagem 3D de estruturas de concreto armado, pré-moldado e metálicas.",
+      "Requisitos normativos de detalhamento: NBR 6118:2023, NBR 8800 e NBR 9062.",
+      "Nível de Desenvolvimento (LOD) 400 para fabricação e montagem.",
+      "Interoperabilidade entre modelos estruturais e analíticos.",
+      "Detalhamento de armaduras e mapeamento de conexões metálicas.",
+      "Geração de desenhos de oficina (shop drawings).",
+      "Integração do modelo aos fluxos produtivos da Construção 4.0.",
+      "Simulação e conferência de armados assistidas por IA."
+    ],
+    "atividade_avaliativa": "Produção da Modelagem de Elementos Estruturais Complexos e Conexões Técnicas com detalhamento LOD 400, com simulação e conferência de armados assistidas por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 6118: Projeto de estruturas de concreto — Procedimento. Rio de Janeiro: ABNT, 2023.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 8800: Projeto de estruturas de aço e de estruturas mistas de aço e concreto de edifícios. Rio de Janeiro: ABNT, 2008."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 9062: Projeto e execução de estruturas de concreto pré-moldado. Rio de Janeiro: ABNT, 2017.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 14931: Execução de estruturas de concreto — Procedimento. Rio de Janeiro: ABNT, 2004.",
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Modelagem das Instalações",
+    "numero": "5",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Modelagem tridimensional de sistemas prediais complexos (hidrossanitário, elétrico, prevenção e combate a incêndio e climatização/HVAC). Aplicação direta das normas técnicas brasileiras (ABNT NBR) dentro do ambiente de modelagem para a validação de fluxos. Geração de relatórios de cálculo nativos e dimensionamento preliminar de condutos, circuitos e redes, garantindo o rigor técnico antes da compatibilização. O treinamento utiliza assistentes de Inteligência Artificial (IA) para a otimização de rotas de tubulações e calhas.",
+    "conteudos_programaticos": [
+      "Modelagem de sistemas hidrossanitários (NBR 5626 e NBR 8160).",
+      "Modelagem de instalações elétricas prediais (NBR 5410).",
+      "Modelagem de sistemas de climatização / HVAC (NBR 16401).",
+      "Modelagem de prevenção e combate a incêndio (NBR 13714 e NBR 17240).",
+      "Parâmetros de engenharia de instalações: vazão, carga e potência.",
+      "Conectividade de redes no modelo e validação de fluxos.",
+      "Dimensionamento preliminar e relatórios de cálculo nativos.",
+      "Otimização de rotas de tubulações e calhas por IA."
+    ],
+    "atividade_avaliativa": "Desenvolvimento da Modelagem de Sistemas Prediais de Instalações integrados, com Relatório de Dimensionamento e Pré-Cálculo, e otimização de rotas assistida por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5626: Sistemas prediais de água fria e água quente — Projeto, execução, operação e manutenção. Rio de Janeiro: ABNT, 2020.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5410: Instalações elétricas de baixa tensão. Rio de Janeiro: ABNT, 2004 (Versão Corrigida 2008)."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16401-1, -2 e -3: Instalações de ar-condicionado — Sistemas centrais e unitários. Rio de Janeiro: ABNT, 2008.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 13714: Sistemas de hidrantes e de mangotinhos para combate a incêndio. Rio de Janeiro: ABNT, 2000.",
+      "CARVALHO JÚNIOR, Roberto de. Instalações hidráulicas e o projeto de arquitetura. 9. ed. São Paulo: Blucher, 2018."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "BIM no Planejamento e Orçamentação",
+    "numero": "6",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Integração de processos para o controle físico e financeiro de empreendimentos por meio do BIM 4D (prazo) e BIM 5D (custo). Vinculação geométrica e paramétrica de elementos do modelo a bases de custos referenciais e de mercado. Estruturação de cronogramas físicos integrados ao modelo para a geração de simulações virtuais de construção (faseamento de canteiro), otimizando a logística de execução e a precisão orçamentária. A disciplina adota a plataforma Orçafascio para a composição orçamentária (BIM 5D) conectada ao modelo e softwares de simulação 4D, apoiados por algoritmos de Inteligência Artificial (IA) para a detecção de gargalos em cronogramas.",
+    "conteudos_programaticos": [
+      "Conceitos de BIM 4D (prazo) e BIM 5D (custo).",
+      "Extração de quantitativos do modelo para orçamento.",
+      "Vinculação de elementos do modelo a bases de custos (SINAPI/ORSE e mercado).",
+      "Composição orçamentária integrada ao modelo (BIM 5D) no Orçafascio.",
+      "Vinculação temporal de objetos e cronograma físico (Gantt).",
+      "Simulações virtuais de construção e faseamento de canteiro.",
+      "Otimização da logística de execução e da precisão orçamentária.",
+      "Detecção de gargalos em cronogramas por IA."
+    ],
+    "atividade_avaliativa": "Entrega de uma Simulação Construtiva BIM 4D associada ao Orçamento Executivo 5D do empreendimento, com composição no Orçafascio e detecção de gargalos de cronograma por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "MATTOS, Aldo Dórea. Planejamento e controle de obras. 2. ed. São Paulo: Oficina de Textos, 2019.",
+      "MATTOS, Aldo Dórea. Como preparar orçamentos de obras. 3. ed. São Paulo: Oficina de Textos, 2019."
+    ],
+    "bibliografia_complementar": [
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 12721: Avaliação de custos unitários de construção para incorporação imobiliária — Procedimento. Rio de Janeiro: ABNT, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Gestão e Compatibilização de Projetos",
+    "numero": "7",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Prática intensiva de coordenação tridimensional de projetos por meio do desenvolvimento e da auditoria de modelos federados (arquitetura x estrutura x instalações). Técnicas avançadas de detecção de interferências físicas e inconsistências de escopo (clash detection). Gestão, atribuição e rastreamento de conflitos técnicos de engenharia em ambiente colaborativo, com fluxos de comunicação via protocolo BCF (BIM Collaboration Format) em ferramentas de mercado (como Navisworks ou Solibri). A gestão de conflitos aplica sistemas de Inteligência Artificial (IA) para a classificação, a filtragem e a eliminação de falsos-positivos em colisões.",
+    "conteudos_programaticos": [
+      "Coordenação interdisciplinar e modelos federados (OpenBIM).",
+      "Detecção de interferências físicas e de escopo (clash detection).",
+      "Matrizes de clashes e priorização de conflitos.",
+      "Protocolo BCF (BIM Collaboration Format) e notas de coordenação.",
+      "Ferramentas de coordenação de mercado (Navisworks, Solibri).",
+      "Fluxos de comunicação em ambiente colaborativo.",
+      "Gestão, atribuição e rastreamento de conflitos técnicos.",
+      "Classificação e eliminação de falsos-positivos por IA."
+    ],
+    "atividade_avaliativa": "Entrega de um Relatório de Clash Detection em modelo federado, com emissão de notas de coordenação via BCF e triagem de falsos-positivos assistida por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "MELHADO, Silvio Burrattino. Coordenação de projetos de edificações. São Paulo: O Nome da Rosa, 2005.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "bibliografia_complementar": [
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016.",
+      "MANZIONE, Leonardo. Estudo de métodos de planejamento do processo de projeto de edifícios. Tese (Doutorado) — Escola Politécnica da Universidade de São Paulo, São Paulo, 2013.",
+      "AGÊNCIA BRASILEIRA DE DESENVOLVIMENTO INDUSTRIAL (ABDI). Guia BIM ABDI-MDIC: coletânea de guias BIM. Brasília: ABDI, 2017."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Colaboração e Integração com CDE",
+    "numero": "8",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Governança, estruturação de dados e gerenciamento de fluxos de informação dentro do Ambiente Comum de Dados (CDE — Common Data Environment). Implementação prática das diretrizes da ABNT NBR ISO 19650 para a gestão estratégica da informação. Elaboração e gerenciamento do Plano de Execução BIM (BEP), definindo processos de troca de arquivos, propriedade dos dados e uso do padrão IFC para garantir a interoperabilidade plena entre plataformas (OpenBIM). O ambiente de colaboração em nuvem é auditado por Inteligência Artificial (IA) para o controle de qualidade dos uploads.",
+    "conteudos_programaticos": [
+      "Ambiente Comum de Dados (CDE) e governança da informação.",
+      "Diretrizes da ABNT NBR ISO 19650-1 e -2 para a gestão da informação.",
+      "Estados de status de arquivos: em trabalho, compartilhado, publicado e arquivado.",
+      "Plano de Execução BIM (BEP) e suas seções contratuais.",
+      "Requisitos de informação (EIR) e propriedade dos dados.",
+      "Interoperabilidade e o padrão IFC (OpenBIM).",
+      "Mapeamento IFC e troca de arquivos entre plataformas.",
+      "Auditoria de qualidade dos uploads em nuvem por IA."
+    ],
+    "atividade_avaliativa": "Estruturação de um Ambiente CDE e elaboração do Plano de Execução BIM (BEP) para um caso real, com auditoria de qualidade dos uploads assistida por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022.",
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-3: Gestão da informação na fase operacional dos ativos que utilizam BIM. Rio de Janeiro: ABNT, 2022.",
+      "BRASIL. Decreto nº 11.888, de 22 de janeiro de 2024. Institui a Estratégia Nacional de Disseminação do BIM no Brasil (Estratégia BIM BR). Brasília, DF, 2024.",
+      "KASSEM, Mohamad; AMORIM, Sérgio R. Leusin de. BIM Building Information Modeling no Brasil e na União Europeia. Brasília: Diálogos Setoriais Brasil–União Europeia, 2015."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "BIM, Análise de Dados e IA",
+    "numero": "9",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Aplicação avançada de modelos de dados para a estruturação de análises de desempenho e eficiência ambiental (BIM 6D) e a transição para a operação e a manutenção patrimonial (BIM 7D / Facility Management). Estratégias para a implementação e a operação de Gêmeos Digitais (Digital Twins), conectando dados BIM a variáveis operacionais em tempo real, com estruturação de dados patrimoniais no padrão COBie e em conformidade com a ABNT NBR ISO 19650. Uso de algoritmos de Inteligência Artificial (IA) para análise preditiva e otimização de fluxos operacionais, consolidando painéis de Business Intelligence (BI) para a tomada de decisão corporativa.",
+    "conteudos_programaticos": [
+      "BIM 6D (desempenho e eficiência ambiental) e BIM 7D (operação e FM).",
+      "Requisitos de dados patrimoniais e o padrão COBie.",
+      "Arquitetura de Gêmeos Digitais (Digital Twins).",
+      "Integração de dados BIM a variáveis operacionais em tempo real.",
+      "Fundamentos de Business Intelligence (BI) aplicados ao ativo.",
+      "Construção de dashboards e KPIs de desempenho físico-operacional.",
+      "Análise preditiva e otimização de fluxos operacionais por IA.",
+      "Governança de dados de operação (ABNT NBR ISO 19650-3)."
+    ],
+    "atividade_avaliativa": "Entrega de uma Proposta de Arquitetura de Dados para Gêmeo Digital com Painel de KPIs de Análise BIM/Operacional, com dashboards de BI e otimização assistida por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-3: Gestão da informação na fase operacional dos ativos que utilizam BIM. Rio de Janeiro: ABNT, 2022.",
+      "SHARDA, Ramesh; DELEN, Dursun; TURBAN, Efraim. Business Intelligence e análise de dados para gestão do negócio. 4. ed. Porto Alegre: Bookman, 2019."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 41001: Facility management — Sistemas de gestão — Requisitos com orientação para uso. Rio de Janeiro: ABNT, 2018.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 55001: Gestão de ativos — Sistemas de gestão — Requisitos. Rio de Janeiro: ABNT, 2014.",
+      "LAGO, Karine Gouvea Dibai do. Dominando o Power BI: guia prático para análise de dados. Belo Horizonte: [s.n.], 2018."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Técnicas de Orçamentos, Cobranças e Custos de Projetos",
+    "numero": "1",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Estudo detalhado dos custos incidentes na fase de concepção e desenvolvimento de projetos de engenharia e arquitetura. Modelagem de precificação de honorários, custos fixos e variáveis de escritórios, estimativas de custos iniciais pelo método do CUB (Custo Unitário Básico), conforme a ABNT NBR 12721, e análise de viabilidade econômico-financeira de empreendimentos. Gestão de cobranças contratuais, medições de entregas de projetos e fluxos de caixa para a proteção das margens de lucro antes da execução da obra. A prática integra o software Orçafascio para o levantamento de orçamentos paramétricos preliminares e ferramentas de Inteligência Artificial (IA) para a automação da memória de cálculo e a projeção de fluxos de caixa.",
+    "conteudos_programaticos": [
+      "Engenharia de custos aplicada ao escopo de projetos de engenharia e arquitetura.",
+      "Precificação de honorários técnicos e modelagem de custos fixos e variáveis de escritórios.",
+      "Estimativa paramétrica de custos e o método do CUB (ABNT NBR 12721).",
+      "Taxas de BDI (Benefícios e Despesas Indiretas) aplicadas a serviços intelectuais.",
+      "Análise de viabilidade econômico-financeira de empreendimentos (VPL, TIR e payback).",
+      "Gestão de cobranças contratuais e medições de entregas de projeto.",
+      "Estruturação e projeção de fluxos de caixa para a proteção de margens de lucro.",
+      "Orçamentação paramétrica preliminar e automação da memória de cálculo com Orçafascio e IA."
+    ],
+    "atividade_avaliativa": "Geração de uma Matriz de Viabilidade Financeira e Orçamento Preliminar de Projeto de Engenharia/Arquitetura, utilizando o levantamento paramétrico do Orçafascio e a automação de memória de cálculo e de fluxo de caixa por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "GOLDMAN, Pedrinho. Introdução ao planejamento e controle de custos na construção civil. 4. ed. São Paulo: PINI, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 12721: Avaliação de custos unitários de construção para incorporação imobiliária e outras disposições para condomínios edilícios — Procedimento. Rio de Janeiro: ABNT, 2006.",
+      "LIMMER, Carl Vicente. Planejamento, orçamentação e controle de projetos e obras. Rio de Janeiro: LTC, 1997."
+    ],
+    "bibliografia_complementar": [
+      "TISAKA, Maçahico. Orçamento na construção civil: consultoria, projeto e execução. 2. ed. São Paulo: PINI, 2011.",
+      "MATTOS, Aldo Dórea. Como preparar orçamentos de obras. 3. ed. São Paulo: Oficina de Textos, 2019.",
+      "DIAS, Paulo Roberto Vilela. Engenharia de custos: uma metodologia de orçamentação para obras civis. 9. ed. Rio de Janeiro: [s.n.], 2011."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Técnicas de Orçamentos, Cobranças e Custos de Obras",
+    "numero": "2",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Metodologia científica para a elaboração de orçamentos executivos de obras de construção civil. Análise de projetos para levantamento quantitativo de materiais e serviços, composição de custos unitários diretos e indiretos, cotação de insumos e definição de taxas de BDI para obras. Estruturação da Curva ABC de insumos e serviços, com referência às tabelas oficiais SINAPI e ORSE, rotinas de cobrança junto a clientes e agentes financiadores e controle estrito de desvios orçamentários em tempo de execução. A disciplina utiliza a plataforma Orçafascio para o desenvolvimento completo de orçamentos integrados e a Inteligência Artificial (IA) aplicada à auditoria de inconsistências em composições de custos.",
+    "conteudos_programaticos": [
+      "Metodologia de orçamentação executiva de obras de construção civil.",
+      "Leitura de projetos e levantamento quantitativo de materiais e serviços.",
+      "Composição de custos unitários diretos e indiretos e cotação de insumos.",
+      "Sistemas oficiais de referência de preços: SINAPI (Caixa/IBGE) e ORSE.",
+      "Definição e cálculo do BDI para obras (referenciais do Acórdão TCU nº 2.622/2013).",
+      "Estruturação e análise da Curva ABC de insumos e serviços.",
+      "Rotinas de cobrança e medição junto a clientes e agentes financiadores.",
+      "Controle de desvios orçamentários e auditoria de composições com Orçafascio e IA."
+    ],
+    "atividade_avaliativa": "Elaboração de um Orçamento Executivo de Obra estruturado com Curva ABC de Insumos e Serviços, desenvolvido integralmente na plataforma Orçafascio com auditoria de inconsistências por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "MATTOS, Aldo Dórea. Como preparar orçamentos de obras. 3. ed. São Paulo: Oficina de Textos, 2019.",
+      "TISAKA, Maçahico. Orçamento na construção civil: consultoria, projeto e execução. 2. ed. São Paulo: PINI, 2011.",
+      "DIAS, Paulo Roberto Vilela. Engenharia de custos: uma metodologia de orçamentação para obras civis. 9. ed. Rio de Janeiro: [s.n.], 2011."
+    ],
+    "bibliografia_complementar": [
+      "GOLDMAN, Pedrinho. Introdução ao planejamento e controle de custos na construção civil. 4. ed. São Paulo: PINI, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 12721: Avaliação de custos unitários de construção para incorporação imobiliária — Procedimento. Rio de Janeiro: ABNT, 2006.",
+      "BRASIL. Tribunal de Contas da União. Acórdão nº 2.622/2013 — Plenário: referenciais de taxas de BDI para obras públicas. Brasília, DF: TCU, 2013."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Técnicas de Coordenação e Compatibilização de Projetos",
+    "numero": "3",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Gerenciamento do fluxo de informações e da interface entre equipes multidisciplinares de projetos (arquitetura, estrutura e instalações). Processos de coordenação, gestão de escopo e prazos de entrega nas fases de estudo preliminar, anteprojeto e projeto executivo. Técnicas de compatibilização para a identificação de interferências físicas e conceituais (clash detection), com estruturação de Ambientes Comuns de Dados (CDE) conforme a ABNT NBR ISO 19650, mitigando riscos de retrabalho e de aditivos contratuais durante a construção. A disciplina incorpora ferramentas de Inteligência Artificial (IA) para a triagem e o agrupamento de inconsistências de projeto e a verificação automatizada de conformidade com códigos de obras.",
+    "conteudos_programaticos": [
+      "Gestão da interface entre os projetos de arquitetura, estrutura e instalações.",
+      "Processo de projeto: estudo preliminar, anteprojeto e projeto executivo.",
+      "Matriz de responsabilidades e fluxos de revisão e aprovação de projetos.",
+      "Ambientes Comuns de Dados (CDE) e a ABNT NBR ISO 19650-1 e -2.",
+      "Compatibilização e detecção de interferências (clash detection) em modelos BIM.",
+      "Análise de interferências físicas e conceituais e seus impactos em custo e prazo.",
+      "Verificação automatizada de conformidade com códigos de obras por IA.",
+      "Gestão de retrabalhos, aditivos e riscos originados de falhas de projeto."
+    ],
+    "atividade_avaliativa": "Elaboração de um Relatório Técnico de Compatibilização de Projetos acompanhado de uma Matriz de Resolução de Interferências, com triagem e agrupamento de inconsistências assistidos por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "MELHADO, Silvio Burrattino. Coordenação de projetos de edificações. São Paulo: O Nome da Rosa, 2005.",
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. BIM handbook: a guide to building information modeling. 3. ed. Hoboken: Wiley, 2018.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "bibliografia_complementar": [
+      "MANZIONE, Leonardo. Estudo de métodos de planejamento do processo de projeto de edifícios. Tese (Doutorado) — Escola Politécnica da Universidade de São Paulo, São Paulo, 2013.",
+      "BRASIL. Decreto nº 10.306, de 2 de abril de 2020. Estabelece a utilização do BIM na execução direta ou indireta de obras e serviços de engenharia. Brasília, DF, 2020.",
+      "PROJECT MANAGEMENT INSTITUTE. Um guia do conhecimento em gerenciamento de projetos (Guia PMBOK). 6. ed. Newtown Square: PMI, 2017."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Técnicas de Planejamento e Coordenação de Obras",
+    "numero": "4",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Fundamentos da engenharia de planejamento aplicados à execução física de canteiros de obras. Estruturação da EAP (Estrutura Analítica do Projeto), determinação de sequências lógicas de atividades, cálculo de caminhos críticos pelo Método CPM e definição de histogramas de mão de obra e equipamentos. Técnicas de coordenação de campo para o alinhamento de prazos, cronogramas de suprimentos e controle físico-financeiro do andamento dos serviços. A disciplina adota o sistema Orçafascio para a criação de cronogramas de barras, redes de planejamento e diagramas de Gantt, em conjunto com o aplicativo Obra na Mão para a coleta de dados de avanço físico em campo.",
+    "conteudos_programaticos": [
+      "Fundamentos da engenharia de planejamento e controle de obras.",
+      "Estrutura Analítica do Projeto (EAP) e decomposição de pacotes de trabalho.",
+      "Rede de precedências e sequenciamento lógico de atividades.",
+      "Método do Caminho Crítico (CPM), folgas técnicas e nivelamento de recursos.",
+      "Diagramas de Gantt, cronogramas de barras e histogramas de mão de obra e equipamentos.",
+      "Cronograma físico-financeiro, curva S e gráfico de linha de balanço.",
+      "Coordenação de campo, cronograma de suprimentos e controle de desvios de metas.",
+      "Criação de cronogramas no Orçafascio e coleta de avanço físico via Obra na Mão."
+    ],
+    "atividade_avaliativa": "Desenvolvimento do Planejamento Físico-Financeiro de Obra com Cronograma de Gantt e Gráfico de Linha de Balanço, elaborado no Orçafascio e monitorado em campo pelo aplicativo Obra na Mão.",
+    "bibliografia_basica": [
+      "MATTOS, Aldo Dórea. Planejamento e controle de obras. 2. ed. São Paulo: Oficina de Textos, 2019.",
+      "LIMMER, Carl Vicente. Planejamento, orçamentação e controle de projetos e obras. Rio de Janeiro: LTC, 1997.",
+      "BERNARDES, Maurício Moreira e Silva. Planejamento e controle da produção para empresas de construção civil. Rio de Janeiro: LTC, 2003."
+    ],
+    "bibliografia_complementar": [
+      "GOLDMAN, Pedrinho. Introdução ao planejamento e controle de custos na construção civil. 4. ed. São Paulo: PINI, 2004.",
+      "PROJECT MANAGEMENT INSTITUTE. Um guia do conhecimento em gerenciamento de projetos (Guia PMBOK). 6. ed. Newtown Square: PMI, 2017.",
+      "CASAROTTO FILHO, Nelson; FÁVERO, José Severino; CASTRO, João Ernesto E. Gerência de projetos / engenharia simultânea. São Paulo: Atlas, 1999."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Eficiência Energética e Sustentabilidade na Construção Civil",
+    "numero": "5",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Estratégias de projeto e métodos construtivos voltados à sustentabilidade, à racionalização de recursos e à conservação de energia no ambiente edificado. Análise do ciclo de vida dos materiais, gestão integrada de resíduos da construção civil (PGRCC) em conformidade com a Resolução CONAMA nº 307/2002, e atendimento aos requisitos de desempenho termoacústico e lumínico da ABNT NBR 15575. Critérios de certificações de sustentabilidade e aplicação de tecnologias para a redução de emissões de carbono e do consumo de água e energia. O treinamento utiliza sistemas de Inteligência Artificial (IA) para a simulação de desempenho solar e térmico e a plataforma Orçafascio para a especificação e a orçamentação de soluções ecológicas e de alta eficiência.",
+    "conteudos_programaticos": [
+      "Princípios de sustentabilidade e racionalização de recursos no ambiente construído.",
+      "Desempenho termoacústico e lumínico da edificação (ABNT NBR 15575:2013, Emenda 1:2021).",
+      "Eficiência energética em edificações e etiquetagem (PBE Edifica/INMETRO).",
+      "Análise do ciclo de vida (ACV) e pegada de carbono dos materiais.",
+      "Gestão de resíduos da construção civil — PGRCC (CONAMA nº 307/2002 e NBR 15112 a 15114).",
+      "Gestão e reuso de água e redução do consumo energético em canteiros e edifícios.",
+      "Certificações de sustentabilidade (LEED, AQUA-HQE) e seus critérios.",
+      "Simulação de desempenho solar e térmico por IA e orçamentação de soluções no Orçafascio."
+    ],
+    "atividade_avaliativa": "Elaboração de uma Proposta de Adequação Sustentável e Eficiência Energética de Empreendimento, com simulação de desempenho por Inteligência Artificial (IA) e especificação orçada de soluções ecológicas no Orçafascio.",
+    "bibliografia_basica": [
+      "AGOPYAN, Vahan; JOHN, Vanderley M. O desafio da sustentabilidade na construção civil. São Paulo: Blucher, 2011.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15575: Edificações habitacionais — Desempenho. Rio de Janeiro: ABNT, 2013 (Emenda 1:2021).",
+      "LAMBERTS, Roberto; DUTRA, Luciano; PEREIRA, Fernando O. R. Eficiência energética na arquitetura. 3. ed. Rio de Janeiro: Eletrobras/Procel, 2014."
+    ],
+    "bibliografia_complementar": [
+      "BRASIL. Conselho Nacional do Meio Ambiente (CONAMA). Resolução nº 307, de 5 de julho de 2002: gestão dos resíduos da construção civil. Brasília, DF, 2002.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15112, NBR 15113 e NBR 15114: Resíduos da construção civil e resíduos volumosos — Áreas de transbordo e triagem, aterros e áreas de reciclagem. Rio de Janeiro: ABNT, 2004.",
+      "CORBELLA, Oscar; YANNAS, Simos. Em busca de uma arquitetura sustentável para os trópicos: conforto ambiental. 2. ed. Rio de Janeiro: Revan, 2009."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Lean Construction, Last Planner System e Logística de Canteiro",
+    "numero": "6",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Aplicação dos princípios da Mentalidade Enxuta (Lean Construction) no gerenciamento e na execução de obras. Eliminação de desperdícios no fluxo produtivo, mapeamento do fluxo de valor e nivelamento da produção. Implementação prática do Last Planner System para o planejamento de longo, médio e curto prazos, com atribuição semanal de tarefas e o indicador de Percentual de Planos Concluídos (PPC). Projeto, dimensionamento e gestão da Logística de Canteiro de Obras, com foco no fluxo contínuo de materiais, no layout dinâmico de produção e na segurança operacional. A rotina utiliza Inteligência Artificial (IA) para a roteirização logística e a previsão de gargalos, além do aplicativo Obra na Mão para o controle diário e a liberação de frentes de trabalho.",
+    "conteudos_programaticos": [
+      "Filosofia da produção enxuta (Lean Construction) e os princípios de Koskela.",
+      "Identificação e eliminação de perdas e desperdícios no fluxo produtivo.",
+      "Mapeamento do fluxo de valor (VSM) e nivelamento da produção.",
+      "Last Planner System: planejamento de longo, médio e curto prazos.",
+      "Gestão de restrições e o indicador de Percentual de Planos Concluídos (PPC).",
+      "Projeto e dimensionamento da logística e do layout de canteiro de obras.",
+      "Fluxo contínuo de materiais, tempos de transporte e de estocagem.",
+      "Roteirização e previsão de gargalos por IA e controle de frentes via Obra na Mão."
+    ],
+    "atividade_avaliativa": "Apresentação de um Projeto de Logística de Canteiro e de um Plano de Programação Semanal baseado no Last Planner System, com roteirização e previsão de gargalos por Inteligência Artificial (IA) e controle diário pelo aplicativo Obra na Mão.",
+    "bibliografia_basica": [
+      "BERNARDES, Maurício Moreira e Silva. Planejamento e controle da produção para empresas de construção civil. Rio de Janeiro: LTC, 2003.",
+      "KOSKELA, Lauri. Application of the new production philosophy to construction. Stanford: CIFE/Stanford University, 1992. (Technical Report 72).",
+      "BALLARD, Glenn. The Last Planner System of production control. Tese (Doutorado) — University of Birmingham, Birmingham, 2000."
+    ],
+    "bibliografia_complementar": [
+      "ISATTO, Eduardo Luís; FORMOSO, Carlos Torres et al. Lean construction: diretrizes e ferramentas para o controle de perdas na construção civil. Porto Alegre: SEBRAE/RS, 2000.",
+      "WOMACK, James P.; JONES, Daniel T. A mentalidade enxuta nas empresas: elimine o desperdício e crie riqueza. Rio de Janeiro: Campus, 2004.",
+      "SOUZA, Ubiraci Espinelli Lemes de. Como reduzir perdas nos canteiros: manual de gestão do consumo de materiais. São Paulo: PINI, 2005."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Engenharia de Segurança e Normas de Desempenho",
+    "numero": "7",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Abordagem técnica e prática da Engenharia de Segurança do Trabalho aplicada à construção civil, com foco na NR-18 (Portaria SEPRT nº 3.733/2020) e na gestão de riscos ocupacionais integrada ao PGR da NR-1. Gestão de riscos em frentes de trabalho, Equipamentos de Proteção Coletiva (EPC) e Individual (EPI) e trabalho em altura (NR-35). Auditoria e implementação das exigências de segurança dos processos construtivos associadas aos requisitos de segurança e durabilidade da Norma de Desempenho ABNT NBR 15575, para a entrega formal de obras com garantia técnica. A vistoria utiliza Inteligência Artificial (IA) para a análise preditiva de riscos baseada em imagens e o aplicativo Obra na Mão para vistorias fotográficas e checklists de segurança de campo.",
+    "conteudos_programaticos": [
+      "Engenharia de Segurança do Trabalho na construção civil: a NR-18 (Portaria nº 3.733/2020).",
+      "Programa de Gerenciamento de Riscos (PGR) e a integração com a NR-1.",
+      "Inventário de riscos ocupacionais e plano de ação em frentes de trabalho.",
+      "Equipamentos de Proteção Coletiva (EPC) e Individual (EPI) no canteiro.",
+      "Trabalho em altura e segurança em atividades críticas (NR-35).",
+      "Norma de Desempenho ABNT NBR 15575: habitabilidade, durabilidade e segurança.",
+      "Auditoria de conformidade e entrega de obra com garantia técnica.",
+      "Análise preditiva de riscos por IA e vistorias de campo via Obra na Mão."
+    ],
+    "atividade_avaliativa": "Produção de um Checklist de Conformidade de Segurança da Obra (NR-18) e de um Relatório de Conformidade com a ABNT NBR 15575, com análise preditiva de riscos por Inteligência Artificial (IA) e vistorias fotográficas pelo aplicativo Obra na Mão.",
+    "bibliografia_basica": [
+      "BRASIL. Ministério do Trabalho e Emprego. NR-18: Segurança e saúde no trabalho na indústria da construção. Portaria SEPRT nº 3.733/2020. Brasília, DF, 2020.",
+      "ROUSSELET, Edison da Silva; FALCÃO, César. A segurança na obra: manual técnico de segurança do trabalho em edificações prediais. 3. ed. Rio de Janeiro: Interciência, 2013.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15575: Edificações habitacionais — Desempenho. Rio de Janeiro: ABNT, 2013 (Emenda 1:2021)."
+    ],
+    "bibliografia_complementar": [
+      "BRASIL. Ministério do Trabalho e Emprego. NR-1: Disposições gerais e gerenciamento de riscos ocupacionais (PGR). Brasília, DF.",
+      "BRASIL. Ministério do Trabalho e Emprego. NR-35: Trabalho em altura. Brasília, DF.",
+      "BARBOSA FILHO, Antonio Nunes. Segurança do trabalho e gestão ambiental. 4. ed. São Paulo: Atlas, 2011."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Administração Contratual, Medições e Gestão de Pleitos (Claims)",
+    "numero": "8",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Gestão jurídica e financeira de contratos de prestação de serviços e de execução de obras de engenharia. Técnicas de fiscalização contratual e procedimentos para medições fiéis de campo, baseadas no avanço físico e em critérios de qualidade. Identificação de escopo não previsto, elaboração técnica de aditivos de prazo e valor, reequilíbrio econômico-financeiro e gestão estratégica de conflitos e Pleitos (Claims), à luz do Código Civil e da Lei nº 14.133/2021, garantindo a segurança contábil-legal perante contratantes e subempreiteiros. O gerenciamento de medições e a documentação probatória utilizam o aplicativo Obra na Mão para os Registros Diários de Obra (RDO), integrados ao módulo de contratos do Orçafascio.",
+    "conteudos_programaticos": [
+      "Tipologias contratuais: empreitada por preço global, por preço unitário e por administração.",
+      "Fiscalização contratual e gestão de escopo, prazo e qualidade.",
+      "Medições de campo baseadas no avanço físico e em critérios de aceitação.",
+      "Registro Diário de Obra (RDO) como documentação probatória.",
+      "Aditivos de prazo e valor e reequilíbrio econômico-financeiro do contrato.",
+      "Gestão de pleitos (Claims): nexo causal, pleitos de prazo e de custo.",
+      "Marco legal: Código Civil e Lei nº 14.133/2021 (Nova Lei de Licitações).",
+      "Integração das medições ao módulo de contratos do Orçafascio via Obra na Mão (RDO)."
+    ],
+    "atividade_avaliativa": "Entrega de um Relatório de Medição Física de Obra e de um Parecer Técnico de Análise de Pleito (Claim), com Registros Diários de Obra (RDO) coletados no Obra na Mão e reflexos financeiros integrados ao módulo de contratos do Orçafascio.",
+    "bibliografia_basica": [
+      "PROJECT MANAGEMENT INSTITUTE. Um guia do conhecimento em gerenciamento de projetos (Guia PMBOK). 6. ed. Newtown Square: PMI, 2017.",
+      "BRASIL. Lei nº 14.133, de 1º de abril de 2021. Lei de Licitações e Contratos Administrativos. Brasília, DF, 2021.",
+      "MATTOS, Aldo Dórea. Planejamento e controle de obras. 2. ed. São Paulo: Oficina de Textos, 2019."
+    ],
+    "bibliografia_complementar": [
+      "BRASIL. Lei nº 10.406, de 10 de janeiro de 2002. Institui o Código Civil. Brasília, DF, 2002.",
+      "TISAKA, Maçahico. Orçamento na construção civil: consultoria, projeto e execução. 2. ed. São Paulo: PINI, 2011.",
+      "LIMMER, Carl Vicente. Planejamento, orçamentação e controle de projetos e obras. Rio de Janeiro: LTC, 1997."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Sistemas Informatizados de Gestão Integrada e BI (ERP, CDE e Power BI)",
+    "numero": "9",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Integração de sistemas digitais de informação para a tomada de decisões corporativas na gestão de projetos e obras de alto valor. Estruturação e governança de Ambientes Comuns de Dados (CDE), conforme a ABNT NBR ISO 19650, para a centralização de arquivos técnicos. Modelagem de processos conectando sistemas de Planejamento de Recursos Empresariais (ERP) aos fluxos de engenharia de campo. Desenvolvimento de painéis de Business Intelligence (BI) para a consolidação de indicadores estratégicos e operacionais do empreendimento. A consolidação dos dados consome as bases estruturadas geradas no Orçafascio e nos aplicativos móveis, gerando, com apoio de Inteligência Artificial (IA), dashboards integrados no Power BI.",
+    "conteudos_programaticos": [
+      "Arquitetura de sistemas integrados de informação na gestão de projetos e obras.",
+      "Ambientes Comuns de Dados (CDE) e governança da informação (ABNT NBR ISO 19650).",
+      "Sistemas de Planejamento de Recursos Empresariais (ERP) e fluxos de engenharia.",
+      "Interoperabilidade de bancos de dados e chaves de integração técnica.",
+      "Modelagem de indicadores (KPIs) físico-financeiros e de produtividade.",
+      "Fundamentos de Business Intelligence (BI) e o processo de ETL.",
+      "Construção de dashboards no Power BI (Power Query e linguagem DAX).",
+      "Consolidação de dados do Orçafascio e de aplicativos móveis com apoio de IA."
+    ],
+    "atividade_avaliativa": "Entrega, como fechamento da matriz técnica, de um Painel de Controle em Power BI integrado, com Indicadores de Prazos, Custos e Produtividade da Obra, consolidando as bases do Orçafascio e dos aplicativos móveis com apoio de Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "SHARDA, Ramesh; DELEN, Dursun; TURBAN, Efraim. Business Intelligence e análise de dados para gestão do negócio. 4. ed. Porto Alegre: Bookman, 2019.",
+      "LAGO, Karine Gouvea Dibai do. Dominando o Power BI: guia prático para análise de dados. Belo Horizonte: [s.n.], 2018.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "bibliografia_complementar": [
+      "HYMAN, Jack. Microsoft Power BI para leigos. Rio de Janeiro: Alta Books, 2023.",
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. BIM handbook: a guide to building information modeling. 3. ed. Hoboken: Wiley, 2018.",
+      "PROJECT MANAGEMENT INSTITUTE. Um guia do conhecimento em gerenciamento de projetos (Guia PMBOK). 6. ed. Newtown Square: PMI, 2017."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Engenharia Diagnóstica: Terapia Predial e Plano de Intervenção",
+    "numero": "10",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Metodologia de auditoria, inspeção e diagnóstico de falhas e manifestações patológicas em edificações sob a ótica estrita da ABNT NBR 16747:2020, com interface operacional aos requisitos de gestão de manutenção da ABNT NBR 5674:2024 e diretrizes para manuais da ABNT NBR 14037. Capacitação profissional para classificar anomalias (endógenas, exógenas, funcionais) e falhas, com atribuição de graus de risco e estabelecimento de nexo causal para priorização técnica de intervenções. Estruturação de Laudos de Inspeção Predial (LaIP) e pareceres técnicos consistentes e incontestáveis. Elaboração do Plano de Intervenção e prescrição de estratégias de reparo, recuperação e proteção (Terapia Predial) focadas em durabilidade, mitigação de riscos, prevenção de litígios e extensão da vida útil dos ativos. A prática utiliza o ecossistema digital Predial 4.0 para mapear tipologias de sistemas e patologias, aplicando sua ferramenta embarcada de Inteligência Artificial (IA) para diagnósticos automáticos por imagem de falhas e geração de checklists de inspeção automatizados.",
+    "conteudos_programaticos": [
+      "Fundamentos da Engenharia Diagnóstica e diretrizes da ABNT NBR 16747:2020.",
+      "Interface normativa da manutenção e operação: ABNT NBR 5674:2024 e ABNT NBR 14037.",
+      "Classificação e tipologia de danos: anomalias endógenas, exógenas, funcionais e falhas de manutenção.",
+      "Metodologia de vistoria de campo e criação de checklists por subsistemas prediais.",
+      "Avaliação de criticidade: cálculo do grau de risco e matrizes de priorização técnica.",
+      "Estabelecimento de nexo causal e responsabilidade técnica (ART/RRT).",
+      "Uso de Inteligência Artificial para triagem de sintomas e diagnósticos automatizados por imagem.",
+      "Diretrizes para elaboração de pareceres e estruturação do Laudo de Inspeção Predial (LaIP)."
+    ],
+    "atividade_avaliativa": "Elaboração prática de um Laudo de Inspeção Predial (LaIP) acompanhado de um Plano de Ação de Correção parametrizado, gerados a partir do mapeamento de sistemas e do uso da ferramenta de Inteligência Artificial (IA) para diagnóstico por imagem do sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16747: Inspeção predial — Diretrizes, conceitos, terminologia e procedimento. Rio de Janeiro: ABNT, 2020.",
+      "GOMIDE, Tito Lívio Ferreira; FAGUNDES NETO, Jerônimo Cabral Pereira; GULLO, Marco Antonio. Engenharia diagnóstica em edificações. 2. ed. São Paulo: PINI, 2013.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5674: Manutenção de edificações — Requisitos para o sistema de gestão de manutenção. Rio de Janeiro: ABNT, 2024."
+    ],
+    "bibliografia_complementar": [
+      "GOMIDE, Tito Lívio Ferreira. Inspeção predial total. São Paulo: Oficina de Textos, 2020.",
+      "GOMIDE, Tito Lívio Ferreira; PUJADAS, Flávia Zoéga Andreatta; FAGUNDES NETO, Jerônimo Cabral Pereira. Técnicas de inspeção e manutenção predial. São Paulo: PINI, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 14037: Diretrizes para elaboração de manuais de uso, operação e manutenção das edificações. Rio de Janeiro: ABNT, 2011 (Versão Corrigida 2014).",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16280: Reforma em edificações — Sistema de gestão de reformas. Rio de Janeiro: ABNT, 2015."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Patologias Construtivas em Estruturas e Sistemas de Envoltória",
+    "numero": "11",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Identificação, classificação, mapeamento e diagnóstico de manifestações patológicas em estruturas de concreto armado, estruturas metálicas e sistemas de vedação vertical (fachadas e revestimentos). Análise dos mecanismos de degradação acelerada frente ao intemperismo urbano e litorâneo, com foco na agressividade ambiental do litoral de Recife/PE e região litorânea do Nordeste, em conformidade com as diretrizes da ABNT NBR 15575 e ABNT NBR 6118:2023. Estudo de técnicas avançadas e especificação de materiais de engenharia para recuperação, reparo estrutural, reforço e aumento da vida útil de envoltórias. O aprendizado integra o aplicativo Obra na Mão para acompanhamento de serviços em canteiro e a base de causas patológicas do sistema Predial 4.0, automatizando a geração de memórias de cálculo, memoriais descritivos de serviços e orçamentos de serviços automatizados para a recuperação das fachadas e estruturas.",
+    "conteudos_programaticos": [
+      "Mecanismos de degradação do concreto armado e de estruturas metálicas (carbonatação e ataque por cloretos).",
+      "Critérios de durabilidade e vida útil das envoltórias conforme ABNT NBR 6118:2023 e NBR 15575.",
+      "Agressividade ambiental litorânea e seus impactos em estruturas e fachadas no Nordeste.",
+      "Patologias em sistemas de vedação vertical: fissuras, descolamentos cerâmicos e infiltrações.",
+      "Ensaios técnicos diagnósticos: esclerometria, profundidade de carbonatação e potencial de corrosão.",
+      "Metodologia de mapeamento de danos e levantamento em campo via aplicativo mobile.",
+      "Materiais avançados para recuperação e reforço estrutural: polímeros, grautes e sistemas epóxi.",
+      "Sistemas de proteção de envoltórias, impermeabilização e reforço com fibras de carbono (FRP)."
+    ],
+    "atividade_avaliativa": "Elaboração de um Plano de Intervenção de Envoltória contendo Memorial Descritivo de Serviços gerado digitalmente e orçamento automatizado de recuperação estrutural, utilizando dados de canteiro do aplicativo Obra na Mão integrados ao sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "SOUZA, Vicente Custódio Moreira de; RIPPER, Thomaz. Patologia, recuperação e reforço de estruturas de concreto. São Paulo: PINI, 1998.",
+      "MEHTA, Povindar Kumar; MONTEIRO, Paulo J. M. Concreto: microestrutura, propriedades e materiais. 2. ed. São Paulo: IBRACON, 2014.",
+      "THOMAZ, Ercio. Trincas em edifícios: causas, prevenção e recuperação. São Paulo: PINI/EPUSP/IPT, 1989."
+    ],
+    "bibliografia_complementar": [
+      "HELENE, Paulo Roberto do Lago. Manual para reparo, reforço e proteção de estruturas de concreto. 2. ed. São Paulo: PINI, 1992.",
+      "BERTOLINI, Luca. Materiais de construção: patologia, reabilitação, prevenção. São Paulo: Oficina de Textos, 2010.",
+      "ISAIA, Geraldo Cechella (Ed.). Concreto: ciência e tecnologia. São Paulo: IBRACON, 2011.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 6118: Projeto de estruturas de concreto — Procedimento. Rio de Janeiro: ABNT, 2023."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Manutenção Avançada em Instalações Prediais (Elétrica, Hidráulica, HVAC)",
+    "numero": "12",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Gestão da performance, eficiência energética e disponibilidade de sistemas prediais complexos, abrangendo instalações hidrossanitárias (recalque e combate a perdas), elétricas de baixa tensão (ABNT NBR 5410/5419) e de climatização. Aborda os requisitos regulatórios, a conformidade legal e a estruturação técnica do PMOC (Plano de Manutenção, Operação e Controle) para sistemas de HVAC, assegurando a qualidade do ar interno e a segurança sanitária à luz da Lei Federal nº 13.589/2018, da Portaria MS nº 3.523/1998 e da RE/ANVISA nº 09/2003. Protocolos de manutenção para sistemas de missão crítica (mission-critical) e prevenção de colapsos operacionais. O detalhamento das tipologias de instalações apoia-se no sistema Predial 4.0, utilizando ferramentas de Inteligência Artificial (IA) para correlacionar sintomas visuais com causas prováveis de falhas em subestações, conjuntos motobombas e centrais de água gelada (CAG), automatizando a geração do PMOC e do plano preventivo.",
+    "conteudos_programaticos": [
+      "Gestão de disponibilidade e desempenho de redes elétricas, hidráulicas e térmicas.",
+      "Rigor técnico em instalações elétricas e de proteção atmosférica (ABNT NBR 5410 e NBR 5419).",
+      "Segurança em eletricidade (NR-10) e operação de subestações prediais.",
+      "Instalações hidrossanitárias avançadas (ABNT NBR 5626), sistemas de recalque e combate a desperdício.",
+      "Marco legal do HVAC e qualidade do ar: Lei nº 13.589/2018, Portaria nº 3.523/1998 e RE/ANVISA nº 09/2003.",
+      "Manutenção e operação de sistemas de climatização centrais (CAG) e higienização de dutos (NBR 14679).",
+      "Arquitetura de sistemas de missão crítica (mission-critical) e engenharia de redundância operacional.",
+      "Correlação automatizada de sintomas e causas de falhas por algoritmos analíticos."
+    ],
+    "atividade_avaliativa": "Geração automatizada do Plano de Manutenção, Operação e Controle (PMOC) e do Plano de Manutenção Predial Preventivo para instalações de missão crítica (subestações e bombas), aplicando a inteligência analítica e o banco de dados do sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "CREDER, Hélio. Instalações elétricas. 16. ed. Rio de Janeiro: LTC, 2016.",
+      "CARVALHO JÚNIOR, Roberto de. Instalações hidráulicas e o projeto de arquitetura. 9. ed. São Paulo: Blucher, 2018.",
+      "BRASIL. Lei nº 13.589, de 4 de janeiro de 2018. Dispõe sobre a manutenção de instalações e equipamentos de sistemas de climatização de ambientes. Brasília, DF, 2018."
+    ],
+    "bibliografia_complementar": [
+      "COTRIM, Ademaro A. M. B. Instalações elétricas. 5. ed. São Paulo: Pearson, 2009.",
+      "CREDER, Hélio. Instalações de ar condicionado. 6. ed. Rio de Janeiro: LTC, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16401-1, -2 e -3: Instalações de ar-condicionado — Sistemas centrais e unitários. Rio de Janeiro: ABNT.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 13971: Sistemas de refrigeração, condicionamento de ar e ventilação — Manutenção programada. Rio de Janeiro: ABNT, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5410: Instalações elétricas de baixa tensão. Rio de Janeiro: ABNT, 2004 (Versão Corrigida 2008)."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "CMMS e GMAO: Implementação de Sistemas de Gestão da Manutenção",
+    "numero": "13",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Domínio do fluxo de trabalho, processos lógicos e operação prática de softwares CMMS/GMAO (Computerized Maintenance Management System). Capacitação para a estruturação de bancos de dados patrimoniais, cadastro e árvore de ativos, abertura e rastreamento de Ordens de Serviço (O.S.), gestão do backlog e controle financeiro automatizado dos custos operacionais de manutenção corporativa por centros de custo, alinhados aos princípios de gestão da ABNT NBR ISO 55001. As rotinas utilizam o aplicativo Obra na Mão para despacho e encerramento de frentes de trabalho pelas equipes de campo, integrado à inteligência central do sistema Predial 4.0, o qual processa os checklists de inspeção de entrada e os converte automaticamente em ordens de serviço corretivas com orçamentos preliminares e cronogramas de manutenção embutidos.",
+    "conteudos_programaticos": [
+      "Papel e arquitetura de sistemas informatizados de gestão de manutenção (CMMS/GMAO).",
+      "Princípios e requisitos de gestão de ativos baseados na ABNT NBR ISO 55001.",
+      "Estruturação hierárquica patrimonial, codificação estratégica e taguamento de equipamentos.",
+      "Ciclo de vida operacional da Ordem de Serviço (O.S.): da abertura ao encerramento.",
+      "Planejamento de recursos, gestão de backlog e dimensionamento de calendários técnicos.",
+      "Automação de fluxos: transformação de checklists de campo em ordens de serviço corretivas.",
+      "Mobilidade corporativa: despacho remoto e apontamentos via dispositivos móveis.",
+      "Controle contábil de custos diretos e gestão orçamentária por centros de custo."
+    ],
+    "atividade_avaliativa": "Estruturação de um Modelo de Árvore de Ativos Patrimoniais e parametrização de um Cronograma de Plano de Manutenção integrado ao sistema, realizando a conversão automatizada de checklists em ordens de serviço orçadas via Obra na Mão e Predial 4.0.",
+    "bibliografia_basica": [
+      "KARDEC, Alan; NASCIF, Júlio. Manutenção: função estratégica. 5. ed. Rio de Janeiro: Qualitymark, 2019.",
+      "VIANA, Herbert Ricardo Garcia. PCM: planejamento e controle da manutenção. Rio de Janeiro: Qualitymark, 2002.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 55001: Gestão de ativos — Sistemas de gestão — Requisitos. Rio de Janeiro: ABNT, 2014."
+    ],
+    "bibliografia_complementar": [
+      "BRANCO FILHO, Gil. A organização, o planejamento e o controle da manutenção. Rio de Janeiro: Ciência Moderna, 2008.",
+      "XENOS, Harilaus Georgius d'Philippos. Gerenciando a manutenção produtiva. Nova Lima: Falconi, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5462: Confiabilidade e mantenabilidade — Terminologia. Rio de Janeiro: ABNT, 1994."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Manutenção Preditiva: IoT, Sensores Inteligentes e Automação Predial",
+    "numero": "14",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Estruturação de estratégias de manutenção preditiva digital e confiabilidade predial. Implantação e uso de sensores baseados em Internet das Coisas (IoT) aplicados a motores, bombas e quadros elétricos, integrando a coleta de telemetria em tempo real a sistemas de Automação Predial / BMS (Building Management System) para monitoramento remoto de variáveis operacionais e tratamento de séries temporais. Capacitação para detecção precoce de anomalias e falhas de forma automatizada antes da ocorrência do colapso, conforme a terminologia da ABNT NBR 5462. Os fluxos de dados conectam as redes IoT e o BMS diretamente ao módulo de manutenção preditiva do sistema Predial 4.0, que roda algoritmos de Inteligência Artificial (IA) para isolar sintomas, gerando relatórios automatizados e antecipando a causa raiz de falhas em maquinários complexos.",
+    "conteudos_programaticos": [
+      "Evolução estratégica da manutenção: filosofia preditiva e engenharia de confiabilidade.",
+      "Conceitos operacionais críticos: curva P-F, falha potencial e janelas técnicas de detecção.",
+      "Terminologia de confiabilidade e mantenabilidade segundo a ABNT NBR 5462.",
+      "Ensaios preditivos clássicos: análise de vibração, análise de óleos e ultrassom.",
+      "Arquitetura de conectividade IoT e redes de sensores inteligentes para infraestrutura.",
+      "Sistemas BMS (Building Management System) e automação de rotinas de supervisão e alarmística.",
+      "Tratamento de dados de telemetria: análise de séries temporais para desempenho de ativos.",
+      "Algoritmos de IA e modelagem de dados para previsão macroscópica de quebras e falhas."
+    ],
+    "atividade_avaliativa": "Elaboração de uma Proposta de Monitoramento Remoto de ativos acompanhada de um Plano de Manutenção Preditivo Digital associado, integrando telemetria de sensores IoT à analítica de causa raiz por Inteligência Artificial (IA) no sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "MOBLEY, R. Keith. An introduction to predictive maintenance. 2. ed. Amsterdam: Butterworth-Heinemann, 2002.",
+      "KARDEC, Alan; NASCIF, Júlio. Manutenção: função estratégica. 5. ed. Rio de Janeiro: Qualitymark, 2019.",
+      "SCHWAB, Klaus. A quarta revolução industrial. São Paulo: Edipro, 2016."
+    ],
+    "bibliografia_complementar": [
+      "NEPOMUCENO, Lauro Xavier. Técnicas de manutenção preditiva. São Paulo: Edgard Blücher, 1989.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 55001: Gestão de ativos — Sistemas de gestão — Requisitos. Rio de Janeiro: ABNT, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5462: Confiabilidade e mantenabilidade — Terminologia. Rio de Janeiro: ABNT, 1994."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Termografia Infravermelha e Drones na Inspeção de Ativos",
+    "numero": "15",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Engenharia diagnóstica não destrutiva de alta tecnologia por meio do uso da Termografia Infravermelha para detecção de anomalias ocultas (sobrecarga em circuitos, infiltrações latentes, umidade interna e descolamento de pastilhas ou revestimentos), em conformidade com as diretrizes da ABNT NBR 15572 e ABNT NBR 16292. Emprego de Drones (VANTs) na inspeção aérea remota de fachadas, telhados e coberturas complexas, utilizando conceitos de fotogrametria aérea para mapeamento tridimensional de riscos patrimoniais. Ênfase na interpretação de imagens térmicas, gradientes de temperatura e no planejamento de voo de acordo com a regulamentação civil da RBAC-E nº 94 (ANAC) e ICA 100-40 (DECEA). Os dados de campo são integrados às ferramentas de Inteligência Artificial (IA) de imagem do sistema Predial 4.0, automatizando a elaboração do plano de ação corretivo e dos memoriais descritivos dos reparos.",
+    "conteudos_programaticos": [
+      "Fundamentos físicos da radiação infravermelha, emissividade e temperatura aparente.",
+      "Diretrizes e procedimentos normativos de ensaios não destrutivos: ABNT NBR 15572 e NBR 16292.",
+      "Regulação e governança do espaço aéreo para drones/VANTs: ANAC (RBAC-E nº 94) e DECEA (ICA 100-40).",
+      "Especificações e calibração de sensores RGB e câmeras termográficas de alta resolução.",
+      "Diagnóstico térmico prático: pontes térmicas, falhas de isolamento e sobreaquecimentos elétricos.",
+      "Mapeamento de envoltórias por imagem: detecção aérea de infiltrações e delaminações de fachada.",
+      "Processamento fotogramétrico automatizado: geração de nuvens de pontos e modelos digitais 3D.",
+      "Processamento por visão computacional (IA) para reconhecimento de fissuras e danos ocultos."
+    ],
+    "atividade_avaliativa": "Produção de um Relatório Técnico de Inspeção Termográfica e Mapeamento de Fachada por Drones com Plano de Ação de Correção Automatizado, processado pelas ferramentas de Inteligência Artificial (IA) por imagem do sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "MALDAGUE, Xavier P. V. Theory and practice of infrared technology for nondestructive testing. New York: Wiley, 2001.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15572: Ensaios não destrutivos — Termografia — Guia para inspeção de equipamentos elétricos e mecânicos. Rio de Janeiro: ABNT.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16747: Inspeção predial — Diretrizes, conceitos, terminologia e procedimento. Rio de Janeiro: ABNT, 2020."
+    ],
+    "bibliografia_complementar": [
+      "HOLST, Gerald C. Common sense approach to thermal imaging. Bellingham: SPIE Press, 2000.",
+      "BRASIL. Agência Nacional de Aviação Civil (ANAC). RBAC-E nº 94: Requisitos gerais para aeronaves não tripuladas de uso civil. Brasília, DF: ANAC.",
+      "BRASIL. Departamento de Controle do Espaço Aéreo (DECEA). ICA 100-40: Sistemas de Aeronaves Remotamente Pilotadas e o acesso ao espaço aéreo brasileiro. Brasília, DF: DECEA.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16292: Ensaios não destrutivos — Termografia — Medição e compensação da temperatura aparente refletida. Rio de Janeiro: ABNT."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Gestão de Ativos com BIM 7D (FM) e Orçamentação Preditiva",
+    "numero": "16",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Aplicação prática da metodologia BIM voltada à fase de Operação, Manutenção e Gerenciamento de Facilidades de edificações (BIM 7D / Facility Management). Extração e alimentação paramétrica de dados de modelos As-Built para o planejamento de rotas de manutenção e integração com ordens de serviço, estruturando bancos de dados em conformidade com as normas internacionais ABNT NBR ISO 19650-1 e -2, com as diretrizes nacionais do Decreto Federal nº 10.306/2020 e com a gestão de ativos da ABNT NBR ISO 55001. Uso de algoritmos de Inteligência Artificial (IA) para análise histórica de falhas, otimização orçamentária e cálculo do custo do ciclo de vida (LCC). A disciplina utiliza de forma integrada as composições analíticas da plataforma Orçafascio e o módulo financeiro do sistema Predial 4.0, que automatiza o cálculo de orçamentos preliminares e planos de ação financeiros sobre o modelo 3D.",
+    "conteudos_programaticos": [
+      "O ciclo de vida do empreendimento e as dimensões estratégicas do BIM 7D.",
+      "Governança e protocolos de informação conforme as diretrizes internacionais da ABNT NBR ISO 19650.",
+      "Políticas públicas nacionais de disseminação do BIM: o Decreto Federal nº 10.306/2020.",
+      "Conceitos de gestão de facilidades (ISO 41001) integrados à gestão de ativos imobiliários (ISO 55001).",
+      "Modelagem As-Built e estruturação de parâmetros de manutenção (protocolo COBie e equivalentes).",
+      "Interoperabilidade de dados: conexão direta entre modelos geométricos e softwares de gestão.",
+      "Metodologia de análise de custo do ciclo de vida (Life Cycle Costing — LCC) de elementos construtivos.",
+      "Uso de IA e composições analíticas de preços (Orçafascio) para previsibilidade e planejamento orçamentário."
+    ],
+    "atividade_avaliativa": "Desenvolvimento de um Relatório de Planejamento de Ativos Imobiliários com Orçamentação Preliminar e Previsibilidade de Custos de Ciclo de Vida, integrando composições do Orçafascio ao módulo financeiro parametrizado no sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. BIM handbook: a guide to building information modeling. 3. ed. Hoboken: Wiley, 2018.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 55001: Gestão de ativos — Sistemas de gestão — Requisitos. Rio de Janeiro: ABNT, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "bibliografia_complementar": [
+      "MATTOS, Aldo Dórea. Como preparar orçamentos de obras. 3. ed. São Paulo: Oficina de Textos, 2019.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 41001: Facility management — Sistemas de gestão — Requisitos com orientação para uso. Rio de Janeiro: ABNT, 2018.",
+      "BRASIL. Decreto nº 10.306, de 2 de abril de 2020. Estabelece a utilização do BIM na execução direta ou indireta de obras e serviços de engenharia. Brasília, DF, 2020."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Engenharia Condominial e Gestão de Sistemas de Segurança e Transporte",
+    "numero": "17",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Estruturação jurídica, elaboração técnica e gestão estratégica de contratos corporativos de Facilities (limpeza, portaria e segurança patrimonial) alinhados à ABNT NBR ISO 41001, definindo Acordos de Nível de Serviço (SLA) e Indicadores-Chave de Desempenho (KPIs) para a fiscalização de terceiros. Fundamentos de engenharia condominial aplicados ao controle, comissionamento e conformidade legal de sistemas de transporte vertical (elevadores e escadas rolantes), à luz da ABNT NBR 16858-1:2020 e ABNT NBR 16083, e dos planos de segurança contra incêndio e pânico regulados pela Lei Federal nº 13.425/2017 (Lei Kiss) e rotas de fuga da ABNT NBR 9077. As vistorias usam as ferramentas móveis do aplicativo Obra na Mão conectadas ao banco de dados de Engenharia Condominial do sistema Predial 4.0, automatizando a geração de checklists de inspeção legal e planos de ação orçados.",
+    "conteudos_programaticos": [
+      "Gestão estratégica e modelagem de contratos de Facilities segundo as diretrizes da ABNT NBR ISO 41001.",
+      "Estruturação de Acordos de Nível de Serviço (SLA) e engenharia de indicadores (KPIs) para terceirizados.",
+      "Marco normativo do transporte vertical: segurança e requisitos da ABNT NBR 16858-1:2020.",
+      "Diretrizes e instruções técnicas para planos de manutenção de elevadores e escadas (ABNT NBR 16083).",
+      "Prevenção contra incêndio e pânico no âmbito federal e regional: a Lei nº 13.425/2017 (Lei Kiss).",
+      "Cálculo de população, fluxos e dimensionamento técnico de saídas de emergência (ABNT NBR 9077).",
+      "Sistemas de detecção, alarme, sinalização e combate ativo (hidrantes/sprinklers) em edificações.",
+      "Governança documental condominial, auditorias de riscos legais e plano de ação mobile."
+    ],
+    "atividade_avaliativa": "Elaboração de um Checklist de Inspeção Legal de Sistemas de Transporte e de um Plano de Ação de Correção para inconformidades normativas condominiais, via coleta móvel no Obra na Mão e inteligência de banco de dados do Predial 4.0.",
+    "bibliografia_basica": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16858-1: Elevadores — Requisitos de segurança para construção e instalação — Parte 1: Elevadores de passageiros e elevadores de passageiros e cargas. Rio de Janeiro: ABNT, 2020.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16083: Manutenção de elevadores, escadas rolantes e esteiras rolantes — Requisitos para instruções de manutenção. Rio de Janeiro: ABNT, 2012.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 41001: Facility management — Sistemas de gestão — Requisitos com orientação para uso. Rio de Janeiro: ABNT, 2018."
+    ],
+    "bibliografia_complementar": [
+      "BRASIL. Lei nº 13.425, de 30 de março de 2017. Estabelece diretrizes gerais sobre medidas de prevenção e combate a incêndio e a desastres em estabelecimentos. Brasília, DF, 2017.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 9077: Saídas de emergência em edifícios. Rio de Janeiro: ABNT, 2001.",
+      "QUINELLO, Robson; NICOLETTI, José Reynaldo. Gestão de facilidades. São Paulo: Novatec, 2006.",
+      "KARDEC, Alan; NASCIF, Júlio. Manutenção: função estratégica. 5. ed. Rio de Janeiro: Qualitymark, 2019."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Gestão da Manutenção: Planejamento, KPIs e Conformidade Operacional",
+    "numero": "18",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Estruturação macro do Planejamento e Controle da Manutenção (PCM) na Construção 4.0, balanceando ações preventivas, corretivas e preditivas sob os requisitos sistêmicos da ABNT NBR 5674:2024 e gestão de ativos da ABNT NBR ISO 55001. Gestão estratégica de estoque de sobressalentes e suprimentos críticos por curvas de demanda. Implementação, cálculo e análise integrada dos indicadores de desempenho e confiabilidade internacional MTBF (Período Médio Entre Falhas) e MTTR (Tempo Médio de Reparo), assegurando a conformidade operacional perante as Normas Regulamentadoras de segurança do trabalho (NR-1, NR-10, NR-12 e NR-35). A consolidação financeira e de insumos adota as tabelas de composições da plataforma Orçafascio integrada aos painéis analíticos do sistema Predial 4.0, o qual centraliza dados para gerar o cronograma mestre de manutenção, memoriais descritivos de serviços e relatórios de conformidade automatizados por Inteligência Artificial (IA).",
+    "conteudos_programaticos": [
+      "Métodos de estruturação e operação de setores de Planejamento e Controle da Manutenção (PCM).",
+      "Requisitos do sistema de gestão da manutenção de edifícios conforme a ABNT NBR 5674:2024.",
+      "Otimização operacional: modelos de equilíbrio entre manutenções corretivas, preventivas e preditivas.",
+      "Marcos regulatórios de segurança em canteiros e edifícios operacionais (NR-1, NR-10, NR-12 e NR-35).",
+      "Engenharia de suprimentos: gestão de estoques críticos, sobressalentes e análise por curvas ABC.",
+      "Cálculo de indicadores de confiabilidade: MTBF, MTTR, disponibilidade e eficiência de sistemas.",
+      "Painéis analíticos (dashboards) de engenharia e tomada de decisão estratégica baseada em dados.",
+      "Sistemas integrados de auditoria de riscos ocupacionais (PGR) e orçamentação corretiva por IA."
+    ],
+    "atividade_avaliativa": "Entrega final de um Plano de Manutenção Predial Preventivo e Corretivo com Cronograma Geral, Matriz de KPIs (MTBF/MTTR) e Orçamento Automatizado de Serviços, consolidando o fechamento orçamentário via Orçafascio e painel do sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "KARDEC, Alan; NASCIF, Júlio. Manutenção: função estratégica. 5. ed. Rio de Janeiro: Qualitymark, 2019.",
+      "VIANA, Herbert Ricardo Garcia. PCM: planejamento e controle da manutenção. Rio de Janeiro: Qualitymark, 2002.",
+      "BRANCO FILHO, Gil. Indicadores e índices de manutenção. Rio de Janeiro: Ciência Moderna, 2006."
+    ],
+    "bibliografia_complementar": [
+      "XENOS, Harilaus Georgius d'Philippos. Gerenciando a manutenção produtiva. Nova Lima: Falconi, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 55001: Gestão de ativos — Sistemas de gestão — Requisitos. Rio de Janeiro: ABNT, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5674: Manutenção de edificações — Requisitos para o sistema de gestão de manutenção. Rio de Janeiro: ABNT, 2024.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5462: Confiabilidade e mantenabilidade — Terminologia. Rio de Janeiro: ABNT, 1994."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Fundamentos de Neurociência Aplicada à Arquitetura",
+    "numero": "10",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Alicerce teórico do curso: como o ambiente físico altera a estrutura do cérebro a longo prazo. Introdução histórica e científica da neuroarquitetura, neuroplasticidade e epigenética aplicada ao design, anatomia cerebral básica para projetistas (sistema límbico, lobos cerebrais e córtex pré-frontal), neurotransmissores e a relação com a ambiência, e a conexão ancestral do cérebro humano com a ideia de abrigo.",
+    "conteudos_programaticos": [
+      "Introdução histórica e científica da neuroarquitetura.",
+      "Neuroplasticidade e epigenética aplicadas ao design.",
+      "Anatomia cerebral para projetistas: sistema límbico, lobos e córtex pré-frontal.",
+      "Neurotransmissores e sua relação com a ambiência.",
+      "Bases da neuroestética.",
+      "A evolução do cérebro e a conexão ancestral com o abrigo."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "EBERHARD, John P. Brain landscape: the coexistence of neuroscience and architecture. New York: Oxford University Press, 2009.",
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021."
+    ],
+    "bibliografia_complementar": [
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "PALLASMAA, Juhani. Os olhos da pele: a arquitetura e os sentidos. Porto Alegre: Bookman, 2011.",
+      "KAPLAN, Rachel; KAPLAN, Stephen. The experience of nature: a psychological perspective. Cambridge: Cambridge University Press, 1989."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Psicofisiologia do Bem-Estar: Percepção e Comportamento Humano",
+    "numero": "11",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Ciclo completo da experiência do usuário, da captação do estímulo pelos sentidos à reação no ambiente. Bases da psicofisiologia aplicadas ao espaço construído, funcionamento dos sistemas sensoriais (visão, audição, olfato, paladar e sistema háptico), percepção multissensorial e propriocepção, teorias da psicologia ambiental e estudo da proxêmica, da territorialidade e do espaço pessoal.",
+    "conteudos_programaticos": [
+      "Bases da psicofisiologia aplicadas ao espaço construído.",
+      "Sistemas sensoriais: visão, audição, olfato, paladar e tato (háptico).",
+      "Percepção multissensorial e propriocepção.",
+      "Teorias da psicologia ambiental e comportamento.",
+      "Proxêmica, territorialidade e espaço pessoal.",
+      "Estímulos físicos e respostas psicológicas no ambiente."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "PALLASMAA, Juhani. Os olhos da pele: a arquitetura e os sentidos. Porto Alegre: Bookman, 2011.",
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021."
+    ],
+    "bibliografia_complementar": [
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "BECHTEL, Robert B.; CHURCHMAN, Arza (org.). Handbook of environmental psychology. New York: John Wiley & Sons, 2002.",
+      "KAPLAN, Rachel; KAPLAN, Stephen. The experience of nature: a psychological perspective. Cambridge: Cambridge University Press, 1989."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Neuroiluminação e Ritmos Biológicos",
+    "numero": "12",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Impacto da luz natural e artificial na saúde hormonal e no equilíbrio do sono. Fundamentos da cronobiologia e dos ritmos biológicos, o sistema visual humano e as células fotorreceptoras não visuais, o impacto do ciclo circadiano na regulação do cortisol e da melatonina, tecnologias de iluminação centrada no ser humano (Human Centric Lighting) e estratégias de temperatura de cor e intensidade ao longo do dia.",
+    "conteudos_programaticos": [
+      "Cronobiologia e ritmos biológicos.",
+      "Sistema visual humano e fotorreceptores não visuais (ipRGCs).",
+      "Ciclo circadiano e regulação de cortisol e melatonina.",
+      "Iluminação centrada no ser humano (Human Centric Lighting).",
+      "Temperatura de cor e intensidade ao longo do dia.",
+      "Estratégias de iluminação para sono e saúde."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "INTERNATIONAL WELL BUILDING INSTITUTE. The WELL Building Standard. New York: IWBI, 2023.",
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017."
+    ],
+    "bibliografia_complementar": [
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Design Biofílico aplicado em Ambientes Restauradores e Espaços Verdes",
+    "numero": "13",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Uso de elementos da natureza (plantas, água, luz e formas orgânicas) para reduzir o estresse e promover a cura. A hipótese da biofilia e a evolução humana, a Teoria da Restauração da Atenção (ART) aplicada ao design, os 14 padrões do design biofílico, o paisagismo terapêutico e os benefícios psicológicos da conexão com elementos naturais e materiais orgânicos.",
+    "conteudos_programaticos": [
+      "A hipótese da biofilia e a evolução humana.",
+      "Teoria da Restauração da Atenção (ART).",
+      "Os 14 padrões do design biofílico.",
+      "Paisagismo terapêutico e inclusão do verde no interior.",
+      "Materiais orgânicos e conexão com a natureza.",
+      "Ambientes restauradores e redução do estresse."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "KELLERT, Stephen R.; HEERWAGEN, Judith; MADOR, Martin. Biophilic design: the theory, science and practice of bringing buildings to life. Hoboken: Wiley, 2008.",
+      "BROWNING, William; RYAN, Catherine; CLANCY, Joseph. 14 patterns of biophilic design. New York: Terrapin Bright Green, 2014.",
+      "KAPLAN, Rachel; KAPLAN, Stephen. The experience of nature: a psychological perspective. Cambridge: Cambridge University Press, 1989."
+    ],
+    "bibliografia_complementar": [
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "ULRICH, Roger S. View through a window may influence recovery from surgery. Science, v. 224, n. 4647, p. 420-421, 1984.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Neuroarquitetura em Ambientes Residenciais e Comerciais",
+    "numero": "14",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "As duas escalas de maior demanda: o morar emocional e o vender estratégico. O conceito de lar como refúgio biológico, memória afetiva, personalização e identidade no projeto residencial, fundamentos da psicologia do varejo e neuromarketing no ponto de venda, comportamento do consumidor, gatilhos sensoriais e fluxos e layouts comerciais baseados na jornada cognitiva do cliente.",
+    "conteudos_programaticos": [
+      "O lar como refúgio biológico e porto seguro.",
+      "Memória afetiva, personalização e identidade no residencial.",
+      "Psicologia do varejo e neuromarketing no ponto de venda.",
+      "Comportamento do consumidor e gatilhos sensoriais.",
+      "Fluxos e layouts comerciais e jornada cognitiva.",
+      "Ambiência e decisão de compra."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014."
+    ],
+    "bibliografia_complementar": [
+      "PALLASMAA, Juhani. Os olhos da pele: a arquitetura e os sentidos. Porto Alegre: Bookman, 2011.",
+      "LINDSTROM, Martin. A lógica do consumo: verdades e mentiras sobre por que compramos. Rio de Janeiro: Nova Fronteira, 2009.",
+      "BECHTEL, Robert B.; CHURCHMAN, Arza (org.). Handbook of environmental psychology. New York: John Wiley & Sons, 2002."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Neuroarquitetura e Neuroergonomia em Ambientes de Trabalho e Corporativos",
+    "numero": "15",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Escritórios e áreas de produção sob a ótica da performance cerebral e da saúde ocupacional. Fundamentos da neuroergonomia física e cognitiva, gestão da carga mental e estímulo à produtividade saudável, design para o estado de fluxo (flow), criação de ambientes de foco, estratégias para colaboração e inovação e prevenção do estresse ocupacional e do burnout por meio do design.",
+    "conteudos_programaticos": [
+      "Neuroergonomia física e cognitiva.",
+      "Gestão da carga cognitiva e produtividade saudável.",
+      "Design para o estado de fluxo (flow) e ambientes de foco.",
+      "Estratégias espaciais para colaboração e inovação.",
+      "Prevenção do estresse ocupacional e do burnout.",
+      "Conforto ambiental e desempenho no trabalho."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "INTERNATIONAL WELL BUILDING INSTITUTE. The WELL Building Standard. New York: IWBI, 2023."
+    ],
+    "bibliografia_complementar": [
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021.",
+      "PALLASMAA, Juhani. Os olhos da pele: a arquitetura e os sentidos. Porto Alegre: Bookman, 2011.",
+      "BECHTEL, Robert B.; CHURCHMAN, Arza (org.). Handbook of environmental psychology. New York: John Wiley & Sons, 2002."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Neuroarquitetura em Ambientes de Saúde (Healthcare) e Aprendizado",
+    "numero": "16",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Projetos críticos em hospitais, clínicas, escolas e universidades. Ambientes restauradores em contextos hospitalares (Healing Environments), neurociência aplicada aos processos de aprendizado e retenção de memória, gestão da atenção seletiva no design de salas de aula, design inclusivo focado na neurodiversidade (TEA, TDAH) e o impacto das variáveis ambientais no desenvolvimento cognitivo infantil.",
+    "conteudos_programaticos": [
+      "Ambientes que curam (Healing Environments).",
+      "Neurociência do aprendizado e retenção de memória.",
+      "Atenção seletiva e design de salas de aula.",
+      "Design inclusivo e neurodiversidade (TEA, TDAH).",
+      "Variáveis ambientais e desenvolvimento cognitivo infantil.",
+      "Evidências em ambientes hospitalares e educacionais."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "ULRICH, Roger S. View through a window may influence recovery from surgery. Science, v. 224, n. 4647, p. 420-421, 1984.",
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017.",
+      "KELLERT, Stephen R.; HEERWAGEN, Judith; MADOR, Martin. Biophilic design: the theory, science and practice of bringing buildings to life. Hoboken: Wiley, 2008."
+    ],
+    "bibliografia_complementar": [
+      "KAPLAN, Rachel; KAPLAN, Stephen. The experience of nature: a psychological perspective. Cambridge: Cambridge University Press, 1989.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Neurourbanismo e a Experiência da Cidade",
+    "numero": "17",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Transição da escala do edifício para a da rua, do bairro e do planejamento urbano. Percepção urbana e o impacto do estresse nas metrópoles, conceitos de caminhabilidade (walkability) e coerência espacial, neurociência aplicada ao planejamento de espaços públicos, a relação entre densidade, espaços de lazer e saúde mental coletiva e estratégias de design para cidades mais humanas e seguras.",
+    "conteudos_programaticos": [
+      "Percepção urbana e estresse nas metrópoles.",
+      "Caminhabilidade (walkability) e coerência espacial.",
+      "Neurociência aplicada aos espaços públicos.",
+      "Densidade urbana, lazer e saúde mental coletiva.",
+      "Design para cidades humanas e seguras.",
+      "Experiência sensorial e interação social na cidade."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "MONTGOMERY, Charles. Cidade feliz: transformando nossas vidas por meio do desenho urbano. São Paulo: Manole, 2018.",
+      "GEHL, Jan. Cidades para pessoas. 3. ed. São Paulo: Perspectiva, 2015.",
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017."
+    ],
+    "bibliografia_complementar": [
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "KAPLAN, Rachel; KAPLAN, Stephen. The experience of nature: a psychological perspective. Cambridge: Cambridge University Press, 1989."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Neuroarquitetura",
+    "disciplina": "Tecnologias de Monitoramento e Avaliação Pós-Ocupação para Resultados",
+    "numero": "18",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Validação científica do projeto por meio de tecnologia para medir se o espaço entrega o que prometeu. Métodos de pesquisa baseados em evidências, uso de ferramentas biométricas (EEG, eye tracking e sensores de resposta galvânica), softwares de simulação ambiental e mapas de calor, metodologias práticas de Avaliação Pós-Ocupação (APO) e cálculo e apresentação do Retorno sobre Investimento (ROI) de projetos baseados em neurociência.",
+    "conteudos_programaticos": [
+      "Pesquisa baseada em evidências na arquitetura (EBD).",
+      "Ferramentas biométricas: EEG, eye tracking e resposta galvânica.",
+      "Softwares de simulação ambiental e mapas de calor.",
+      "Metodologias de Avaliação Pós-Ocupação (APO).",
+      "Indicadores e Retorno sobre Investimento (ROI) em design.",
+      "Tradução de dados em argumento de projeto."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "SUSSMAN, Ann; HOLLANDER, Justin B. Cognitive architecture: designing for how we respond to the built environment. 2nd ed. New York: Routledge, 2021.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014.",
+      "GOLDHAGEN, Sarah Williams. Welcome to your world: how the built environment shapes our lives. New York: Harper, 2017."
+    ],
+    "bibliografia_complementar": [
+      "BECHTEL, Robert B.; CHURCHMAN, Arza (org.). Handbook of environmental psychology. New York: John Wiley & Sons, 2002.",
+      "INTERNATIONAL WELL BUILDING INSTITUTE. The WELL Building Standard. New York: IWBI, 2023.",
+      "ULRICH, Roger S. View through a window may influence recovery from surgery. Science, v. 224, n. 4647, p. 420-421, 1984."
+    ],
+    "curso_alvo": "Neuroarquitetura"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Fundamentos de Acústica: Física do Som, Gráficos e Normas de Desempenho",
+    "numero": "10",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Ponto de partida técnico do curso: fenômenos físicos do som, grandezas e unidades de medida acústica e introdução ao projeto gráfico acústico. Estudo das normas brasileiras de desempenho e de ruído ambiental — ABNT NBR 10151 e NBR 10152 — e das ferramentas de medição inicial, nivelando o conhecimento físico e normativo para uma linguagem técnica comum.",
+    "conteudos_programaticos": [
+      "Fenômenos físicos do som: ondas, frequência e propagação.",
+      "Grandezas e unidades acústicas; o decibel (dB).",
+      "Introdução ao projeto gráfico acústico.",
+      "Avaliação de ruído em áreas habitadas (ABNT NBR 10151:2019).",
+      "Níveis de ruído para conforto acústico (ABNT NBR 10152:2017).",
+      "Ferramentas e procedimentos de medição inicial."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "BISTAFA, Sylvio R. Acústica aplicada ao controle do ruído. 2. ed. São Paulo: Blucher, 2011.",
+      "CARVALHO, Régio Paniago. Acústica arquitetônica. 2. ed. Brasília: Thesaurus, 2010.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10151: Acústica — Medição e avaliação de níveis de pressão sonora em áreas habitadas. Rio de Janeiro: ABNT, 2019."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10152: Acústica — Níveis de pressão sonora em ambientes internos a edificações. Rio de Janeiro: ABNT, 2017.",
+      "MEHTA, Madan; JOHNSON, Jim; ROCAFORT, Jorge. Architectural acoustics: principles and design. Upper Saddle River: Prentice Hall, 1999.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15575: Edificações habitacionais — Desempenho (desempenho acústico). Rio de Janeiro: ABNT, 2013 (Emenda 1:2021)."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Fundamentos de Iluminação: Teoria da Luz, Eficiência e Normatização",
+    "numero": "11",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Nivelamento sobre a ciência da luz: radiação eletromagnética e espectro visível, fotometria (fluxo, intensidade e iluminância) e tecnologias de fontes de luz e sistemas de controle. Estudo da norma de iluminação de ambientes de trabalho (ABNT NBR ISO/CIE 8995-1) e dos critérios de eficiência energética, capacitando a escolha técnica de lâmpadas e luminárias com base em conforto e desempenho.",
+    "conteudos_programaticos": [
+      "Radiação eletromagnética e espectro visível.",
+      "Fotometria: fluxo luminoso, intensidade, iluminância e luminância.",
+      "Tecnologias de fontes de luz (LED) e sistemas de controle.",
+      "Iluminação de ambientes de trabalho (ABNT NBR ISO/CIE 8995-1:2013).",
+      "Conforto visual e índice de reprodução de cor.",
+      "Critérios de eficiência energética em iluminação."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "MOREIRA, Vinícius de Araújo. Iluminação elétrica. São Paulo: Edgard Blücher, 1999.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013."
+    ],
+    "bibliografia_complementar": [
+      "COSTA, Gilberto José Corrêa da. Iluminação econômica: cálculo e avaliação. 4. ed. Porto Alegre: EDIPUCRS, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5101: Iluminação pública — Procedimento. Rio de Janeiro: ABNT, 2018.",
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Acústica Arquitetônica para Ambientes de Convivência, Hospitalidade e Trabalho",
+    "numero": "12",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Acústica organizada por tipologia de uso — residências, comércio, escolas, escritórios, bibliotecas, hotéis e hospitais — com foco em privacidade, concentração e redução do ruído de fundo. Isolamento entre unidades residenciais (ABNT NBR 15575), inteligibilidade da fala em salas de aula e bibliotecas, tratamento sonoro em hotéis e hospitais e controle de ruído em escritórios abertos.",
+    "conteudos_programaticos": [
+      "Isolamento sonoro entre unidades residenciais (ABNT NBR 15575).",
+      "Inteligibilidade da fala em salas de aula e bibliotecas.",
+      "Tratamento acústico de hotéis e hospitais para repouso.",
+      "Controle do ruído de fundo em escritórios abertos.",
+      "Privacidade acústica e condicionamento de ambientes.",
+      "Materiais absorventes e índices de desempenho."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CARVALHO, Régio Paniago. Acústica arquitetônica. 2. ed. Brasília: Thesaurus, 2010.",
+      "BISTAFA, Sylvio R. Acústica aplicada ao controle do ruído. 2. ed. São Paulo: Blucher, 2011.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15575: Edificações habitacionais — Desempenho (desempenho acústico). Rio de Janeiro: ABNT, 2013 (Emenda 1:2021)."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10152: Acústica — Níveis de pressão sonora em ambientes internos a edificações. Rio de Janeiro: ABNT, 2017.",
+      "MEHTA, Madan; JOHNSON, Jim; ROCAFORT, Jorge. Architectural acoustics: principles and design. Upper Saddle River: Prentice Hall, 1999.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10151: Acústica — Medição e avaliação de níveis de pressão sonora em áreas habitadas. Rio de Janeiro: ABNT, 2019."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Luminotécnica para Ambientes de Convivência, Hospitalidade e Trabalho",
+    "numero": "13",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Iluminação funcional e bem-estar em residências, escolas, hospitais e escritórios. Integração da luz natural com a artificial, iluminação para recuperação em ambientes de saúde, cenografia de luz para hotéis e residências e iluminação para foco e funcionalidade em ambientes educacionais e corporativos, em conformidade com a ABNT NBR ISO/CIE 8995-1.",
+    "conteudos_programaticos": [
+      "Iluminação funcional para escritórios e escolas (NBR ISO/CIE 8995-1).",
+      "Luz e bem-estar em ambientes de saúde.",
+      "Integração entre luz natural e artificial.",
+      "Cenografia de luz para hotéis e residências.",
+      "Conforto visual, ofuscamento e uniformidade.",
+      "Eficiência e controle em ambientes de convivência."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013.",
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015."
+    ],
+    "bibliografia_complementar": [
+      "MOREIRA, Vinícius de Araújo. Iluminação elétrica. São Paulo: Edgard Blücher, 1999.",
+      "COSTA, Gilberto José Corrêa da. Iluminação econômica: cálculo e avaliação. 4. ed. Porto Alegre: EDIPUCRS, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5101: Iluminação pública — Procedimento. Rio de Janeiro: ABNT, 2018."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Acústica Arquitetônica para Ambientes de Performance e Eventos",
+    "numero": "14",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Tipologias de alta complexidade — estúdios, teatros, cinemas, salões de festa, restaurantes, boates e igrejas — com foco em qualidade sonora extrema, controle de reflexões e contenção de ruído para o exterior. Tempo de reverberação para música e fala, acústica de templos e salões, isolamento pesado para boates e estúdios e uso de materiais absorventes e difusores.",
+    "conteudos_programaticos": [
+      "Tempo de reverberação para música e fala.",
+      "Acústica de teatros, cinemas e templos religiosos.",
+      "Isolamento pesado para boates e estúdios.",
+      "Controle de reflexões e tratamento de superfícies.",
+      "Materiais absorventes e difusores acústicos.",
+      "Contenção de ruído para o exterior."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CARVALHO, Régio Paniago. Acústica arquitetônica. 2. ed. Brasília: Thesaurus, 2010.",
+      "MEHTA, Madan; JOHNSON, Jim; ROCAFORT, Jorge. Architectural acoustics: principles and design. Upper Saddle River: Prentice Hall, 1999.",
+      "BISTAFA, Sylvio R. Acústica aplicada ao controle do ruído. 2. ed. São Paulo: Blucher, 2011."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10152: Acústica — Níveis de pressão sonora em ambientes internos a edificações. Rio de Janeiro: ABNT, 2017.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15575: Edificações habitacionais — Desempenho (desempenho acústico). Rio de Janeiro: ABNT, 2013 (Emenda 1:2021).",
+      "SCHAFER, R. Murray. A afinação do mundo. São Paulo: Editora Unesp, 2001."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Luminotécnica para Ambientes de Performance e Eventos",
+    "numero": "15",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Iluminação voltada à emoção, à dramaturgia e à ambiência em teatros, boates, restaurantes e templos religiosos. Iluminação cênica, uso de cores e contrastes para criar atmosferas de impacto e sistemas de automação para eventos, dominando a luz como elemento de ambientação e impacto psicológico.",
+    "conteudos_programaticos": [
+      "Iluminação cênica para teatros e igrejas.",
+      "Luz para gastronomia e entretenimento noturno.",
+      "Cor, contraste e temperatura de cor na criação de atmosferas.",
+      "Sistemas de automação e controle (DMX) para eventos.",
+      "Equipamentos e projetores cênicos.",
+      "Luz como elemento de dramaturgia e impacto."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015.",
+      "MOREIRA, Vinícius de Araújo. Iluminação elétrica. São Paulo: Edgard Blücher, 1999."
+    ],
+    "bibliografia_complementar": [
+      "COSTA, Gilberto José Corrêa da. Iluminação econômica: cálculo e avaliação. 4. ed. Porto Alegre: EDIPUCRS, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5101: Iluminação pública — Procedimento. Rio de Janeiro: ABNT, 2018."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Engenharia Acústica para Grandes Ambientes e Complexos",
+    "numero": "16",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Acústica de grandes ambientes — estádios, quadras, galpões e indústrias — com foco no controle de grandes volumes sonoros, na saúde ocupacional e na inteligibilidade em espaços vastos. Acústica industrial e controle de ruído em máquinas, soluções para grandes vãos, propagação sonora em grandes volumes, proteção auricular e normas de higiene ocupacional (NR-15).",
+    "conteudos_programaticos": [
+      "Acústica industrial e controle de ruído em máquinas.",
+      "Propagação sonora em espaços de grande volume.",
+      "Soluções acústicas para estádios, ginásios e galpões.",
+      "Saúde ocupacional e exposição ao ruído (NR-15).",
+      "Inteligibilidade em grandes ambientes e sistemas de som.",
+      "Proteção auricular e higiene ocupacional."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "BISTAFA, Sylvio R. Acústica aplicada ao controle do ruído. 2. ed. São Paulo: Blucher, 2011.",
+      "CARVALHO, Régio Paniago. Acústica arquitetônica. 2. ed. Brasília: Thesaurus, 2010.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10152: Acústica — Níveis de pressão sonora em ambientes internos a edificações. Rio de Janeiro: ABNT, 2017."
+    ],
+    "bibliografia_complementar": [
+      "BRASIL. Ministério do Trabalho e Emprego. NR-15: Atividades e operações insalubres — Anexos 1 e 2 (ruído). Brasília, DF.",
+      "MEHTA, Madan; JOHNSON, Jim; ROCAFORT, Jorge. Architectural acoustics: principles and design. Upper Saddle River: Prentice Hall, 1999.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10151: Acústica — Medição e avaliação de níveis de pressão sonora em áreas habitadas. Rio de Janeiro: ABNT, 2019."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Iluminação Externa: Jardins, Praças e Patrimônio Histórico",
+    "numero": "17",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Iluminação aplicada ao paisagismo e à valorização de fachadas de valor histórico, com técnicas de up light e down light. Iluminação de vegetação e caminhos, valorização arquitetônica de monumentos, especificação de projetores e índices de proteção (IP) e efeitos de sombra e volume em fachadas, unindo segurança, beleza e preservação da identidade histórica.",
+    "conteudos_programaticos": [
+      "Técnicas de iluminação de vegetação, caminhos e jardins.",
+      "Up light, down light e efeitos de sombra e volume.",
+      "Valorização arquitetônica de monumentos e fachadas históricas.",
+      "Especificação de projetores e índices de proteção (IP).",
+      "Segurança e ambiência em espaços abertos.",
+      "Preservação da identidade histórica por meio da luz."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015.",
+      "COSTA, Gilberto José Corrêa da. Iluminação econômica: cálculo e avaliação. 4. ed. Porto Alegre: EDIPUCRS, 2006."
+    ],
+    "bibliografia_complementar": [
+      "MOREIRA, Vinícius de Araújo. Iluminação elétrica. São Paulo: Edgard Blücher, 1999.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5101: Iluminação pública — Procedimento. Rio de Janeiro: ABNT, 2018.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Acústica Arquitetônica e Iluminação",
+    "disciplina": "Acústica e Iluminação na Escala da Cidade",
+    "numero": "18",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Fechamento do núcleo técnico com a visão macro da cidade: poluição sensorial e qualidade de vida urbana. Elaboração de mapas de ruído para gestão urbana, barreiras acústicas em rodovias e ferrovias, iluminação pública focada no pedestre e na segurança (caminhabilidade) e impactos da poluição luminosa e sonora no ecossistema urbano, conforme a ABNT NBR 5101.",
+    "conteudos_programaticos": [
+      "Mapas de ruído e gestão sonora urbana.",
+      "Barreiras acústicas em rodovias e ferrovias.",
+      "Iluminação pública e caminhabilidade (ABNT NBR 5101:2018).",
+      "Segurança do pedestre por meio da luz.",
+      "Poluição luminosa e sonora no ecossistema urbano.",
+      "Conforto ambiental urbano e qualidade de vida."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5101: Iluminação pública — Procedimento. Rio de Janeiro: ABNT, 2018.",
+      "BISTAFA, Sylvio R. Acústica aplicada ao controle do ruído. 2. ed. São Paulo: Blucher, 2011.",
+      "SCHAFER, R. Murray. A afinação do mundo. São Paulo: Editora Unesp, 2001."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 10151: Acústica — Medição e avaliação de níveis de pressão sonora em áreas habitadas. Rio de Janeiro: ABNT, 2019.",
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "CARVALHO, Régio Paniago. Acústica arquitetônica. 2. ed. Brasília: Thesaurus, 2010."
+    ],
+    "curso_alvo": "Acústica Arquitetônica e Iluminação"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Design de Superfícies",
+    "numero": "10",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Curadoria estratégica de materiais e acabamentos que definem a identidade visual e tátil do espaço contemporâneo. Estudo técnico de revestimentos inovadores, com exploração de texturas e propriedades físicas que elevam a sofisticação dos projetos. Capacita o profissional para especificações de alto impacto estético e durabilidade, fazendo das superfícies elementos narrativos no design autoral.",
+    "conteudos_programaticos": [
+      "Curadoria de materiais e acabamentos no projeto contemporâneo.",
+      "Revestimentos inovadores: tipologias e aplicações.",
+      "Texturas, cor e propriedades físicas dos materiais.",
+      "Desempenho e durabilidade de superfícies.",
+      "Especificação técnica e compatibilização de acabamentos.",
+      "As superfícies como elementos narrativos do design autoral."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013.",
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017.",
+      "PEDROSA, Israel. Da cor à cor inexistente. Rio de Janeiro: Editora Senac Nacional, 2009."
+    ],
+    "bibliografia_complementar": [
+      "GIBBS, Jenny. Design de interiores: guia útil para estudantes e profissionais. Barcelona: Editorial Gustavo Gili, 2010.",
+      "NEUFERT, Ernst. Arte de projetar em arquitetura. 18. ed. Barcelona: Editorial Gustavo Gili, 2013.",
+      "BROOKER, Graeme; STONE, Sally. O que é design de interiores? São Paulo: Editora Senac São Paulo, 2014."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Iluminação de Interiores: Comerciais e Residenciais",
+    "numero": "11",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "A luz como matéria-prima para a criação de cenografias e do conforto visual em diferentes escalas. Uso estratégico da luminotécnica para valorizar detalhes arquitetônicos e influenciar a percepção emocional dos ambientes, integrando luz natural e artificial em sistemas funcionais e decorativos para espaços comerciais e moradias de alto padrão, em conformidade com a ABNT NBR ISO/CIE 8995-1.",
+    "conteudos_programaticos": [
+      "Grandezas fotométricas e conforto visual.",
+      "Luz natural e artificial: integração e controle.",
+      "Iluminação funcional e decorativa em interiores.",
+      "Valorização de detalhes arquitetônicos pela luz.",
+      "Temperatura de cor e percepção emocional dos ambientes.",
+      "Iluminação de ambientes de trabalho (ABNT NBR ISO/CIE 8995-1:2013)."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "VIANNA, Nelson Solano; GONÇALVES, Joana Carla Soares. Iluminação e arquitetura. 3. ed. São Paulo: Geros, 2007.",
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013."
+    ],
+    "bibliografia_complementar": [
+      "MOREIRA, Vinícius de Araújo. Iluminação elétrica. São Paulo: Edgard Blücher, 1999.",
+      "COSTA, Gilberto José Corrêa da. Iluminação econômica: cálculo e avaliação. 4. ed. Porto Alegre: EDIPUCRS, 2006.",
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Automação, Internet das Coisas e Eficiência dos Ambientes de Interiores",
+    "numero": "12",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Convergência entre tecnologia e design para projetar ambientes inteligentes e conectados. Implementação de sistemas de automação e Internet das Coisas (IoT) que otimizam a operação do espaço e ampliam a conveniência do usuário, com especificação de soluções que garantam a eficiência energética e a modernidade em projetos residenciais e corporativos de vanguarda.",
+    "conteudos_programaticos": [
+      "Fundamentos de automação residencial e predial.",
+      "Internet das Coisas (IoT) aplicada aos interiores.",
+      "Integração de sistemas: iluminação, climatização e segurança.",
+      "Infraestrutura e instalações para automação (ABNT NBR 5410).",
+      "Eficiência energética e conforto operacional.",
+      "Conveniência do usuário e cenários inteligentes."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "BOLZANI, Caio Augustus Morais. Residências inteligentes. São Paulo: Editora Livraria da Física, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5410: Instalações elétricas de baixa tensão. Rio de Janeiro: ABNT, 2004 (Versão Corrigida 2008).",
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013."
+    ],
+    "bibliografia_complementar": [
+      "GORDON, Gary. Interior lighting for designers. 5th ed. Hoboken: Wiley, 2015.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO/CIE 8995-1: Iluminação de ambientes de trabalho — Parte 1: Interior. Rio de Janeiro: ABNT, 2013.",
+      "GIBBS, Jenny. Design de interiores: guia útil para estudantes e profissionais. Barcelona: Editorial Gustavo Gili, 2010."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Inclusão e Ergonomia",
+    "numero": "13",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Projeto centrado no ser humano, respeitando a diversidade de corpos e necessidades. Integra ergonomia física e desenho universal para garantir que o design contemporâneo seja acessível, seguro e confortável para todos, transformando a conformidade técnica (ABNT NBR 9050) em diferencial competitivo e promovendo autonomia e bem-estar sem comprometer a estética autoral.",
+    "conteudos_programaticos": [
+      "Ergonomia física aplicada aos espaços de interiores.",
+      "Antropometria e dimensionamento humano dos ambientes.",
+      "Desenho universal e princípios da inclusão.",
+      "Acessibilidade em edificações (ABNT NBR 9050:2020).",
+      "Segurança, conforto e autonomia do usuário.",
+      "Conformidade técnica como diferencial competitivo."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "PANERO, Julius; ZELNIK, Martin. Dimensionamento humano para espaços interiores. Barcelona: Editorial Gustavo Gili, 2002.",
+      "IIDA, Itiro. Ergonomia: projeto e produção. 2. ed. São Paulo: Edgard Blücher, 2005.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 9050: Acessibilidade a edificações, mobiliário, espaços e equipamentos urbanos. Rio de Janeiro: ABNT, 2020."
+    ],
+    "bibliografia_complementar": [
+      "GRANDJEAN, Etienne. Manual de ergonomia: adaptando o trabalho ao homem. 4. ed. Porto Alegre: Bookman, 1998.",
+      "NEUFERT, Ernst. Arte de projetar em arquitetura. 18. ed. Barcelona: Editorial Gustavo Gili, 2013.",
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Antropologia do Espaço",
+    "numero": "14",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Dinâmicas sociais e comportamentais que regem a ocupação dos ambientes construídos. Explora como a cultura e os hábitos influenciam o design, fundamentando o projeto em evidências antropológicas (Evidence Based Design) para criar espaços com maior significado e conexão com o usuário, verdadeiramente assertivos e acolhedores.",
+    "conteudos_programaticos": [
+      "Cultura, hábitos e ocupação do espaço construído.",
+      "Proxêmica, territorialidade e comportamento.",
+      "A casa e o significado do habitar.",
+      "Evidence Based Design aplicado aos interiores.",
+      "Percepção, identidade e apropriação dos ambientes.",
+      "Projeto fundamentado em evidências antropológicas."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "HALL, Edward T. A dimensão oculta. São Paulo: Martins Fontes, 2005.",
+      "RYBCZYNSKI, Witold. Casa: pequena história de uma ideia. Rio de Janeiro: Record, 1996.",
+      "GIFFORD, Robert. Environmental psychology: principles and practice. 5th ed. Colville: Optimal Books, 2014."
+    ],
+    "bibliografia_complementar": [
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017.",
+      "BROOKER, Graeme; STONE, Sally. O que é design de interiores? São Paulo: Editora Senac São Paulo, 2014.",
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Design do Mobiliário",
+    "numero": "15",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Criação e detalhamento técnico de móveis que unem forma, função e exclusividade. Da escolha de materiais às técnicas de fabricação e marcenaria fina aplicada ao mobiliário autoral, capacitando o aluno a projetar peças personalizadas que atendam a demandas específicas de layout, agregando valor artístico e funcional aos projetos de interiores.",
+    "conteudos_programaticos": [
+      "História e linguagem do design de mobiliário.",
+      "Materiais e técnicas de fabricação e marcenaria fina.",
+      "Ergonomia e dimensionamento aplicados ao móvel.",
+      "Detalhamento técnico e desenho de mobiliário.",
+      "Mobiliário autoral e personalização para layout.",
+      "Valor artístico e funcional da peça de interiores."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013.",
+      "PANERO, Julius; ZELNIK, Martin. Dimensionamento humano para espaços interiores. Barcelona: Editorial Gustavo Gili, 2002.",
+      "NEUFERT, Ernst. Arte de projetar em arquitetura. 18. ed. Barcelona: Editorial Gustavo Gili, 2013."
+    ],
+    "bibliografia_complementar": [
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017.",
+      "IIDA, Itiro. Ergonomia: projeto e produção. 2. ed. São Paulo: Edgard Blücher, 2005.",
+      "GIBBS, Jenny. Design de interiores: guia útil para estudantes e profissionais. Barcelona: Editorial Gustavo Gili, 2010."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Design Técnico para Ambientes Residenciais",
+    "numero": "16",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Tipologia do morar contemporâneo, com foco na criação de lares que funcionem como refúgios de identidade e conforto. Aborda as novas necessidades domésticas, integrando áreas de convivência e espaços de trabalho residencial com fluidez, para entregar residências que reflitam o estilo de vida do cliente com alta percepção de valor e sofisticação técnica.",
+    "conteudos_programaticos": [
+      "Programa de necessidades do morar contemporâneo.",
+      "Setorização, fluxos e integração de ambientes.",
+      "Áreas de convivência e trabalho residencial (home office).",
+      "Conforto ambiental e identidade no projeto residencial.",
+      "Detalhamento técnico e especificação para obra.",
+      "Percepção de valor e sofisticação no projeto autoral."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013.",
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017.",
+      "NEUFERT, Ernst. Arte de projetar em arquitetura. 18. ed. Barcelona: Editorial Gustavo Gili, 2013."
+    ],
+    "bibliografia_complementar": [
+      "PANERO, Julius; ZELNIK, Martin. Dimensionamento humano para espaços interiores. Barcelona: Editorial Gustavo Gili, 2002.",
+      "GIBBS, Jenny. Design de interiores: guia útil para estudantes e profissionais. Barcelona: Editorial Gustavo Gili, 2010.",
+      "RYBCZYNSKI, Witold. Casa: pequena história de uma ideia. Rio de Janeiro: Record, 1996."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Design Aplicado para Ambientes Comerciais e Corporativos",
+    "numero": "17",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Estratégia espacial voltada à produtividade e à experiência de consumo. Explora como o layout e o design guiam comportamentos, incentivam a colaboração e fortalecem a identidade de marcas em pontos de venda e escritórios modernos, projetando ambientes que potencializem resultados comerciais e promovam uma cultura corporativa saudável e inovadora.",
+    "conteudos_programaticos": [
+      "Layout e fluxos em ambientes comerciais e corporativos.",
+      "Experiência de consumo e jornada do cliente no varejo.",
+      "Identidade de marca e ambientação (branding espacial).",
+      "Ambientes de trabalho: colaboração, foco e bem-estar.",
+      "Ergonomia e conforto no espaço corporativo.",
+      "Estratégia espacial e resultados de negócio."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013.",
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017.",
+      "PANERO, Julius; ZELNIK, Martin. Dimensionamento humano para espaços interiores. Barcelona: Editorial Gustavo Gili, 2002."
+    ],
+    "bibliografia_complementar": [
+      "BROOKER, Graeme; STONE, Sally. O que é design de interiores? São Paulo: Editora Senac São Paulo, 2014.",
+      "IIDA, Itiro. Ergonomia: projeto e produção. 2. ed. São Paulo: Edgard Blücher, 2005.",
+      "GIBBS, Jenny. Design de interiores: guia útil para estudantes e profissionais. Barcelona: Editorial Gustavo Gili, 2010."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  },
+  {
+    "programa": "Especialização em Design de Interiores Contemporâneo",
+    "disciplina": "Design de Interiores para o Mercado de Luxo",
+    "numero": "18",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Núcleo do Curso)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Consolidação da visão estratégica com foco no atendimento e na curadoria para nichos de altíssimo padrão. Detalha as particularidades do mercado premium, onde o luxo se manifesta na discrição, na exclusividade e na perfeição dos detalhes, preparando o aluno para lidar com orçamentos de alto ticket e entregar projetos autorais no topo da pirâmide de valor do design contemporâneo.",
+    "conteudos_programaticos": [
+      "O conceito de luxo e o mercado premium contemporâneo.",
+      "Curadoria, exclusividade e perfeição dos detalhes.",
+      "Atendimento e relacionamento com o cliente de alto padrão.",
+      "Gestão de projetos de alto ticket e orçamento premium.",
+      "Materiais, acabamentos e fornecedores de luxo.",
+      "Posicionamento autoral no topo da cadeia de valor."
+    ],
+    "atividade_avaliativa": "não especificada no plano do curso — definir e solicitar ao professor titular da disciplina.",
+    "bibliografia_basica": [
+      "LIPOVETSKY, Gilles; ROUX, Elyette. O luxo eterno: da idade do sagrado ao tempo das marcas. São Paulo: Companhia das Letras, 2005.",
+      "D'ANGELO, André Cauduro. Precisar, não precisa: um olhar sobre o consumo de luxo no Brasil. São Paulo: Lazuli Editora, 2006.",
+      "GURGEL, Miriam. Projetando espaços: guia de arquitetura de interiores para áreas residenciais. 5. ed. São Paulo: Editora Senac São Paulo, 2017."
+    ],
+    "bibliografia_complementar": [
+      "CHING, Francis D. K.; BINGGELI, Corky. Arquitetura de interiores ilustrada. 3. ed. Porto Alegre: Bookman, 2013.",
+      "BROOKER, Graeme; STONE, Sally. O que é design de interiores? São Paulo: Editora Senac São Paulo, 2014.",
+      "PEDROSA, Israel. Da cor à cor inexistente. Rio de Janeiro: Editora Senac Nacional, 2009."
+    ],
+    "curso_alvo": "Design de Interiores Contemporâneo"
+  }
+]

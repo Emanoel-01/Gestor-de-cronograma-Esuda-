@@ -1,0 +1,927 @@
+[
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "BIM Conceituação Básica do Planejamento ao Pós-Obra",
+    "numero": "1",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Introdução e fundamentação do ecossistema BIM (Building Information Modeling) ao longo de todo o ciclo de vida da edificação. Compreensão conceitual e prática dos fluxos de trabalho integrados, partindo do planejamento macro (BIM 4D), passando pela orçamentação (BIM 5D) e pela sustentabilidade (BIM 6D), até a operação de ativos e a manutenção no pós-obra (BIM 7D). Alinhamento de visões estratégicas para capacitar o coordenador a liderar a transição digital na construção civil, à luz da ABNT NBR ISO 19650 e da Estratégia BIM BR (Decreto nº 11.888/2024). O ensino integra ferramentas de Inteligência Artificial (IA) para a análise conceitual e o mapeamento de escopo técnico.",
+    "conteudos_programaticos": [
+      "Conceito de BIM e o ciclo de vida do empreendimento.",
+      "Dimensões do BIM: do 3D ao 7D (planejamento, custo, sustentabilidade e operação).",
+      "Níveis de maturidade BIM e usos do modelo (BIM uses).",
+      "Marco normativo e estratégico: ABNT NBR ISO 19650 e Estratégia BIM BR (Decreto nº 11.888/2024).",
+      "Fluxos de trabalho integrados e papéis na coordenação BIM.",
+      "Requisitos de informação (EIR, OIR e AIR) e mapeamento de escopo.",
+      "Gestão da transição digital em escritórios e construtoras.",
+      "Análise conceitual e mapeamento de escopo assistidos por IA."
+    ],
+    "atividade_avaliativa": "Desenvolvimento de uma Matriz de Alinhamento de Ciclo de Vida e de um Plano de Diretrizes BIM para Empreendimentos, com análise conceitual e mapeamento de escopo assistidos por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022.",
+      "BRASIL. Decreto nº 11.888, de 22 de janeiro de 2024. Institui a Estratégia Nacional de Disseminação do BIM no Brasil (Estratégia BIM BR). Brasília, DF, 2024."
+    ],
+    "bibliografia_complementar": [
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016.",
+      "KASSEM, Mohamad; AMORIM, Sérgio R. Leusin de. BIM Building Information Modeling no Brasil e na União Europeia. Brasília: Diálogos Setoriais Brasil–União Europeia, 2015.",
+      "AGÊNCIA BRASILEIRA DE DESENVOLVIMENTO INDUSTRIAL (ABDI). Guia BIM ABDI-MDIC: coletânea de guias BIM. Brasília: ABDI, 2017."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Modelagem Arquitetônica",
+    "numero": "2",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Domínio completo do fluxo de trabalho BIM direcionado ao desenvolvimento de projetos arquitetônicos estratégicos. Critérios para a criação, a padronização e a gestão de bibliotecas e templates corporativos. Definição e aplicação prática dos requisitos de Nível de Desenvolvimento (LOD) 200 e 300, com foco na extração automatizada de documentação técnica rigorosa para processos de licenciamento, aprovação municipal e execução de obras. A prática utiliza softwares líderes de modelagem de mercado (como Revit ou Archicad) e recursos de Inteligência Artificial (IA) para a checagem automatizada de regras de códigos de obras no modelo.",
+    "conteudos_programaticos": [
+      "Fluxo de trabalho BIM aplicado ao projeto arquitetônico.",
+      "Convenções e padrões de modelagem e organização de vistas.",
+      "Criação e gestão de bibliotecas e templates corporativos.",
+      "Níveis de Desenvolvimento (LOD) 200 e 300 e seus requisitos.",
+      "Parametrização geométrica inicial e modelagem de elementos arquitetônicos.",
+      "Extração automatizada de documentação técnica e pranchas.",
+      "Documentação para licenciamento e aprovação municipal.",
+      "Checagem automatizada de regras de códigos de obras por IA."
+    ],
+    "atividade_avaliativa": "Entrega de um Template BIM Corporativo configurado e da Documentação Técnica de Projeto para Licenciamento (LOD 300), com checagem automatizada de regras por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016.",
+      "BIMFORUM. Level of Development (LOD) Specification: guia para especificação do nível de desenvolvimento de modelos BIM. [S.l.]: BIMForum, 2023."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022.",
+      "AGÊNCIA BRASILEIRA DE DESENVOLVIMENTO INDUSTRIAL (ABDI). Guia BIM ABDI-MDIC: coletânea de guias BIM. Brasília: ABDI, 2017.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16636-1 e NBR 16636-2: Elaboração e desenvolvimento de serviços técnicos especializados de projetos arquitetônicos e urbanísticos. Rio de Janeiro: ABNT, 2017."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Modelagem Paramétrica",
+    "numero": "3",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Estudo e desenvolvimento de parametrização avançada aplicada a componentes e famílias BIM complexas. Introdução aos conceitos de lógica de projeto, modelagem computacional e automação de rotinas de detalhamento geométrico por meio de programação visual. Estruturação de dados inteligentes em objetos e auditoria de tabelas de quantitativos consistentes para subsidiar com precisão a extração de insumos da construção. A disciplina aplica fundamentos de programação visual (Dynamo ou Grasshopper) e Inteligência Artificial (IA) para a geração de códigos de automação e a validação da qualidade dos dados (data quality) das tabelas.",
+    "conteudos_programaticos": [
+      "Lógica de projeto e fundamentos da modelagem paramétrica.",
+      "Criação de famílias paramétricas com restrições e fórmulas complexas.",
+      "Estruturação de dados inteligentes e parâmetros em objetos BIM.",
+      "Programação visual aplicada (Dynamo ou Grasshopper).",
+      "Automação de rotinas de detalhamento geométrico.",
+      "Tabelas de quantitativos e extração de insumos da construção.",
+      "Auditoria e qualidade de dados (data quality) de modelos e tabelas.",
+      "Geração de códigos de automação e validação de dados por IA."
+    ],
+    "atividade_avaliativa": "Geração de uma Família BIM Paramétrica avançada associada a uma Tabela de Quantitativos auditada, com automação de rotinas e validação de qualidade de dados assistidas por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15965: Sistema de classificação da informação da construção. Rio de Janeiro: ABNT."
+    ],
+    "bibliografia_complementar": [
+      "AGÊNCIA BRASILEIRA DE DESENVOLVIMENTO INDUSTRIAL (ABDI). Guia BIM ABDI-MDIC: coletânea de guias BIM. Brasília: ABDI, 2017.",
+      "KASSEM, Mohamad; AMORIM, Sérgio R. Leusin de. BIM Building Information Modeling no Brasil e na União Europeia. Brasília: Diálogos Setoriais Brasil–União Europeia, 2015.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Modelagem Estrutural",
+    "numero": "4",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Modelagem tridimensional avançada de sistemas estruturais de concreto armado, pré-moldado e estruturas metálicas. Foco no detalhamento rigoroso voltado à fase de fabricação e montagem de componentes industrializados (LOD 400). Integração do modelo com os fluxos produtivos da Construção 4.0, gerando desenhos de oficina (shop drawings) e o mapeamento de armaduras e conexões metálicas com precisão de canteiro, em conformidade com a ABNT NBR 6118, a NBR 8800 e a NBR 9062. O aprendizado envolve ferramentas especializadas de detalhamento estrutural e rotinas de Inteligência Artificial (IA) para a simulação e a conferência de armados.",
+    "conteudos_programaticos": [
+      "Modelagem 3D de estruturas de concreto armado, pré-moldado e metálicas.",
+      "Requisitos normativos de detalhamento: NBR 6118:2023, NBR 8800 e NBR 9062.",
+      "Nível de Desenvolvimento (LOD) 400 para fabricação e montagem.",
+      "Interoperabilidade entre modelos estruturais e analíticos.",
+      "Detalhamento de armaduras e mapeamento de conexões metálicas.",
+      "Geração de desenhos de oficina (shop drawings).",
+      "Integração do modelo aos fluxos produtivos da Construção 4.0.",
+      "Simulação e conferência de armados assistidas por IA."
+    ],
+    "atividade_avaliativa": "Produção da Modelagem de Elementos Estruturais Complexos e Conexões Técnicas com detalhamento LOD 400, com simulação e conferência de armados assistidas por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 6118: Projeto de estruturas de concreto — Procedimento. Rio de Janeiro: ABNT, 2023.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 8800: Projeto de estruturas de aço e de estruturas mistas de aço e concreto de edifícios. Rio de Janeiro: ABNT, 2008."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 9062: Projeto e execução de estruturas de concreto pré-moldado. Rio de Janeiro: ABNT, 2017.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 14931: Execução de estruturas de concreto — Procedimento. Rio de Janeiro: ABNT, 2004.",
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Modelagem das Instalações",
+    "numero": "5",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Modelagem tridimensional de sistemas prediais complexos (hidrossanitário, elétrico, prevenção e combate a incêndio e climatização/HVAC). Aplicação direta das normas técnicas brasileiras (ABNT NBR) dentro do ambiente de modelagem para a validação de fluxos. Geração de relatórios de cálculo nativos e dimensionamento preliminar de condutos, circuitos e redes, garantindo o rigor técnico antes da compatibilização. O treinamento utiliza assistentes de Inteligência Artificial (IA) para a otimização de rotas de tubulações e calhas.",
+    "conteudos_programaticos": [
+      "Modelagem de sistemas hidrossanitários (NBR 5626 e NBR 8160).",
+      "Modelagem de instalações elétricas prediais (NBR 5410).",
+      "Modelagem de sistemas de climatização / HVAC (NBR 16401).",
+      "Modelagem de prevenção e combate a incêndio (NBR 13714 e NBR 17240).",
+      "Parâmetros de engenharia de instalações: vazão, carga e potência.",
+      "Conectividade de redes no modelo e validação de fluxos.",
+      "Dimensionamento preliminar e relatórios de cálculo nativos.",
+      "Otimização de rotas de tubulações e calhas por IA."
+    ],
+    "atividade_avaliativa": "Desenvolvimento da Modelagem de Sistemas Prediais de Instalações integrados, com Relatório de Dimensionamento e Pré-Cálculo, e otimização de rotas assistida por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5626: Sistemas prediais de água fria e água quente — Projeto, execução, operação e manutenção. Rio de Janeiro: ABNT, 2020.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5410: Instalações elétricas de baixa tensão. Rio de Janeiro: ABNT, 2004 (Versão Corrigida 2008)."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16401-1, -2 e -3: Instalações de ar-condicionado — Sistemas centrais e unitários. Rio de Janeiro: ABNT, 2008.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 13714: Sistemas de hidrantes e de mangotinhos para combate a incêndio. Rio de Janeiro: ABNT, 2000.",
+      "CARVALHO JÚNIOR, Roberto de. Instalações hidráulicas e o projeto de arquitetura. 9. ed. São Paulo: Blucher, 2018."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "BIM no Planejamento e Orçamentação",
+    "numero": "6",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Integração de processos para o controle físico e financeiro de empreendimentos por meio do BIM 4D (prazo) e BIM 5D (custo). Vinculação geométrica e paramétrica de elementos do modelo a bases de custos referenciais e de mercado. Estruturação de cronogramas físicos integrados ao modelo para a geração de simulações virtuais de construção (faseamento de canteiro), otimizando a logística de execução e a precisão orçamentária. A disciplina adota a plataforma Orçafascio para a composição orçamentária (BIM 5D) conectada ao modelo e softwares de simulação 4D, apoiados por algoritmos de Inteligência Artificial (IA) para a detecção de gargalos em cronogramas.",
+    "conteudos_programaticos": [
+      "Conceitos de BIM 4D (prazo) e BIM 5D (custo).",
+      "Extração de quantitativos do modelo para orçamento.",
+      "Vinculação de elementos do modelo a bases de custos (SINAPI/ORSE e mercado).",
+      "Composição orçamentária integrada ao modelo (BIM 5D) no Orçafascio.",
+      "Vinculação temporal de objetos e cronograma físico (Gantt).",
+      "Simulações virtuais de construção e faseamento de canteiro.",
+      "Otimização da logística de execução e da precisão orçamentária.",
+      "Detecção de gargalos em cronogramas por IA."
+    ],
+    "atividade_avaliativa": "Entrega de uma Simulação Construtiva BIM 4D associada ao Orçamento Executivo 5D do empreendimento, com composição no Orçafascio e detecção de gargalos de cronograma por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "MATTOS, Aldo Dórea. Planejamento e controle de obras. 2. ed. São Paulo: Oficina de Textos, 2019.",
+      "MATTOS, Aldo Dórea. Como preparar orçamentos de obras. 3. ed. São Paulo: Oficina de Textos, 2019."
+    ],
+    "bibliografia_complementar": [
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 12721: Avaliação de custos unitários de construção para incorporação imobiliária — Procedimento. Rio de Janeiro: ABNT, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Gestão e Compatibilização de Projetos",
+    "numero": "7",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Prática intensiva de coordenação tridimensional de projetos por meio do desenvolvimento e da auditoria de modelos federados (arquitetura x estrutura x instalações). Técnicas avançadas de detecção de interferências físicas e inconsistências de escopo (clash detection). Gestão, atribuição e rastreamento de conflitos técnicos de engenharia em ambiente colaborativo, com fluxos de comunicação via protocolo BCF (BIM Collaboration Format) em ferramentas de mercado (como Navisworks ou Solibri). A gestão de conflitos aplica sistemas de Inteligência Artificial (IA) para a classificação, a filtragem e a eliminação de falsos-positivos em colisões.",
+    "conteudos_programaticos": [
+      "Coordenação interdisciplinar e modelos federados (OpenBIM).",
+      "Detecção de interferências físicas e de escopo (clash detection).",
+      "Matrizes de clashes e priorização de conflitos.",
+      "Protocolo BCF (BIM Collaboration Format) e notas de coordenação.",
+      "Ferramentas de coordenação de mercado (Navisworks, Solibri).",
+      "Fluxos de comunicação em ambiente colaborativo.",
+      "Gestão, atribuição e rastreamento de conflitos técnicos.",
+      "Classificação e eliminação de falsos-positivos por IA."
+    ],
+    "atividade_avaliativa": "Entrega de um Relatório de Clash Detection em modelo federado, com emissão de notas de coordenação via BCF e triagem de falsos-positivos assistida por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "MELHADO, Silvio Burrattino. Coordenação de projetos de edificações. São Paulo: O Nome da Rosa, 2005.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "bibliografia_complementar": [
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016.",
+      "MANZIONE, Leonardo. Estudo de métodos de planejamento do processo de projeto de edifícios. Tese (Doutorado) — Escola Politécnica da Universidade de São Paulo, São Paulo, 2013.",
+      "AGÊNCIA BRASILEIRA DE DESENVOLVIMENTO INDUSTRIAL (ABDI). Guia BIM ABDI-MDIC: coletânea de guias BIM. Brasília: ABDI, 2017."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "Colaboração e Integração com CDE",
+    "numero": "8",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Governança, estruturação de dados e gerenciamento de fluxos de informação dentro do Ambiente Comum de Dados (CDE — Common Data Environment). Implementação prática das diretrizes da ABNT NBR ISO 19650 para a gestão estratégica da informação. Elaboração e gerenciamento do Plano de Execução BIM (BEP), definindo processos de troca de arquivos, propriedade dos dados e uso do padrão IFC para garantir a interoperabilidade plena entre plataformas (OpenBIM). O ambiente de colaboração em nuvem é auditado por Inteligência Artificial (IA) para o controle de qualidade dos uploads.",
+    "conteudos_programaticos": [
+      "Ambiente Comum de Dados (CDE) e governança da informação.",
+      "Diretrizes da ABNT NBR ISO 19650-1 e -2 para a gestão da informação.",
+      "Estados de status de arquivos: em trabalho, compartilhado, publicado e arquivado.",
+      "Plano de Execução BIM (BEP) e suas seções contratuais.",
+      "Requisitos de informação (EIR) e propriedade dos dados.",
+      "Interoperabilidade e o padrão IFC (OpenBIM).",
+      "Mapeamento IFC e troca de arquivos entre plataformas.",
+      "Auditoria de qualidade dos uploads em nuvem por IA."
+    ],
+    "atividade_avaliativa": "Estruturação de um Ambiente CDE e elaboração do Plano de Execução BIM (BEP) para um caso real, com auditoria de qualidade dos uploads assistida por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022.",
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "CATELANI, Wilton Silva (coord.). Coletânea implementação do BIM para construtoras e incorporadoras. Brasília: CBIC, 2016."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-3: Gestão da informação na fase operacional dos ativos que utilizam BIM. Rio de Janeiro: ABNT, 2022.",
+      "BRASIL. Decreto nº 11.888, de 22 de janeiro de 2024. Institui a Estratégia Nacional de Disseminação do BIM no Brasil (Estratégia BIM BR). Brasília, DF, 2024.",
+      "KASSEM, Mohamad; AMORIM, Sérgio R. Leusin de. BIM Building Information Modeling no Brasil e na União Europeia. Brasília: Diálogos Setoriais Brasil–União Europeia, 2015."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Tecnologia BIM na Construção Civil",
+    "disciplina": "BIM, Análise de Dados e IA",
+    "numero": "9",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Aplicação avançada de modelos de dados para a estruturação de análises de desempenho e eficiência ambiental (BIM 6D) e a transição para a operação e a manutenção patrimonial (BIM 7D / Facility Management). Estratégias para a implementação e a operação de Gêmeos Digitais (Digital Twins), conectando dados BIM a variáveis operacionais em tempo real, com estruturação de dados patrimoniais no padrão COBie e em conformidade com a ABNT NBR ISO 19650. Uso de algoritmos de Inteligência Artificial (IA) para análise preditiva e otimização de fluxos operacionais, consolidando painéis de Business Intelligence (BI) para a tomada de decisão corporativa.",
+    "conteudos_programaticos": [
+      "BIM 6D (desempenho e eficiência ambiental) e BIM 7D (operação e FM).",
+      "Requisitos de dados patrimoniais e o padrão COBie.",
+      "Arquitetura de Gêmeos Digitais (Digital Twins).",
+      "Integração de dados BIM a variáveis operacionais em tempo real.",
+      "Fundamentos de Business Intelligence (BI) aplicados ao ativo.",
+      "Construção de dashboards e KPIs de desempenho físico-operacional.",
+      "Análise preditiva e otimização de fluxos operacionais por IA.",
+      "Governança de dados de operação (ABNT NBR ISO 19650-3)."
+    ],
+    "atividade_avaliativa": "Entrega de uma Proposta de Arquitetura de Dados para Gêmeo Digital com Painel de KPIs de Análise BIM/Operacional, com dashboards de BI e otimização assistida por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM: um guia de modelagem da informação da construção para arquitetos, engenheiros, gerentes, construtores e incorporadores. Porto Alegre: Bookman, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-3: Gestão da informação na fase operacional dos ativos que utilizam BIM. Rio de Janeiro: ABNT, 2022.",
+      "SHARDA, Ramesh; DELEN, Dursun; TURBAN, Efraim. Business Intelligence e análise de dados para gestão do negócio. 4. ed. Porto Alegre: Bookman, 2019."
+    ],
+    "bibliografia_complementar": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 41001: Facility management — Sistemas de gestão — Requisitos com orientação para uso. Rio de Janeiro: ABNT, 2018.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 55001: Gestão de ativos — Sistemas de gestão — Requisitos. Rio de Janeiro: ABNT, 2014.",
+      "LAGO, Karine Gouvea Dibai do. Dominando o Power BI: guia prático para análise de dados. Belo Horizonte: [s.n.], 2018."
+    ],
+    "curso_alvo": "Tecnologia BIM na Construção Civil"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Técnicas de Orçamentos, Cobranças e Custos de Projetos",
+    "numero": "1",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Estudo detalhado dos custos incidentes na fase de concepção e desenvolvimento de projetos de engenharia e arquitetura. Modelagem de precificação de honorários, custos fixos e variáveis de escritórios, estimativas de custos iniciais pelo método do CUB (Custo Unitário Básico), conforme a ABNT NBR 12721, e análise de viabilidade econômico-financeira de empreendimentos. Gestão de cobranças contratuais, medições de entregas de projetos e fluxos de caixa para a proteção das margens de lucro antes da execução da obra. A prática integra o software Orçafascio para o levantamento de orçamentos paramétricos preliminares e ferramentas de Inteligência Artificial (IA) para a automação da memória de cálculo e a projeção de fluxos de caixa.",
+    "conteudos_programaticos": [
+      "Engenharia de custos aplicada ao escopo de projetos de engenharia e arquitetura.",
+      "Precificação de honorários técnicos e modelagem de custos fixos e variáveis de escritórios.",
+      "Estimativa paramétrica de custos e o método do CUB (ABNT NBR 12721).",
+      "Taxas de BDI (Benefícios e Despesas Indiretas) aplicadas a serviços intelectuais.",
+      "Análise de viabilidade econômico-financeira de empreendimentos (VPL, TIR e payback).",
+      "Gestão de cobranças contratuais e medições de entregas de projeto.",
+      "Estruturação e projeção de fluxos de caixa para a proteção de margens de lucro.",
+      "Orçamentação paramétrica preliminar e automação da memória de cálculo com Orçafascio e IA."
+    ],
+    "atividade_avaliativa": "Geração de uma Matriz de Viabilidade Financeira e Orçamento Preliminar de Projeto de Engenharia/Arquitetura, utilizando o levantamento paramétrico do Orçafascio e a automação de memória de cálculo e de fluxo de caixa por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "GOLDMAN, Pedrinho. Introdução ao planejamento e controle de custos na construção civil. 4. ed. São Paulo: PINI, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 12721: Avaliação de custos unitários de construção para incorporação imobiliária e outras disposições para condomínios edilícios — Procedimento. Rio de Janeiro: ABNT, 2006.",
+      "LIMMER, Carl Vicente. Planejamento, orçamentação e controle de projetos e obras. Rio de Janeiro: LTC, 1997."
+    ],
+    "bibliografia_complementar": [
+      "TISAKA, Maçahico. Orçamento na construção civil: consultoria, projeto e execução. 2. ed. São Paulo: PINI, 2011.",
+      "MATTOS, Aldo Dórea. Como preparar orçamentos de obras. 3. ed. São Paulo: Oficina de Textos, 2019.",
+      "DIAS, Paulo Roberto Vilela. Engenharia de custos: uma metodologia de orçamentação para obras civis. 9. ed. Rio de Janeiro: [s.n.], 2011."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Técnicas de Orçamentos, Cobranças e Custos de Obras",
+    "numero": "2",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Metodologia científica para a elaboração de orçamentos executivos de obras de construção civil. Análise de projetos para levantamento quantitativo de materiais e serviços, composição de custos unitários diretos e indiretos, cotação de insumos e definição de taxas de BDI para obras. Estruturação da Curva ABC de insumos e serviços, com referência às tabelas oficiais SINAPI e ORSE, rotinas de cobrança junto a clientes e agentes financiadores e controle estrito de desvios orçamentários em tempo de execução. A disciplina utiliza a plataforma Orçafascio para o desenvolvimento completo de orçamentos integrados e a Inteligência Artificial (IA) aplicada à auditoria de inconsistências em composições de custos.",
+    "conteudos_programaticos": [
+      "Metodologia de orçamentação executiva de obras de construção civil.",
+      "Leitura de projetos e levantamento quantitativo de materiais e serviços.",
+      "Composição de custos unitários diretos e indiretos e cotação de insumos.",
+      "Sistemas oficiais de referência de preços: SINAPI (Caixa/IBGE) e ORSE.",
+      "Definição e cálculo do BDI para obras (referenciais do Acórdão TCU nº 2.622/2013).",
+      "Estruturação e análise da Curva ABC de insumos e serviços.",
+      "Rotinas de cobrança e medição junto a clientes e agentes financiadores.",
+      "Controle de desvios orçamentários e auditoria de composições com Orçafascio e IA."
+    ],
+    "atividade_avaliativa": "Elaboração de um Orçamento Executivo de Obra estruturado com Curva ABC de Insumos e Serviços, desenvolvido integralmente na plataforma Orçafascio com auditoria de inconsistências por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "MATTOS, Aldo Dórea. Como preparar orçamentos de obras. 3. ed. São Paulo: Oficina de Textos, 2019.",
+      "TISAKA, Maçahico. Orçamento na construção civil: consultoria, projeto e execução. 2. ed. São Paulo: PINI, 2011.",
+      "DIAS, Paulo Roberto Vilela. Engenharia de custos: uma metodologia de orçamentação para obras civis. 9. ed. Rio de Janeiro: [s.n.], 2011."
+    ],
+    "bibliografia_complementar": [
+      "GOLDMAN, Pedrinho. Introdução ao planejamento e controle de custos na construção civil. 4. ed. São Paulo: PINI, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 12721: Avaliação de custos unitários de construção para incorporação imobiliária — Procedimento. Rio de Janeiro: ABNT, 2006.",
+      "BRASIL. Tribunal de Contas da União. Acórdão nº 2.622/2013 — Plenário: referenciais de taxas de BDI para obras públicas. Brasília, DF: TCU, 2013."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Técnicas de Coordenação e Compatibilização de Projetos",
+    "numero": "3",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Gerenciamento do fluxo de informações e da interface entre equipes multidisciplinares de projetos (arquitetura, estrutura e instalações). Processos de coordenação, gestão de escopo e prazos de entrega nas fases de estudo preliminar, anteprojeto e projeto executivo. Técnicas de compatibilização para a identificação de interferências físicas e conceituais (clash detection), com estruturação de Ambientes Comuns de Dados (CDE) conforme a ABNT NBR ISO 19650, mitigando riscos de retrabalho e de aditivos contratuais durante a construção. A disciplina incorpora ferramentas de Inteligência Artificial (IA) para a triagem e o agrupamento de inconsistências de projeto e a verificação automatizada de conformidade com códigos de obras.",
+    "conteudos_programaticos": [
+      "Gestão da interface entre os projetos de arquitetura, estrutura e instalações.",
+      "Processo de projeto: estudo preliminar, anteprojeto e projeto executivo.",
+      "Matriz de responsabilidades e fluxos de revisão e aprovação de projetos.",
+      "Ambientes Comuns de Dados (CDE) e a ABNT NBR ISO 19650-1 e -2.",
+      "Compatibilização e detecção de interferências (clash detection) em modelos BIM.",
+      "Análise de interferências físicas e conceituais e seus impactos em custo e prazo.",
+      "Verificação automatizada de conformidade com códigos de obras por IA.",
+      "Gestão de retrabalhos, aditivos e riscos originados de falhas de projeto."
+    ],
+    "atividade_avaliativa": "Elaboração de um Relatório Técnico de Compatibilização de Projetos acompanhado de uma Matriz de Resolução de Interferências, com triagem e agrupamento de inconsistências assistidos por Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "MELHADO, Silvio Burrattino. Coordenação de projetos de edificações. São Paulo: O Nome da Rosa, 2005.",
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. BIM handbook: a guide to building information modeling. 3. ed. Hoboken: Wiley, 2018.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "bibliografia_complementar": [
+      "MANZIONE, Leonardo. Estudo de métodos de planejamento do processo de projeto de edifícios. Tese (Doutorado) — Escola Politécnica da Universidade de São Paulo, São Paulo, 2013.",
+      "BRASIL. Decreto nº 10.306, de 2 de abril de 2020. Estabelece a utilização do BIM na execução direta ou indireta de obras e serviços de engenharia. Brasília, DF, 2020.",
+      "PROJECT MANAGEMENT INSTITUTE. Um guia do conhecimento em gerenciamento de projetos (Guia PMBOK). 6. ed. Newtown Square: PMI, 2017."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Técnicas de Planejamento e Coordenação de Obras",
+    "numero": "4",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Fundamentos da engenharia de planejamento aplicados à execução física de canteiros de obras. Estruturação da EAP (Estrutura Analítica do Projeto), determinação de sequências lógicas de atividades, cálculo de caminhos críticos pelo Método CPM e definição de histogramas de mão de obra e equipamentos. Técnicas de coordenação de campo para o alinhamento de prazos, cronogramas de suprimentos e controle físico-financeiro do andamento dos serviços. A disciplina adota o sistema Orçafascio para a criação de cronogramas de barras, redes de planejamento e diagramas de Gantt, em conjunto com o aplicativo Obra na Mão para a coleta de dados de avanço físico em campo.",
+    "conteudos_programaticos": [
+      "Fundamentos da engenharia de planejamento e controle de obras.",
+      "Estrutura Analítica do Projeto (EAP) e decomposição de pacotes de trabalho.",
+      "Rede de precedências e sequenciamento lógico de atividades.",
+      "Método do Caminho Crítico (CPM), folgas técnicas e nivelamento de recursos.",
+      "Diagramas de Gantt, cronogramas de barras e histogramas de mão de obra e equipamentos.",
+      "Cronograma físico-financeiro, curva S e gráfico de linha de balanço.",
+      "Coordenação de campo, cronograma de suprimentos e controle de desvios de metas.",
+      "Criação de cronogramas no Orçafascio e coleta de avanço físico via Obra na Mão."
+    ],
+    "atividade_avaliativa": "Desenvolvimento do Planejamento Físico-Financeiro de Obra com Cronograma de Gantt e Gráfico de Linha de Balanço, elaborado no Orçafascio e monitorado em campo pelo aplicativo Obra na Mão.",
+    "bibliografia_basica": [
+      "MATTOS, Aldo Dórea. Planejamento e controle de obras. 2. ed. São Paulo: Oficina de Textos, 2019.",
+      "LIMMER, Carl Vicente. Planejamento, orçamentação e controle de projetos e obras. Rio de Janeiro: LTC, 1997.",
+      "BERNARDES, Maurício Moreira e Silva. Planejamento e controle da produção para empresas de construção civil. Rio de Janeiro: LTC, 2003."
+    ],
+    "bibliografia_complementar": [
+      "GOLDMAN, Pedrinho. Introdução ao planejamento e controle de custos na construção civil. 4. ed. São Paulo: PINI, 2004.",
+      "PROJECT MANAGEMENT INSTITUTE. Um guia do conhecimento em gerenciamento de projetos (Guia PMBOK). 6. ed. Newtown Square: PMI, 2017.",
+      "CASAROTTO FILHO, Nelson; FÁVERO, José Severino; CASTRO, João Ernesto E. Gerência de projetos / engenharia simultânea. São Paulo: Atlas, 1999."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Eficiência Energética e Sustentabilidade na Construção Civil",
+    "numero": "5",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Estratégias de projeto e métodos construtivos voltados à sustentabilidade, à racionalização de recursos e à conservação de energia no ambiente edificado. Análise do ciclo de vida dos materiais, gestão integrada de resíduos da construção civil (PGRCC) em conformidade com a Resolução CONAMA nº 307/2002, e atendimento aos requisitos de desempenho termoacústico e lumínico da ABNT NBR 15575. Critérios de certificações de sustentabilidade e aplicação de tecnologias para a redução de emissões de carbono e do consumo de água e energia. O treinamento utiliza sistemas de Inteligência Artificial (IA) para a simulação de desempenho solar e térmico e a plataforma Orçafascio para a especificação e a orçamentação de soluções ecológicas e de alta eficiência.",
+    "conteudos_programaticos": [
+      "Princípios de sustentabilidade e racionalização de recursos no ambiente construído.",
+      "Desempenho termoacústico e lumínico da edificação (ABNT NBR 15575:2013, Emenda 1:2021).",
+      "Eficiência energética em edificações e etiquetagem (PBE Edifica/INMETRO).",
+      "Análise do ciclo de vida (ACV) e pegada de carbono dos materiais.",
+      "Gestão de resíduos da construção civil — PGRCC (CONAMA nº 307/2002 e NBR 15112 a 15114).",
+      "Gestão e reuso de água e redução do consumo energético em canteiros e edifícios.",
+      "Certificações de sustentabilidade (LEED, AQUA-HQE) e seus critérios.",
+      "Simulação de desempenho solar e térmico por IA e orçamentação de soluções no Orçafascio."
+    ],
+    "atividade_avaliativa": "Elaboração de uma Proposta de Adequação Sustentável e Eficiência Energética de Empreendimento, com simulação de desempenho por Inteligência Artificial (IA) e especificação orçada de soluções ecológicas no Orçafascio.",
+    "bibliografia_basica": [
+      "AGOPYAN, Vahan; JOHN, Vanderley M. O desafio da sustentabilidade na construção civil. São Paulo: Blucher, 2011.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15575: Edificações habitacionais — Desempenho. Rio de Janeiro: ABNT, 2013 (Emenda 1:2021).",
+      "LAMBERTS, Roberto; DUTRA, Luciano; PEREIRA, Fernando O. R. Eficiência energética na arquitetura. 3. ed. Rio de Janeiro: Eletrobras/Procel, 2014."
+    ],
+    "bibliografia_complementar": [
+      "BRASIL. Conselho Nacional do Meio Ambiente (CONAMA). Resolução nº 307, de 5 de julho de 2002: gestão dos resíduos da construção civil. Brasília, DF, 2002.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15112, NBR 15113 e NBR 15114: Resíduos da construção civil e resíduos volumosos — Áreas de transbordo e triagem, aterros e áreas de reciclagem. Rio de Janeiro: ABNT, 2004.",
+      "CORBELLA, Oscar; YANNAS, Simos. Em busca de uma arquitetura sustentável para os trópicos: conforto ambiental. 2. ed. Rio de Janeiro: Revan, 2009."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Lean Construction, Last Planner System e Logística de Canteiro",
+    "numero": "6",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Aplicação dos princípios da Mentalidade Enxuta (Lean Construction) no gerenciamento e na execução de obras. Eliminação de desperdícios no fluxo produtivo, mapeamento do fluxo de valor e nivelamento da produção. Implementação prática do Last Planner System para o planejamento de longo, médio e curto prazos, com atribuição semanal de tarefas e o indicador de Percentual de Planos Concluídos (PPC). Projeto, dimensionamento e gestão da Logística de Canteiro de Obras, com foco no fluxo contínuo de materiais, no layout dinâmico de produção e na segurança operacional. A rotina utiliza Inteligência Artificial (IA) para a roteirização logística e a previsão de gargalos, além do aplicativo Obra na Mão para o controle diário e a liberação de frentes de trabalho.",
+    "conteudos_programaticos": [
+      "Filosofia da produção enxuta (Lean Construction) e os princípios de Koskela.",
+      "Identificação e eliminação de perdas e desperdícios no fluxo produtivo.",
+      "Mapeamento do fluxo de valor (VSM) e nivelamento da produção.",
+      "Last Planner System: planejamento de longo, médio e curto prazos.",
+      "Gestão de restrições e o indicador de Percentual de Planos Concluídos (PPC).",
+      "Projeto e dimensionamento da logística e do layout de canteiro de obras.",
+      "Fluxo contínuo de materiais, tempos de transporte e de estocagem.",
+      "Roteirização e previsão de gargalos por IA e controle de frentes via Obra na Mão."
+    ],
+    "atividade_avaliativa": "Apresentação de um Projeto de Logística de Canteiro e de um Plano de Programação Semanal baseado no Last Planner System, com roteirização e previsão de gargalos por Inteligência Artificial (IA) e controle diário pelo aplicativo Obra na Mão.",
+    "bibliografia_basica": [
+      "BERNARDES, Maurício Moreira e Silva. Planejamento e controle da produção para empresas de construção civil. Rio de Janeiro: LTC, 2003.",
+      "KOSKELA, Lauri. Application of the new production philosophy to construction. Stanford: CIFE/Stanford University, 1992. (Technical Report 72).",
+      "BALLARD, Glenn. The Last Planner System of production control. Tese (Doutorado) — University of Birmingham, Birmingham, 2000."
+    ],
+    "bibliografia_complementar": [
+      "ISATTO, Eduardo Luís; FORMOSO, Carlos Torres et al. Lean construction: diretrizes e ferramentas para o controle de perdas na construção civil. Porto Alegre: SEBRAE/RS, 2000.",
+      "WOMACK, James P.; JONES, Daniel T. A mentalidade enxuta nas empresas: elimine o desperdício e crie riqueza. Rio de Janeiro: Campus, 2004.",
+      "SOUZA, Ubiraci Espinelli Lemes de. Como reduzir perdas nos canteiros: manual de gestão do consumo de materiais. São Paulo: PINI, 2005."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Engenharia de Segurança e Normas de Desempenho",
+    "numero": "7",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Abordagem técnica e prática da Engenharia de Segurança do Trabalho aplicada à construção civil, com foco na NR-18 (Portaria SEPRT nº 3.733/2020) e na gestão de riscos ocupacionais integrada ao PGR da NR-1. Gestão de riscos em frentes de trabalho, Equipamentos de Proteção Coletiva (EPC) e Individual (EPI) e trabalho em altura (NR-35). Auditoria e implementação das exigências de segurança dos processos construtivos associadas aos requisitos de segurança e durabilidade da Norma de Desempenho ABNT NBR 15575, para a entrega formal de obras com garantia técnica. A vistoria utiliza Inteligência Artificial (IA) para a análise preditiva de riscos baseada em imagens e o aplicativo Obra na Mão para vistorias fotográficas e checklists de segurança de campo.",
+    "conteudos_programaticos": [
+      "Engenharia de Segurança do Trabalho na construção civil: a NR-18 (Portaria nº 3.733/2020).",
+      "Programa de Gerenciamento de Riscos (PGR) e a integração com a NR-1.",
+      "Inventário de riscos ocupacionais e plano de ação em frentes de trabalho.",
+      "Equipamentos de Proteção Coletiva (EPC) e Individual (EPI) no canteiro.",
+      "Trabalho em altura e segurança em atividades críticas (NR-35).",
+      "Norma de Desempenho ABNT NBR 15575: habitabilidade, durabilidade e segurança.",
+      "Auditoria de conformidade e entrega de obra com garantia técnica.",
+      "Análise preditiva de riscos por IA e vistorias de campo via Obra na Mão."
+    ],
+    "atividade_avaliativa": "Produção de um Checklist de Conformidade de Segurança da Obra (NR-18) e de um Relatório de Conformidade com a ABNT NBR 15575, com análise preditiva de riscos por Inteligência Artificial (IA) e vistorias fotográficas pelo aplicativo Obra na Mão.",
+    "bibliografia_basica": [
+      "BRASIL. Ministério do Trabalho e Emprego. NR-18: Segurança e saúde no trabalho na indústria da construção. Portaria SEPRT nº 3.733/2020. Brasília, DF, 2020.",
+      "ROUSSELET, Edison da Silva; FALCÃO, César. A segurança na obra: manual técnico de segurança do trabalho em edificações prediais. 3. ed. Rio de Janeiro: Interciência, 2013.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15575: Edificações habitacionais — Desempenho. Rio de Janeiro: ABNT, 2013 (Emenda 1:2021)."
+    ],
+    "bibliografia_complementar": [
+      "BRASIL. Ministério do Trabalho e Emprego. NR-1: Disposições gerais e gerenciamento de riscos ocupacionais (PGR). Brasília, DF.",
+      "BRASIL. Ministério do Trabalho e Emprego. NR-35: Trabalho em altura. Brasília, DF.",
+      "BARBOSA FILHO, Antonio Nunes. Segurança do trabalho e gestão ambiental. 4. ed. São Paulo: Atlas, 2011."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Administração Contratual, Medições e Gestão de Pleitos (Claims)",
+    "numero": "8",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Gestão jurídica e financeira de contratos de prestação de serviços e de execução de obras de engenharia. Técnicas de fiscalização contratual e procedimentos para medições fiéis de campo, baseadas no avanço físico e em critérios de qualidade. Identificação de escopo não previsto, elaboração técnica de aditivos de prazo e valor, reequilíbrio econômico-financeiro e gestão estratégica de conflitos e Pleitos (Claims), à luz do Código Civil e da Lei nº 14.133/2021, garantindo a segurança contábil-legal perante contratantes e subempreiteiros. O gerenciamento de medições e a documentação probatória utilizam o aplicativo Obra na Mão para os Registros Diários de Obra (RDO), integrados ao módulo de contratos do Orçafascio.",
+    "conteudos_programaticos": [
+      "Tipologias contratuais: empreitada por preço global, por preço unitário e por administração.",
+      "Fiscalização contratual e gestão de escopo, prazo e qualidade.",
+      "Medições de campo baseadas no avanço físico e em critérios de aceitação.",
+      "Registro Diário de Obra (RDO) como documentação probatória.",
+      "Aditivos de prazo e valor e reequilíbrio econômico-financeiro do contrato.",
+      "Gestão de pleitos (Claims): nexo causal, pleitos de prazo e de custo.",
+      "Marco legal: Código Civil e Lei nº 14.133/2021 (Nova Lei de Licitações).",
+      "Integração das medições ao módulo de contratos do Orçafascio via Obra na Mão (RDO)."
+    ],
+    "atividade_avaliativa": "Entrega de um Relatório de Medição Física de Obra e de um Parecer Técnico de Análise de Pleito (Claim), com Registros Diários de Obra (RDO) coletados no Obra na Mão e reflexos financeiros integrados ao módulo de contratos do Orçafascio.",
+    "bibliografia_basica": [
+      "PROJECT MANAGEMENT INSTITUTE. Um guia do conhecimento em gerenciamento de projetos (Guia PMBOK). 6. ed. Newtown Square: PMI, 2017.",
+      "BRASIL. Lei nº 14.133, de 1º de abril de 2021. Lei de Licitações e Contratos Administrativos. Brasília, DF, 2021.",
+      "MATTOS, Aldo Dórea. Planejamento e controle de obras. 2. ed. São Paulo: Oficina de Textos, 2019."
+    ],
+    "bibliografia_complementar": [
+      "BRASIL. Lei nº 10.406, de 10 de janeiro de 2002. Institui o Código Civil. Brasília, DF, 2002.",
+      "TISAKA, Maçahico. Orçamento na construção civil: consultoria, projeto e execução. 2. ed. São Paulo: PINI, 2011.",
+      "LIMMER, Carl Vicente. Planejamento, orçamentação e controle de projetos e obras. Rio de Janeiro: LTC, 1997."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Sistemas Informatizados de Gestão Integrada e BI (ERP, CDE e Power BI)",
+    "numero": "9",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Técnico (Ciclo Técnico)",
+    "modalidade": "Presencial",
+    "ementa": "Integração de sistemas digitais de informação para a tomada de decisões corporativas na gestão de projetos e obras de alto valor. Estruturação e governança de Ambientes Comuns de Dados (CDE), conforme a ABNT NBR ISO 19650, para a centralização de arquivos técnicos. Modelagem de processos conectando sistemas de Planejamento de Recursos Empresariais (ERP) aos fluxos de engenharia de campo. Desenvolvimento de painéis de Business Intelligence (BI) para a consolidação de indicadores estratégicos e operacionais do empreendimento. A consolidação dos dados consome as bases estruturadas geradas no Orçafascio e nos aplicativos móveis, gerando, com apoio de Inteligência Artificial (IA), dashboards integrados no Power BI.",
+    "conteudos_programaticos": [
+      "Arquitetura de sistemas integrados de informação na gestão de projetos e obras.",
+      "Ambientes Comuns de Dados (CDE) e governança da informação (ABNT NBR ISO 19650).",
+      "Sistemas de Planejamento de Recursos Empresariais (ERP) e fluxos de engenharia.",
+      "Interoperabilidade de bancos de dados e chaves de integração técnica.",
+      "Modelagem de indicadores (KPIs) físico-financeiros e de produtividade.",
+      "Fundamentos de Business Intelligence (BI) e o processo de ETL.",
+      "Construção de dashboards no Power BI (Power Query e linguagem DAX).",
+      "Consolidação de dados do Orçafascio e de aplicativos móveis com apoio de IA."
+    ],
+    "atividade_avaliativa": "Entrega, como fechamento da matriz técnica, de um Painel de Controle em Power BI integrado, com Indicadores de Prazos, Custos e Produtividade da Obra, consolidando as bases do Orçafascio e dos aplicativos móveis com apoio de Inteligência Artificial (IA).",
+    "bibliografia_basica": [
+      "SHARDA, Ramesh; DELEN, Dursun; TURBAN, Efraim. Business Intelligence e análise de dados para gestão do negócio. 4. ed. Porto Alegre: Bookman, 2019.",
+      "LAGO, Karine Gouvea Dibai do. Dominando o Power BI: guia prático para análise de dados. Belo Horizonte: [s.n.], 2018.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "bibliografia_complementar": [
+      "HYMAN, Jack. Microsoft Power BI para leigos. Rio de Janeiro: Alta Books, 2023.",
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. BIM handbook: a guide to building information modeling. 3. ed. Hoboken: Wiley, 2018.",
+      "PROJECT MANAGEMENT INSTITUTE. Um guia do conhecimento em gerenciamento de projetos (Guia PMBOK). 6. ed. Newtown Square: PMI, 2017."
+    ],
+    "curso_alvo": "Gestão de Projetos e Obras"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Engenharia Diagnóstica: Terapia Predial e Plano de Intervenção",
+    "numero": "10",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Metodologia de auditoria, inspeção e diagnóstico de falhas e manifestações patológicas em edificações sob a ótica estrita da ABNT NBR 16747:2020, com interface operacional aos requisitos de gestão de manutenção da ABNT NBR 5674:2024 e diretrizes para manuais da ABNT NBR 14037. Capacitação profissional para classificar anomalias (endógenas, exógenas, funcionais) e falhas, com atribuição de graus de risco e estabelecimento de nexo causal para priorização técnica de intervenções. Estruturação de Laudos de Inspeção Predial (LaIP) e pareceres técnicos consistentes e incontestáveis. Elaboração do Plano de Intervenção e prescrição de estratégias de reparo, recuperação e proteção (Terapia Predial) focadas em durabilidade, mitigação de riscos, prevenção de litígios e extensão da vida útil dos ativos. A prática utiliza o ecossistema digital Predial 4.0 para mapear tipologias de sistemas e patologias, aplicando sua ferramenta embarcada de Inteligência Artificial (IA) para diagnósticos automáticos por imagem de falhas e geração de checklists de inspeção automatizados.",
+    "conteudos_programaticos": [
+      "Fundamentos da Engenharia Diagnóstica e diretrizes da ABNT NBR 16747:2020.",
+      "Interface normativa da manutenção e operação: ABNT NBR 5674:2024 e ABNT NBR 14037.",
+      "Classificação e tipologia de danos: anomalias endógenas, exógenas, funcionais e falhas de manutenção.",
+      "Metodologia de vistoria de campo e criação de checklists por subsistemas prediais.",
+      "Avaliação de criticidade: cálculo do grau de risco e matrizes de priorização técnica.",
+      "Estabelecimento de nexo causal e responsabilidade técnica (ART/RRT).",
+      "Uso de Inteligência Artificial para triagem de sintomas e diagnósticos automatizados por imagem.",
+      "Diretrizes para elaboração de pareceres e estruturação do Laudo de Inspeção Predial (LaIP)."
+    ],
+    "atividade_avaliativa": "Elaboração prática de um Laudo de Inspeção Predial (LaIP) acompanhado de um Plano de Ação de Correção parametrizado, gerados a partir do mapeamento de sistemas e do uso da ferramenta de Inteligência Artificial (IA) para diagnóstico por imagem do sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16747: Inspeção predial — Diretrizes, conceitos, terminologia e procedimento. Rio de Janeiro: ABNT, 2020.",
+      "GOMIDE, Tito Lívio Ferreira; FAGUNDES NETO, Jerônimo Cabral Pereira; GULLO, Marco Antonio. Engenharia diagnóstica em edificações. 2. ed. São Paulo: PINI, 2013.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5674: Manutenção de edificações — Requisitos para o sistema de gestão de manutenção. Rio de Janeiro: ABNT, 2024."
+    ],
+    "bibliografia_complementar": [
+      "GOMIDE, Tito Lívio Ferreira. Inspeção predial total. São Paulo: Oficina de Textos, 2020.",
+      "GOMIDE, Tito Lívio Ferreira; PUJADAS, Flávia Zoéga Andreatta; FAGUNDES NETO, Jerônimo Cabral Pereira. Técnicas de inspeção e manutenção predial. São Paulo: PINI, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 14037: Diretrizes para elaboração de manuais de uso, operação e manutenção das edificações. Rio de Janeiro: ABNT, 2011 (Versão Corrigida 2014).",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16280: Reforma em edificações — Sistema de gestão de reformas. Rio de Janeiro: ABNT, 2015."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Patologias Construtivas em Estruturas e Sistemas de Envoltória",
+    "numero": "11",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Identificação, classificação, mapeamento e diagnóstico de manifestações patológicas em estruturas de concreto armado, estruturas metálicas e sistemas de vedação vertical (fachadas e revestimentos). Análise dos mecanismos de degradação acelerada frente ao intemperismo urbano e litorâneo, com foco na agressividade ambiental do litoral de Recife/PE e região litorânea do Nordeste, em conformidade com as diretrizes da ABNT NBR 15575 e ABNT NBR 6118:2023. Estudo de técnicas avançadas e especificação de materiais de engenharia para recuperação, reparo estrutural, reforço e aumento da vida útil de envoltórias. O aprendizado integra o aplicativo Obra na Mão para acompanhamento de serviços em canteiro e a base de causas patológicas do sistema Predial 4.0, automatizando a geração de memórias de cálculo, memoriais descritivos de serviços e orçamentos de serviços automatizados para a recuperação das fachadas e estruturas.",
+    "conteudos_programaticos": [
+      "Mecanismos de degradação do concreto armado e de estruturas metálicas (carbonatação e ataque por cloretos).",
+      "Critérios de durabilidade e vida útil das envoltórias conforme ABNT NBR 6118:2023 e NBR 15575.",
+      "Agressividade ambiental litorânea e seus impactos em estruturas e fachadas no Nordeste.",
+      "Patologias em sistemas de vedação vertical: fissuras, descolamentos cerâmicos e infiltrações.",
+      "Ensaios técnicos diagnósticos: esclerometria, profundidade de carbonatação e potencial de corrosão.",
+      "Metodologia de mapeamento de danos e levantamento em campo via aplicativo mobile.",
+      "Materiais avançados para recuperação e reforço estrutural: polímeros, grautes e sistemas epóxi.",
+      "Sistemas de proteção de envoltórias, impermeabilização e reforço com fibras de carbono (FRP)."
+    ],
+    "atividade_avaliativa": "Elaboração de um Plano de Intervenção de Envoltória contendo Memorial Descritivo de Serviços gerado digitalmente e orçamento automatizado de recuperação estrutural, utilizando dados de canteiro do aplicativo Obra na Mão integrados ao sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "SOUZA, Vicente Custódio Moreira de; RIPPER, Thomaz. Patologia, recuperação e reforço de estruturas de concreto. São Paulo: PINI, 1998.",
+      "MEHTA, Povindar Kumar; MONTEIRO, Paulo J. M. Concreto: microestrutura, propriedades e materiais. 2. ed. São Paulo: IBRACON, 2014.",
+      "THOMAZ, Ercio. Trincas em edifícios: causas, prevenção e recuperação. São Paulo: PINI/EPUSP/IPT, 1989."
+    ],
+    "bibliografia_complementar": [
+      "HELENE, Paulo Roberto do Lago. Manual para reparo, reforço e proteção de estruturas de concreto. 2. ed. São Paulo: PINI, 1992.",
+      "BERTOLINI, Luca. Materiais de construção: patologia, reabilitação, prevenção. São Paulo: Oficina de Textos, 2010.",
+      "ISAIA, Geraldo Cechella (Ed.). Concreto: ciência e tecnologia. São Paulo: IBRACON, 2011.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 6118: Projeto de estruturas de concreto — Procedimento. Rio de Janeiro: ABNT, 2023."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Manutenção Avançada em Instalações Prediais (Elétrica, Hidráulica, HVAC)",
+    "numero": "12",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Gestão da performance, eficiência energética e disponibilidade de sistemas prediais complexos, abrangendo instalações hidrossanitárias (recalque e combate a perdas), elétricas de baixa tensão (ABNT NBR 5410/5419) e de climatização. Aborda os requisitos regulatórios, a conformidade legal e a estruturação técnica do PMOC (Plano de Manutenção, Operação e Controle) para sistemas de HVAC, assegurando a qualidade do ar interno e a segurança sanitária à luz da Lei Federal nº 13.589/2018, da Portaria MS nº 3.523/1998 e da RE/ANVISA nº 09/2003. Protocolos de manutenção para sistemas de missão crítica (mission-critical) e prevenção de colapsos operacionais. O detalhamento das tipologias de instalações apoia-se no sistema Predial 4.0, utilizando ferramentas de Inteligência Artificial (IA) para correlacionar sintomas visuais com causas prováveis de falhas em subestações, conjuntos motobombas e centrais de água gelada (CAG), automatizando a geração do PMOC e do plano preventivo.",
+    "conteudos_programaticos": [
+      "Gestão de disponibilidade e desempenho de redes elétricas, hidráulicas e térmicas.",
+      "Rigor técnico em instalações elétricas e de proteção atmosférica (ABNT NBR 5410 e NBR 5419).",
+      "Segurança em eletricidade (NR-10) e operação de subestações prediais.",
+      "Instalações hidrossanitárias avançadas (ABNT NBR 5626), sistemas de recalque e combate a desperdício.",
+      "Marco legal do HVAC e qualidade do ar: Lei nº 13.589/2018, Portaria nº 3.523/1998 e RE/ANVISA nº 09/2003.",
+      "Manutenção e operação de sistemas de climatização centrais (CAG) e higienização de dutos (NBR 14679).",
+      "Arquitetura de sistemas de missão crítica (mission-critical) e engenharia de redundância operacional.",
+      "Correlação automatizada de sintomas e causas de falhas por algoritmos analíticos."
+    ],
+    "atividade_avaliativa": "Geração automatizada do Plano de Manutenção, Operação e Controle (PMOC) e do Plano de Manutenção Predial Preventivo para instalações de missão crítica (subestações e bombas), aplicando a inteligência analítica e o banco de dados do sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "CREDER, Hélio. Instalações elétricas. 16. ed. Rio de Janeiro: LTC, 2016.",
+      "CARVALHO JÚNIOR, Roberto de. Instalações hidráulicas e o projeto de arquitetura. 9. ed. São Paulo: Blucher, 2018.",
+      "BRASIL. Lei nº 13.589, de 4 de janeiro de 2018. Dispõe sobre a manutenção de instalações e equipamentos de sistemas de climatização de ambientes. Brasília, DF, 2018."
+    ],
+    "bibliografia_complementar": [
+      "COTRIM, Ademaro A. M. B. Instalações elétricas. 5. ed. São Paulo: Pearson, 2009.",
+      "CREDER, Hélio. Instalações de ar condicionado. 6. ed. Rio de Janeiro: LTC, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16401-1, -2 e -3: Instalações de ar-condicionado — Sistemas centrais e unitários. Rio de Janeiro: ABNT.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 13971: Sistemas de refrigeração, condicionamento de ar e ventilação — Manutenção programada. Rio de Janeiro: ABNT, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5410: Instalações elétricas de baixa tensão. Rio de Janeiro: ABNT, 2004 (Versão Corrigida 2008)."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "CMMS e GMAO: Implementação de Sistemas de Gestão da Manutenção",
+    "numero": "13",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Domínio do fluxo de trabalho, processos lógicos e operação prática de softwares CMMS/GMAO (Computerized Maintenance Management System). Capacitação para a estruturação de bancos de dados patrimoniais, cadastro e árvore de ativos, abertura e rastreamento de Ordens de Serviço (O.S.), gestão do backlog e controle financeiro automatizado dos custos operacionais de manutenção corporativa por centros de custo, alinhados aos princípios de gestão da ABNT NBR ISO 55001. As rotinas utilizam o aplicativo Obra na Mão para despacho e encerramento de frentes de trabalho pelas equipes de campo, integrado à inteligência central do sistema Predial 4.0, o qual processa os checklists de inspeção de entrada e os converte automaticamente em ordens de serviço corretivas com orçamentos preliminares e cronogramas de manutenção embutidos.",
+    "conteudos_programaticos": [
+      "Papel e arquitetura de sistemas informatizados de gestão de manutenção (CMMS/GMAO).",
+      "Princípios e requisitos de gestão de ativos baseados na ABNT NBR ISO 55001.",
+      "Estruturação hierárquica patrimonial, codificação estratégica e taguamento de equipamentos.",
+      "Ciclo de vida operacional da Ordem de Serviço (O.S.): da abertura ao encerramento.",
+      "Planejamento de recursos, gestão de backlog e dimensionamento de calendários técnicos.",
+      "Automação de fluxos: transformação de checklists de campo em ordens de serviço corretivas.",
+      "Mobilidade corporativa: despacho remoto e apontamentos via dispositivos móveis.",
+      "Controle contábil de custos diretos e gestão orçamentária por centros de custo."
+    ],
+    "atividade_avaliativa": "Estruturação de um Modelo de Árvore de Ativos Patrimoniais e parametrização de um Cronograma de Plano de Manutenção integrado ao sistema, realizando a conversão automatizada de checklists em ordens de serviço orçadas via Obra na Mão e Predial 4.0.",
+    "bibliografia_basica": [
+      "KARDEC, Alan; NASCIF, Júlio. Manutenção: função estratégica. 5. ed. Rio de Janeiro: Qualitymark, 2019.",
+      "VIANA, Herbert Ricardo Garcia. PCM: planejamento e controle da manutenção. Rio de Janeiro: Qualitymark, 2002.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 55001: Gestão de ativos — Sistemas de gestão — Requisitos. Rio de Janeiro: ABNT, 2014."
+    ],
+    "bibliografia_complementar": [
+      "BRANCO FILHO, Gil. A organização, o planejamento e o controle da manutenção. Rio de Janeiro: Ciência Moderna, 2008.",
+      "XENOS, Harilaus Georgius d'Philippos. Gerenciando a manutenção produtiva. Nova Lima: Falconi, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5462: Confiabilidade e mantenabilidade — Terminologia. Rio de Janeiro: ABNT, 1994."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Manutenção Preditiva: IoT, Sensores Inteligentes e Automação Predial",
+    "numero": "14",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Estruturação de estratégias de manutenção preditiva digital e confiabilidade predial. Implantação e uso de sensores baseados em Internet das Coisas (IoT) aplicados a motores, bombas e quadros elétricos, integrando a coleta de telemetria em tempo real a sistemas de Automação Predial / BMS (Building Management System) para monitoramento remoto de variáveis operacionais e tratamento de séries temporais. Capacitação para detecção precoce de anomalias e falhas de forma automatizada antes da ocorrência do colapso, conforme a terminologia da ABNT NBR 5462. Os fluxos de dados conectam as redes IoT e o BMS diretamente ao módulo de manutenção preditiva do sistema Predial 4.0, que roda algoritmos de Inteligência Artificial (IA) para isolar sintomas, gerando relatórios automatizados e antecipando a causa raiz de falhas em maquinários complexos.",
+    "conteudos_programaticos": [
+      "Evolução estratégica da manutenção: filosofia preditiva e engenharia de confiabilidade.",
+      "Conceitos operacionais críticos: curva P-F, falha potencial e janelas técnicas de detecção.",
+      "Terminologia de confiabilidade e mantenabilidade segundo a ABNT NBR 5462.",
+      "Ensaios preditivos clássicos: análise de vibração, análise de óleos e ultrassom.",
+      "Arquitetura de conectividade IoT e redes de sensores inteligentes para infraestrutura.",
+      "Sistemas BMS (Building Management System) e automação de rotinas de supervisão e alarmística.",
+      "Tratamento de dados de telemetria: análise de séries temporais para desempenho de ativos.",
+      "Algoritmos de IA e modelagem de dados para previsão macroscópica de quebras e falhas."
+    ],
+    "atividade_avaliativa": "Elaboração de uma Proposta de Monitoramento Remoto de ativos acompanhada de um Plano de Manutenção Preditivo Digital associado, integrando telemetria de sensores IoT à analítica de causa raiz por Inteligência Artificial (IA) no sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "MOBLEY, R. Keith. An introduction to predictive maintenance. 2. ed. Amsterdam: Butterworth-Heinemann, 2002.",
+      "KARDEC, Alan; NASCIF, Júlio. Manutenção: função estratégica. 5. ed. Rio de Janeiro: Qualitymark, 2019.",
+      "SCHWAB, Klaus. A quarta revolução industrial. São Paulo: Edipro, 2016."
+    ],
+    "bibliografia_complementar": [
+      "NEPOMUCENO, Lauro Xavier. Técnicas de manutenção preditiva. São Paulo: Edgard Blücher, 1989.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 55001: Gestão de ativos — Sistemas de gestão — Requisitos. Rio de Janeiro: ABNT, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5462: Confiabilidade e mantenabilidade — Terminologia. Rio de Janeiro: ABNT, 1994."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Termografia Infravermelha e Drones na Inspeção de Ativos",
+    "numero": "15",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Engenharia diagnóstica não destrutiva de alta tecnologia por meio do uso da Termografia Infravermelha para detecção de anomalias ocultas (sobrecarga em circuitos, infiltrações latentes, umidade interna e descolamento de pastilhas ou revestimentos), em conformidade com as diretrizes da ABNT NBR 15572 e ABNT NBR 16292. Emprego de Drones (VANTs) na inspeção aérea remota de fachadas, telhados e coberturas complexas, utilizando conceitos de fotogrametria aérea para mapeamento tridimensional de riscos patrimoniais. Ênfase na interpretação de imagens térmicas, gradientes de temperatura e no planejamento de voo de acordo com a regulamentação civil da RBAC-E nº 94 (ANAC) e ICA 100-40 (DECEA). Os dados de campo são integrados às ferramentas de Inteligência Artificial (IA) de imagem do sistema Predial 4.0, automatizando a elaboração do plano de ação corretivo e dos memoriais descritivos dos reparos.",
+    "conteudos_programaticos": [
+      "Fundamentos físicos da radiação infravermelha, emissividade e temperatura aparente.",
+      "Diretrizes e procedimentos normativos de ensaios não destrutivos: ABNT NBR 15572 e NBR 16292.",
+      "Regulação e governança do espaço aéreo para drones/VANTs: ANAC (RBAC-E nº 94) e DECEA (ICA 100-40).",
+      "Especificações e calibração de sensores RGB e câmeras termográficas de alta resolução.",
+      "Diagnóstico térmico prático: pontes térmicas, falhas de isolamento e sobreaquecimentos elétricos.",
+      "Mapeamento de envoltórias por imagem: detecção aérea de infiltrações e delaminações de fachada.",
+      "Processamento fotogramétrico automatizado: geração de nuvens de pontos e modelos digitais 3D.",
+      "Processamento por visão computacional (IA) para reconhecimento de fissuras e danos ocultos."
+    ],
+    "atividade_avaliativa": "Produção de um Relatório Técnico de Inspeção Termográfica e Mapeamento de Fachada por Drones com Plano de Ação de Correção Automatizado, processado pelas ferramentas de Inteligência Artificial (IA) por imagem do sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "MALDAGUE, Xavier P. V. Theory and practice of infrared technology for nondestructive testing. New York: Wiley, 2001.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 15572: Ensaios não destrutivos — Termografia — Guia para inspeção de equipamentos elétricos e mecânicos. Rio de Janeiro: ABNT.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16747: Inspeção predial — Diretrizes, conceitos, terminologia e procedimento. Rio de Janeiro: ABNT, 2020."
+    ],
+    "bibliografia_complementar": [
+      "HOLST, Gerald C. Common sense approach to thermal imaging. Bellingham: SPIE Press, 2000.",
+      "BRASIL. Agência Nacional de Aviação Civil (ANAC). RBAC-E nº 94: Requisitos gerais para aeronaves não tripuladas de uso civil. Brasília, DF: ANAC.",
+      "BRASIL. Departamento de Controle do Espaço Aéreo (DECEA). ICA 100-40: Sistemas de Aeronaves Remotamente Pilotadas e o acesso ao espaço aéreo brasileiro. Brasília, DF: DECEA.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16292: Ensaios não destrutivos — Termografia — Medição e compensação da temperatura aparente refletida. Rio de Janeiro: ABNT."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Gestão de Ativos com BIM 7D (FM) e Orçamentação Preditiva",
+    "numero": "16",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Aplicação prática da metodologia BIM voltada à fase de Operação, Manutenção e Gerenciamento de Facilidades de edificações (BIM 7D / Facility Management). Extração e alimentação paramétrica de dados de modelos As-Built para o planejamento de rotas de manutenção e integração com ordens de serviço, estruturando bancos de dados em conformidade com as normas internacionais ABNT NBR ISO 19650-1 e -2, com as diretrizes nacionais do Decreto Federal nº 10.306/2020 e com a gestão de ativos da ABNT NBR ISO 55001. Uso de algoritmos de Inteligência Artificial (IA) para análise histórica de falhas, otimização orçamentária e cálculo do custo do ciclo de vida (LCC). A disciplina utiliza de forma integrada as composições analíticas da plataforma Orçafascio e o módulo financeiro do sistema Predial 4.0, que automatiza o cálculo de orçamentos preliminares e planos de ação financeiros sobre o modelo 3D.",
+    "conteudos_programaticos": [
+      "O ciclo de vida do empreendimento e as dimensões estratégicas do BIM 7D.",
+      "Governança e protocolos de informação conforme as diretrizes internacionais da ABNT NBR ISO 19650.",
+      "Políticas públicas nacionais de disseminação do BIM: o Decreto Federal nº 10.306/2020.",
+      "Conceitos de gestão de facilidades (ISO 41001) integrados à gestão de ativos imobiliários (ISO 55001).",
+      "Modelagem As-Built e estruturação de parâmetros de manutenção (protocolo COBie e equivalentes).",
+      "Interoperabilidade de dados: conexão direta entre modelos geométricos e softwares de gestão.",
+      "Metodologia de análise de custo do ciclo de vida (Life Cycle Costing — LCC) de elementos construtivos.",
+      "Uso de IA e composições analíticas de preços (Orçafascio) para previsibilidade e planejamento orçamentário."
+    ],
+    "atividade_avaliativa": "Desenvolvimento de um Relatório de Planejamento de Ativos Imobiliários com Orçamentação Preliminar e Previsibilidade de Custos de Ciclo de Vida, integrando composições do Orçafascio ao módulo financeiro parametrizado no sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. BIM handbook: a guide to building information modeling. 3. ed. Hoboken: Wiley, 2018.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 55001: Gestão de ativos — Sistemas de gestão — Requisitos. Rio de Janeiro: ABNT, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 19650-1 e NBR ISO 19650-2: Organização e digitalização das informações relativas a edificações e obras de engenharia civil que utilizam BIM. Rio de Janeiro: ABNT, 2022."
+    ],
+    "bibliografia_complementar": [
+      "MATTOS, Aldo Dórea. Como preparar orçamentos de obras. 3. ed. São Paulo: Oficina de Textos, 2019.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 41001: Facility management — Sistemas de gestão — Requisitos com orientação para uso. Rio de Janeiro: ABNT, 2018.",
+      "BRASIL. Decreto nº 10.306, de 2 de abril de 2020. Estabelece a utilização do BIM na execução direta ou indireta de obras e serviços de engenharia. Brasília, DF, 2020."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Engenharia Condominial e Gestão de Sistemas de Segurança e Transporte",
+    "numero": "17",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Estruturação jurídica, elaboração técnica e gestão estratégica de contratos corporativos de Facilities (limpeza, portaria e segurança patrimonial) alinhados à ABNT NBR ISO 41001, definindo Acordos de Nível de Serviço (SLA) e Indicadores-Chave de Desempenho (KPIs) para a fiscalização de terceiros. Fundamentos de engenharia condominial aplicados ao controle, comissionamento e conformidade legal de sistemas de transporte vertical (elevadores e escadas rolantes), à luz da ABNT NBR 16858-1:2020 e ABNT NBR 16083, e dos planos de segurança contra incêndio e pânico regulados pela Lei Federal nº 13.425/2017 (Lei Kiss) e rotas de fuga da ABNT NBR 9077. As vistorias usam as ferramentas móveis do aplicativo Obra na Mão conectadas ao banco de dados de Engenharia Condominial do sistema Predial 4.0, automatizando a geração de checklists de inspeção legal e planos de ação orçados.",
+    "conteudos_programaticos": [
+      "Gestão estratégica e modelagem de contratos de Facilities segundo as diretrizes da ABNT NBR ISO 41001.",
+      "Estruturação de Acordos de Nível de Serviço (SLA) e engenharia de indicadores (KPIs) para terceirizados.",
+      "Marco normativo do transporte vertical: segurança e requisitos da ABNT NBR 16858-1:2020.",
+      "Diretrizes e instruções técnicas para planos de manutenção de elevadores e escadas (ABNT NBR 16083).",
+      "Prevenção contra incêndio e pânico no âmbito federal e regional: a Lei nº 13.425/2017 (Lei Kiss).",
+      "Cálculo de população, fluxos e dimensionamento técnico de saídas de emergência (ABNT NBR 9077).",
+      "Sistemas de detecção, alarme, sinalização e combate ativo (hidrantes/sprinklers) em edificações.",
+      "Governança documental condominial, auditorias de riscos legais e plano de ação mobile."
+    ],
+    "atividade_avaliativa": "Elaboração de um Checklist de Inspeção Legal de Sistemas de Transporte e de um Plano de Ação de Correção para inconformidades normativas condominiais, via coleta móvel no Obra na Mão e inteligência de banco de dados do Predial 4.0.",
+    "bibliografia_basica": [
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16858-1: Elevadores — Requisitos de segurança para construção e instalação — Parte 1: Elevadores de passageiros e elevadores de passageiros e cargas. Rio de Janeiro: ABNT, 2020.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16083: Manutenção de elevadores, escadas rolantes e esteiras rolantes — Requisitos para instruções de manutenção. Rio de Janeiro: ABNT, 2012.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 41001: Facility management — Sistemas de gestão — Requisitos com orientação para uso. Rio de Janeiro: ABNT, 2018."
+    ],
+    "bibliografia_complementar": [
+      "BRASIL. Lei nº 13.425, de 30 de março de 2017. Estabelece diretrizes gerais sobre medidas de prevenção e combate a incêndio e a desastres em estabelecimentos. Brasília, DF, 2017.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 9077: Saídas de emergência em edifícios. Rio de Janeiro: ABNT, 2001.",
+      "QUINELLO, Robson; NICOLETTI, José Reynaldo. Gestão de facilidades. São Paulo: Novatec, 2006.",
+      "KARDEC, Alan; NASCIF, Júlio. Manutenção: função estratégica. 5. ed. Rio de Janeiro: Qualitymark, 2019."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  },
+  {
+    "programa": "Especialização em Engenharia e Gestão da Manutenção Predial na Construção 4.0",
+    "disciplina": "Gestão da Manutenção: Planejamento, KPIs e Conformidade Operacional",
+    "numero": "18",
+    "carga_horaria": "20 horas",
+    "carga_por_aula": "10 h/a",
+    "creditos": "01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Específico (Disciplinas Técnicas)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Estruturação macro do Planejamento e Controle da Manutenção (PCM) na Construção 4.0, balanceando ações preventivas, corretivas e preditivas sob os requisitos sistêmicos da ABNT NBR 5674:2024 e gestão de ativos da ABNT NBR ISO 55001. Gestão estratégica de estoque de sobressalentes e suprimentos críticos por curvas de demanda. Implementação, cálculo e análise integrada dos indicadores de desempenho e confiabilidade internacional MTBF (Período Médio Entre Falhas) e MTTR (Tempo Médio de Reparo), assegurando a conformidade operacional perante as Normas Regulamentadoras de segurança do trabalho (NR-1, NR-10, NR-12 e NR-35). A consolidação financeira e de insumos adota as tabelas de composições da plataforma Orçafascio integrada aos painéis analíticos do sistema Predial 4.0, o qual centraliza dados para gerar o cronograma mestre de manutenção, memoriais descritivos de serviços e relatórios de conformidade automatizados por Inteligência Artificial (IA).",
+    "conteudos_programaticos": [
+      "Métodos de estruturação e operação de setores de Planejamento e Controle da Manutenção (PCM).",
+      "Requisitos do sistema de gestão da manutenção de edifícios conforme a ABNT NBR 5674:2024.",
+      "Otimização operacional: modelos de equilíbrio entre manutenções corretivas, preventivas e preditivas.",
+      "Marcos regulatórios de segurança em canteiros e edifícios operacionais (NR-1, NR-10, NR-12 e NR-35).",
+      "Engenharia de suprimentos: gestão de estoques críticos, sobressalentes e análise por curvas ABC.",
+      "Cálculo de indicadores de confiabilidade: MTBF, MTTR, disponibilidade e eficiência de sistemas.",
+      "Painéis analíticos (dashboards) de engenharia e tomada de decisão estratégica baseada em dados.",
+      "Sistemas integrados de auditoria de riscos ocupacionais (PGR) e orçamentação corretiva por IA."
+    ],
+    "atividade_avaliativa": "Entrega final de um Plano de Manutenção Predial Preventivo e Corretivo com Cronograma Geral, Matriz de KPIs (MTBF/MTTR) e Orçamento Automatizado de Serviços, consolidando o fechamento orçamentário via Orçafascio e painel do sistema Predial 4.0.",
+    "bibliografia_basica": [
+      "KARDEC, Alan; NASCIF, Júlio. Manutenção: função estratégica. 5. ed. Rio de Janeiro: Qualitymark, 2019.",
+      "VIANA, Herbert Ricardo Garcia. PCM: planejamento e controle da manutenção. Rio de Janeiro: Qualitymark, 2002.",
+      "BRANCO FILHO, Gil. Indicadores e índices de manutenção. Rio de Janeiro: Ciência Moderna, 2006."
+    ],
+    "bibliografia_complementar": [
+      "XENOS, Harilaus Georgius d'Philippos. Gerenciando a manutenção produtiva. Nova Lima: Falconi, 2004.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR ISO 55001: Gestão de ativos — Sistemas de gestão — Requisitos. Rio de Janeiro: ABNT, 2014.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5674: Manutenção de edificações — Requisitos para o sistema de gestão de manutenção. Rio de Janeiro: ABNT, 2024.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 5462: Confiabilidade e mantenabilidade — Terminologia. Rio de Janeiro: ABNT, 1994."
+    ],
+    "curso_alvo": "Engenharia e Gestão da Manutenção Predial na Construção 4.0"
+  }
+]

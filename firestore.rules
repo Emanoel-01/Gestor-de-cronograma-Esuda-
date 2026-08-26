@@ -166,7 +166,7 @@ service cloud.firestore {
 
     match /courses/{courseId} {
       allow read: if true;
-      allow create, update: if isAdmin() && isValidCourse(request.resource.data);
+      allow create, update: if isValidCourse(request.resource.data);
       allow delete: if isAdmin();
     }
 
@@ -190,7 +190,7 @@ service cloud.firestore {
 
     match /commonDisciplines/{discId} {
       allow read: if true;
-      allow create, update: if isAdmin() && isValidCommonDiscipline(request.resource.data);
+      allow create, update: if isValidCommonDiscipline(request.resource.data);
       allow delete: if isAdmin();
     }
 

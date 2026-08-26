@@ -1,0 +1,299 @@
+[
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Inteligência Artificial Aplicada",
+    "numero": "1",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Exploração avançada de IA Generativa aplicada ao ecossistema da construção civil e aos projetos arquitetônicos. Domínio de ferramentas para criação e edição de imagens e vídeos de alta performance para apresentações conceituais e marketing imobiliário, desenvolvimento de agentes de automação e fluxos de trabalho inteligentes, introdução à programação assistida e ao uso de ferramentas low code, e análise preditiva de dados para relatórios técnicos e documentação automatizada. O objetivo é inserir o aluno na vanguarda da produtividade, entregando resultados com maior velocidade e precisão tecnológica.",
+    "conteudos_programaticos": [
+      "Fundamentos de IA Generativa aplicada à arquitetura e à engenharia.",
+      "Engenharia de prompts para texto, imagem e vídeo.",
+      "Geração e edição de imagens conceituais e vídeos para marketing imobiliário.",
+      "Agentes de automação e fluxos de trabalho inteligentes.",
+      "Programação assistida e ferramentas low code no canteiro e no escritório.",
+      "Análise preditiva de dados e documentação técnica automatizada.",
+      "Ética, direitos autorais, LGPD e validação humana (human in the loop)."
+    ],
+    "atividade_avaliativa": "Desenvolvimento de um fluxo de trabalho assistido por IA (imagem, texto ou automação) aplicado a uma rotina real do escritório ou do canteiro, com apresentação dos ganhos de produtividade e da revisão técnica humana.",
+    "bibliografia_basica": [
+      "RUSSELL, Stuart; NORVIG, Peter. Inteligência artificial. 3. ed. Rio de Janeiro: Elsevier, 2013.",
+      "SHARDA, Ramesh; DELEN, Dursun; TURBAN, Efraim. Business Intelligence e análise de dados para gestão do negócio. 4. ed. Porto Alegre: Bookman, 2019.",
+      "EASTMAN, Chuck; TEICHOLZ, Paul; SACKS, Rafael; LISTON, Kathleen. Manual de BIM. Porto Alegre: Bookman, 2014."
+    ],
+    "bibliografia_complementar": [
+      "TEDESCHI, Arturo. AAD Algorithms-Aided Design. Brienza: Le Penseur, 2014.",
+      "KAUFMAN, Josh. O primeiro emprego: MBA. São Paulo: Sextante, 2018.",
+      "BRASIL. Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD). Brasília, DF, 2018."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Gestão de Escritórios de Arquitetura e Engenharia: Branding e Precificação",
+    "numero": "2",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Estudo do empreendedorismo aplicado a serviços técnicos. Elaboração de planos de negócios dinâmicos, desenvolvimento de estratégias de posicionamento de marca (branding) e autoridade de mercado e aplicação de técnicas de precificação estratégica baseada no valor percebido pelo cliente (Value Based Pricing) em substituição aos modelos de custos fixos. O objetivo é transformar um escritório de uma operação técnica em uma marca de desejo, focando na lucratividade real por meio da percepção de valor e não apenas na hora trabalhada.",
+    "conteudos_programaticos": [
+      "Empreendedorismo e modelos de negócio em serviços técnicos.",
+      "Business Model Canvas e plano de negócios do escritório.",
+      "Branding, posicionamento e construção de autoridade de mercado.",
+      "Precificação estratégica: custo, valor e Value Based Pricing.",
+      "Estrutura de honorários e tabelas de referência (CAU/CONFEA).",
+      "Gestão financeira, margens e lucratividade.",
+      "Proposta comercial e jornada de captação de clientes."
+    ],
+    "atividade_avaliativa": "Elaboração de um plano de negócios enxuto (Canvas) e de uma proposta comercial com precificação por valor para um serviço do escritório, com justificativa de posicionamento de marca.",
+    "bibliografia_basica": [
+      "OSTERWALDER, Alexander; PIGNEUR, Yves. Business Model Generation: inovação em modelos de negócios. Rio de Janeiro: Alta Books, 2011.",
+      "KOTLER, Philip; KELLER, Kevin Lane. Administração de marketing. 15. ed. São Paulo: Pearson, 2018.",
+      "GONÇALVES, Eduardo. Gestão de escritórios de arquitetura e engenharia. São Paulo: [s.n.], 2019."
+    ],
+    "bibliografia_complementar": [
+      "AAKER, David A. Construindo marcas fortes. Porto Alegre: Bookman, 2007.",
+      "DOLABELA, Fernando. O segredo de Luísa. Rio de Janeiro: Sextante, 2008.",
+      "CONSELHO DE ARQUITETURA E URBANISMO (CAU/BR). Tabela de honorários de serviços de arquitetura e urbanismo. Brasília: CAU/BR."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Competências Estratégicas, Liderança e Alta Performance",
+    "numero": "3",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "EAD (a distância)",
+    "ementa": "Desenvolvimento de liderança situacional e transformacional para a gestão de equipes multidisciplinares. Gestão de power skills e estratégias de feedback construtivo, planejamento de carreira por meio do Plano de Desenvolvimento Individual (PDI) e ferramentas de alta performance. O objetivo é preparar o profissional para ocupar cargos de diretoria e coordenação, com foco na retenção de talentos e no aumento da performance coletiva.",
+    "conteudos_programaticos": [
+      "Liderança situacional e transformacional.",
+      "Gestão de equipes multidisciplinares e delegação.",
+      "Power skills e inteligência emocional.",
+      "Feedback construtivo e cultura de desenvolvimento.",
+      "Plano de Desenvolvimento Individual (PDI) e carreira.",
+      "Produtividade, foco e alta performance.",
+      "Retenção de talentos e performance coletiva."
+    ],
+    "atividade_avaliativa": "Elaboração de um Plano de Desenvolvimento Individual (PDI) e de um plano de ação de liderança para uma equipe, com definição de metas, indicadores e rotina de feedback.",
+    "bibliografia_basica": [
+      "HERSEY, Paul; BLANCHARD, Kenneth H. Psicologia para administradores: a teoria e as técnicas da liderança situacional. São Paulo: EPU, 1986.",
+      "GOLEMAN, Daniel. Inteligência emocional. Rio de Janeiro: Objetiva, 2011.",
+      "COVEY, Stephen R. Os 7 hábitos das pessoas altamente eficazes. Rio de Janeiro: BestSeller, 2017."
+    ],
+    "bibliografia_complementar": [
+      "MAXWELL, John C. As 21 irrefutáveis leis da liderança. Rio de Janeiro: Thomas Nelson Brasil, 2007.",
+      "LENCIONI, Patrick. Os cinco desafios das equipes. Rio de Janeiro: Sextante, 2015.",
+      "DWECK, Carol S. Mindset: a nova psicologia do sucesso. São Paulo: Objetiva, 2017."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Marketing Pessoal e Digital para Arquitetos e Engenheiros",
+    "numero": "4",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Construção de autoridade técnica e posicionamento estratégico no LinkedIn e no Instagram. Uso do Inbound Marketing e de funis de vendas (AIDA) para atração e conversão de clientes qualificados no mercado de construção civil. O objetivo é transformar o conhecimento técnico em visibilidade comercial, garantindo que o profissional saiba vender seu próprio valor e atrair projetos de alto ticket.",
+    "conteudos_programaticos": [
+      "Marca pessoal e autoridade técnica no ambiente digital.",
+      "Estratégia de conteúdo para LinkedIn e Instagram.",
+      "Inbound Marketing e funil de vendas (AIDA).",
+      "Atração, nutrição e conversão de clientes qualificados.",
+      "Produção de portfólio e prova social.",
+      "Métricas, tráfego e geração de leads.",
+      "Prospecção de projetos de alto ticket."
+    ],
+    "atividade_avaliativa": "Elaboração de um plano de marketing digital pessoal com calendário de conteúdo e um funil de captação (AIDA) para atrair clientes qualificados, com definição de métricas de acompanhamento.",
+    "bibliografia_basica": [
+      "KOTLER, Philip; KARTAJAYA, Hermawan; SETIAWAN, Iwan. Marketing 5.0: tecnologia para a humanidade. Rio de Janeiro: Sextante, 2021.",
+      "TORRES, Cláudio. A bíblia do marketing digital. 2. ed. São Paulo: Novatec, 2018.",
+      "GABRIEL, Martha. Marketing na era digital. 2. ed. São Paulo: Atlas, 2020."
+    ],
+    "bibliografia_complementar": [
+      "VAYNERCHUK, Gary. Nocaute: como contar sua história em um mundo distraído. São Paulo: HSM, 2014.",
+      "REZ, Rafael. Marketing de conteúdo: a moeda do século XXI. São Paulo: DVS, 2016.",
+      "PEÇANHA, Vitor. Obrigado pelo marketing. São Paulo: Benvirá, 2017."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Metodologia da Pesquisa e Didática do Ensino Superior",
+    "numero": "5",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "EAD (a distância)",
+    "ementa": "Fundamentos científicos e métodos de pesquisa quantitativa e qualitativa. Normatização de trabalhos acadêmicos segundo a ABNT e introdução ao Evidence Based Design (Design Baseado em Evidências) como ferramenta de validação de projetos e inovação técnica. Garante o rigor científico necessário ao desenvolvimento de artigos e TCCs, ao mesmo tempo em que prepara o aluno para a docência e para a defesa técnica de suas decisões projetuais.",
+    "conteudos_programaticos": [
+      "Fundamentos da pesquisa científica: problema, hipótese e objetivos.",
+      "Métodos quantitativos e qualitativos.",
+      "Normalização ABNT (NBR 6023, 6024, 6027, 6028, 10520 e 14724).",
+      "Estrutura de artigos científicos e do TCC.",
+      "Evidence Based Design como método de validação.",
+      "Didática do ensino superior e planejamento de aula.",
+      "Defesa técnica e comunicação científica."
+    ],
+    "atividade_avaliativa": "Elaboração de um projeto de pesquisa (pré-projeto de TCC/artigo) com problema, objetivos, metodologia e referências normalizadas em ABNT.",
+    "bibliografia_basica": [
+      "GIL, Antônio Carlos. Como elaborar projetos de pesquisa. 6. ed. São Paulo: Atlas, 2017.",
+      "MARCONI, Marina de Andrade; LAKATOS, Eva Maria. Fundamentos de metodologia científica. 8. ed. São Paulo: Atlas, 2017.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 14724: Informação e documentação — Trabalhos acadêmicos — Apresentação. Rio de Janeiro: ABNT, 2011."
+    ],
+    "bibliografia_complementar": [
+      "SEVERINO, Antônio Joaquim. Metodologia do trabalho científico. 24. ed. São Paulo: Cortez, 2016.",
+      "MASETTO, Marcos Tarciso. Competência pedagógica do professor universitário. São Paulo: Summus, 2012.",
+      "CRESWELL, John W. Projeto de pesquisa: métodos qualitativo, quantitativo e misto. Porto Alegre: Penso, 2021."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Práticas Simuladas: Estrutura Legal, Contábil e Empreendedorismo",
+    "numero": "6",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "Presencial / Remoto (ao vivo)",
+    "ementa": "Análise da transição de pessoa física para jurídica (PJ). Estudo de regimes tributários e noções contábeis essenciais para o setor da construção, blindagem jurídica de contratos e fundamentos estratégicos para participação em licitações públicas e contratos administrativos. Tem como objetivo oferecer segurança jurídica e financeira para o profissional, minimizando riscos de glosas em contratos e otimizando a carga tributária da empresa.",
+    "conteudos_programaticos": [
+      "Transição de pessoa física para jurídica (PJ) e tipos societários.",
+      "Regimes tributários (Simples, Lucro Presumido e Real) na construção.",
+      "Noções contábeis essenciais e fluxo de caixa da empresa.",
+      "Blindagem jurídica e cláusulas de contratos técnicos.",
+      "Licitações e contratos administrativos (Lei nº 14.133/2021).",
+      "Gestão de riscos contratuais e prevenção de glosas.",
+      "Formalização e compliance da empresa de engenharia/arquitetura."
+    ],
+    "atividade_avaliativa": "Elaboração de um estudo de estruturação empresarial simulado: escolha do regime tributário, minuta de cláusulas contratuais de proteção e checklist de habilitação para uma licitação.",
+    "bibliografia_basica": [
+      "CREPALDI, Silvio Aparecido. Contabilidade gerencial: teoria e prática. 8. ed. São Paulo: Atlas, 2019.",
+      "FABRETTI, Láudio Camargo. Contabilidade tributária. 16. ed. São Paulo: Atlas, 2017.",
+      "BRASIL. Lei nº 14.133, de 1º de abril de 2021. Lei de Licitações e Contratos Administrativos. Brasília, DF, 2021."
+    ],
+    "bibliografia_complementar": [
+      "CHIAVENATO, Idalberto. Empreendedorismo: dando asas ao espírito empreendedor. 4. ed. Barueri: Manole, 2012.",
+      "MEIRELLES, Hely Lopes. Direito administrativo brasileiro. 43. ed. São Paulo: Malheiros, 2020.",
+      "BRASIL. Lei nº 10.406, de 10 de janeiro de 2002. Código Civil. Brasília, DF, 2002."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Novas Fontes de Receita: Elaboração de Laudos e Perícias",
+    "numero": "7",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "EAD (a distância)",
+    "ementa": "Fundamentos da atuação como perito judicial e assistente técnico. Metodologias e normas aplicadas à redação de laudos técnicos e diagnósticos de vistorias, com exploração de nichos de mercado em inspeção predial e vistorias cautelares como estratégia de diversificação de faturamento. Capacita o aluno a identificar oportunidades de receita recorrente em fases do ciclo de vida das edificações que geralmente são ignoradas por profissionais generalistas.",
+    "conteudos_programaticos": [
+      "O mercado de perícias, laudos e vistorias.",
+      "Perito judicial e assistente técnico (CPC — Lei nº 13.105/2015).",
+      "Metodologia e estrutura do laudo técnico (NBR 13752).",
+      "Inspeção predial como serviço recorrente (NBR 16747).",
+      "Vistorias cautelares de vizinhança e de recebimento.",
+      "Precificação e proposta de serviços periciais.",
+      "Diversificação de faturamento e receita recorrente."
+    ],
+    "atividade_avaliativa": "Elaboração de um portfólio de serviços periciais com uma proposta técnica e comercial e um modelo de laudo estruturado para um nicho escolhido.",
+    "bibliografia_basica": [
+      "ABUNAHMAN, Sérgio Antônio. Curso básico de engenharia legal e de avaliações. 4. ed. São Paulo: Pini, 2008.",
+      "GOMIDE, Tito Lívio Ferreira; PUJADAS, Flávia Zoéga Andreatta; FAGUNDES NETO, Jerônimo Cabral. Técnicas de inspeção e manutenção predial. São Paulo: Pini, 2006.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 13752: Perícias de engenharia na construção civil. Rio de Janeiro: ABNT, 1996."
+    ],
+    "bibliografia_complementar": [
+      "DANTAS, Rubens Alves. Engenharia de avaliações. 3. ed. São Paulo: Pini, 2012.",
+      "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 16747: Inspeção predial. Rio de Janeiro: ABNT, 2020.",
+      "BRASIL. Lei nº 13.105, de 16 de março de 2015. Código de Processo Civil. Brasília, DF, 2015."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Solução Criativa de Problemas Complexos (Design Thinking)",
+    "numero": "8",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "EAD (a distância)",
+    "ementa": "Introdução ao mindset ágil e às fases do Design Thinking: imersão, ideação e prototipagem. Aplicação de ferramentas de criatividade para a resolução de gargalos em processos construtivos e desafios técnicos complexos, fomentando uma cultura de inovação dentro dos canteiros de obra e escritórios e permitindo que o profissional crie soluções personalizadas e eficientes para problemas imprevistos.",
+    "conteudos_programaticos": [
+      "Mindset ágil e cultura de inovação.",
+      "As fases do Design Thinking: imersão, ideação e prototipagem.",
+      "Ferramentas de empatia e definição do problema.",
+      "Técnicas de ideação e cocriação.",
+      "Prototipagem rápida e teste de soluções.",
+      "Aplicação a gargalos construtivos e desafios técnicos.",
+      "Implementação e cultura de inovação no escritório e no canteiro."
+    ],
+    "atividade_avaliativa": "Aplicação do processo de Design Thinking a um problema real de projeto ou obra, entregando o mapa de empatia, a definição do problema e um protótipo de solução testado.",
+    "bibliografia_basica": [
+      "BROWN, Tim. Design Thinking: uma metodologia poderosa para decretar o fim das velhas ideias. Rio de Janeiro: Elsevier, 2010.",
+      "VIANNA, Maurício et al. Design Thinking: inovação em negócios. Rio de Janeiro: MJV Press, 2012.",
+      "PINHEIRO, Tennyson; ALT, Luis. Design Thinking Brasil. Rio de Janeiro: Alta Books, 2017."
+    ],
+    "bibliografia_complementar": [
+      "KELLEY, Tom; KELLEY, David. Confiança criativa. Rio de Janeiro: Alta Books, 2019.",
+      "OSTERWALDER, Alexander et al. Value Proposition Design. Rio de Janeiro: Alta Books, 2014.",
+      "LUPTON, Ellen. Intuição, ação, criação: Graphic Design Thinking. São Paulo: Gustavo Gili, 2013."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  },
+  {
+    "programa": "Especialização em Gestão de Projetos e Obras",
+    "disciplina": "Negociação e Gestão de Conflitos",
+    "numero": "9",
+    "carga_horaria": ": 20 horas",
+    "carga_por_aula": ": 10 h/a",
+    "creditos": ": 01",
+    "ano_aplicacao": "2026.1",
+    "nucleo": "Tronco Comum (Gestão, Inovação e Negócios)",
+    "modalidade": "EAD (a distância)",
+    "ementa": "Aplicação do Método Harvard de negociação em cenários de engenharia e arquitetura. Estratégias para mediação de conflitos entre stakeholders, gestão de expectativas de clientes e resolução de disputas com fornecedores e equipes de campo. Tem o objetivo de desenvolver a inteligência emocional e a capacidade persuasiva, competências críticas para garantir o sucesso de projetos sem comprometer os relacionamentos profissionais.",
+    "conteudos_programaticos": [
+      "Fundamentos e estilos de negociação.",
+      "O Método Harvard de negociação por princípios.",
+      "Interesses, posições e a MAANA (BATNA).",
+      "Gestão de conflitos entre stakeholders.",
+      "Mediação e resolução de disputas em obra.",
+      "Gestão de expectativas de clientes e fornecedores.",
+      "Comunicação persuasiva e inteligência emocional."
+    ],
+    "atividade_avaliativa": "Preparação e simulação de uma negociação de engenharia (pleito, aditivo ou disputa), com mapa de interesses, definição da MAANA e roteiro de condução baseado no Método Harvard.",
+    "bibliografia_basica": [
+      "FISHER, Roger; URY, William; PATTON, Bruce. Como chegar ao sim: a negociação de acordos sem concessões. Rio de Janeiro: Solomon, 2014.",
+      "URY, William. Como chegar ao sim com você mesmo. Rio de Janeiro: Sextante, 2015.",
+      "GOLEMAN, Daniel. Inteligência emocional. Rio de Janeiro: Objetiva, 2011."
+    ],
+    "bibliografia_complementar": [
+      "SHELL, G. Richard. Negociar é preciso: estratégias de negociação para pessoas de bom senso. São Paulo: Elsevier, 2001.",
+      "COHEN, Herb. Você pode negociar qualquer coisa. Rio de Janeiro: Record, 2013.",
+      "MELLO, José Carlos Martins F. de. Negociação baseada em estratégia. São Paulo: Atlas, 2015."
+    ],
+    "curso_alvo": "__TRONCO_COMUM__"
+  }
+]
