@@ -45,6 +45,8 @@ import { Input } from '../ui/Input';
 import { TextArea } from '../ui/TextArea';
 import { ConfirmationModal } from '../ui/ConfirmationModal';
 import { SortableItem } from '../ui/SortableItem';
+import { PlanoDeEnsinoEditor } from '../ui/PlanoDeEnsinoEditor';
+import { PlanoDeEnsino } from '@/types/syllabus';
 
 interface CoursesManagerProps {
   courses: any[];
@@ -489,7 +491,14 @@ function CourseEditModal({ course, isAdmin, onClose }: any) {
       const name = typeof d === 'string' ? d : d.name;
       const syllabus = typeof d === 'object' ? (d.syllabus || '') : '';
       const teacherCount = typeof d === 'object' ? (d.teacherCount || 1) : 1;
-      return { id: `disc-${i}-${Date.now()}`, name, syllabus, teacherCount, isExpanded: false };
+      const planoDeEnsino: PlanoDeEnsino = (typeof d === 'object' && d.planoDeEnsino) ? d.planoDeEnsino : {
+        ementa: syllabus,
+        conteudosProgramaticos: [],
+        atividadeAvaliativa: '',
+        bibliografiaBasica: [],
+        bibliografiaComplementar: []
+      };
+      return { id: `disc-${i}-${Date.now()}`, name, syllabus, teacherCount, planoDeEnsino, isExpanded: false };
     })
   );
   const [newDisc, setNewDisc] = useState('');
@@ -518,8 +527,15 @@ function CourseEditModal({ course, isAdmin, onClose }: any) {
     try {
       const disciplineData = disciplines.map((d: any) => ({ 
         name: d.name, 
-        syllabus: d.syllabus || '',
-        teacherCount: d.teacherCount || 1
+        syllabus: d.planoDeEnsino?.ementa || d.syllabus || '',
+        teacherCount: d.teacherCount || 1,
+        planoDeEnsino: d.planoDeEnsino || {
+          ementa: d.syllabus || '',
+          conteudosProgramaticos: [],
+          atividadeAvaliativa: '',
+          bibliografiaBasica: [],
+          bibliografiaComplementar: []
+        }
       }));
       const disciplineNames = disciplineData.map((d: any) => d.name);
       
@@ -601,7 +617,20 @@ function CourseEditModal({ course, isAdmin, onClose }: any) {
 
   const addDisc = () => {
     if (!newDisc) return;
-    setDisciplines([...disciplines, { id: `new-${Date.now()}`, name: newDisc, syllabus: '', isExpanded: true }]);
+    setDisciplines([...disciplines, { 
+      id: `new-${Date.now()}`, 
+      name: newDisc, 
+      syllabus: '', 
+      teacherCount: 1,
+      planoDeEnsino: {
+        ementa: '',
+        conteudosProgramaticos: [],
+        atividadeAvaliativa: '',
+        bibliografiaBasica: [],
+        bibliografiaComplementar: []
+      },
+      isExpanded: true 
+    }]);
     setNewDisc('');
   };
 
@@ -615,9 +644,13 @@ function CourseEditModal({ course, isAdmin, onClose }: any) {
     setDisciplines(next);
   };
 
-  const updateDiscSyllabus = (index: number, newSyllabus: string) => {
+  const updateDiscPlano = (index: number, newPlano: PlanoDeEnsino) => {
     const next = [...disciplines];
-    next[index] = { ...next[index], syllabus: newSyllabus };
+    next[index] = { 
+      ...next[index], 
+      planoDeEnsino: newPlano,
+      syllabus: newPlano.ementa || next[index].syllabus 
+    };
     setDisciplines(next);
   };
 
@@ -758,12 +791,9 @@ function CourseEditModal({ course, isAdmin, onClose }: any) {
                         
                         {disc.isExpanded && (
                           <div className="px-2 pb-2 animate-in fade-in slide-in-from-top-1 duration-200">
-                            <TextArea 
-                              placeholder="Digite a ementa da disciplina..."
-                              value={disc.syllabus}
-                              onChange={(e: any) => updateDiscSyllabus(i, e.target.value)}
-                              rows={3}
-                              className="text-xs"
+                            <PlanoDeEnsinoEditor 
+                              value={disc.planoDeEnsino}
+                              onChange={(newPlano) => updateDiscPlano(i, newPlano)}
                               disabled={!isAdmin}
                             />
                           </div>

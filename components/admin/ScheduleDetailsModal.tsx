@@ -376,17 +376,29 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
 
   const getConflict = (teacherId: string, date: string, currentClass: any) => {
     if (!teacherId) return null;
+    const teacher = teachers.find(t => t.id === teacherId);
+    const teacherName = teacher?.name ? teacher.name.split(' ')[0] : 'Professor';
     
     const localConflict = editedClasses.find(c => 
-      c.teacherId === teacherId && 
+      (c.teacherIds?.includes(teacherId) || c.teacherId === teacherId) && 
       c.date === date && 
       c.id !== currentClass.id &&
       !(c.order === currentClass.order && (c.isCommon ? currentClass.isCommon : c.courseId === currentClass.courseId))
     );
-    if (localConflict) return { type: 'local', info: localConflict.disciplineName };
+    if (localConflict) {
+      return { 
+        type: 'local' as const, 
+        info: `${teacherName}: conflito neste cronograma com "${localConflict.disciplineName}"` 
+      };
+    }
 
-    const externalConflict = allOtherClasses.find(c => c.teacherId === teacherId && c.date === date);
-    if (externalConflict) return { type: 'external', info: `${externalConflict.courseName || 'Outro Curso'} - ${externalConflict.disciplineName}` };
+    const externalConflict = allOtherClasses.find(c => (c.teacherIds?.includes(teacherId) || c.teacherId === teacherId) && c.date === date);
+    if (externalConflict) {
+      return { 
+        type: 'external' as const, 
+        info: `${teacherName}: conflito em "${externalConflict.courseName || 'Outro Curso'}" (${externalConflict.disciplineName})` 
+      };
+    }
 
     return null;
   };
@@ -980,13 +992,28 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
 
                                             <div className="flex flex-wrap gap-1">
                                               {(c.allDates || []).map((date: string, dIdx: number) => {
-                                                const hasConflict = (c.teacherIds || []).some((tid: string) => getConflict(tid, date, c));
-                                                if (hasConflict) return (
-                                                  <div key={`${date}-${dIdx}`} className="text-[9px] text-red-500 font-bold flex items-center gap-1 bg-red-50 px-1.5 py-0.5 rounded border border-red-100">
-                                                    <AlertTriangle className="w-2.5 h-2.5" /> Conflito {date ? format(parseISO(date), 'dd/MM') : ''}
+                                                const conflitos = (c.teacherIds || [])
+                                                  .map((tid: string) => getConflict(tid, date, c))
+                                                  .filter(Boolean);
+                                                if (conflitos.length === 0) return null;
+                                                const isAllLocal = conflitos.every((conf: any) => conf?.type === 'local');
+                                                return (
+                                                  <div 
+                                                    key={`${date}-${dIdx}`} 
+                                                    className={`text-[9px] font-bold flex items-center gap-1 px-1.5 py-0.5 rounded border ${
+                                                      isAllLocal 
+                                                        ? 'text-amber-700 bg-amber-50 border-amber-200' 
+                                                        : 'text-red-600 bg-red-50 border-red-200'
+                                                    }`}
+                                                    title={conflitos.map((conf: any) => conf?.info).join(' · ')}
+                                                  >
+                                                    <AlertTriangle className={`w-2.5 h-2.5 shrink-0 ${isAllLocal ? 'text-amber-600' : 'text-red-600'}`} />
+                                                    <span>
+                                                      Conflito {date ? format(parseISO(date), 'dd/MM') : ''}: {conflitos[0]?.info}
+                                                      {conflitos.length > 1 ? ` (+${conflitos.length - 1})` : ''}
+                                                    </span>
                                                   </div>
                                                 );
-                                                return null;
                                               })}
                                             </div>
                                           </div>
@@ -1021,13 +1048,28 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
 
                                             <div className="flex flex-wrap gap-1 pl-1">
                                               {(c.allDates || []).map((date: string, dIdx: number) => {
-                                                const hasConflict = (c.teacherIds || []).some((tid: string) => getConflict(tid, date, c));
-                                                if (hasConflict) return (
-                                                  <div key={`${date}-${dIdx}`} className="text-[9px] text-red-500 font-bold flex items-center gap-1 bg-red-50 px-1.5 py-0.5 rounded border border-red-100">
-                                                    <AlertTriangle className="w-2.5 h-2.5" /> Conflito {date ? format(parseISO(date), 'dd/MM') : ''}
+                                                const conflitos = (c.teacherIds || [])
+                                                  .map((tid: string) => getConflict(tid, date, c))
+                                                  .filter(Boolean);
+                                                if (conflitos.length === 0) return null;
+                                                const isAllLocal = conflitos.every((conf: any) => conf?.type === 'local');
+                                                return (
+                                                  <div 
+                                                    key={`${date}-${dIdx}`} 
+                                                    className={`text-[9px] font-bold flex items-center gap-1 px-1.5 py-0.5 rounded border ${
+                                                      isAllLocal 
+                                                        ? 'text-amber-700 bg-amber-50 border-amber-200' 
+                                                        : 'text-red-600 bg-red-50 border-red-200'
+                                                    }`}
+                                                    title={conflitos.map((conf: any) => conf?.info).join(' · ')}
+                                                  >
+                                                    <AlertTriangle className={`w-2.5 h-2.5 shrink-0 ${isAllLocal ? 'text-amber-600' : 'text-red-600'}`} />
+                                                    <span>
+                                                      Conflito {date ? format(parseISO(date), 'dd/MM') : ''}: {conflitos[0]?.info}
+                                                      {conflitos.length > 1 ? ` (+${conflitos.length - 1})` : ''}
+                                                    </span>
                                                   </div>
                                                 );
-                                                return null;
                                               })}
                                             </div>
                                           </div>

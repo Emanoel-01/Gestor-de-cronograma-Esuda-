@@ -6,7 +6,8 @@ import {
   Plus, 
   Trash2, 
   Edit2,
-  GripVertical
+  GripVertical,
+  BookOpen
 } from 'lucide-react';
 import { 
   collection, 
@@ -35,10 +36,11 @@ import {
 import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
-import { TextArea } from '../ui/TextArea';
 import { Card } from '../ui/Card';
 import { SortableItem } from '../ui/SortableItem';
 import { ConfirmationModal } from '../ui/ConfirmationModal';
+import { PlanoDeEnsinoEditor } from '../ui/PlanoDeEnsinoEditor';
+import { PlanoDeEnsino } from '@/types/syllabus';
 
 interface CommonDisciplinesManagerProps {
   isAdmin: boolean;
@@ -53,7 +55,17 @@ export function CommonDisciplinesManager({ isAdmin }: CommonDisciplinesManagerPr
   const [isDeleting, setIsDeleting] = useState(false);
 
   // Form for new/edit
-  const [form, setForm] = useState({ name: '', description: '' });
+  const [name, setName] = useState('');
+  const [planoDeEnsino, setPlanoDeEnsino] = useState<PlanoDeEnsino>({
+    ementa: '',
+    conteudosProgramaticos: [],
+    atividadeAvaliativa: '',
+    bibliografiaBasica: [],
+    bibliografiaComplementar: [],
+    cargaHoraria: '20 horas',
+    cargaPorAula: '10 h/a',
+    creditos: '01'
+  });
 
   useEffect(() => {
     const q = query(collection(db, 'commonDisciplines'), orderBy('order', 'asc'));
@@ -92,24 +104,56 @@ export function CommonDisciplinesManager({ isAdmin }: CommonDisciplinesManagerPr
     }
   };
 
+  const handleStartEdit = (disc: any) => {
+    setEditingDisc(disc);
+    setName(disc.name || '');
+    setPlanoDeEnsino(disc.planoDeEnsino || {
+      ementa: disc.description || '',
+      conteudosProgramaticos: [],
+      atividadeAvaliativa: '',
+      bibliografiaBasica: [],
+      bibliografiaComplementar: [],
+      cargaHoraria: '20 horas',
+      cargaPorAula: '10 h/a',
+      creditos: '01'
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCancelEdit = () => {
+    setEditingDisc(null);
+    setName('');
+    setPlanoDeEnsino({
+      ementa: '',
+      conteudosProgramaticos: [],
+      atividadeAvaliativa: '',
+      bibliografiaBasica: [],
+      bibliografiaComplementar: [],
+      cargaHoraria: '20 horas',
+      cargaPorAula: '10 h/a',
+      creditos: '01'
+    });
+  };
+
   const handleSave = async () => {
-    if (!form.name) return;
+    if (!name.trim()) return;
     setIsSaving(true);
     try {
+      const payload: any = {
+        name: name.trim(),
+        description: planoDeEnsino.ementa || '',
+        planoDeEnsino: planoDeEnsino
+      };
+
       if (editingDisc) {
-        await updateDoc(doc(db, 'commonDisciplines', editingDisc.id), {
-          name: form.name,
-          description: form.description
-        });
+        await updateDoc(doc(db, 'commonDisciplines', editingDisc.id), payload);
       } else {
         await addDoc(collection(db, 'commonDisciplines'), {
-          name: form.name,
-          description: form.description,
+          ...payload,
           order: disciplines.length + 1
         });
       }
-      setForm({ name: '', description: '' });
-      setEditingDisc(null);
+      handleCancelEdit();
     } catch (e) {
       handleFirestoreError(e, OperationType.WRITE, 'commonDisciplines');
     } finally {
@@ -135,35 +179,31 @@ export function CommonDisciplinesManager({ isAdmin }: CommonDisciplinesManagerPr
   return (
     <div className="space-y-8">
       {isAdmin && (
-        <Card className="p-6 border-indigo-100 bg-indigo-50/30">
-          <h3 className="text-sm font-bold text-indigo-900 uppercase tracking-widest mb-4">
+        <Card className="p-6 border-indigo-100 bg-indigo-50/30 space-y-4">
+          <h3 className="text-sm font-bold text-indigo-900 uppercase tracking-widest">
             {editingDisc ? 'Editar Disciplina' : 'Nova Disciplina do Tronco Comum'}
           </h3>
-          <div className="space-y-4">
-            <Input 
-              label="Nome da Disciplina" 
-              value={form.name} 
-              onChange={(e: any) => setForm({ ...form, name: e.target.value })} 
-              placeholder="Ex: Gestão de Escritórios"
-            />
-            <TextArea 
-              label="Ementa / Descrição" 
-              value={form.description} 
-              onChange={(e: any) => setForm({ ...form, description: e.target.value })} 
-              placeholder="Descreva o conteúdo da disciplina..."
-              rows={3}
-            />
-            <div className="flex justify-end gap-2">
-              {editingDisc && (
-                <Button variant="secondary" onClick={() => {
-                  setEditingDisc(null);
-                  setForm({ name: '', description: '' });
-                }}>Cancelar</Button>
-              )}
-              <Button onClick={handleSave} disabled={isSaving || !form.name}>
-                {isSaving ? 'Salvando...' : editingDisc ? 'Salvar Alterações' : 'Adicionar Disciplina'}
-              </Button>
-            </div>
+          
+          <Input 
+            label="Nome da Disciplina" 
+            value={name} 
+            onChange={(e: any) => setName(e.target.value)} 
+            placeholder="Ex: Gestão de Escritórios"
+          />
+
+          <PlanoDeEnsinoEditor
+            value={planoDeEnsino}
+            onChange={setPlanoDeEnsino}
+            disabled={!isAdmin}
+          />
+
+          <div className="flex justify-end gap-2 pt-2">
+            {editingDisc && (
+              <Button variant="secondary" onClick={handleCancelEdit}>Cancelar</Button>
+            )}
+            <Button onClick={handleSave} disabled={isSaving || !name.trim()}>
+              {isSaving ? 'Salvando...' : editingDisc ? 'Salvar Alterações' : 'Adicionar Disciplina'}
+            </Button>
           </div>
         </Card>
       )}
@@ -196,26 +236,31 @@ export function CommonDisciplinesManager({ isAdmin }: CommonDisciplinesManagerPr
                           {disc.order}
                         </span>
                         <h4 className="font-bold text-gray-900 truncate">{disc.name}</h4>
+                        {disc.planoDeEnsino?.conteudosProgramaticos?.length > 0 && (
+                          <span className="text-[9px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded border border-emerald-100 shrink-0">
+                            Plano Completo
+                          </span>
+                        )}
                       </div>
-                      {disc.description && (
-                        <p className="text-xs text-gray-500 mt-2 line-clamp-2 italic">{disc.description}</p>
+                      {(disc.planoDeEnsino?.ementa || disc.description) && (
+                        <p className="text-xs text-gray-500 mt-2 line-clamp-2 italic">
+                          {disc.planoDeEnsino?.ementa || disc.description}
+                        </p>
                       )}
                     </div>
                     {isAdmin && (
                       <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button 
-                          onClick={() => {
-                            setEditingDisc(disc);
-                            setForm({ name: disc.name, description: disc.description || '' });
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                          }}
+                          onClick={() => handleStartEdit(disc)}
                           className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
+                          title="Editar Plano de Ensino"
                         >
                           <Edit2 className="w-4 h-4" />
                         </button>
                         <button 
                           onClick={() => setDeletingId(disc.id)}
                           className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                          title="Excluir Disciplina"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>

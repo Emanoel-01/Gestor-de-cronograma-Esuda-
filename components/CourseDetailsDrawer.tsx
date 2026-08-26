@@ -25,6 +25,7 @@ import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
 import { COMMON_DISCIPLINES } from '@/lib/calendar';
+import { PlanoDeEnsinoView } from './ui/PlanoDeEnsinoView';
 
 interface CourseDetailsDrawerProps {
   course: any;
@@ -534,9 +535,9 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
                           <span className="text-sm text-gray-700 font-medium">{d.name}</span>
                         </div>
                         {showSyllabus && (
-                          <p className="text-xs text-gray-500 mt-1 ml-9 leading-tight italic text-justify">
-                            {d.description || 'Ementa detalhada em elaboração'}
-                          </p>
+                          <div className="mt-2 ml-9">
+                            <PlanoDeEnsinoView plano={d.planoDeEnsino} fallbackEmenta={d.description} />
+                          </div>
                         )}
                       </div>
                     ))}
@@ -561,9 +562,12 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
                             <span className="text-sm text-gray-700 font-medium">{discName}</span>
                           </div>
                           {showSyllabus && (
-                            <p className="text-xs text-gray-500 mt-1 ml-9 leading-tight italic text-justify">
-                              {discEmenta || 'Ementa detalhada em elaboração'}
-                            </p>
+                            <div className="mt-2 ml-9">
+                              <PlanoDeEnsinoView 
+                                plano={typeof d === 'object' ? d.planoDeEnsino : undefined} 
+                                fallbackEmenta={discEmenta} 
+                              />
+                            </div>
                           )}
                         </div>
                       );

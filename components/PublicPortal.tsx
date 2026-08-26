@@ -18,6 +18,8 @@ import { PublicScheduleViewer } from './PublicScheduleViewer';
 import { CourseDetailsDrawer } from './CourseDetailsDrawer';
 import { TeacherRegistrationForm } from './TeacherRegistrationForm';
 import { LoginModal } from './LoginModal';
+import { PublicTeacherScheduleModal } from './PublicTeacherScheduleModal';
+import { CalendarDays } from 'lucide-react';
 
 interface PublicPortalProps {
   teachers: any[];
@@ -25,6 +27,7 @@ interface PublicPortalProps {
   holidays: any[];
   schedules: any[];
   commonDisciplines: any[];
+  classes?: any[];
   onLogin?: () => void;
   isLoggingIn?: boolean;
   user: any;
@@ -38,6 +41,7 @@ export function PublicPortal({
   holidays, 
   schedules, 
   commonDisciplines, 
+  classes = [],
   user, 
   logout, 
   initialScheduleId 
@@ -45,6 +49,7 @@ export function PublicPortal({
   const [selectedScheduleId, setSelectedScheduleId] = useState<string | null>(null);
   const [viewingCourseId, setViewingCourseId] = useState<string | null>(null);
   const [isRegistering, setIsRegistering] = useState(false);
+  const [isTeacherScheduleOpen, setIsTeacherScheduleOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   // Auto-open schedule if ID is in URL
@@ -101,11 +106,20 @@ export function PublicPortal({
               </span>
             </div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
+            <button 
+              id="btn-teacher-schedule-open"
+              onClick={() => setIsTeacherScheduleOpen(true)}
+              className="flex items-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-lg text-sm font-black shadow-xl transition-all border border-amber-400 uppercase tracking-widest cursor-pointer"
+            >
+              <CalendarDays className="w-4 h-4" />
+              Agenda do Professor
+            </button>
+
             <button 
               id="btn-teacher-registration-open"
               onClick={() => setIsRegistering(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg text-sm font-black shadow-xl transition-all border border-indigo-500 uppercase tracking-widest cursor-pointer"
+              className="flex items-center gap-2 px-5 py-3 bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg text-sm font-black shadow-xl transition-all border border-indigo-500 uppercase tracking-widest cursor-pointer"
             >
               <User className="w-4 h-4" />
               Cadastro de Professor
@@ -127,7 +141,7 @@ export function PublicPortal({
               <button 
                 id="btn-open-restricted-area"
                 onClick={() => setIsLoginModalOpen(true)}
-                className="bg-slate-800 text-white px-6 py-3 rounded-lg font-black hover:bg-slate-700 transition-all shadow-xl flex items-center gap-2 border border-slate-700 uppercase tracking-widest text-xs cursor-pointer"
+                className="bg-slate-800 text-white px-5 py-3 rounded-lg font-black hover:bg-slate-700 transition-all shadow-xl flex items-center gap-2 border border-slate-700 uppercase tracking-widest text-xs cursor-pointer"
               >
                 <LogIn className="w-4 h-4" />
                 Área Restrita
@@ -312,6 +326,16 @@ export function PublicPortal({
           />
         )}
       </AnimatePresence>
+
+      {/* Public Teacher Schedule Modal */}
+      <PublicTeacherScheduleModal 
+        isOpen={isTeacherScheduleOpen}
+        onClose={() => setIsTeacherScheduleOpen(false)}
+        teachers={teachers}
+        classes={classes}
+        courses={courses}
+        commonDisciplines={commonDisciplines}
+      />
 
       {/* Login Modal */}
       <LoginModal 

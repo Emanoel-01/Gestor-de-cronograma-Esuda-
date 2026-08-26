@@ -28,6 +28,7 @@ function DashboardContent() {
   const [holidays, setHolidays] = useState<Holiday[]>([]);
   const [schedules, setSchedules] = useState<any[]>([]);
   const [commonDisciplines, setCommonDisciplines] = useState<any[]>([]);
+  const [classes, setClasses] = useState<any[]>([]);
 
   // Fetch Data
   useEffect(() => {
@@ -47,6 +48,9 @@ function DashboardContent() {
     const unsubCommon = onSnapshot(query(collection(db, 'commonDisciplines'), orderBy('order', 'asc')), (snap) => {
       setCommonDisciplines(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
     });
+    const unsubClasses = onSnapshot(collection(db, 'classes'), (snap) => {
+      setClasses(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    });
 
     return () => {
       unsubTeachers();
@@ -54,6 +58,7 @@ function DashboardContent() {
       unsubHolidays();
       unsubSchedules();
       unsubCommon();
+      unsubClasses();
     };
   }, []);
 
@@ -68,6 +73,7 @@ function DashboardContent() {
         holidays={holidays} 
         schedules={schedules} 
         commonDisciplines={commonDisciplines}
+        classes={classes}
         user={null}
         logout={logout}
         initialScheduleId={initialScheduleId}

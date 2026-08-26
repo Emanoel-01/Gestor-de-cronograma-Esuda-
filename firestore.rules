@@ -145,7 +145,8 @@ service cloud.firestore {
     function isValidCommonDiscipline(data) {
       return data.name is string && data.name.size() > 0 &&
              data.order is int &&
-             (!('description' in data) || data.description is string);
+             (!('description' in data) || data.description is string) &&
+             (!('planoDeEnsino' in data) || data.planoDeEnsino is map);
     }
 
     // ===============================================================
