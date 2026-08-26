@@ -20,29 +20,47 @@ export async function syncTeacherAssignments() {
     const teachersSnap = await getDocs(collection(db, 'teachers'));
     const teachers = teachersSnap.docs.map(d => ({ id: d.id, ...d.data() } as any));
 
-    // 2. Mapear especialidades para professores
-    // Estrutura: { "Nome da Disciplina": [teacherId1, teacherId2] }
-    const specialtyMap: { [key: string]: string[] } = {};
+    // 2. Mapear especialidades para professores usando Set para evitar duplicatas do mesmo professor
+    // Chaves normalizadas (trim + lowercase)
+    const specialtyMap: { [normalizedKey: string]: { originalName: string; teacherIds: Set<string> } } = {};
 
     teachers.forEach(teacher => {
       teacher.specialties?.forEach((spec: any) => {
-        const key = spec.disciplineName;
-        if (!specialtyMap[key]) specialtyMap[key] = [];
-        specialtyMap[key].push(teacher.id);
+        if (!spec.disciplineName) return;
+        const origKey = spec.disciplineName.trim();
+        const normKey = origKey.toLowerCase();
+        
+        if (!specialtyMap[normKey]) {
+          specialtyMap[normKey] = {
+            originalName: origKey,
+            teacherIds: new Set<string>()
+          };
+        }
+        specialtyMap[normKey].teacherIds.add(teacher.id);
       });
     });
 
     // 3. Identificar disciplinas com apenas UM especialista
-    const uniqueSpecialists: { [key: string]: string } = {};
-    Object.entries(specialtyMap).forEach(([discipline, teacherIds]) => {
-      if (teacherIds.length === 1) {
-        uniqueSpecialists[discipline] = teacherIds[0];
+    const uniqueSpecialists: { [normalizedKey: string]: string } = {};
+    const multipleSpecialistsList: { discipline: string; teacherIds: string[] }[] = [];
+
+    Object.entries(specialtyMap).forEach(([normKey, entry]) => {
+      const ids = Array.from(entry.teacherIds);
+      if (ids.length === 1) {
+        uniqueSpecialists[normKey] = ids[0];
+      } else if (ids.length > 1) {
+        multipleSpecialistsList.push({
+          discipline: entry.originalName,
+          teacherIds: ids
+        });
       }
     });
 
     // 4. Buscar todos os cronogramas
     const schedulesSnap = await getDocs(collection(db, 'schedules'));
-    
+    let updatedClassesCount = 0;
+    const updatedDisciplinesSet = new Set<string>();
+
     for (const scheduleDoc of schedulesSnap.docs) {
       const scheduleId = scheduleDoc.id;
       
@@ -53,22 +71,38 @@ export async function syncTeacherAssignments() {
       for (const classDoc of classesSnap.docs) {
         const classData = classDoc.data();
         const disciplineName = classData.disciplineName;
+        if (!disciplineName) continue;
+        
+        const normKey = disciplineName.trim().toLowerCase();
         
         // Se existe um especialista único para esta disciplina
-        if (uniqueSpecialists[disciplineName]) {
-          const targetTeacherId = uniqueSpecialists[disciplineName];
+        if (uniqueSpecialists[normKey]) {
+          const targetTeacherId = uniqueSpecialists[normKey];
           
-          // Só atualiza se o professor for diferente do atual
-          if (classData.teacherId !== targetTeacherId) {
+          const currentTeacherId = classData.teacherId || '';
+          const currentTeacherIds = Array.isArray(classData.teacherIds) ? classData.teacherIds : [];
+          
+          const needsTeacherIdUpdate = currentTeacherId !== targetTeacherId;
+          const needsTeacherIdsUpdate = currentTeacherIds.length !== 1 || currentTeacherIds[0] !== targetTeacherId;
+          
+          if (needsTeacherIdUpdate || needsTeacherIdsUpdate) {
             await updateDoc(doc(db, 'classes', classDoc.id), {
-              teacherId: targetTeacherId
+              teacherId: targetTeacherId,
+              teacherIds: [targetTeacherId]
             });
+            updatedClassesCount++;
+            updatedDisciplinesSet.add(disciplineName);
           }
         }
       }
     }
     
-    console.log('Sincronização de professores concluída com sucesso.');
+    console.log(`Sincronização de professores concluída com sucesso. ${updatedClassesCount} aulas atualizadas em ${updatedDisciplinesSet.size} disciplinas.`);
+    return {
+      updatedClassesCount,
+      updatedDisciplines: Array.from(updatedDisciplinesSet),
+      multipleSpecialists: multipleSpecialistsList
+    };
   } catch (error) {
     console.error('Erro ao sincronizar professores:', error);
     throw error;
