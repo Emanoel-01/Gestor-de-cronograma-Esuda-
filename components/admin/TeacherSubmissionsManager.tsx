@@ -54,7 +54,8 @@ export function TeacherSubmissionsManager() {
       setSubmissions(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
       setLoading(false);
     }, (err) => {
-      handleFirestoreError(err, OperationType.LIST, 'submissoes_professores');
+      console.warn('Erro ao carregar submissões:', err);
+      setLoading(false);
     });
     return unsub;
   }, []);

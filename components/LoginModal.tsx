@@ -115,7 +115,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   autoFocus
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="exemplo@esuda.com.br"
+                  placeholder="emanoel@esuda.edu.br"
                   className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
                 />
               </div>

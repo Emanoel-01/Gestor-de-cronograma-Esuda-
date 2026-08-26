@@ -69,6 +69,11 @@ export function UsersManager({ currentUser, isAdmin }: UsersManagerProps) {
   const [isDeletingUser, setIsDeletingUser] = useState(false);
 
   useEffect(() => {
+    if (!isAdmin) {
+      setLoading(false);
+      return;
+    }
+
     const q = query(collection(db, 'users'));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const list: UserRecord[] = snapshot.docs.map(d => ({
@@ -78,12 +83,12 @@ export function UsersManager({ currentUser, isAdmin }: UsersManagerProps) {
       setUsers(list);
       setLoading(false);
     }, (err) => {
-      console.error('Erro ao listar usuários:', err);
+      console.warn('Erro ao listar usuários:', err);
       setLoading(false);
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [isAdmin]);
 
   const handleCreateUser = async (e: React.FormEvent) => {
     e.preventDefault();

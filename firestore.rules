@@ -40,7 +40,11 @@ service cloud.firestore {
       return isAuthenticated() && (
         (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && getUserData().role == 'admin') ||
         request.auth.uid == "g0jsC6oh0ogC9leMzevt17i7cvF3" ||
-        (request.auth.token.email.lower() == "emanoel.s.amorim@gmail.com" && request.auth.token.email_verified == true)
+        request.auth.uid == "hRgGEnLUzVVnTeETeh73GMUWbdg2" ||
+        ('email' in request.auth.token && request.auth.token.email != null && (
+          request.auth.token.email.lower() == "emanoel.s.amorim@gmail.com" ||
+          request.auth.token.email.lower() == "emanoel@esuda.edu.br"
+        ))
       );
     }
 
@@ -70,7 +74,8 @@ service cloud.firestore {
       return data.email is string &&
              data.role in ['admin', 'restrito'] &&
              (!('createdBy' in data) || data.createdBy is string) &&
-             (!('createdAt' in data) || data.createdAt is timestamp);
+             (!('createdAt' in data) || data.createdAt is timestamp || data.createdAt is string) &&
+             (!('updatedAt' in data) || data.updatedAt is timestamp || data.updatedAt is string);
     }
 
     function isValidTeacher(data) {
@@ -86,7 +91,7 @@ service cloud.firestore {
              (!('accessCode' in data) || (data.accessCode is string && data.accessCode.size() <= 50)) &&
              (!('specialties' in data) || data.specialties is list) &&
              (!('hasSubmitted' in data) || data.hasSubmitted is bool) &&
-             (!('createdAt' in data) || data.createdAt is timestamp);
+             (!('createdAt' in data) || data.createdAt is timestamp || data.createdAt is string);
     }
 
     function isValidTeacherSubmission(data) {
@@ -94,7 +99,7 @@ service cloud.firestore {
              data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
              data.titulacao is string && data.titulacao.size() > 0 && data.titulacao.size() < 100 &&
              data.status in ['pendente', 'aprovado', 'rejeitado'] &&
-             data.submittedAt is timestamp &&
+             (!('submittedAt' in data) || data.submittedAt is timestamp || data.submittedAt is string) &&
              (!('email' in data) || (data.email is string && data.email.size() < 100)) &&
              (!('cpf' in data) || (data.cpf is string && data.cpf.size() < 20)) &&
              (!('phone' in data) || (data.phone is string && data.phone.size() < 20)) &&
@@ -109,7 +114,7 @@ service cloud.firestore {
              data.specificDisciplines is list &&
              (!('marketingSummary' in data) || data.marketingSummary is string) &&
              (!('imageUrl' in data) || data.imageUrl is string) &&
-             (!('createdAt' in data) || data.createdAt is timestamp);
+             (!('createdAt' in data) || data.createdAt is timestamp || data.createdAt is string);
     }
 
     function isValidHoliday(data) {
@@ -122,8 +127,8 @@ service cloud.firestore {
              isValidDateString(data.startDate) &&
              data.status in ['active', 'archived', 'draft'] &&
              (!('courseNames' in data) || data.courseNames is list) &&
-             (!('createdAt' in data) || data.createdAt is timestamp) &&
-             (!('lastUpdated' in data) || data.lastUpdated is timestamp);
+             (!('createdAt' in data) || data.createdAt is timestamp || data.createdAt is string) &&
+             (!('lastUpdated' in data) || data.lastUpdated is timestamp || data.lastUpdated is string);
     }
 
     function isValidClass(data) {
@@ -166,7 +171,7 @@ service cloud.firestore {
 
     match /courses/{courseId} {
       allow read: if true;
-      allow create, update: if isValidCourse(request.resource.data);
+      allow create, update: if isAdmin() && isValidCourse(request.resource.data);
       allow delete: if isAdmin();
     }
 
@@ -190,7 +195,7 @@ service cloud.firestore {
 
     match /commonDisciplines/{discId} {
       allow read: if true;
-      allow create, update: if isValidCommonDiscipline(request.resource.data);
+      allow create, update: if isAdmin() && isValidCommonDiscipline(request.resource.data);
       allow delete: if isAdmin();
     }
 

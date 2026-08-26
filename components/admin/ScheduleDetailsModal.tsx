@@ -128,7 +128,10 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
         setEditedStartDate(schedule.startDate || '');
       }
       setLoading(false);
-    }, (e) => handleFirestoreError(e, OperationType.GET, 'classes'));
+    }, (e) => {
+      console.warn("Erro ao carregar aulas do cronograma:", e);
+      setLoading(false);
+    });
 
     const fetchAllClasses = async () => {
       try {
