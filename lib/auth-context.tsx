@@ -41,31 +41,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     let unsubProfile: (() => void) | null = null;
 
-    // Verificar se existe sessão persistida localmente (para a conta institucional da coordenação)
-    const storedSession = typeof window !== 'undefined' ? localStorage.getItem('esuda_admin_session') : null;
-    let localAdminActive = false;
-
-    if (storedSession) {
-      try {
-        const parsed = JSON.parse(storedSession);
-        if (parsed && (parsed.email === 'emanoel@esuda.edu.br' || parsed.email === 'emanoel.s.amorim@gmail.com')) {
-          localAdminActive = true;
-          setUser({
-            uid: parsed.uid || 'hRgGEnLUzVVnTeETeh73GMUWbdg2',
-            email: parsed.email,
-            displayName: 'Emanoel Silva de Amorim',
-            emailVerified: true
-          } as any);
-          setUserProfile({ email: parsed.email, role: 'admin' });
-          setIsAdmin(true);
-          setIsRestricted(false);
-          setLoading(false);
-        }
-      } catch (e) {
-        console.warn('Erro ao restaurar sessão local:', e);
-      }
-    }
-
     const unsubscribeAuth = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
@@ -77,9 +52,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
         const fallbackIsAdmin = (
           currentUser.uid === 'g0jsC6oh0ogC9leMzevt17i7cvF3' ||
-          currentUser.uid === 'hRgGEnLUzVVnTeETeh73GMUWbdg2' ||
-          currentUser.email?.toLowerCase() === 'emanoel.s.amorim@gmail.com' ||
-          currentUser.email?.toLowerCase() === 'emanoel@esuda.edu.br'
+          currentUser.email?.toLowerCase() === 'emanoel.s.amorim@gmail.com'
         );
 
         // Escutar perfil no Firestore
@@ -106,13 +79,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           setLoading(false);
         });
       } else {
-        if (!localAdminActive) {
-          setUser(null);
-          setUserProfile(null);
-          setIsAdmin(false);
-          setIsRestricted(false);
-          setLoading(false);
-        }
+        setUser(null);
+        setUserProfile(null);
+        setIsAdmin(false);
+        setIsRestricted(false);
+        setLoading(false);
       }
     });
 
@@ -125,48 +96,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = async (email: string, pass: string) => {
     if (isLoggingIn) return;
     setIsLoggingIn(true);
-    const normalizedEmail = email.trim().toLowerCase();
-
     try {
-      // 1. Tenta login normal via Firebase Auth
-      try {
-        await signInWithEmailAndPassword(auth, normalizedEmail, pass);
-        // Se deu certo, limpa eventual sessão manual
-        if (typeof window !== 'undefined') {
-          localStorage.removeItem('esuda_admin_session');
-        }
-        return;
-      } catch (authErr: any) {
-        // Se as credenciais forem da coordenação institucional: emanoel@esuda.edu.br / 3443*/A
-        if (
-          normalizedEmail === 'emanoel@esuda.edu.br' &&
-          pass === '3443*/A'
-        ) {
-          const sessionData = {
-            uid: 'hRgGEnLUzVVnTeETeh73GMUWbdg2',
-            email: 'emanoel@esuda.edu.br',
-            role: 'admin',
-            timestamp: Date.now()
-          };
-
-          if (typeof window !== 'undefined') {
-            localStorage.setItem('esuda_admin_session', JSON.stringify(sessionData));
-          }
-
-          setUser({
-            uid: sessionData.uid,
-            email: sessionData.email,
-            displayName: 'Emanoel Silva de Amorim',
-            emailVerified: true
-          } as any);
-          setUserProfile({ email: sessionData.email, role: 'admin' });
-          setIsAdmin(true);
-          setIsRestricted(false);
-          return;
-        }
-
-        throw authErr;
-      }
+      await signInWithEmailAndPassword(auth, email.trim().toLowerCase(), pass);
     } finally {
       setIsLoggingIn(false);
     }
@@ -174,9 +105,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = async () => {
     try {
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem('esuda_admin_session');
-      }
       setUser(null);
       setUserProfile(null);
       setIsAdmin(false);

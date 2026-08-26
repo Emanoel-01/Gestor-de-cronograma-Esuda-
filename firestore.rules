@@ -40,11 +40,7 @@ service cloud.firestore {
       return isAuthenticated() && (
         (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && getUserData().role == 'admin') ||
         request.auth.uid == "g0jsC6oh0ogC9leMzevt17i7cvF3" ||
-        request.auth.uid == "hRgGEnLUzVVnTeETeh73GMUWbdg2" ||
-        ('email' in request.auth.token && request.auth.token.email != null && (
-          request.auth.token.email.lower() == "emanoel.s.amorim@gmail.com" ||
-          request.auth.token.email.lower() == "emanoel@esuda.edu.br"
-        ))
+        ('email' in request.auth.token && request.auth.token.email != null && request.auth.token.email.lower() == "emanoel.s.amorim@gmail.com")
       );
     }
 

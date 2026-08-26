@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Lock, Mail, Eye, EyeOff, LogIn, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { X, Lock, Mail, Eye, EyeOff, LogIn, AlertCircle, CheckCircle2, KeyRound } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
-import { Button } from './ui/Button';
+import { auth } from '@/lib/firebase';
+import { sendPasswordResetEmail } from 'firebase/auth';
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -17,7 +18,9 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [resetLoading, setResetLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
@@ -30,26 +33,55 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
     setLoading(true);
     setError(null);
+    setSuccessMessage(null);
 
     try {
       await login(email, password);
       onClose();
     } catch (err: any) {
-      console.error('Erro de autenticação:', err);
-      const code = err.code || '';
+      console.warn('Tentativa de autenticação não autorizada:', err?.code || err?.message);
+      const code = err?.code || '';
       if (code === 'auth/invalid-credential' || code === 'auth/wrong-password' || code === 'auth/user-not-found') {
-        setError('E-mail ou senha incorretos.');
+        setError('E-mail ou senha incorretos. Caso tenha esquecido a senha, utilize a recuperação abaixo.');
       } else if (code === 'auth/invalid-email') {
         setError('Formato de e-mail inválido.');
       } else if (code === 'auth/too-many-requests') {
-        setError('Muitas tentativas com erro. Tente novamente mais tarde.');
+        setError('Muitas tentativas sem sucesso. Aguarde alguns instantes ou redefina sua senha.');
       } else if (code === 'auth/network-request-failed') {
-        setError('Falha de conexão com o servidor. Verifique sua internet.');
+        setError('Falha de conexão com o servidor. Verifique sua conexão.');
       } else {
         setError('Falha ao autenticar. Verifique seus dados.');
       }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    const targetEmail = email.trim().toLowerCase();
+    if (!targetEmail) {
+      setError('Preencha o campo de e-mail para receber o link de redefinição de senha.');
+      return;
+    }
+
+    setResetLoading(true);
+    setError(null);
+    setSuccessMessage(null);
+
+    try {
+      await sendPasswordResetEmail(auth, targetEmail);
+      setSuccessMessage(`Enviamos um link de redefinição de senha para ${targetEmail}. Verifique sua caixa de entrada.`);
+    } catch (err: any) {
+      console.warn('Erro ao enviar e-mail de redefinição:', err?.code || err?.message);
+      if (err?.code === 'auth/user-not-found' || err?.code === 'auth/invalid-credential') {
+        setError('E-mail não encontrado no sistema.');
+      } else if (err?.code === 'auth/invalid-email') {
+        setError('Informe um e-mail válido.');
+      } else {
+        setError('Não foi possível enviar o link de redefinição. Tente novamente mais tarde.');
+      }
+    } finally {
+      setResetLoading(false);
     }
   };
 
@@ -102,6 +134,17 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
               </motion.div>
             )}
 
+            {successMessage && (
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl flex items-start gap-3 text-emerald-800 text-xs font-semibold"
+              >
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span>{successMessage}</span>
+              </motion.div>
+            )}
+
             <div className="space-y-1.5">
               <label className="text-xs font-bold uppercase tracking-wider text-slate-700 block">
                 E-mail Institucional
@@ -122,9 +165,19 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-700 block">
-                Senha de Acesso
-              </label>
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-700 block">
+                  Senha de Acesso
+                </label>
+                <button
+                  type="button"
+                  onClick={handlePasswordReset}
+                  disabled={resetLoading}
+                  className="text-[11px] font-bold text-indigo-600 hover:text-indigo-800 transition-colors disabled:opacity-50 cursor-pointer"
+                >
+                  {resetLoading ? 'Enviando link...' : 'Esqueceu a senha?'}
+                </button>
+              </div>
               <div className="relative">
                 <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
@@ -139,7 +192,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
