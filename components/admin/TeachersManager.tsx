@@ -17,7 +17,8 @@ import {
 import { 
   deleteDoc, 
   doc, 
-  updateDoc 
+  updateDoc,
+  setDoc 
 } from 'firebase/firestore';
 import Image from 'next/image';
 import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
@@ -292,7 +293,12 @@ function TeacherEditModal({ teacher, courses, isAdmin, commonDisciplines, onClos
   const handleSave = async () => {
     setSaving(true);
     try {
-      await updateDoc(doc(db, 'teachers', teacher.id), form);
+      const { cpf, phone, ...dadosPublicos } = form;
+      await updateDoc(doc(db, 'teachers', teacher.id), dadosPublicos);
+      await setDoc(doc(db, 'teachers', teacher.id, 'dados_sensiveis', 'principal'), {
+        cpf: cpf || '',
+        phone: phone || '',
+      });
       await syncTeacherAssignments();
       onClose();
     } catch (e) {

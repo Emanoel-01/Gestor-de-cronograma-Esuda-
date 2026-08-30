@@ -9,6 +9,8 @@ import {
 import { 
   collection, 
   addDoc, 
+  setDoc,
+  doc,
   serverTimestamp 
 } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
@@ -53,12 +55,19 @@ export function NewTeacherModal({ courses, isAdmin, commonDisciplines, onClose }
     if (!form.name || !form.titulacao) return;
     setSaving(true);
     try {
-      await addDoc(collection(db, 'teachers'), {
-        ...form,
+      const { cpf, phone, ...dadosPublicos } = form;
+      const novoDocRef = await addDoc(collection(db, 'teachers'), {
+        ...dadosPublicos,
         accessCode: form.accessCode.trim().toUpperCase() || generateRandomCode(),
         hasSubmitted: false,
         createdAt: serverTimestamp()
       });
+      if (cpf || phone) {
+        await setDoc(doc(db, 'teachers', novoDocRef.id, 'dados_sensiveis', 'principal'), {
+          cpf: cpf || '',
+          phone: phone || '',
+        });
+      }
       await syncTeacherAssignments();
       onClose();
     } catch (e) {
