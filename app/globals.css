@@ -2,6 +2,11 @@
 
 @layer base {
   @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
     /* 1. EXCLUSIVE VISIBILITY: Hide everything except the target print content */
     /* First, hide the entire application structure */
     html, body, #__next, main, [data-reactroot], header, footer {

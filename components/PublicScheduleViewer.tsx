@@ -74,8 +74,12 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
             name: c.disciplineName,
             isCommon: c.isCommon,
             teacherIds: c.teacherIds || (c.teacherId ? [c.teacherId] : []),
-            dates: []
+            dates: [],
+            observation: c.observation || ''
           };
+        }
+        if (c.observation && !disciplineGroups[key].observation) {
+          disciplineGroups[key].observation = c.observation;
         }
         if (!disciplineGroups[key].dates.includes(c.date)) {
           disciplineGroups[key].dates.push(c.date);
@@ -229,23 +233,45 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
                       );
                     }
                     
+                    const isDeadline = typeof item.name === 'string' && item.name.toLowerCase().includes('prazo final');
                     const teacherNames = (item.teacherIds || [])
                       .map((tid: string) => teachers.find((t: any) => t.id === tid)?.name)
                       .filter(Boolean)
                       .join(' / ');
                     return (
-                      <tr key={`discipline-${idx}`} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                        <td className="border border-slate-300 p-3 font-bold text-slate-900">
+                      <tr 
+                        key={`discipline-${idx}`} 
+                        className={isDeadline ? 'bg-amber-100/70 border-amber-300' : (idx % 2 === 0 ? 'bg-white' : 'bg-slate-50')}
+                        style={isDeadline ? {
+                          background: 'linear-gradient(90deg, rgba(254, 243, 199, 0.75) 0%, rgba(254, 249, 195, 0.45) 50%, rgba(254, 243, 199, 0.75) 100%)',
+                          WebkitPrintColorAdjust: 'exact',
+                          printColorAdjust: 'exact'
+                        } : undefined}
+                      >
+                        <td className={`border border-slate-300 p-3 font-bold ${isDeadline ? 'text-amber-950 font-black' : 'text-slate-900'}`}>
                           {item.dates.sort().map((d: string) => format(new Date(d + 'T12:00:00'), 'dd/MM/yyyy', { locale: ptBR })).join(' e ')}
                         </td>
                         <td className="border border-slate-300 p-3">
-                          <div className="font-black text-slate-900 uppercase tracking-tight">{item.name}</div>
+                          <div className={`font-black uppercase tracking-tight ${isDeadline ? 'text-amber-950' : 'text-slate-900'}`}>{item.name}</div>
+                          {item.observation && (
+                            <div className={`text-[9px] mt-1 ${isDeadline ? 'text-amber-950/80 font-semibold' : 'text-slate-500 italic'}`}>
+                              {item.observation}
+                            </div>
+                          )}
                         </td>
                         <td className="border border-slate-300 p-3">
-                          <div className="font-bold text-slate-700">{teacherNames || 'A definir'}</div>
+                          <div className={`font-bold ${isDeadline ? 'text-amber-900' : 'text-slate-700'}`}>{teacherNames || 'A definir'}</div>
                         </td>
-                        <td className="border border-slate-300 p-3 text-[9px] font-black uppercase tracking-tighter text-slate-400">
-                          {item.isCommon ? 'Tronco Comum' : 'Específica'}
+                        <td className="border border-slate-300 p-3 text-[9px] font-black uppercase tracking-tighter">
+                          {isDeadline ? (
+                            <span className="px-2 py-0.5 rounded bg-amber-200/90 text-amber-900 border border-amber-300 font-black tracking-normal">
+                              Prazo Final
+                            </span>
+                          ) : (
+                            <span className="text-slate-400">
+                              {item.isCommon ? 'Tronco Comum' : 'Específica'}
+                            </span>
+                          )}
                         </td>
                       </tr>
                     );
@@ -306,18 +332,25 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
                       );
                     }
 
-                    const teacher = teachers.find((t: any) => t.id === item.teacherId);
+                    const isDeadline = typeof item.name === 'string' && item.name.toLowerCase().includes('prazo final');
                     const sortedDates = [...item.dates].sort();
                     
                     return (
                       <div 
                         key={`discipline-${idx}`}
-                        className="relative p-6 rounded-xl border bg-white border-slate-200 hover:border-amber-500 hover:shadow-2xl transition-all flex flex-col group"
+                        className={`relative p-6 rounded-xl border transition-all flex flex-col group ${
+                          isDeadline
+                            ? 'bg-gradient-to-br from-amber-50/90 via-yellow-50/60 to-amber-100/60 border-amber-300 shadow-sm hover:border-amber-500 hover:shadow-lg'
+                            : 'bg-white border-slate-200 hover:border-amber-500 hover:shadow-2xl'
+                        }`}
+                        style={isDeadline ? {
+                          background: 'linear-gradient(135deg, rgba(254, 243, 199, 0.75) 0%, rgba(254, 252, 232, 0.5) 50%, rgba(254, 243, 199, 0.75) 100%)'
+                        } : undefined}
                       >
                         <div className="flex flex-wrap gap-x-3 gap-y-1 items-start mb-4">
                           {sortedDates.map((date: string, dIdx: number) => (
                             <div key={`${date}-${dIdx}`} className="flex items-center gap-1">
-                              <span className="text-xl font-black text-slate-900 group-hover:text-amber-600 transition-colors">
+                              <span className={`text-xl font-black transition-colors ${isDeadline ? 'text-amber-950' : 'text-slate-900 group-hover:text-amber-600'}`}>
                                 {format(new Date(date + 'T12:00:00'), 'dd/MM', { locale: ptBR })}
                               </span>
                               {dIdx < sortedDates.length - 1 && <span className="text-slate-300 font-black">&</span>}
@@ -328,9 +361,12 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
                         <div className="space-y-4 flex-1">
                           <div>
                             <p className="text-[10px] font-black text-amber-600 uppercase tracking-[0.2em] mb-1">
-                              {item.isCommon ? 'Tronco Comum' : 'Eixo Específico'}
+                              {isDeadline ? 'Prazo de Entrega' : (item.isCommon ? 'Tronco Comum' : 'Eixo Específico')}
                             </p>
-                            <p className="text-sm font-black text-slate-800 leading-tight uppercase tracking-tight">{item.name}</p>
+                            <p className={`text-sm font-black leading-tight uppercase tracking-tight ${isDeadline ? 'text-amber-950' : 'text-slate-800'}`}>{item.name}</p>
+                            {item.observation && (
+                              <p className={`text-xs mt-2 italic font-medium ${isDeadline ? 'text-amber-900/90' : 'text-slate-500'}`}>{item.observation}</p>
+                            )}
                           </div>
                           <div className="space-y-2 mt-auto">
                             {(item.teacherIds || []).filter(Boolean).map((tid: string, tIdx: number) => {

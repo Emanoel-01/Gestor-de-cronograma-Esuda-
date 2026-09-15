@@ -58,14 +58,14 @@ const professoresUnicos = [
   { "nome": "Wellington de Oliveira Martins", "documento": "585.162.634-87", "documento_tipo": "CPF", "email": "contato@womengenharia.com.br" }
 ];
 
-const knownDoubts = {
-  "Amanda Vila Nova": 'Nome no banco é "Amanda Nova"',
-  "Conceição de Cássia Pereira de Albuquerque": 'Nome no banco é "Cassia Albuquerque"',
-  "Emmanoel Neri": 'Nome no banco é "Emmanoel Roberto da Silva Neri"',
-  "Hilma Santos Ferreira": 'Nome no banco é "Hilma de Oliveira Santos Ferreira"',
-  "Ivan Carlos Moura da Cunha": 'Nome no banco é "Ivan Carlos Cunha "',
-  "Rogerio Pirola Alves": 'Nome no banco é "Rogério Pirola"',
-  "Vera Lucia Barbosa da Silva": 'Nome no banco é "Vera Lúcia Barbosa Silva"'
+const teacherAliases = {
+  "Amanda Vila Nova": "Amanda Nova",
+  "Conceição de Cássia Pereira de Albuquerque": "Cassia Albuquerque",
+  "Emmanoel Neri": "Emmanoel Roberto da Silva Neri",
+  "Hilma Santos Ferreira": "Hilma de Oliveira Santos Ferreira",
+  "Ivan Carlos Moura da Cunha": "Ivan Carlos Cunha ",
+  "Rogerio Pirola Alves": "Rogério Pirola",
+  "Vera Lucia Barbosa da Silva": "Vera Lúcia Barbosa Silva"
 };
 
 const extracaoCronogramas = {
@@ -875,18 +875,13 @@ async function runImport() {
 
   for (const prof of professoresUnicos) {
     const normProf = normalize(prof.nome);
+    const aliasName = teacherAliases[prof.nome];
+    const targetNorm = aliasName ? normalize(aliasName) : normProf;
 
-    // Se é dúvida conhecida
-    if (knownDoubts[prof.nome]) {
-      resolvedTeacherMap[normProf] = null;
-      reportDoubt.push({
-        nome: prof.nome,
-        motivo: knownDoubts[prof.nome]
-      });
-      continue;
+    let exactMatches = dbTeachers.filter(t => normalize(t.name) === targetNorm);
+    if (exactMatches.length === 0 && targetNorm !== normProf) {
+      exactMatches = dbTeachers.filter(t => normalize(t.name) === normProf);
     }
-
-    const exactMatches = dbTeachers.filter(t => normalize(t.name) === normProf);
 
     if (exactMatches.length === 1) {
       resolvedTeacherMap[normProf] = exactMatches[0].id;

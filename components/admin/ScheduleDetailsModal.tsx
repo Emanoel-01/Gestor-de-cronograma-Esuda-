@@ -673,22 +673,46 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
                 </tr>
               </thead>
               <tbody>
-                {editedClasses.sort((a, b) => a.date.localeCompare(b.date)).map((c: any, idx: number) => (
-                  <tr key={c.id} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                    <td className="border border-slate-300 p-3 font-bold text-slate-900">
-                      {c.date ? format(parseISO(c.date), 'dd/MM/yyyy') : 'A definir'}
-                    </td>
-                    <td className="border border-slate-300 p-3">
-                      <div className="font-black text-slate-900 uppercase tracking-tight">{c.disciplineName}</div>
-                    </td>
-                    <td className="border border-slate-300 p-3">
-                      <div className="font-bold text-slate-700">{teachers.find((t: any) => t.id === c.teacherId)?.name || 'A definir'}</div>
-                    </td>
-                    <td className="border border-slate-300 p-3 text-[9px] font-black uppercase tracking-tighter text-slate-400">
-                      {c.isCommon ? 'Fase Comum' : c.courseName}
-                    </td>
-                  </tr>
-                ))}
+                {editedClasses.sort((a, b) => a.date.localeCompare(b.date)).map((c: any, idx: number) => {
+                  const isDeadline = typeof c.disciplineName === 'string' && c.disciplineName.toLowerCase().includes('prazo final');
+                  return (
+                    <tr 
+                      key={c.id} 
+                      className={isDeadline ? 'bg-amber-100/70 border-amber-300' : (idx % 2 === 0 ? 'bg-white' : 'bg-slate-50')}
+                      style={isDeadline ? {
+                        background: 'linear-gradient(90deg, rgba(254, 243, 199, 0.75) 0%, rgba(254, 249, 195, 0.45) 50%, rgba(254, 243, 199, 0.75) 100%)',
+                        WebkitPrintColorAdjust: 'exact',
+                        printColorAdjust: 'exact'
+                      } : undefined}
+                    >
+                      <td className={`border border-slate-300 p-3 font-bold ${isDeadline ? 'text-amber-950 font-black' : 'text-slate-900'}`}>
+                        {c.date ? format(parseISO(c.date), 'dd/MM/yyyy') : 'A definir'}
+                      </td>
+                      <td className="border border-slate-300 p-3">
+                        <div className={`font-black uppercase tracking-tight ${isDeadline ? 'text-amber-950' : 'text-slate-900'}`}>{c.disciplineName}</div>
+                        {c.observation && (
+                          <div className={`text-[9px] mt-1 ${isDeadline ? 'text-amber-950/80 font-semibold' : 'text-slate-500 italic'}`}>
+                            {c.observation}
+                          </div>
+                        )}
+                      </td>
+                      <td className="border border-slate-300 p-3">
+                        <div className={`font-bold ${isDeadline ? 'text-amber-900' : 'text-slate-700'}`}>{teachers.find((t: any) => t.id === c.teacherId)?.name || 'A definir'}</div>
+                      </td>
+                      <td className="border border-slate-300 p-3 text-[9px] font-black uppercase tracking-tighter">
+                        {isDeadline ? (
+                          <span className="px-2 py-0.5 rounded bg-amber-200/90 text-amber-900 border border-amber-300 font-black tracking-normal">
+                            Prazo Final
+                          </span>
+                        ) : (
+                          <span className="text-slate-400">
+                            {c.isCommon ? 'Fase Comum' : c.courseName}
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
 
@@ -880,12 +904,24 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
                                 </div>
                                 
                                 <div className="space-y-4 pr-2">
-                                  {sortedCourseGroups.map((c: any) => (
-                                    <div key={c.isCommon ? `common-${c.disciplineName}` : `${c.courseId}-${c.disciplineName}`} className={`p-4 rounded-xl border ${c.isCommon ? 'bg-indigo-50/30 border-indigo-100' : 'bg-amber-50/30 border-amber-100'}`}>
+                                  {sortedCourseGroups.map((c: any) => {
+                                    const isDeadline = typeof c.disciplineName === 'string' && c.disciplineName.toLowerCase().includes('prazo final');
+                                    return (
+                                    <div 
+                                      key={c.isCommon ? `common-${c.disciplineName}` : `${c.courseId}-${c.disciplineName}`} 
+                                      className={`p-4 rounded-xl border ${
+                                        isDeadline 
+                                          ? 'bg-amber-100/50 border-amber-300 shadow-sm' 
+                                          : (c.isCommon ? 'bg-indigo-50/30 border-indigo-100' : 'bg-amber-50/30 border-amber-100')
+                                      }`}
+                                      style={isDeadline ? {
+                                        background: 'linear-gradient(135deg, rgba(254, 243, 199, 0.65) 0%, rgba(254, 252, 232, 0.45) 50%, rgba(254, 243, 199, 0.65) 100%)'
+                                      } : undefined}
+                                    >
                                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                         <div className="space-y-1 flex-1">
-                                          <span className={`text-[10px] font-bold uppercase ${c.isCommon ? 'text-indigo-600' : 'text-amber-600'}`}>
-                                            {c.isCommon ? 'Fase Comum' : c.courseName}
+                                          <span className={`text-[10px] font-bold uppercase ${isDeadline ? 'text-amber-800' : (c.isCommon ? 'text-indigo-600' : 'text-amber-600')}`}>
+                                            {isDeadline ? 'Prazo de Entrega' : (c.isCommon ? 'Fase Comum' : c.courseName)}
                                           </span>
                                           {isEditing ? (
                                             <div className="space-y-2">
@@ -943,7 +979,8 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
                                         </div>
                                       </div>
                                     </div>
-                                  ))}
+                                  );
+                                  })}
                                 </div>
                               </div>
 
