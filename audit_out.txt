@@ -1,0 +1,168 @@
+=== RELATÓRIO DE AUDITORIA DO ESTADO REAL ===
+
+--- 1) SCHEDULES ---
+ID: UB7LySGzLc5GU0SFjU6Y | className: "Cluster C — Turma 2026.03 (Todos os cursos)" | startDate: 2026-10-24 | status: active | classesCount: 164 | courses: [Design de Interiores Contemporâneo, Gestão de Projetos e Obras, Engenharia e Gestão da Manutenção Predial na Construção 4.0, Neuroarquitetura, Acústica Arquitetônica e Iluminação, Engenharia Legal e Perícias: Avaliações e Desempenho, Tecnologia BIM na Construção Civil]
+ID: WadMvge0Xmc5BvVZf1nA | className: "Cluster A — BIM / Gestão de Projetos e Obras / Manutenção Predial" | startDate: 2026-01-31 | status: active | classesCount: 77 | courses: [Tecnologia BIM na Construção Civil, Gestão de Projetos e Obras, Engenharia e Gestão da Manutenção Predial na Construção 4.0]
+ID: kzQVwaCakQXzQIu30kMc | className: "Cluster B — Neuroarquitetura / Acústica Arquitetônica e Iluminação / Design de Interiores Contemporâneo" | startDate: 2026-05-23 | status: active | classesCount: 75 | courses: [Neuroarquitetura, Acústica Arquitetônica e Iluminação, Design de Interiores Contemporâneo]
+
+Sinalização de clusters:
+Nenhum cluster com schedules duplicados pelo campo className.
+
+--- 2) PROFESSORES E DUPLICATAS ---
+39Men2RNgBfWvanO9ZUw | Alexandre Mesquita (norm: "alexandre mesquita")
+FBcOg9gvxUJ4wIRZ1yia | Amanda Nova (norm: "amanda nova")
+kQCmtR7oMx5ydC9UxKK1 | Annah Paula Freire  (norm: "annah paula freire")
+qv3n5kHlhwVmExbwfChg | Atividades Integrativas + Professores Convidados (norm: "atividades integrativas professores convidados")
+hvlxWKggrXhRgtoiRRxk | Bruna Correia Teixeira (norm: "bruna correia teixeira")
+Z3tXe8qhcv0yJFFIlXk4 | Cassia Albuquerque (norm: "cassia albuquerque")
+13Ynf1QZr6FL0rMEBZab | Clodomir Barros (norm: "clodomir barros")
+vah53TBucwaqfHb5hbnp | Daniel Leite Sampaio (norm: "daniel leite sampaio")
+mddA7g37FSDdItNej2Aa | Dieska Rayane da Silva Gomes (norm: "dieska rayane da silva gomes")
+ZUr21ObW5h2amdc52FgY | Edgar Natanael Gregório (norm: "edgar natanael gregorio")
+7YGlEtfZttvH6BdJqjs4 | Emanoel Silva de Amorim (norm: "emanoel silva de amorim")
+EV8q8aIJ7MVD1mFr2ssr | Emmanoel Roberto da Silva Neri (norm: "emmanoel roberto da silva neri")
+hbOcVWRTL5ocsEPgYPHM | Erick Sidrome de Oliveira (norm: "erick sidrome de oliveira")
+vfvHqpuOMGZ1g3w8WjZH | Everton Gabriel Silva (norm: "everton gabriel silva")
+TvytnbrKbYonf5awzFud | Fabio Torres Cunha (norm: "fabio torres cunha")
+9Yg5OP3ABtXXhhBIqNDW | Florencio Absalão da Silva Filho (norm: "florencio absalao da silva filho")
+GqHv5tGtB9SlFpIrcS0s | Francisco Buarque (norm: "francisco buarque")
+X5C9yBXcukxgGV7unqaA | Francisco de Assis Berenguer Correia (norm: "francisco de assis berenguer correia")
+islr1EKpEIldwOZZC3PK | Francisco Ellihimas (norm: "francisco ellihimas")
+zeSPGPxNMOjj7I4DvP7k | Geise Pedrosa  (norm: "geise pedrosa")
+ecxNuIvJlrcBWa2axq8p | Gildo Alves de Souza Júnior (norm: "gildo alves de souza junior")
+e3RWs3aQGTIlqMEPml7C | Girlandia Sampaio  (norm: "girlandia sampaio")
+wGObsq0McvxbdX2Clo07 | Gustavo Farias (norm: "gustavo farias")
+KDVbUo2I7q07jYolJezx | Hilma de Oliveira Santos Ferreira (norm: "hilma de oliveira santos ferreira")
+rrowThp4FhAMUJwqERVb | Ivan Carlos Cunha  (norm: "ivan carlos cunha")
+5eqdmhfMdZrMknAFtk2y | Jose Allef Ferreira Dantas (norm: "jose allef ferreira dantas")
+9ciSV3L6wzqUXoS7c2QB | Laura Julyê Sales Almeida  (norm: "laura julye sales almeida")
+W0WowGj8uWGky2DS0Q0r | Martiniano Almeida (norm: "martiniano almeida")
+s3UIhF7PjOsIMhvb0ylm | Miguel Cascudo Filho (norm: "miguel cascudo filho")
+vyWllMOZD9nZsPzO8fN7 | Mohana Barros (norm: "mohana barros")
+a5lmSmRkA8FkivFLD8HE | Nathálya Aguiar Leal de Melo Souto Maior Arruda  (norm: "nathalya aguiar leal de melo souto maior arruda")
+XuRUiRKJo9XvsKDgVz7A | Nilson da Cunha Ximenes (norm: "nilson da cunha ximenes")
+gdbShYZnyIUt73Gz6Zlr | Paulo Ney Alves Barata (norm: "paulo ney alves barata")
+Hyzisa1fRfO4mSFGUEXK | Priscila Raffi Rodrigues (norm: "priscila raffi rodrigues")
+WzFQV1ExzDw8T9bjo3jn | Pryscilla de Barros Gonçalves (norm: "pryscilla de barros goncalves")
+IeiFjJW0cMTze4rCVMOi | Ramon Araújo (norm: "ramon araujo")
+A5anU709KkblAIQEYPIj | Rebeka Zambon (norm: "rebeka zambon")
+cQtvQcm2ofvtg4HXZUc5 | Regina Coeli Barros (norm: "regina coeli barros")
+IXKXEFWJCSqadZkzqZ4f | Renata Eskinazi Leça (norm: "renata eskinazi leca")
+sTERQqeasYGRvlvmjYsd | Rogério Pirola (norm: "rogerio pirola")
+Zb0KPRPk2CyFOkqU3oBH | Tiago Lopes Silva (norm: "tiago lopes silva")
+wUjamIgclUGJXJBM1uJA | Vanessa Ayanna de Souza Costa (norm: "vanessa ayanna de souza costa")
+ekLC5Cm1lri0ZB2AhFTA | Vera Lúcia Barbosa Silva (norm: "vera lucia barbosa silva")
+QlhmXPRHnCwbaOO5oleZ | Vilberty Vasconcelos (norm: "vilberty vasconcelos")
+0N1QqslcHaYCw25Ube0k | Wellington de Oliveira Martins (norm: "wellington de oliveira martins")
+Total de professores: 45
+Total de nomes normalizados repetidos: 0
+
+--- 3) GESTÃO DE PROJETOS E OBRAS (TODAS AS AULAS DE TODOS OS SCHEDULES) ---
+Total de aulas encontradas com courseName = "Gestão de Projetos e Obras": 39
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-04-10 | disciplineName: "Técnicas de Coordenação e Compatibilização de Projetos" | professores: Tiago Lopes Silva
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-04-17 | disciplineName: "Técnicas de Coordenação e Compatibilização de Projetos" | professores: Tiago Lopes Silva
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-05-15 | disciplineName: "Técnicas de Orçamentos, Cobranças e Custos de Projetos" | professores: Emanoel Silva de Amorim
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-05-22 | disciplineName: "Técnicas de Orçamentos, Cobranças e Custos de Projetos" | professores: Emanoel Silva de Amorim
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-05-29 | disciplineName: "Técnicas de Orçamentos, Cobranças e Custos de Obras" | professores: Emanoel Silva de Amorim
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-06-05 | disciplineName: "Técnicas de Orçamentos, Cobranças e Custos de Obras" | professores: Emanoel Silva de Amorim
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-06-12 | disciplineName: "Técnicas de Planejamento e Coordenação de Obras" | professores: Emanoel Silva de Amorim
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-06-19 | disciplineName: "Técnicas de Planejamento e Coordenação de Obras" | professores: Emanoel Silva de Amorim
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-06-26 | disciplineName: "Lean Construction, Last Planner System e Logística de Canteiro" | professores: Pryscilla de Barros Gonçalves
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-07-03 | disciplineName: "Lean Construction, Last Planner System e Logística de Canteiro" | professores: Pryscilla de Barros Gonçalves
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-07-10 | disciplineName: "Engenharia de Segurança e Normas de Desempenho" | professores: Florencio Absalão da Silva Filho
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-07-24 | disciplineName: "Engenharia de Segurança e Normas de Desempenho" | professores: Florencio Absalão da Silva Filho
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-07-31 | disciplineName: "Eficiência Energética e Sustentabilidade na Construção Civil" | professores: Vera Lúcia Barbosa Silva
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-08-07 | disciplineName: "Eficiência Energética e Sustentabilidade na Construção Civil" | professores: Vera Lúcia Barbosa Silva
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-08-14 | disciplineName: "Administração Contratual, Medições e Gestão de Pleitos (Claims)" | professores: Priscila Raffi Rodrigues
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-08-21 | disciplineName: "Administração Contratual, Medições e Gestão de Pleitos (Claims)" | professores: Priscila Raffi Rodrigues
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-08-28 | disciplineName: "Sistemas Informatizados de Gestão Integrada e BI (ERP, CDE e Power BI)" | professores: Vera Lúcia Barbosa Silva
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-09-04 | disciplineName: "Sistemas Informatizados de Gestão Integrada e BI (ERP, CDE e Power BI)" | professores: Vera Lúcia Barbosa Silva
+scheduleId: UB7LySGzLc5GU0SFjU6Y | date: 2027-09-11 | disciplineName: "Cerimônia de Encerramento" | professores: Emanoel Silva de Amorim
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-06-20 | disciplineName: "Técnicas de Coordenação e Compatibilização de Projetos" | professores: Tiago Lopes Silva
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-06-27 | disciplineName: "Técnicas de Coordenação e Compatibilização de Projetos" | professores: Tiago Lopes Silva
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-07-18 | disciplineName: "Técnicas de Orçamentos, Cobranças e Custos de Projetos" | professores: Emanoel Silva de Amorim
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-07-25 | disciplineName: "Técnicas de Orçamentos, Cobranças e Custos de Projetos" | professores: Emanoel Silva de Amorim
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-08-01 | disciplineName: "Técnicas de Orçamentos, Cobranças e Custos de Obras" | professores: Emanoel Silva de Amorim
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-08-08 | disciplineName: "Técnicas de Orçamentos, Cobranças e Custos de Obras" | professores: Emanoel Silva de Amorim
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-08-15 | disciplineName: "Técnicas de Planejamento e Coordenação de Obras" | professores: Emanoel Silva de Amorim
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-08-22 | disciplineName: "Técnicas de Planejamento e Coordenação de Obras" | professores: Emanoel Silva de Amorim
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-08-29 | disciplineName: "Aula Extra — Inteligência Artificial Aplicada" | professores: Emanoel Silva de Amorim
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-09-12 | disciplineName: "Aula Extra — Inteligência Artificial Aplicada" | professores: Emanoel Silva de Amorim
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-09-19 | disciplineName: "Engenharia de Segurança e Normas de Desempenho" | professores: Florencio Absalão da Silva Filho
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-09-26 | disciplineName: "Engenharia de Segurança e Normas de Desempenho" | professores: Florencio Absalão da Silva Filho
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-10-03 | disciplineName: "Eficiência Energética e Sustentabilidade na Construção Civil" | professores: Vera Lúcia Barbosa Silva
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-10-17 | disciplineName: "Eficiência Energética e Sustentabilidade na Construção Civil" | professores: Vera Lúcia Barbosa Silva
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-10-24 | disciplineName: "Administração Contratual, Medições e Gestão de Pleitos (Claims)" | professores: Priscila Raffi Rodrigues
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-11-07 | disciplineName: "Administração Contratual, Medições e Gestão de Pleitos (Claims)" | professores: Priscila Raffi Rodrigues
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-11-14 | disciplineName: "Sistemas Informatizados de Gestão Integrada e BI (ERP, CDE e Power BI)" | professores: Vera Lúcia Barbosa Silva
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-11-28 | disciplineName: "Sistemas Informatizados de Gestão Integrada e BI (ERP, CDE e Power BI)" | professores: Vera Lúcia Barbosa Silva
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-12-05 | disciplineName: "Lean Construction, Last Planner System e Logística de Canteiro" | professores: Vera Lúcia Barbosa Silva
+scheduleId: WadMvge0Xmc5BvVZf1nA | date: 2026-12-12 | disciplineName: "Lean Construction, Last Planner System e Logística de Canteiro" | professores: Vera Lúcia Barbosa Silva
+
+--- 4) VERIFICAÇÃO DAS 16 CORREÇÕES (TODOS OS SCHEDULES) ---
+[CLUSTER A #1] Engenharia Diagnóstica: Terapia Predial e Plano de Intervenção | Engenharia e Gestão da Manutenção Predial na Construção 4.0 (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-04-10, 2027-04-17] | professores atuais: Jose Allef Ferreira Dantas | esperado: Ivan Carlos Moura da Cunha | DIVERGENTE
+[CLUSTER A #1] Engenharia Diagnóstica: Terapia Predial e Plano de Intervenção | Engenharia e Gestão da Manutenção Predial na Construção 4.0 (sched: WadMvge0Xmc5BvVZf1nA) | datas: [2026-06-20, 2026-06-27] | professores atuais: Ivan Carlos Cunha  | esperado: Ivan Carlos Moura da Cunha | OK
+[CLUSTER A #2] Manutenção Preditiva: IoT, Sensores Inteligentes e Automação Predial | Engenharia e Gestão da Manutenção Predial na Construção 4.0 (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-06-26, 2027-07-03] | professores atuais: Emanoel Silva de Amorim | esperado: Wellington de Oliveira Martins | DIVERGENTE
+[CLUSTER A #2] Manutenção Preditiva: IoT, Sensores Inteligentes e Automação Predial | Engenharia e Gestão da Manutenção Predial na Construção 4.0 (sched: WadMvge0Xmc5BvVZf1nA) | datas: [2026-08-15, 2026-08-22] | professores atuais: Emanoel Silva de Amorim | esperado: Wellington de Oliveira Martins | DIVERGENTE
+[CLUSTER A #3] Engenharia Condominial e Gestão de Sistemas de Segurança e Transporte | Engenharia e Gestão da Manutenção Predial na Construção 4.0 (sched: WadMvge0Xmc5BvVZf1nA) | datas: [2026-09-19, 2026-09-26] | professores atuais: Rogério Pirola | esperado: Rogerio Pirola Alves | OK
+[CLUSTER A #3] Engenharia Condominial e Gestão de Sistemas de Segurança e Transporte | Engenharia e Gestão da Manutenção Predial na Construção 4.0 (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-08-14, 2027-08-21] | professores atuais: Jose Allef Ferreira Dantas, Rogério Pirola | esperado: Rogerio Pirola Alves | OK
+[CLUSTER A #4] Gestão da Manutenção: Planejamento, KPIs e Conformidade Operacional | Engenharia e Gestão da Manutenção Predial na Construção 4.0 (sched: WadMvge0Xmc5BvVZf1nA) | datas: [2026-10-24, 2026-11-07] | professores atuais: Ivan Carlos Cunha  | esperado: Ivan Carlos Moura da Cunha | OK
+[CLUSTER A #4] Gestão da Manutenção: Planejamento, KPIs e Conformidade Operacional | Engenharia e Gestão da Manutenção Predial na Construção 4.0 (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-08-28, 2027-09-04] | professores atuais: Emanoel Silva de Amorim, Atividades Integrativas + Professores Convidados | esperado: Ivan Carlos Moura da Cunha | DIVERGENTE
+[CLUSTER A #5] Gestão de Ativos com BIM 7D (FM) e Orçamentação Preditiva | Engenharia e Gestão da Manutenção Predial na Construção 4.0 (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-07-31, 2027-08-07] | professores atuais: Emanoel Silva de Amorim | esperado: Vilberty Vasconcelos | DIVERGENTE
+[CLUSTER A #5] Gestão de Ativos com BIM 7D (FM) e Orçamentação Preditiva | Engenharia e Gestão da Manutenção Predial na Construção 4.0 (sched: WadMvge0Xmc5BvVZf1nA) | datas: [2026-11-14, 2026-11-28] | professores atuais: Emanoel Silva de Amorim | esperado: Vilberty Vasconcelos | DIVERGENTE
+[CLUSTER A #6] Técnicas de Orçamentos, Cobranças e Custos de Projetos | Gestão de Projetos e Obras (sched: WadMvge0Xmc5BvVZf1nA) | datas: [2026-07-18, 2026-07-25] | professores atuais: Emanoel Silva de Amorim | esperado: Priscila Raffi Rodrigues | DIVERGENTE
+[CLUSTER A #6] Técnicas de Orçamentos, Cobranças e Custos de Projetos | Gestão de Projetos e Obras (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-05-15, 2027-05-22] | professores atuais: Emanoel Silva de Amorim | esperado: Priscila Raffi Rodrigues | DIVERGENTE
+[CLUSTER A #7] Técnicas de Orçamentos, Cobranças e Custos de Obras | Gestão de Projetos e Obras (sched: WadMvge0Xmc5BvVZf1nA) | datas: [2026-08-01, 2026-08-08] | professores atuais: Emanoel Silva de Amorim | esperado: Dieska Rayane da Silva Gomes | DIVERGENTE
+[CLUSTER A #7] Técnicas de Orçamentos, Cobranças e Custos de Obras | Gestão de Projetos e Obras (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-05-29, 2027-06-05] | professores atuais: Emanoel Silva de Amorim | esperado: Dieska Rayane da Silva Gomes | DIVERGENTE
+[CLUSTER A #8] Lean Construction, Last Planner System e Logística de Canteiro | Gestão de Projetos e Obras (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-06-26, 2027-07-03] | professores atuais: Pryscilla de Barros Gonçalves | esperado: Vera Lucia Barbosa da Silva | DIVERGENTE
+[CLUSTER A #8] Lean Construction, Last Planner System e Logística de Canteiro | Gestão de Projetos e Obras (sched: WadMvge0Xmc5BvVZf1nA) | datas: [2026-12-05, 2026-12-12] | professores atuais: Vera Lúcia Barbosa Silva | esperado: Vera Lucia Barbosa da Silva | OK
+[CLUSTER A #9] Eficiência Energética e Sustentabilidade na Construção Civil | Gestão de Projetos e Obras (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-07-31, 2027-08-07] | professores atuais: Vera Lúcia Barbosa Silva | esperado: Pryscilla de Barros Gonçalves | DIVERGENTE
+[CLUSTER A #9] Eficiência Energética e Sustentabilidade na Construção Civil | Gestão de Projetos e Obras (sched: WadMvge0Xmc5BvVZf1nA) | datas: [2026-10-03, 2026-10-17] | professores atuais: Vera Lúcia Barbosa Silva | esperado: Pryscilla de Barros Gonçalves | DIVERGENTE
+[CLUSTER A #10] Modelagem das Instalações | Tecnologia BIM na Construção Civil (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-06-26, 2027-07-03] | professores atuais: Laura Julyê Sales Almeida  | esperado: Emmanoel Neri E Tiago Lopes Silva (DOIS) | DIVERGENTE
+[CLUSTER A #10] Modelagem das Instalações | Tecnologia BIM na Construção Civil (sched: WadMvge0Xmc5BvVZf1nA) | datas: [2026-08-29, 2026-09-12] | professores atuais: Emmanoel Roberto da Silva Neri, Tiago Lopes Silva | esperado: Emmanoel Neri E Tiago Lopes Silva (DOIS) | OK
+[CLUSTER B #11] Neuroiluminação e Ritmos Biológicos | Neuroarquitetura (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-05-29, 2027-06-05] | professores atuais: Priscila Raffi Rodrigues, ID: | esperado: Hilma Santos Ferreira | DIVERGENTE
+[CLUSTER B #11] Neuroiluminação e Ritmos Biológicos | Neuroarquitetura (sched: kzQVwaCakQXzQIu30kMc) | datas: [2026-11-14, 2026-11-28] | professores atuais: Hilma de Oliveira Santos Ferreira | esperado: Hilma Santos Ferreira | OK
+[CLUSTER B #12] Neuroarquitetura em Ambientes Residenciais e Comerciais | Neuroarquitetura (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-06-26, 2027-07-03] | professores atuais: Amanda Nova | esperado: Amanda Vila Nova | OK
+[CLUSTER B #12] Neuroarquitetura em Ambientes Residenciais e Comerciais | Neuroarquitetura (sched: kzQVwaCakQXzQIu30kMc) | datas: [2026-12-05, 2026-12-12] | professores atuais: Amanda Nova | esperado: Amanda Vila Nova | OK
+[CLUSTER B #13] Neuroarquitetura em Ambientes de Saúde (Healthcare) e Aprendizado | Neuroarquitetura (sched: kzQVwaCakQXzQIu30kMc) | datas: [2027-01-30, 2027-02-13] | professores atuais: Hilma de Oliveira Santos Ferreira | esperado: Hilma Santos Ferreira | OK
+[CLUSTER B #13] Neuroarquitetura em Ambientes de Saúde (Healthcare) e Aprendizado | Neuroarquitetura (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-07-31, 2027-08-07] | professores atuais: Priscila Raffi Rodrigues | esperado: Hilma Santos Ferreira | DIVERGENTE
+[CLUSTER B #14] Automação, Internet das Coisas e Eficiência dos Ambientes de Interiores | Design de Interiores Contemporâneo (sched: kzQVwaCakQXzQIu30kMc) | datas: [2026-09-19, 2026-09-26] | professores atuais: Renata Eskinazi Leça | esperado: Edgar Natanael Gregório | DIVERGENTE
+[CLUSTER B #14] Automação, Internet das Coisas e Eficiência dos Ambientes de Interiores | Design de Interiores Contemporâneo (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-05-29, 2027-06-05] | professores atuais: Renata Eskinazi Leça | esperado: Edgar Natanael Gregório | DIVERGENTE
+[CLUSTER B #15] Iluminação de Interiores: Comerciais e Residenciais | Design de Interiores Contemporâneo (sched: kzQVwaCakQXzQIu30kMc) | datas: [2026-10-24, 2026-11-07] | professores atuais: Hilma de Oliveira Santos Ferreira | esperado: Hilma Santos Ferreira | OK
+[CLUSTER B #15] Iluminação de Interiores: Comerciais e Residenciais | Design de Interiores Contemporâneo (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-05-15, 2027-05-22] | professores atuais: Priscila Raffi Rodrigues | esperado: Hilma Santos Ferreira | DIVERGENTE
+[CLUSTER B #16] Design Aplicado para Ambientes Residenciais | Design de Interiores Contemporâneo (sched: UB7LySGzLc5GU0SFjU6Y) | datas: [2027-07-31, 2027-08-07] | professores atuais: Alexandre Mesquita | esperado: Amanda Vila Nova | DIVERGENTE
+[CLUSTER B #16] Design Aplicado para Ambientes Residenciais | Design de Interiores Contemporâneo (sched: kzQVwaCakQXzQIu30kMc) | datas: [2027-01-30, 2027-02-13] | professores atuais: Amanda Nova | esperado: Amanda Vila Nova | OK
+
+--- 5) BUSCA POR TERMOS ESPECÍFICOS ---
+
+Buscando por: "Martiniano"
+  Em teachers (1 encontrado(s)):
+    - ID: W0WowGj8uWGky2DS0Q0r | Nome: "Martiniano Almeida" | Email: ""
+  Em classes: NÃO ENCONTRADO
+
+Buscando por: "Prevenção de Riscos"
+  Em teachers: NÃO ENCONTRADO
+  Em classes: NÃO ENCONTRADO
+
+Buscando por: "Conforto Ambiental"
+  Em teachers: NÃO ENCONTRADO
+  Em classes: NÃO ENCONTRADO
+
+Buscando por: "Resolução de Disputas"
+  Em teachers: NÃO ENCONTRADO
+  Em classes: NÃO ENCONTRADO
+
+--- 6) PROFESSORES SEM EMAIL OU COM EMAIL VAZIO ---
+Total de professores sem email ou com email vazio: 10
+Nome: "Martiniano Almeida" | ID: W0WowGj8uWGky2DS0Q0r
+Nome: "Girlandia Sampaio " | ID: e3RWs3aQGTIlqMEPml7C
+Nome: "Bruna Correia Teixeira" | ID: hvlxWKggrXhRgtoiRRxk
+Nome: "Annah Paula Freire " | ID: kQCmtR7oMx5ydC9UxKK1
+Nome: "Atividades Integrativas + Professores Convidados" | ID: qv3n5kHlhwVmExbwfChg
+Nome: "Miguel Cascudo Filho" | ID: s3UIhF7PjOsIMhvb0ylm
+Nome: "Daniel Leite Sampaio" | ID: vah53TBucwaqfHb5hbnp
+Nome: "Everton Gabriel Silva" | ID: vfvHqpuOMGZ1g3w8WjZH
+Nome: "Gustavo Farias" | ID: wGObsq0McvxbdX2Clo07
+Nome: "Geise Pedrosa " | ID: zeSPGPxNMOjj7I4DvP7k
+
+=== FIM DO RELATÓRIO ===
