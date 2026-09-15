@@ -114,6 +114,19 @@ async function withRetry(fn, maxRetries = 4, delayMs = 300) {
   }
 }
 
+function generateAccessCode(existingCodes = new Set()) {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = '';
+  do {
+    code = '';
+    for (let i = 0; i < 6; i++) {
+      code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+  } while (existingCodes.has(code));
+  existingCodes.add(code);
+  return code;
+}
+
 async function main() {
   const isDryRun = !process.argv.includes('--apply');
   console.log('====================================================');
@@ -125,6 +138,10 @@ async function main() {
   const teachersSnap = await getDocs(collection(db, 'teachers'));
   const dbTeachers = teachersSnap.docs.map(d => ({ id: d.id, ...d.data() }));
   console.log(`Total de professores no banco: ${dbTeachers.length}`);
+
+  const existingCodes = new Set(
+    dbTeachers.map(t => t.accessCode).filter(code => code && typeof code === 'string' && code.trim().length > 0)
+  );
 
   let countMigratedCpf = 0;
   let countMigratedPhone = 0;
@@ -313,6 +330,7 @@ async function main() {
             name: r.nome,
             titulacao: r.titulacao || 'Especialista',
             email: r.email || '',
+            accessCode: generateAccessCode(existingCodes),
             specialties: [],
             hasSubmitted: false,
             createdAt: serverTimestamp()

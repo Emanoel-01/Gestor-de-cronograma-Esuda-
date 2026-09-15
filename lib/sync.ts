@@ -59,6 +59,7 @@ export async function syncTeacherAssignments() {
     // 4. Buscar todos os cronogramas
     const schedulesSnap = await getDocs(collection(db, 'schedules'));
     let updatedClassesCount = 0;
+    let skippedClassesCount = 0;
     const updatedDisciplinesSet = new Set<string>();
 
     for (const scheduleDoc of schedulesSnap.docs) {
@@ -73,33 +74,36 @@ export async function syncTeacherAssignments() {
         const disciplineName = classData.disciplineName;
         if (!disciplineName) continue;
         
+        const currentTeacherIds = Array.isArray(classData.teacherIds) 
+          ? classData.teacherIds.filter(Boolean) 
+          : (classData.teacherId ? [classData.teacherId] : []);
+        
+        // Regra ADITIVA: se já possui professor atribuído, NUNCA tocar no documento
+        if (currentTeacherIds.length > 0) {
+          skippedClassesCount++;
+          continue;
+        }
+
         const normKey = disciplineName.trim().toLowerCase();
         
-        // Se existe um especialista único para esta disciplina
+        // Se a aula não possui professor e existe um especialista único para esta disciplina
         if (uniqueSpecialists[normKey]) {
           const targetTeacherId = uniqueSpecialists[normKey];
           
-          const currentTeacherId = classData.teacherId || '';
-          const currentTeacherIds = Array.isArray(classData.teacherIds) ? classData.teacherIds : [];
-          
-          const needsTeacherIdUpdate = currentTeacherId !== targetTeacherId;
-          const needsTeacherIdsUpdate = currentTeacherIds.length !== 1 || currentTeacherIds[0] !== targetTeacherId;
-          
-          if (needsTeacherIdUpdate || needsTeacherIdsUpdate) {
-            await updateDoc(doc(db, 'classes', classDoc.id), {
-              teacherId: targetTeacherId,
-              teacherIds: [targetTeacherId]
-            });
-            updatedClassesCount++;
-            updatedDisciplinesSet.add(disciplineName);
-          }
+          await updateDoc(doc(db, 'classes', classDoc.id), {
+            teacherId: targetTeacherId,
+            teacherIds: [targetTeacherId]
+          });
+          updatedClassesCount++;
+          updatedDisciplinesSet.add(disciplineName);
         }
       }
     }
     
-    console.log(`Sincronização de professores concluída com sucesso. ${updatedClassesCount} aulas atualizadas em ${updatedDisciplinesSet.size} disciplinas.`);
+    console.log(`Sincronização de professores concluída: ${updatedClassesCount} aulas atualizadas, ${skippedClassesCount} aulas puladas por já terem professor.`);
     return {
       updatedClassesCount,
+      skippedClassesCount,
       updatedDisciplines: Array.from(updatedDisciplinesSet),
       multipleSpecialists: multipleSpecialistsList
     };
