@@ -40,7 +40,11 @@ service cloud.firestore {
       return isAuthenticated() && (
         (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && getUserData().role == 'admin') ||
         request.auth.uid == "g0jsC6oh0ogC9leMzevt17i7cvF3" ||
-        ('email' in request.auth.token && request.auth.token.email != null && request.auth.token.email.lower() == "emanoel.s.amorim@gmail.com")
+        request.auth.uid == "hgljpFpnmNUIjWsLp0haDaaUDxq2" ||
+        ('email' in request.auth.token && request.auth.token.email != null && (
+          request.auth.token.email.lower() == "emanoel.s.amorim@gmail.com" ||
+          request.auth.token.email.lower() == "migration_temp@esuda.edu.br"
+        ))
       );
     }
 
@@ -137,7 +141,7 @@ service cloud.firestore {
              data.disciplineName is string &&
              (data.order is int || data.order is float) &&
              data.isCommon is bool &&
-             (!('teacherId' in data) || data.teacherId is string) &&
+             (!('teacherId' in data) || data.teacherId == null || data.teacherId is string) &&
              (!('teacherIds' in data) || data.teacherIds is list) &&
              (!('courseId' in data) || data.courseId is string) &&
              (!('courseName' in data) || data.courseName is string) &&
