@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { 
   Edit2, 
@@ -18,7 +18,8 @@ import {
   deleteDoc, 
   doc, 
   updateDoc,
-  setDoc 
+  setDoc,
+  getDoc
 } from 'firebase/firestore';
 import Image from 'next/image';
 import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
@@ -289,6 +290,23 @@ function TeacherEditModal({ teacher, courses, isAdmin, commonDisciplines, onClos
     specialties: teacher.specialties || [] 
   });
   const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    if (isAdmin && teacher?.id) {
+      getDoc(doc(db, 'teachers', teacher.id, 'dados_sensiveis', 'principal'))
+        .then(snap => {
+          if (snap.exists()) {
+            const data = snap.data();
+            setForm(prev => ({
+              ...prev,
+              cpf: data.cpf || prev.cpf || '',
+              phone: data.phone || prev.phone || ''
+            }));
+          }
+        })
+        .catch(console.error);
+    }
+  }, [isAdmin, teacher?.id]);
 
   const handleSave = async () => {
     setSaving(true);

@@ -9,7 +9,8 @@ import {
   doc, 
   updateDoc, 
   deleteDoc,
-  getDoc
+  getDoc,
+  setDoc
 } from 'firebase/firestore';
 import { 
   ref, 
@@ -69,14 +70,19 @@ export function TeacherSubmissionsManager() {
       await updateDoc(teacherRef, {
         titulacao: submission.titulacao,
         email: submission.email || '',
-        cpf: submission.cpf || '',
-        phone: submission.phone || '',
         photoUrl: submission.photoUrl || '',
         linkedin: submission.linkedin || '',
         lattes: submission.lattes || '',
         instagram: submission.instagram || '',
         hasSubmitted: true
       });
+
+      if (submission.cpf || submission.phone) {
+        await setDoc(doc(db, 'teachers', submission.teacherId, 'dados_sensiveis', 'principal'), {
+          cpf: submission.cpf || '',
+          phone: submission.phone || ''
+        }, { merge: true });
+      }
 
       // 2. Delete the submission
       await deleteDoc(doc(db, 'submissoes_professores', submission.id));
