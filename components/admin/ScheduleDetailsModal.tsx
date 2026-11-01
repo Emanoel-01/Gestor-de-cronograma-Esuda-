@@ -19,7 +19,8 @@ import {
   Globe,
   EyeOff,
   CheckCircle2,
-  RefreshCw
+  RefreshCw,
+  X
 } from 'lucide-react';
 import { 
   collection, 
@@ -85,6 +86,7 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
   const [editedClassName, setEditedClassName] = useState(schedule.className || '');
   const [editedStartDate, setEditedStartDate] = useState(schedule.startDate || '');
   const [printMode, setPrintMode] = useState<'standard' | 'executive'>('standard');
+  const [modalError, setModalError] = useState<string | null>(null);
 
   const getTeacherCount = (c: any) => {
     if (c.isCommon) return 1;
@@ -150,13 +152,15 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
 
   const handleTogglePublish = async () => {
     setPublishing(true);
+    setModalError(null);
     try {
-      const newStatus = schedule.status === 'active' ? 'draft' : 'active';
+      const newStatus = schedule.status === 'active' ? 'archived' : 'active';
       await updateDoc(doc(db, 'schedules', schedule.id), {
         status: newStatus
       });
     } catch (e) {
-      handleFirestoreError(e, OperationType.WRITE, 'schedules');
+      const err = handleFirestoreError(e, OperationType.WRITE, 'schedules');
+      setModalError(err.message);
     } finally {
       setPublishing(false);
     }
@@ -171,10 +175,16 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
 
   const handleManualSync = async () => {
     setSyncing(true);
+    setModalError(null);
     try {
-      await syncTeacherAssignments();
+      const res = await syncTeacherAssignments();
+      if (res && 'success' in res && !res.success) {
+        setModalError((res as any).message);
+      }
     } catch (e) {
       console.error("Error syncing:", e);
+      const err = handleFirestoreError(e, OperationType.WRITE, 'classes');
+      setModalError(err.message);
     } finally {
       setSyncing(false);
     }
@@ -182,6 +192,7 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
 
   const handleDelete = async () => {
     setIsDeleting(true);
+    setModalError(null);
     try {
       const q = query(collection(db, 'classes'), where('scheduleId', '==', schedule.id));
       const snap = await getDocs(q);
@@ -192,6 +203,8 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
       onClose();
     } catch (e) {
       console.error("Error deleting schedule:", e);
+      const err = handleFirestoreError(e, OperationType.DELETE, 'schedules');
+      setModalError(err.message);
     } finally {
       setIsDeleting(false);
       setShowDeleteConfirm(false);
@@ -200,6 +213,7 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
 
   const handleSave = async () => {
     setSaving(true);
+    setModalError(null);
     try {
       const promises = editedClasses.map(c => {
         const updateData: any = {
@@ -251,7 +265,8 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
       setTimeout(() => setSaveSuccess(false), 3000);
       setIsEditing(false);
     } catch (e) {
-      handleFirestoreError(e, OperationType.UPDATE, 'classes');
+      const err = handleFirestoreError(e, OperationType.UPDATE, 'classes');
+      setModalError(err.message);
     } finally {
       setSaving(false);
     }
@@ -641,6 +656,22 @@ export function ScheduleDetailsModal({ schedule, courses, teachers, isAdmin, onC
             </button>
           </div>
         </div>
+
+        {modalError && (
+          <div className="bg-red-600 text-white px-4 py-3 text-xs sm:text-sm font-medium flex items-center justify-between shrink-0 shadow-md">
+            <div className="flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 shrink-0" />
+              <span>{modalError}</span>
+            </div>
+            <button 
+              type="button" 
+              onClick={() => setModalError(null)} 
+              className="text-white/80 hover:text-white p-1"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
 
         <div id="schedule-content" className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-8 space-y-10 bg-slate-50 print:overflow-visible print:h-auto print:bg-white print:p-0 print:min-h-auto">
           <div id="print-table-content" className={`${printMode === 'standard' ? 'print-show' : 'print:hidden'} hidden bg-white text-black font-sans`}>

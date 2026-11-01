@@ -2,14 +2,11 @@
   "entities": {
     "Teacher": {
       "title": "Teacher",
-      "description": "Docente da pós-graduação",
+      "description": "Docente da pós-graduação (dados públicos)",
       "type": "object",
       "properties": {
         "name": { "type": "string", "description": "Nome completo" },
         "titulacao": { "type": "string", "description": "Grau ou Titulação do profissional (ex: Mestre, Doutor)" },
-        "email": { "type": "string", "format": "email", "description": "E-mail de contato (opcional)" },
-        "cpf": { "type": "string", "description": "CPF do docente (opcional)" },
-        "phone": { "type": "string", "description": "Telefone de contato (opcional)" },
         "photoUrl": { "type": "string", "description": "URL da foto do docente (opcional)" },
         "linkedin": { "type": "string", "description": "Link do perfil no LinkedIn (opcional)" },
         "lattes": { "type": "string", "description": "Link do currículo Lattes (opcional)" },
@@ -28,6 +25,16 @@
         }
       },
       "required": ["name", "titulacao"]
+    },
+    "TeacherPrivate": {
+      "title": "TeacherPrivate",
+      "description": "Dados pessoais restritos do docente (acesso exclusivo admin)",
+      "type": "object",
+      "properties": {
+        "cpf": { "type": "string", "description": "CPF do docente" },
+        "email": { "type": "string", "format": "email", "description": "E-mail de contato pessoal" },
+        "phone": { "type": "string", "description": "Telefone de contato pessoal" }
+      }
     },
     "Course": {
       "title": "Course",
@@ -126,15 +133,57 @@
         "submittedAt": { "type": "string", "format": "date-time" }
       },
       "required": ["teacherId", "name", "titulacao", "status", "submittedAt"]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "Registro de captação de lead no portal público",
+      "type": "object",
+      "properties": {
+        "nome": { "type": "string", "description": "Nome do interessado" },
+        "email": { "type": "string", "format": "email", "description": "E-mail de contato" },
+        "telefone": { "type": "string", "description": "Telefone ou WhatsApp" },
+        "cursoInteresse": { "type": "string", "description": "Nome ou ID do curso de interesse" },
+        "origem": { "type": "string", "description": "Material solicitado (ex: Ementa do curso, Relação de docentes)" },
+        "comoConheceu": { "type": "string", "description": "Como conheceu o curso" },
+        "consentimento": { "type": "boolean", "description": "Consentimento LGPD" },
+        "consentimentoEm": { "type": "string", "format": "date-time" },
+        "criadoEm": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "description": "Status do lead (inicia como 'novo')" }
+      },
+      "required": ["nome", "email", "consentimento"]
+    },
+    "Mail": {
+      "title": "Mail",
+      "description": "Fila de e-mails para envio via Trigger Email from Firestore",
+      "type": "object",
+      "properties": {
+        "to": { "type": "array", "items": { "type": "string" }, "description": "Destinatários principais" },
+        "bcc": { "type": "array", "items": { "type": "string" }, "description": "Destinatários em cópia oculta" },
+        "message": {
+          "type": "object",
+          "properties": {
+            "subject": { "type": "string", "description": "Assunto do e-mail" },
+            "text": { "type": "string", "description": "Corpo em texto plano" },
+            "html": { "type": "string", "description": "Corpo em HTML" }
+          },
+          "required": ["subject"]
+        },
+        "tipo": { "type": "string", "description": "Tipo de mensagem (novo_lead, resumo_diario)" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["to", "message"]
     }
   },
   "firestore": {
-    "teachers": { "schema": "Teacher", "description": "Coleção de professores" },
+    "teachers": { "schema": "Teacher", "description": "Coleção de professores (dados públicos)" },
+    "teachers_private/{teacherId}": { "schema": "TeacherPrivate", "description": "Coleção restrita de dados pessoais de professores (CPF, email, telefone)" },
     "courses": { "schema": "Course", "description": "Coleção de cursos" },
     "holidays": { "schema": "Holiday", "description": "Coleção de feriados" },
     "schedules": { "schema": "Schedule", "description": "Coleção de cronogramas mestres" },
     "classes": { "schema": "ClassSession", "description": "Coleção de sessões de aula individuais" },
     "commonDisciplines": { "schema": "CommonDiscipline", "description": "Coleção de disciplinas do tronco comum" },
-    "submissoes_professores": { "schema": "TeacherSubmission", "description": "Coleção de submissões pendentes de professores" }
+    "submissoes_professores": { "schema": "TeacherSubmission", "description": "Coleção de submissões pendentes de professores" },
+    "leads": { "schema": "Lead", "description": "Coleção de leads captados no portal público" },
+    "mail": { "schema": "Mail", "description": "Coleção de e-mails para processamento pela extensão Trigger Email" }
   }
 }

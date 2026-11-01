@@ -312,6 +312,7 @@ export function PublicPortal({
             teachers={teachers}
             schedules={schedules}
             commonDisciplines={commonDisciplines}
+            courses={courses}
             onClose={() => setViewingCourseId(null)} 
           />
         )}

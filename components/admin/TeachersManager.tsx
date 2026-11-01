@@ -12,14 +12,18 @@ import {
   Copy,
   Check,
   RefreshCw,
-  Sparkles
+  Sparkles,
+  ShieldCheck
 } from 'lucide-react';
 import { 
   deleteDoc, 
   doc, 
   updateDoc,
   setDoc,
-  getDoc
+  getDoc,
+  getDocs,
+  collection,
+  deleteField
 } from 'firebase/firestore';
 import Image from 'next/image';
 import { db, handleFirestoreError, OperationType } from '@/lib/firebase';
@@ -56,17 +60,92 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
   const [searchTerm, setSearchTerm] = useState('');
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [generatingBatch, setGeneratingBatch] = useState(false);
+  const [migrating, setMigrating] = useState(false);
+  const [migrationResult, setMigrationResult] = useState<{ total: number; migrated: number; errors: number } | null>(null);
 
   const handleDelete = async () => {
     if (!deletingTeacherId) return;
     setIsDeleting(true);
     try {
       await deleteDoc(doc(db, 'teachers', deletingTeacherId));
+      try {
+        await deleteDoc(doc(db, 'teachers_private', deletingTeacherId));
+      } catch (_) {}
       setDeletingTeacherId(null);
     } catch (e) {
       handleFirestoreError(e, OperationType.DELETE, 'teachers');
     } finally {
       setIsDeleting(false);
+    }
+  };
+
+  const handleMigratePersonalData = async () => {
+    if (!isAdmin) return;
+    const confirmMigration = window.confirm(
+      'Deseja iniciar a migração de proteção de dados pessoais dos docentes?\n\n' +
+      'Esta ação irá:\n' +
+      '1. Percorrer todos os documentos de "teachers".\n' +
+      '2. Copiar CPF, e-mail e telefone para a coleção restrita "teachers_private" (mesmo ID).\n' +
+      '3. Remover esses 3 campos de "teachers" para proteger a privacidade dos docentes.'
+    );
+    if (!confirmMigration) return;
+
+    setMigrating(true);
+    setMigrationResult(null);
+    let total = 0;
+    let migrated = 0;
+    let errors = 0;
+
+    try {
+      const snap = await getDocs(collection(db, 'teachers'));
+      total = snap.size;
+
+      for (const teacherDoc of snap.docs) {
+        try {
+          const tId = teacherDoc.id;
+          const data = teacherDoc.data();
+
+          let cpf = (data.cpf || '').trim();
+          let email = (data.email || '').trim();
+          let phone = (data.phone || '').trim();
+
+          // Se faltar cpf ou phone, verifica se existia na subcoleção legada dados_sensiveis
+          try {
+            const sensSnap = await getDoc(doc(db, 'teachers', tId, 'dados_sensiveis', 'principal'));
+            if (sensSnap.exists()) {
+              const sensData = sensSnap.data();
+              if (!cpf && sensData.cpf) cpf = String(sensData.cpf).trim();
+              if (!phone && sensData.phone) phone = String(sensData.phone).trim();
+            }
+          } catch (_) {}
+
+          // 1. Grava exclusivamente na coleção restrita teachers_private (mesmo ID)
+          await setDoc(doc(db, 'teachers_private', tId), {
+            cpf: cpf || '',
+            email: email || '',
+            phone: phone || ''
+          });
+
+          // 2. Remove os três campos pessoais do documento teachers
+          await updateDoc(doc(db, 'teachers', tId), {
+            cpf: deleteField(),
+            email: deleteField(),
+            phone: deleteField()
+          });
+
+          migrated++;
+        } catch (itemErr) {
+          console.error(`Erro ao migrar professor ${teacherDoc.id}:`, itemErr);
+          errors++;
+        }
+      }
+
+      setMigrationResult({ total, migrated, errors });
+    } catch (e) {
+      console.error('Erro geral durante a migração:', e);
+      handleFirestoreError(e, OperationType.WRITE, 'teachers_private');
+    } finally {
+      setMigrating(false);
     }
   };
 
@@ -127,6 +206,35 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
           >
             <Sparkles className="w-3.5 h-3.5 mr-1.5" />
             {generatingBatch ? 'Gerando...' : 'Gerar Códigos Automaticamente'}
+          </Button>
+        </div>
+      )}
+
+      {/* Migration Button: Proteção de Dados Pessoais (LGPD) */}
+      {isAdmin && (
+        <div className="bg-indigo-50 border border-indigo-200 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 text-xs text-indigo-950 font-bold uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4 text-indigo-600" />
+              Proteção de Dados Pessoais dos Docentes (LGPD)
+            </div>
+            <p className="text-xs text-indigo-800">
+              Separa CPF, e-mail e telefone na coleção restrita <span className="font-mono text-indigo-900 bg-indigo-100 px-1 py-0.5 rounded font-bold">teachers_private</span> e remove esses 3 campos de <span className="font-mono text-indigo-900 bg-indigo-100 px-1 py-0.5 rounded font-bold">teachers</span>.
+            </p>
+            {migrationResult && (
+              <p className="text-xs font-bold text-emerald-700 mt-1">
+                Migração finalizada: {migrationResult.migrated} de {migrationResult.total} docentes migrados com sucesso{migrationResult.errors > 0 ? ` (${migrationResult.errors} falhas)` : ''}!
+              </p>
+            )}
+          </div>
+          <Button 
+            size="sm"
+            onClick={handleMigratePersonalData}
+            disabled={migrating}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-black uppercase cursor-pointer shrink-0"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 mr-1.5" />
+            {migrating ? 'Migrando...' : 'Migrar para teachers_private'}
           </Button>
         </div>
       )}
@@ -200,7 +308,7 @@ export function TeachersManager({ teachers, courses, isAdmin, commonDisciplines 
             </div>
             <div className="flex-1 overflow-hidden">
               <h4 className="font-bold text-gray-900 truncate text-sm sm:text-base">{teacher.name}</h4>
-              <p className="text-[10px] sm:text-xs text-gray-500 truncate">{teacher.titulacao || teacher.email || 'Docente'}</p>
+              <p className="text-[10px] sm:text-xs text-gray-500 truncate">{teacher.titulacao || 'Docente'}</p>
               
               {/* Código de Acesso do Professor */}
               <div className="mt-1.5 flex items-center gap-2">
@@ -279,9 +387,9 @@ function TeacherEditModal({ teacher, courses, isAdmin, commonDisciplines, onClos
     name: teacher.name || '', 
     titulacao: teacher.titulacao || '',
     accessCode: teacher.accessCode || generateRandomCode(),
-    email: teacher.email || '', 
-    cpf: teacher.cpf || '', 
-    phone: teacher.phone || '', 
+    email: '', 
+    cpf: '', 
+    phone: '', 
     photoUrl: teacher.photoUrl || '',
     linkedin: teacher.linkedin || '',
     lattes: teacher.lattes || '',
@@ -292,30 +400,48 @@ function TeacherEditModal({ teacher, courses, isAdmin, commonDisciplines, onClos
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
+    // Se o usuário for admin, busca os dados pessoais restritos na coleção teachers_private
     if (isAdmin && teacher?.id) {
-      getDoc(doc(db, 'teachers', teacher.id, 'dados_sensiveis', 'principal'))
+      getDoc(doc(db, 'teachers_private', teacher.id))
         .then(snap => {
           if (snap.exists()) {
             const data = snap.data();
             setForm(prev => ({
               ...prev,
-              cpf: data.cpf || prev.cpf || '',
-              phone: data.phone || prev.phone || ''
+              cpf: data.cpf || '',
+              email: data.email || '',
+              phone: data.phone || ''
+            }));
+          } else {
+            // Fallback para dados caso ainda não tenha rodado a migração
+            setForm(prev => ({
+              ...prev,
+              cpf: teacher.cpf || '',
+              email: teacher.email || '',
+              phone: teacher.phone || ''
             }));
           }
         })
         .catch(console.error);
     }
-  }, [isAdmin, teacher?.id]);
+  }, [isAdmin, teacher?.id, teacher?.cpf, teacher?.email, teacher?.phone]);
 
   const handleSave = async () => {
     setSaving(true);
     try {
-      const { cpf, phone, ...dadosPublicos } = form;
-      await updateDoc(doc(db, 'teachers', teacher.id), dadosPublicos);
-      await setDoc(doc(db, 'teachers', teacher.id, 'dados_sensiveis', 'principal'), {
-        cpf: cpf || '',
-        phone: phone || '',
+      const { cpf, email, phone, ...dadosPublicos } = form;
+      // 1. Atualiza dados públicos em teachers e garante a remoção dos campos pessoais
+      await updateDoc(doc(db, 'teachers', teacher.id), {
+        ...dadosPublicos,
+        cpf: deleteField(),
+        email: deleteField(),
+        phone: deleteField()
+      });
+      // 2. Grava exclusivamente na coleção restrita teachers_private com o mesmo ID
+      await setDoc(doc(db, 'teachers_private', teacher.id), {
+        cpf: cpf ? cpf.trim() : '',
+        email: email ? email.trim() : '',
+        phone: phone ? phone.trim() : '',
       });
       await syncTeacherAssignments();
       onClose();

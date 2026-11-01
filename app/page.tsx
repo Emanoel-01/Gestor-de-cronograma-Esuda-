@@ -92,7 +92,9 @@ function DashboardContent() {
       schedules={schedules}
       commonDisciplines={commonDisciplines}
       isAdmin={isAdmin}
-      seedData={() => seedData(() => {})}
+      seedData={async () => {
+        await seedData(() => {});
+      }}
     />
   );
 }

@@ -63,7 +63,7 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
       const dates: string[] = [];
       
       classes.forEach((c: any) => {
-        const isRelevant = c.isCommon || c.courseId === selectedCourseId;
+        const isRelevant = c.isCommon || !c.courseId || !selectedCourseId || c.courseId === selectedCourseId;
         if (!isRelevant) return;
         
         dates.push(c.date);
@@ -75,7 +75,12 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
             isCommon: c.isCommon,
             teacherIds: c.teacherIds || (c.teacherId ? [c.teacherId] : []),
             dates: [],
-            observation: c.observation || ''
+            observation: c.observation || '',
+            semAula: Boolean(c.semAula),
+            aDefinir: Boolean(c.aDefinir),
+            aulaExtra: Boolean(c.aulaExtra),
+            alterado: Boolean(c.alterado),
+            modalidade: c.modalidade
           };
         }
         if (c.observation && !disciplineGroups[key].observation) {
@@ -84,6 +89,9 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
         if (!disciplineGroups[key].dates.includes(c.date)) {
           disciplineGroups[key].dates.push(c.date);
         }
+        if (c.aDefinir) disciplineGroups[key].aDefinir = true;
+        if (c.aulaExtra) disciplineGroups[key].aulaExtra = true;
+        if (c.alterado) disciplineGroups[key].alterado = true;
       });
       
       const items: any[] = Object.values(disciplineGroups);
@@ -214,7 +222,7 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
                   <tr className="bg-slate-900 text-white">
                     <th className="border border-slate-300 p-3 text-left w-24 uppercase tracking-widest font-black">Data</th>
                     <th className="border border-slate-300 p-3 text-left uppercase tracking-widest font-black">Disciplina</th>
-                    <th className="border border-slate-300 p-3 text-left w-48 uppercase tracking-widest font-black">Professor</th>
+                    <th className="border border-slate-300 p-3 text-left w-48 uppercase tracking-widest font-black">Professor / Titulação</th>
                     <th className="border border-slate-300 p-3 text-left w-28 uppercase tracking-widest font-black">Eixo</th>
                   </tr>
                 </thead>
@@ -234,38 +242,57 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
                     }
                     
                     const isDeadline = typeof item.name === 'string' && item.name.toLowerCase().includes('prazo final');
-                    const teacherNames = (item.teacherIds || [])
-                      .map((tid: string) => teachers.find((t: any) => t.id === tid)?.name)
+                    const teacherDisplay = (item.teacherIds || [])
+                      .map((tid: string) => {
+                        const t = teachers.find((tch: any) => tch.id === tid);
+                        if (!t) return null;
+                        return t.titulacao ? `${t.titulacao} ${t.name}` : t.name;
+                      })
                       .filter(Boolean)
                       .join(' / ');
+
+                    const rowBgClass = isDeadline 
+                      ? 'bg-amber-100/70 border-amber-300' 
+                      : item.aulaExtra 
+                      ? 'bg-purple-50/70 border-purple-200' 
+                      : (idx % 2 === 0 ? 'bg-white' : 'bg-slate-50');
+
                     return (
                       <tr 
                         key={`discipline-${idx}`} 
-                        className={isDeadline ? 'bg-amber-100/70 border-amber-300' : (idx % 2 === 0 ? 'bg-white' : 'bg-slate-50')}
+                        className={rowBgClass}
                         style={isDeadline ? {
                           background: 'linear-gradient(90deg, rgba(254, 243, 199, 0.75) 0%, rgba(254, 249, 195, 0.45) 50%, rgba(254, 243, 199, 0.75) 100%)',
                           WebkitPrintColorAdjust: 'exact',
                           printColorAdjust: 'exact'
                         } : undefined}
                       >
-                        <td className={`border border-slate-300 p-3 font-bold ${isDeadline ? 'text-amber-950 font-black' : 'text-slate-900'}`}>
+                        <td className={`border border-slate-300 p-3 font-bold ${isDeadline ? 'text-amber-950 font-black' : item.aulaExtra ? 'text-purple-950 font-black' : 'text-slate-900'}`}>
                           {item.dates.sort().map((d: string) => format(new Date(d + 'T12:00:00'), 'dd/MM/yyyy', { locale: ptBR })).join(' e ')}
                         </td>
                         <td className="border border-slate-300 p-3">
-                          <div className={`font-black uppercase tracking-tight ${isDeadline ? 'text-amber-950' : 'text-slate-900'}`}>{item.name}</div>
-                          {item.observation && (
+                          <div className={`font-black uppercase tracking-tight ${isDeadline ? 'text-amber-950' : item.aulaExtra ? 'text-purple-950' : 'text-slate-900'}`}>
+                            {item.aDefinir ? 'A definir' : (item.name || 'A definir')}
+                          </div>
+                          {item.observation && !item.aDefinir && (
                             <div className={`text-[9px] mt-1 ${isDeadline ? 'text-amber-950/80 font-semibold' : 'text-slate-500 italic'}`}>
                               {item.observation}
                             </div>
                           )}
                         </td>
                         <td className="border border-slate-300 p-3">
-                          <div className={`font-bold ${isDeadline ? 'text-amber-900' : 'text-slate-700'}`}>{teacherNames || 'A definir'}</div>
+                          <div className={`font-bold ${isDeadline ? 'text-amber-900' : item.aulaExtra ? 'text-purple-900' : 'text-slate-700'}`}>
+                            {item.aDefinir ? 'A definir' : (teacherDisplay || 'A definir')}
+                          </div>
                         </td>
                         <td className="border border-slate-300 p-3 text-[9px] font-black uppercase tracking-tighter">
                           {isDeadline ? (
                             <span className="px-2 py-0.5 rounded bg-amber-200/90 text-amber-900 border border-amber-300 font-black tracking-normal">
                               Prazo Final
+                            </span>
+                          ) : item.aulaExtra ? (
+                            <span className="px-2 py-0.5 rounded bg-purple-100 text-purple-900 border border-purple-300 font-black tracking-normal">
+                              Aula Extra (Opcional)
                             </span>
                           ) : (
                             <span className="text-slate-400">
@@ -341,6 +368,8 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
                         className={`relative p-6 rounded-xl border transition-all flex flex-col group ${
                           isDeadline
                             ? 'bg-gradient-to-br from-amber-50/90 via-yellow-50/60 to-amber-100/60 border-amber-300 shadow-sm hover:border-amber-500 hover:shadow-lg'
+                            : item.aulaExtra
+                            ? 'bg-gradient-to-br from-purple-50/60 via-white to-purple-50/30 border-purple-300 hover:border-purple-500 shadow-md hover:shadow-2xl ring-2 ring-purple-200/70'
                             : 'bg-white border-slate-200 hover:border-amber-500 hover:shadow-2xl'
                         }`}
                         style={isDeadline ? {
@@ -350,7 +379,7 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
                         <div className="flex flex-wrap gap-x-3 gap-y-1 items-start mb-4">
                           {sortedDates.map((date: string, dIdx: number) => (
                             <div key={`${date}-${dIdx}`} className="flex items-center gap-1">
-                              <span className={`text-xl font-black transition-colors ${isDeadline ? 'text-amber-950' : 'text-slate-900 group-hover:text-amber-600'}`}>
+                              <span className={`text-xl font-black transition-colors ${isDeadline ? 'text-amber-950' : item.aulaExtra ? 'text-purple-950 group-hover:text-purple-700' : 'text-slate-900 group-hover:text-amber-600'}`}>
                                 {format(new Date(date + 'T12:00:00'), 'dd/MM', { locale: ptBR })}
                               </span>
                               {dIdx < sortedDates.length - 1 && <span className="text-slate-300 font-black">&</span>}
@@ -360,41 +389,65 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
 
                         <div className="space-y-4 flex-1">
                           <div>
-                            <p className="text-[10px] font-black text-amber-600 uppercase tracking-[0.2em] mb-1">
-                              {isDeadline ? 'Prazo de Entrega' : (item.isCommon ? 'Tronco Comum' : 'Eixo Específico')}
+                            <div className="flex items-center gap-2 mb-1 flex-wrap">
+                              <p className="text-[10px] font-black text-amber-600 uppercase tracking-[0.2em]">
+                                {isDeadline ? 'Prazo de Entrega' : (item.isCommon ? 'Tronco Comum' : 'Eixo Específico')}
+                              </p>
+                              {item.aulaExtra && (
+                                <span className="px-2 py-0.5 rounded bg-purple-100 text-purple-900 border border-purple-300 text-[9px] font-black uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                                  Aula Extra (Opcional)
+                                </span>
+                              )}
+                              {item.modalidade && item.modalidade !== 'Presencial' && (
+                                <span className="px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 border border-blue-200 text-[9px] font-black uppercase tracking-normal">
+                                  {item.modalidade}
+                                </span>
+                              )}
+                            </div>
+                            <p className={`text-sm font-black leading-tight uppercase tracking-tight ${isDeadline ? 'text-amber-950' : item.aulaExtra ? 'text-purple-950' : 'text-slate-800'}`}>
+                              {item.aDefinir ? 'A definir' : (item.name || 'A definir')}
                             </p>
-                            <p className={`text-sm font-black leading-tight uppercase tracking-tight ${isDeadline ? 'text-amber-950' : 'text-slate-800'}`}>{item.name}</p>
-                            {item.observation && (
+                            {item.observation && !item.aDefinir && (
                               <p className={`text-xs mt-2 italic font-medium ${isDeadline ? 'text-amber-900/90' : 'text-slate-500'}`}>{item.observation}</p>
                             )}
                           </div>
                           <div className="space-y-2 mt-auto">
-                            {(item.teacherIds || []).filter(Boolean).map((tid: string, tIdx: number) => {
-                              const teacher = teachers.find(t => t.id === tid);
-                              if (!teacher) return null;
-                              return (
-                                <button 
-                                  key={tid}
-                                  onClick={() => setSelectedTeacher(teacher)}
-                                  className="flex items-center gap-3 pt-3 border-t border-slate-100 w-full text-left hover:bg-slate-50 transition-colors group/teacher"
-                                >
-                                  <div className="w-8 h-8 rounded-lg bg-slate-100 overflow-hidden shrink-0 border border-slate-200 group-hover/teacher:border-amber-500 transition-colors">
-                                    {teacher.photoUrl ? (
-                                      <Image src={teacher.photoUrl} alt={teacher.name} width={32} height={32} className="w-full h-full object-cover grayscale group-hover/teacher:grayscale-0 transition-all" referrerPolicy="no-referrer" />
-                                    ) : (
-                                      <div className="w-full h-full flex items-center justify-center text-xs font-black text-slate-400">{teacher.name[0]}</div>
-                                    )}
-                                  </div>
-                                  <span className="text-[10px] text-slate-600 truncate font-black uppercase tracking-tight group-hover/teacher:text-slate-900 transition-colors flex-1">{teacher.name}</span>
-                                  <Share2 className="w-3 h-3 text-slate-300 group-hover/teacher:text-amber-500 opacity-0 group-hover/teacher:opacity-100 transition-all" />
-                                </button>
-                              );
-                            })}
-                            {(!item.teacherIds || item.teacherIds.length === 0) && (
-                              <div className="flex items-center gap-3 pt-3 border-t border-slate-100 w-full opacity-50 italic">
+                            {item.aDefinir || !item.teacherIds || item.teacherIds.filter(Boolean).length === 0 ? (
+                              <div className="flex items-center gap-3 pt-3 border-t border-slate-100 w-full opacity-60 italic">
                                 <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-400">?</div>
-                                <span className="text-[10px] text-slate-400 font-black uppercase tracking-tight">Docente a definir</span>
+                                <span className="text-[10px] text-slate-500 font-black uppercase tracking-tight">A definir</span>
                               </div>
+                            ) : (
+                              (item.teacherIds || []).filter(Boolean).map((tid: string) => {
+                                const teacher = teachers.find(t => t.id === tid);
+                                if (!teacher) return null;
+                                return (
+                                  <button 
+                                    key={tid}
+                                    onClick={() => setSelectedTeacher(teacher)}
+                                    className="flex items-center gap-3 pt-3 border-t border-slate-100 w-full text-left hover:bg-slate-50 transition-colors group/teacher"
+                                  >
+                                    <div className="w-8 h-8 rounded-lg bg-slate-100 overflow-hidden shrink-0 border border-slate-200 group-hover/teacher:border-amber-500 transition-colors">
+                                      {teacher.photoUrl ? (
+                                        <Image src={teacher.photoUrl} alt={teacher.name} width={32} height={32} className="w-full h-full object-cover grayscale group-hover/teacher:grayscale-0 transition-all" referrerPolicy="no-referrer" />
+                                      ) : (
+                                        <div className="w-full h-full flex items-center justify-center text-xs font-black text-slate-400">{teacher.name[0]}</div>
+                                      )}
+                                    </div>
+                                    <div className="flex flex-col min-w-0 flex-1">
+                                      <span className="text-[10px] text-slate-700 truncate font-black uppercase tracking-tight group-hover/teacher:text-slate-900 transition-colors">
+                                        {teacher.name}
+                                      </span>
+                                      {teacher.titulacao && (
+                                        <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider truncate">
+                                          {teacher.titulacao}
+                                        </span>
+                                      )}
+                                    </div>
+                                    <Share2 className="w-3 h-3 text-slate-300 group-hover/teacher:text-amber-500 opacity-0 group-hover/teacher:opacity-100 transition-all" />
+                                  </button>
+                                );
+                              })
                             )}
                           </div>
                         </div>
@@ -442,7 +495,9 @@ export function PublicScheduleViewer({ schedule, courses, teachers, holidays, on
                 </div>
 
                 <h3 className="text-2xl font-bold text-gray-900 mb-1">{selectedTeacher.name}</h3>
-                <p className="text-indigo-600 font-bold text-sm uppercase tracking-widest mb-6">Professor Titular</p>
+                <p className="text-indigo-600 font-bold text-sm uppercase tracking-widest mb-6">
+                  {selectedTeacher.titulacao || 'Professor(a)'}
+                </p>
 
                 <div className="w-full space-y-4">
                   <div className="grid grid-cols-3 gap-4">

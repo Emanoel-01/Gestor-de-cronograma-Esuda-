@@ -81,7 +81,6 @@ service cloud.firestore {
     function isValidTeacher(data) {
       return data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
              (!('titulacao' in data) || (data.titulacao is string && data.titulacao.size() < 100)) &&
-             (!('email' in data) || (data.email is string && data.email.size() < 100)) &&
              (!('photoUrl' in data) || (data.photoUrl is string && data.photoUrl.size() < 1000)) &&
              (!('linkedin' in data) || (data.linkedin is string && data.linkedin.size() < 200)) &&
              (!('lattes' in data) || (data.lattes is string && data.lattes.size() < 200)) &&
@@ -129,7 +128,7 @@ service cloud.firestore {
       return data.courseIds is list && data.courseIds.size() > 0 &&
              data.className is string && data.className.size() > 0 &&
              isValidDateString(data.startDate) &&
-             data.status in ['active', 'archived', 'draft'] &&
+             data.status in ['active', 'archived'] &&
              (!('courseNames' in data) || data.courseNames is list) &&
              (!('createdAt' in data) || data.createdAt is timestamp || data.createdAt is string) &&
              (!('lastUpdated' in data) || data.lastUpdated is timestamp || data.lastUpdated is string);
@@ -180,6 +179,10 @@ service cloud.firestore {
       }
     }
 
+    match /teachers_private/{teacherId} {
+      allow read, write: if isAdmin();
+    }
+
     match /courses/{courseId} {
       allow read: if true;
       allow create, update: if isAdmin() && isValidCourse(request.resource.data);
@@ -215,5 +218,21 @@ service cloud.firestore {
       allow create: if isValidTeacherSubmission(request.resource.data);
       allow update, delete: if isAdmin();
     }
+
+    match /leads/{leadId} {
+      allow create: if request.resource.data.nome is string
+                    && request.resource.data.nome.size() > 0
+                    && request.resource.data.email is string
+                    && request.resource.data.consentimento == true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /mail/{mailId} {
+      allow create: if request.resource.data.to is list
+                    && request.resource.data.to.size() > 0;
+      allow read, update, delete: if isAdmin();
+    }
   }
 }
+
+

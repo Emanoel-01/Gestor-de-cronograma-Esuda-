@@ -44,7 +44,7 @@ export function SchedulesList({ schedules, courses, onSelect, isAdmin }: Schedul
                 <Calendar className="w-6 h-6" />
               </div>
               <span className={`text-xs font-bold px-2 py-1 rounded-lg ${schedule.status === 'active' ? 'bg-green-50 text-green-600' : 'bg-gray-100 text-gray-500'}`}>
-                {schedule.status === 'active' ? 'ATIVO' : 'RASCUNHO'}
+                {schedule.status === 'active' ? 'ATIVO' : schedule.status === 'archived' ? 'ARQUIVADO' : 'ARQUIVADO'}
               </span>
             </div>
             <div>

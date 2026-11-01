@@ -55,19 +55,19 @@ export function NewTeacherModal({ courses, isAdmin, commonDisciplines, onClose }
     if (!form.name || !form.titulacao) return;
     setSaving(true);
     try {
-      const { cpf, phone, ...dadosPublicos } = form;
+      const { cpf, email, phone, ...dadosPublicos } = form;
       const novoDocRef = await addDoc(collection(db, 'teachers'), {
         ...dadosPublicos,
         accessCode: form.accessCode.trim().toUpperCase() || generateRandomCode(),
         hasSubmitted: false,
         createdAt: serverTimestamp()
       });
-      if (cpf || phone) {
-        await setDoc(doc(db, 'teachers', novoDocRef.id, 'dados_sensiveis', 'principal'), {
-          cpf: cpf || '',
-          phone: phone || '',
-        });
-      }
+      // Grava exclusivamente na coleção restrita teachers_private com o mesmo ID
+      await setDoc(doc(db, 'teachers_private', novoDocRef.id), {
+        cpf: cpf ? cpf.trim() : '',
+        email: email ? email.trim() : '',
+        phone: phone ? phone.trim() : ''
+      });
       await syncTeacherAssignments();
       onClose();
     } catch (e) {

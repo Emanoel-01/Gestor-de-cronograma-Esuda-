@@ -19,19 +19,24 @@ import {
   User,
   Linkedin,
   Instagram,
-  Link as LinkIcon
+  Link as LinkIcon,
+  Download,
+  FileText
 } from 'lucide-react';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
 import { COMMON_DISCIPLINES } from '@/lib/calendar';
 import { PlanoDeEnsinoView } from './ui/PlanoDeEnsinoView';
+import { useAuth } from '@/lib/auth-context';
+import { LeadFormModal } from './LeadFormModal';
 
 interface CourseDetailsDrawerProps {
   course: any;
   teachers: any[];
   schedules: any[];
   commonDisciplines: any[];
+  courses?: any[];
   onClose: () => void;
 }
 
@@ -51,7 +56,11 @@ const EditorialFiller = ({ text, subtext }: { text: string, subtext: string }) =
   </div>
 );
 
-export function CourseDetailsDrawer({ course, teachers, schedules, commonDisciplines, onClose }: CourseDetailsDrawerProps) {
+export function CourseDetailsDrawer({ course, teachers, schedules, commonDisciplines, courses = [], onClose }: CourseDetailsDrawerProps) {
+  const { user } = useAuth();
+  const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
+  const [pendingDownloadType, setPendingDownloadType] = useState<'ementa' | 'docentes' | null>(null);
+
   const [showDisciplines, setShowDisciplines] = useState(true);
   const [showSyllabus, setShowSyllabus] = useState(true);
   const [showTeachers, setShowTeachers] = useState(true);
@@ -118,7 +127,180 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
       .join('')
       .toUpperCase();
   };
-  
+
+  const handleRequestDownload = (type: 'ementa' | 'docentes') => {
+    if (user) {
+      // Visitante autenticado faz o download direto sem pedir formulário
+      if (type === 'ementa') {
+        downloadEmenta();
+      } else {
+        downloadDocentes();
+      }
+    } else {
+      // Visitante anônimo abre o modal de captação
+      setPendingDownloadType(type);
+      setIsLeadModalOpen(true);
+    }
+  };
+
+  const handleLeadSuccess = () => {
+    if (pendingDownloadType === 'ementa') {
+      downloadEmenta();
+    } else if (pendingDownloadType === 'docentes') {
+      downloadDocentes();
+    }
+  };
+
+  const downloadEmenta = () => {
+    const commonList = commonDisciplines.length > 0 ? commonDisciplines : COMMON_DISCIPLINES;
+    const commonHtml = commonList.map((d: any, i: number) => {
+      const desc = d.description || (d.planoDeEnsino ? d.planoDeEnsino.ementa : '') || 'Conforme plano de ensino.';
+      return `<li style="margin-bottom: 12px; padding: 12px; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <strong style="color: #1e1b4b; font-size: 14px;">${i + 1}. ${d.name}</strong>
+        <p style="color: #475569; font-size: 12px; margin: 4px 0 0 0; line-height: 1.5;">${desc}</p>
+      </li>`;
+    }).join('');
+
+    const specificHtml = (course.specificDisciplines || []).map((d: any, i: number) => {
+      const name = typeof d === 'string' ? d : d.name;
+      const desc = typeof d === 'string' ? '' : (d.syllabus || d.description || d.ementa || '');
+      return `<li style="margin-bottom: 12px; padding: 12px; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <strong style="color: #1e1b4b; font-size: 14px;">${commonList.length + i + 1}. ${name}</strong>
+        ${desc ? `<p style="color: #475569; font-size: 12px; margin: 4px 0 0 0; line-height: 1.5;">${desc}</p>` : ''}
+      </li>`;
+    }).join('');
+
+    const html = `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ementa Oficial - ${course.name}</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1e293b; max-width: 820px; margin: 40px auto; padding: 24px; background: #f8fafc; }
+    .card { background: #ffffff; border-radius: 16px; padding: 32px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    h1 { color: #312e81; font-size: 26px; font-weight: 800; margin: 12px 0 6px 0; }
+    h2 { color: #3730a3; font-size: 18px; margin-top: 28px; border-left: 4px solid #4f46e5; padding-left: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .badge { display: inline-block; background: #4f46e5; color: white; padding: 4px 12px; border-radius: 9999px; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; }
+    .meta-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; background: #f1f5f9; padding: 16px; border-radius: 12px; margin: 20px 0; }
+    .meta-item strong { display: block; font-size: 10px; text-transform: uppercase; color: #64748b; letter-spacing: 0.05em; }
+    .meta-item span { font-weight: 700; font-size: 14px; color: #0f172a; }
+    ol { padding-left: 0; list-style-type: none; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 11px; color: #64748b; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">Faculdade ESUDA • Pós-Graduação</span>
+    <h1>${course.name}</h1>
+    ${course.marketingSummary ? `<p style="font-size: 15px; color: #475569; font-style: italic; margin-top: 8px;">${course.marketingSummary}</p>` : ''}
+
+    <div class="meta-grid">
+      <div class="meta-item"><strong>Carga Horária</strong> <span>${course.workload || '360h'}</span></div>
+      <div class="meta-item"><strong>Formato</strong> <span>${course.format || 'Presencial, Remoto'}</span></div>
+      <div class="meta-item"><strong>Horário</strong> <span>${course.classDays || 'Sábados'} (${course.classTime || '08:00 - 17:00'})</span></div>
+      <div class="meta-item"><strong>Duração</strong> <span>${course.duration || '10 meses'}</span></div>
+      <div class="meta-item"><strong>Início das Aulas</strong> <span>${course.startDateInfo || 'A definir'}</span></div>
+      <div class="meta-item"><strong>Inscrições</strong> <span>${course.enrollmentPeriod || 'Consulte a coordenação'}</span></div>
+    </div>
+
+    <h2>Sobre o Curso</h2>
+    <div style="font-size: 14px; color: #334155; line-height: 1.7; text-align: justify; white-space: pre-wrap;">${course.fullDescription || course.marketingSummary || 'Descrição detalhada em elaboração.'}</div>
+
+    <h2>Tronco Comum (${commonList.length} Disciplinas)</h2>
+    <ol>${commonHtml}</ol>
+
+    <h2>Disciplinas Específicas (${course.specificDisciplines?.length || 0} Disciplinas)</h2>
+    <ol>${specificHtml}</ol>
+
+    <div class="footer">
+      <p style="font-weight: bold; margin-bottom: 4px;">FACULDADE ESUDA • Coordenação das Especializações em Arquitetura e Engenharia</p>
+      <p>Rua Dr. José Mariano, 593 - Santo Amaro, Recife - PE | WhatsApp: (81) 99129-8803 | emanoel@esuda.edu.br</p>
+    </div>
+  </div>
+</body>
+</html>`;
+
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Ementa-${course.name.replace(/[^a-zA-Z0-9]/g, '_')}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const downloadDocentes = () => {
+    // PROTEÇÃO TOTAL: Estritamente nome, titulação, foto, links públicos e especialidades.
+    // NUNCA cpf, e-mail ou telefone.
+    const teachersHtml = courseTeachers.map((t: any) => {
+      const tit = t.titulation || t.titulacao || t.degree || 'Especialista';
+      const photo = t.photoUrl || t.imageUrl;
+      const links: string[] = [];
+      if (t.linkedin) links.push(`<a href="${t.linkedin}" target="_blank" style="color: #0a66c2; text-decoration: none; font-weight: bold; font-size: 12px; margin-right: 12px;">LinkedIn</a>`);
+      if (t.instagram) {
+        const ig = t.instagram.startsWith('@') ? `https://instagram.com/${t.instagram.substring(1)}` : t.instagram;
+        links.push(`<a href="${ig}" target="_blank" style="color: #e1306c; text-decoration: none; font-weight: bold; font-size: 12px; margin-right: 12px;">Instagram</a>`);
+      }
+      if (t.lattes) links.push(`<a href="${t.lattes}" target="_blank" style="color: #0284c7; text-decoration: none; font-weight: bold; font-size: 12px; margin-right: 12px;">Currículo Lattes</a>`);
+
+      const specs = Array.isArray(t.specialties)
+        ? t.specialties.map((s: any) => typeof s === 'string' ? s : (s.disciplineName || s.name || '')).filter(Boolean)
+        : [];
+
+      return `
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px; margin-bottom: 14px; display: flex; gap: 16px; align-items: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        ${photo ? `<img src="${photo}" alt="${t.name}" style="width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 2px solid #e0e7ff; flex-shrink: 0;" />` : `<div style="width: 72px; height: 72px; border-radius: 50%; background: #e0e7ff; color: #4338ca; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; flex-shrink: 0;">${getInitials(t.name)}</div>`}
+        <div style="flex: 1;">
+          <h3 style="margin: 0; font-size: 16px; font-weight: 800; color: #0f172a; text-transform: uppercase;">${t.name}</h3>
+          <span style="display: inline-block; background: #e0e7ff; color: #3730a3; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 800; text-transform: uppercase; margin: 4px 0 8px 0;">${tit}</span>
+          ${specs.length > 0 ? `<p style="margin: 4px 0; font-size: 12px; color: #475569;"><strong>Especialidades:</strong> ${specs.join(', ')}</p>` : ''}
+          ${links.length > 0 ? `<div style="margin-top: 8px;">${links.join('')}</div>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+
+    const html = `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Corpo Docente - ${course.name}</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1e293b; max-width: 820px; margin: 40px auto; padding: 24px; background: #f8fafc; }
+    .card { background: #ffffff; border-radius: 16px; padding: 32px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    h1 { color: #312e81; font-size: 24px; font-weight: 800; margin: 12px 0 4px 0; }
+    .badge { display: inline-block; background: #4f46e5; color: white; padding: 4px 12px; border-radius: 9999px; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 11px; color: #64748b; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">Faculdade ESUDA • Pós-Graduação</span>
+    <h1>Corpo Docente — ${course.name}</h1>
+    <p style="color: #64748b; font-size: 13px; margin: 4px 0 24px 0;">Relação oficial de docentes credenciados e qualificados para este curso.</p>
+
+    <div>${teachersHtml}</div>
+
+    <div class="footer">
+      <p style="font-weight: bold; margin-bottom: 4px;">FACULDADE ESUDA • Coordenação das Especializações em Arquitetura e Engenharia</p>
+      <p>Rua Dr. José Mariano, 593 - Santo Amaro, Recife - PE | WhatsApp: (81) 99129-8803 | emanoel@esuda.edu.br</p>
+    </div>
+  </div>
+</body>
+</html>`;
+
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Docentes-${course.name.replace(/[^a-zA-Z0-9]/g, '_')}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="fixed inset-0 z-[100] flex justify-end">
       <motion.div 
@@ -515,7 +697,17 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
           {/* Disciplines */}
           {showDisciplines && (
             <div className="space-y-6">
-              <h3 className="text-lg font-bold text-gray-900 border-l-4 border-indigo-600 pl-4 print:break-after-avoid">Matriz Curricular</h3>
+              <div className="flex items-center justify-between gap-4">
+                <h3 className="text-lg font-bold text-gray-900 border-l-4 border-indigo-600 pl-4 print:break-after-avoid">Matriz Curricular</h3>
+                <button
+                  type="button"
+                  onClick={() => handleRequestDownload('ementa')}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-black text-[10px] uppercase tracking-wider transition-colors no-print"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  Baixar ementa do curso
+                </button>
+              </div>
               
               <div 
                 className="space-y-6 bg-gray-50 rounded-2xl p-6 border border-gray-100 print:bg-slate-50 print:border-slate-200 print:p-6"
@@ -581,7 +773,17 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
           {/* Teachers Section */}
           {showTeachers && courseTeachers.length > 0 && (
             <div className="space-y-6 break-inside-avoid print:break-inside-avoid">
-              <h3 className="text-lg font-bold text-gray-900 border-l-4 border-indigo-600 pl-4 print:break-after-avoid">Corpo Docente</h3>
+              <div className="flex items-center justify-between gap-4">
+                <h3 className="text-lg font-bold text-gray-900 border-l-4 border-indigo-600 pl-4 print:break-after-avoid">Corpo Docente</h3>
+                <button
+                  type="button"
+                  onClick={() => handleRequestDownload('docentes')}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-black text-[10px] uppercase tracking-wider transition-colors no-print"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  Baixar relação de docentes
+                </button>
+              </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 print:grid-cols-4">
                 {courseTeachers.map((teacher: any, i: number) => (
                   <div 
@@ -736,6 +938,37 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
             </div>
           )}
           
+          {/* Download CTAs Section */}
+          <div className="bg-gradient-to-br from-indigo-50/70 via-white to-slate-50 p-6 rounded-3xl border border-indigo-100 shadow-sm space-y-4 print:hidden">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 bg-indigo-600 text-white rounded-2xl shadow-sm">
+                <Download className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-black uppercase text-slate-900 tracking-tight">Downloads de Material</h4>
+                <p className="text-xs text-slate-500 font-medium">Baixe os documentos oficiais para consulta</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button
+                type="button"
+                onClick={() => handleRequestDownload('ementa')}
+                className="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs uppercase tracking-wider py-3.5 px-4 rounded-xl transition-all shadow-md shadow-indigo-100 hover:scale-[1.01]"
+              >
+                <FileText className="w-4 h-4" />
+                Baixar ementa do curso
+              </button>
+              <button
+                type="button"
+                onClick={() => handleRequestDownload('docentes')}
+                className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase tracking-wider py-3.5 px-4 rounded-xl transition-all shadow-md shadow-slate-200 hover:scale-[1.01]"
+              >
+                <Users className="w-4 h-4" />
+                Baixar relação de docentes
+              </button>
+            </div>
+          </div>
+
           <div className="pt-10 flex flex-col gap-4 print:mt-10">
             {course.websiteUrl && (
               <a 
@@ -788,6 +1021,19 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
           </div>
         </div>
       </motion.div>
+
+      {/* Lead Capture Modal */}
+      <LeadFormModal
+        isOpen={isLeadModalOpen}
+        onClose={() => {
+          setIsLeadModalOpen(false);
+          setPendingDownloadType(null);
+        }}
+        courses={courses}
+        defaultCourseName={course.name}
+        origem={pendingDownloadType === 'ementa' ? 'Baixar ementa do curso' : 'Baixar relação de docentes'}
+        onSuccess={handleLeadSuccess}
+      />
     </div>
   );
 }

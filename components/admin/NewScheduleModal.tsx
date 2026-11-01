@@ -9,7 +9,10 @@ import {
   ChevronRight, 
   ChevronLeft, 
   Save, 
-  LayoutDashboard 
+  LayoutDashboard,
+  Loader2,
+  AlertCircle,
+  X 
 } from 'lucide-react';
 import { 
   collection, 
@@ -53,6 +56,8 @@ export function NewScheduleModal({ courses, holidays, teachers, commonDiscipline
   const [startDate, setStartDate] = useState('');
   const [className, setClassName] = useState('');
   const [preview, setPreview] = useState<any>(null);
+  const [saving, setSaving] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   
   // Discipline ordering state
   const [commonOrder, setCommonOrder] = useState<any[]>(
@@ -179,6 +184,9 @@ export function NewScheduleModal({ courses, holidays, teachers, commonDiscipline
   };
 
   const saveSchedule = async () => {
+    if (saving) return;
+    setSaving(true);
+    setErrorMessage(null);
     try {
       const scheduleRef = await addDoc(collection(db, 'schedules'), {
         courseIds: selectedCourses,
@@ -216,7 +224,10 @@ export function NewScheduleModal({ courses, holidays, teachers, commonDiscipline
       await Promise.all(allClassPromises);
       onClose();
     } catch (e) {
-      handleFirestoreError(e, OperationType.WRITE, 'schedules');
+      const err = handleFirestoreError(e, OperationType.WRITE, 'schedules');
+      setErrorMessage(err.message);
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -463,19 +474,45 @@ export function NewScheduleModal({ courses, holidays, teachers, commonDiscipline
           )}
         </div>
 
+        {errorMessage && (
+          <div className="mx-4 sm:mx-8 mb-2 p-3 bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm rounded-xl flex items-center justify-between gap-2 shrink-0">
+            <div className="flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+              <span>{errorMessage}</span>
+            </div>
+            <button 
+              type="button" 
+              onClick={() => setErrorMessage(null)} 
+              className="text-red-400 hover:text-red-700 p-1"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
         <div className="p-4 sm:p-6 border-t border-gray-200 bg-gray-50 flex justify-end gap-2 sm:gap-3 shrink-0">
-          <Button variant="secondary" onClick={onClose}>Cancelar</Button>
+          <Button variant="secondary" onClick={onClose} disabled={saving}>Cancelar</Button>
           {step === 1 ? (
             <Button disabled={selectedCourses.length === 0 || !startDate || !className.trim()} onClick={generatePreview} className="flex items-center gap-2">
               Gerar Cronograma <ChevronRight className="w-4 h-4" />
             </Button>
           ) : (
             <>
-              <Button variant="secondary" onClick={() => setStep(1)} className="flex items-center gap-2">
+              <Button variant="secondary" onClick={() => setStep(1)} disabled={saving} className="flex items-center gap-2">
                 <ChevronLeft className="w-4 h-4" /> Voltar
               </Button>
-              <Button onClick={saveSchedule} className="flex items-center gap-2">
-                <Save className="w-4 h-4" /> Salvar e Publicar
+              <Button disabled={saving} onClick={saveSchedule} className="flex items-center gap-2">
+                {saving ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Salvando...</span>
+                  </>
+                ) : (
+                  <>
+                    <Save className="w-4 h-4" />
+                    <span>Salvar e Publicar</span>
+                  </>
+                )}
               </Button>
             </>
           )}

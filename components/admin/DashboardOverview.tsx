@@ -93,7 +93,7 @@ export function DashboardOverview({ schedules, courses, teachers, setActiveTab }
                   </div>
                 </div>
                 <span className={`text-[10px] font-bold px-2 py-1 rounded-full ${s.status === 'active' ? 'bg-green-50 text-green-600' : 'bg-gray-100 text-gray-500'}`}>
-                  {s.status === 'active' ? 'ATIVO' : 'RASCUNHO'}
+                  {s.status === 'active' ? 'ATIVO' : s.status === 'archived' ? 'ARQUIVADO' : 'ARQUIVADO'}
                 </span>
               </div>
             ))}

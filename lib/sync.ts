@@ -6,7 +6,7 @@ import {
   query,
   where
 } from 'firebase/firestore';
-import { db } from './firebase';
+import { db, handleFirestoreError, OperationType } from './firebase';
 
 /**
  * Sincroniza as atribuições de professores nos cronogramas existentes.
@@ -109,6 +109,6 @@ export async function syncTeacherAssignments() {
     };
   } catch (error) {
     console.error('Erro ao sincronizar professores:', error);
-    throw error;
+    return handleFirestoreError(error, OperationType.WRITE, 'classes');
   }
 }

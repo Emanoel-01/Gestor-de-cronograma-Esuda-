@@ -229,6 +229,6 @@ export const seedData = async (setActiveTab: (tab: string) => void) => {
     setActiveTab('courses');
   } catch (e) {
     console.error('Erro ao popular banco:', e);
-    handleFirestoreError(e, OperationType.WRITE, 'seed');
+    return handleFirestoreError(e, OperationType.WRITE, 'courses');
   }
 };
