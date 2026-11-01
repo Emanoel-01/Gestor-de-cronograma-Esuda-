@@ -268,7 +268,7 @@ export function AdminPortal({
                   className="w-full sm:w-auto cursor-pointer border-indigo-200 text-indigo-700 hover:bg-indigo-50 shadow-xs"
                   onClick={handleCarregarCronogramas}
                 >
-                  <UploadCloud className="w-5 h-5 text-indigo-600" /> Carregar cronogramas 2026/2027
+                  <UploadCloud className="w-5 h-5 text-indigo-600" /> Corrigir Cluster C
                 </Button>
               )}
               <Button className="w-full sm:w-auto cursor-pointer" onClick={() => {

@@ -13,16 +13,29 @@ import { db } from './firebase';
 // Destinatários oficiais da equipe ESUDA conforme PROMPT 7:
 // Secretaria, Marketing e Valnei (Coordenador Geral de Pós-Graduação)
 export const TEAM_EMAILS = [
-  'secretaria@esuda.edu.br',
-  'marketing@esuda.edu.br',
-  'valnei@esuda.edu.br',
-  'coord.posgraduacao@esuda.edu.br'
+  'possoajudarsecretariapos@esuda.edu.br',
+  'vdoval@gmail.com',
+  'EMAIL_DO_MARKETING'
 ];
 
 // Cópia oculta obrigatória
 export const BCC_EMAILS = [
   'emanoel.s.amorim@gmail.com'
 ];
+
+function escapeHtml(v: unknown): string {
+  return String(v ?? '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function sanitizeLead<T extends Record<string, any>>(lead: T): T {
+  const out: Record<string, any> = { ...lead };
+  for (const k of ['nome', 'email', 'telefone', 'cursoInteresse', 'origem', 'comoConheceu']) {
+    if (out[k] != null) out[k] = escapeHtml(out[k]);
+  }
+  return out as T;
+}
 
 export interface LeadData {
   id?: string;
@@ -88,6 +101,7 @@ export async function sendNewLeadNotification(lead: LeadData): Promise<string> {
   const agora = new Date();
   const dataHoraFormatada = formatDateTime(agora);
   const whatsappUrl = buildWhatsAppLink(lead.telefone, lead.nome, lead.cursoInteresse, lead.origem);
+  lead = sanitizeLead(lead);
 
   const subject = `Novo lead — ${lead.cursoInteresse} — ${lead.nome}`;
 
@@ -245,6 +259,7 @@ export async function sendDailyLeadsSummary(): Promise<{ count: number; mailId: 
     leadsList.forEach((lead, idx) => {
       const dataHora = lead.criadoEm ? formatDateTime(lead.criadoEm) : 'Data recente';
       const waLink = buildWhatsAppLink(lead.telefone, lead.nome, lead.cursoInteresse, lead.origem);
+      lead = sanitizeLead(lead);
       textBody += `${idx + 1}. ${lead.nome} | Curso: ${lead.cursoInteresse}\n`;
       textBody += `   E-mail: ${lead.email} | Tel: ${lead.telefone || 'N/I'}\n`;
       textBody += `   Material: ${lead.origem || 'N/I'} | Origem: ${lead.comoConheceu || 'N/I'}\n`;
@@ -259,6 +274,7 @@ export async function sendDailyLeadsSummary(): Promise<{ count: number; mailId: 
   const rowsHtml = leadsList.map((lead, idx) => {
     const dataHora = lead.criadoEm ? formatDateTime(lead.criadoEm) : 'Data recente';
     const waLink = buildWhatsAppLink(lead.telefone, lead.nome, lead.cursoInteresse, lead.origem);
+    lead = sanitizeLead(lead);
     return `
     <tr style="border-bottom: 1px solid #e2e8f0; ${idx % 2 === 0 ? 'background-color: #ffffff;' : 'background-color: #f8fafc;'}">
       <td style="padding: 12px 10px; font-weight: bold; color: #0f172a;">${idx + 1}. ${lead.nome}</td>

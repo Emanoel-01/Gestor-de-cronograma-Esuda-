@@ -65,11 +65,10 @@ export function TeacherSubmissionsManager() {
     if (!confirm(`Deseja aprovar e publicar os dados de ${submission.name}?`)) return;
 
     try {
-      // 1. Update the official teacher document
+      // 1. Documento público: somente campos públicos
       const teacherRef = doc(db, 'teachers', submission.teacherId);
       await updateDoc(teacherRef, {
         titulacao: submission.titulacao,
-        email: submission.email || '',
         photoUrl: submission.photoUrl || '',
         linkedin: submission.linkedin || '',
         lattes: submission.lattes || '',
@@ -77,12 +76,12 @@ export function TeacherSubmissionsManager() {
         hasSubmitted: true
       });
 
-      if (submission.cpf || submission.phone) {
-        await setDoc(doc(db, 'teachers', submission.teacherId, 'dados_sensiveis', 'principal'), {
-          cpf: submission.cpf || '',
-          phone: submission.phone || ''
-        }, { merge: true });
-      }
+      // Dados pessoais: somente na coleção restrita
+      await setDoc(doc(db, 'teachers_private', submission.teacherId), {
+        email: submission.email || '',
+        cpf: submission.cpf || '',
+        phone: submission.phone || ''
+      }, { merge: true });
 
       // 2. Delete the submission
       await deleteDoc(doc(db, 'submissoes_professores', submission.id));

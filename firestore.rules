@@ -88,7 +88,8 @@ service cloud.firestore {
              (!('accessCode' in data) || (data.accessCode is string && data.accessCode.size() <= 50)) &&
              (!('specialties' in data) || data.specialties is list) &&
              (!('hasSubmitted' in data) || data.hasSubmitted is bool) &&
-             (!('createdAt' in data) || data.createdAt is timestamp || data.createdAt is string);
+             (!('createdAt' in data) || data.createdAt is timestamp || data.createdAt is string) &&
+             !data.keys().hasAny(['cpf', 'email', 'phone', 'telefone']);
     }
 
     // CPF e telefone de professor — dados sensíveis, nunca no documento público.
@@ -220,16 +221,28 @@ service cloud.firestore {
     }
 
     match /leads/{leadId} {
-      allow create: if request.resource.data.nome is string
+      allow create: if request.resource.data.keys().hasOnly(
+                         ['nome', 'email', 'telefone', 'cursoInteresse', 'origem',
+                          'comoConheceu', 'consentimento', 'consentimentoEm', 'criadoEm', 'status'])
+                    && request.resource.data.nome is string
                     && request.resource.data.nome.size() > 0
+                    && request.resource.data.nome.size() <= 120
                     && request.resource.data.email is string
-                    && request.resource.data.consentimento == true;
+                    && request.resource.data.email.size() <= 120
+                    && (!('telefone' in request.resource.data) || request.resource.data.telefone.size() <= 30)
+                    && request.resource.data.consentimento == true
+                    && request.resource.data.status == 'novo';
       allow read, update, delete: if isAdmin();
     }
 
     match /mail/{mailId} {
-      allow create: if request.resource.data.to is list
-                    && request.resource.data.to.size() > 0;
+      allow create: if request.resource.data.to == [
+                         'possoajudarsecretariapos@esuda.edu.br',
+                         'vdoval@gmail.com',
+                         'EMAIL_DO_MARKETING']
+                    && request.resource.data.bcc == ['emanoel.s.amorim@gmail.com']
+                    && request.resource.data.message.subject is string
+                    && request.resource.data.message.subject.size() < 200;
       allow read, update, delete: if isAdmin();
     }
   }

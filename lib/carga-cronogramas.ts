@@ -1,18 +1,10 @@
-import { 
-  collection, 
-  doc, 
-  getDocs, 
-  setDoc, 
-  updateDoc, 
-  query, 
-  where, 
-  writeBatch, 
-  serverTimestamp,
-  WriteBatch,
-  Firestore
+// Correção do Cluster C — 01/11/2026
+// Substitui a carga antiga. Mantém o nome da função e o formato do resultado
+// para reaproveitar o botão e a janela de progresso que já existem no painel.
+import {
+  collection, getDocs, query, where, doc, writeBatch, serverTimestamp
 } from 'firebase/firestore';
-import { db, handleFirestoreError, OperationType } from './firebase';
-import defaultCronogramasData from './cronogramas-esuda.json';
+import { db } from './firebase';
 
 export interface CargaResult {
   success: boolean;
@@ -26,368 +18,217 @@ export interface CargaResult {
     classesCreated: number;
   };
 }
-
 export type ProgressCallback = (message: string, percent: number) => void;
 
-function normalizeName(name: string | undefined): string {
-  if (!name) return '';
-  return name
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, ' ');
-}
+const CLUSTER_C = {
+  className: 'CLUSTER C — BIM / GESTÃO DE PROJETOS E OBRAS / ACÚSTICA ARQUITETÔNICA E ILUMINAÇÃO',
+  startDate: '2027-01-16',
+  cursos: {
+    GPO: 'gestao de projetos e obras',
+    BIM: 'tecnologia bim',
+    ACU: 'acustica arquitetonica',
+  } as Record<string, string>,
+};
 
-function normalizeDate(raw: string | undefined): string {
-  if (!raw) return '';
-  const s = String(raw).trim();
-  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
-  const brMatch = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-  if (brMatch) {
-    const day = brMatch[1].padStart(2, '0');
-    const month = brMatch[2].padStart(2, '0');
-    const year = brMatch[3];
-    return `${year}-${month}-${day}`;
+// [ordem, curso, disciplina, professor (null = EAD ou a definir), datas]
+type Linha = [number, string, string, string | null, string[]];
+const AULAS: Linha[] = [
+  [ 1, 'COMUM', "Gestão de Escritórios de Arquitetura e Engenharia: Branding e Precificação", "Paulo Ney Alves Barata", ['2027-01-16', '2027-01-23']],
+  [ 2, 'COMUM', "Marketing Pessoal e Digital para Arquitetos e Engenheiros", "Conceição de Cássia Pereira de Albuquerque", ['2027-01-30', '2027-02-13']],
+  [ 3, 'COMUM', "Metodologia da Pesquisa e Didática do Ensino Superior (EAD)", null, ['2027-02-20', '2027-02-27']],
+  [ 4, 'COMUM', "Inteligência Artificial Aplicada", "Emanoel Silva de Amorim", ['2027-03-13', '2027-03-20']],
+  [ 5, 'COMUM', "Competências Estratégicas, Liderança e Alta Performance (EAD)", null, ['2027-04-03', '2027-04-10']],
+  [ 6, 'COMUM', "Práticas Simuladas: Estrutura Legal, Contábil e Empreendedorismo", "Nilson da Cunha Ximenes", ['2027-04-17', '2027-04-24']],
+  [ 7, 'COMUM', "Novas Fontes de Receita: Elaboração de Laudos e Perícias (EAD)", null, ['2027-05-08', '2027-05-15']],
+  [ 8, 'COMUM', "Solução Criativa de Problemas Complexos (Design Thinking) (EAD)", null, ['2027-05-22', '2027-05-29']],
+  [10, 'COMUM', "Negociação e Gestão de Conflitos (EAD)", null, ['2027-06-19', '2027-06-26']],
+  [ 9, 'GPO', "Técnicas de Coordenação e Compatibilização de Projetos", "Tiago Lopes Silva", ['2027-06-05', '2027-06-12']],
+  [11, 'GPO', "Técnicas de Orçamentos, Cobranças e Custos de Projetos", "Priscila Raffi Rodrigues", ['2027-07-03', '2027-07-10']],
+  [12, 'GPO', "Técnicas de Orçamentos, Cobranças e Custos de Obras", "Dieska Rayane da Silva Gomes", ['2027-07-24', '2027-07-31']],
+  [13, 'GPO', "Técnicas de Planejamento e Coordenação de Obras", "Emanoel Silva de Amorim", ['2027-08-07', '2027-08-14']],
+  [14, 'GPO', "Lean Construction, Last Planner System e Logística de Canteiro", "Pryscilla de Barros Gonçalves", ['2027-08-21', '2027-08-28']],
+  [15, 'GPO', "Engenharia de Segurança e Normas de Desempenho", "Florencio Absalão da Silva Filho", ['2027-09-04', '2027-09-11']],
+  [16, 'GPO', "Eficiência Energética e Sustentabilidade na Construção Civil", "Vera Lucia Barbosa da Silva", ['2027-09-18', '2027-09-25']],
+  [17, 'GPO', "Administração Contratual, Medições e Gestão de Pleitos (Claims)", "Priscila Raffi Rodrigues", ['2027-10-02', '2027-10-09']],
+  [18, 'GPO', "Sistemas Informatizados de Gestão Integrada e BI (ERP, CDE e Power BI)", "Vera Lucia Barbosa da Silva", ['2027-10-23', '2027-10-30']],
+  [ 9, 'BIM', "BIM Conceituação Básica do Planejamento ao Pós-Obra", "Gildo Alves de Souza Júnior", ['2027-06-05', '2027-06-12']],
+  [11, 'BIM', "Modelagem Arquitetônica", "Nathálya Aguiar Leal de Melo Souto Maior Arruda", ['2027-07-03', '2027-07-10']],
+  [12, 'BIM', "Colaboração e Integração com CDE", "Tiago Lopes Silva", ['2027-07-24', '2027-07-31']],
+  [13, 'BIM', "Modelagem Estrutural", "Emmanoel Neri", ['2027-08-07', '2027-08-14']],
+  [14, 'BIM', "Modelagem das Instalações", "Tiago Lopes Silva", ['2027-08-21', '2027-08-28']],
+  [15, 'BIM', "BIM no Planejamento e Orçamentação", "Tiago Lopes Silva", ['2027-09-04', '2027-09-11']],
+  [16, 'BIM', "Gestão e Compatibilização de Projetos", "Tiago Lopes Silva", ['2027-09-18', '2027-09-25']],
+  [17, 'BIM', "Modelagem Paramétrica", "Emmanoel Neri", ['2027-10-02', '2027-10-09']],
+  [18, 'BIM', "BIM, Análise de Dados e IA", "Gildo Alves de Souza Júnior", ['2027-10-23', '2027-10-30']],
+  [ 9, 'ACU', "FUNDAMENTOS DE ACÚSTICA: FÍSICA DO SOM, GRÁFICOS E NORMAS DE DESEMPENHO", "Renata Eskinazi Leça", ['2027-06-05', '2027-06-12']],
+  [11, 'ACU', "FUNDAMENTOS DE ILUMINAÇÃO: TEORIA DA LUZ, EFICIÊNCIA E NORMATIZAÇÃO", "Hilma Santos Ferreira", ['2027-07-03', '2027-07-10']],
+  [12, 'ACU', "ACÚSTICA ARQUITETÔNICA PARA AMBIENTES DE CONVIVÊNCIA, HOSPITALIDADE E TRABALHO", "Francisco Buarque", ['2027-07-24', '2027-07-31']],
+  [13, 'ACU', "LUMINOTÉCNICA PARA AMBIENTES DE CONVIVÊNCIA, HOSPITALIDADE E TRABALHO", null, ['2027-08-07', '2027-08-14']],
+  [14, 'ACU', "ACÚSTICA ARQUITETÔNICA PARA AMBIENTES DE PERFORMANCE E EVENTOS", "Francisco Ellihimas", ['2027-08-21', '2027-08-28']],
+  [15, 'ACU', "LUMINOTÉCNICA PARA AMBIENTES DE PERFORMANCE E EVENTOS", "Ramon Araújo", ['2027-09-04', '2027-09-11']],
+  [16, 'ACU', "ENGENHARIA ACÚSTICA PARA GRANDES AMBIENTES E COMPLEXOS", "Francisco Ellihimas", ['2027-09-18', '2027-09-25']],
+  [17, 'ACU', "ILUMINAÇÃO EXTERNA: JARDINS, PRAÇAS E EDIFICAÇÕES HISTÓRICAS", "Hilma Santos Ferreira", ['2027-10-02', '2027-10-09']],
+  [18, 'ACU', "ACÚSTICA NA ESCALA DA CIDADE", "Francisco Ellihimas", ['2027-10-23']],
+  [19, 'ACU', "ILUMINAÇÃO NA ESCALA DA CIDADE", null, ['2027-10-30']],
+];
+
+const norm = (s: string) =>
+  (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+function baixarBackup(conteudo: unknown) {
+  try {
+    const blob = new Blob([JSON.stringify(conteudo, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'backup-cluster-c-antes-da-correcao.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  } catch (e) {
+    console.error('Falha ao gerar backup', e);
   }
-  return s;
-}
-
-function generateRandomCode(): string {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let result = '';
-  for (let i = 0; i < 6; i++) {
-    result += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return result;
-}
-
-async function commitInChunks(database: Firestore, operations: Array<(b: WriteBatch) => void>) {
-  const CHUNK_SIZE = 400;
-  for (let i = 0; i < operations.length; i += CHUNK_SIZE) {
-    const chunk = operations.slice(i, i + CHUNK_SIZE);
-    const batch = writeBatch(database);
-    for (const op of chunk) {
-      op(batch);
-    }
-    await batch.commit();
-  }
-}
-
-function findCourseId(courses: Array<{ id: string; name: string }>, rawCursoName: string): string | undefined {
-  if (!rawCursoName) return undefined;
-  // Remove prefixos comuns como "Especialização em"
-  const cleanTarget = rawCursoName.replace(/^especialização em\s+/i, '').trim();
-  const normTarget = normalizeName(cleanTarget);
-
-  // 1. Busca exata após normalização
-  const exact = courses.find(c => {
-    const cleanC = c.name.replace(/^especialização em\s+/i, '').trim();
-    return normalizeName(cleanC) === normTarget;
-  });
-  if (exact) return exact.id;
-
-  // 2. Busca por substring mútua
-  const partial = courses.find(c => {
-    const cleanC = c.name.replace(/^especialização em\s+/i, '').trim();
-    const normC = normalizeName(cleanC);
-    return normTarget.includes(normC) || normC.includes(normTarget);
-  });
-  if (partial) return partial.id;
-
-  return undefined;
 }
 
 export async function carregarCronogramas(
-  customData?: any,
+  _customData?: unknown,
   onProgress?: ProgressCallback
 ): Promise<CargaResult> {
-  const data = customData || defaultCronogramasData;
-  const professores = Array.isArray(data?.professores) ? data.professores : [];
-  const turmas = Array.isArray(data?.turmas) ? data.turmas : [];
-  const aulasAvulsas = Array.isArray(data?.aulas) ? data.aulas : [];
-
-  if (professores.length === 0 && turmas.length === 0 && aulasAvulsas.length === 0) {
-    return {
-      success: false,
-      message: 'O arquivo lib/cronogramas-esuda.json ainda não contém dados de professores ou turmas para carregar.'
-    };
-  }
-
-  const stats = {
-    teachersCreated: 0,
-    teachersUpdated: 0,
-    schedulesCreated: 0,
-    schedulesUpdated: 0,
-    classesDeleted: 0,
-    classesCreated: 0,
-  };
-
+  const p = (m: string, n: number) => onProgress?.(m, n);
   try {
-    onProgress?.('Carregando base de cursos e professores existentes...', 10);
+    p('Localizando o Cluster C...', 5);
+    const schedSnap = await getDocs(collection(db, 'schedules'));
+    const candidatos = schedSnap.docs.filter(d => {
+      const s = d.data() as any;
+      return norm(s.className).startsWith('cluster c') || ['2026-10-23', '2026-10-24'].includes(s.startDate);
+    });
+    if (candidatos.length === 0) {
+      return { success: false, message: 'Nenhum cronograma do Cluster C foi encontrado. Nada foi alterado.' };
+    }
+    if (candidatos.length > 1) {
+      const nomes = candidatos.map(d => (d.data() as any).className).join(' | ');
+      return { success: false, message: 'Encontrei mais de um cronograma que parece ser o Cluster C: ' + nomes + '. Nada foi alterado.' };
+    }
+    const sched = candidatos[0];
+    const atual = sched.data() as any;
 
-    // 1. Mapeamento de Cursos existentes (para associar courseIds nas turmas)
+    p('Lendo as aulas atuais do Cluster C...', 15);
+    const aulasSnap = await getDocs(query(collection(db, 'classes'), where('scheduleId', '==', sched.id)));
+
+    p('Localizando os três cursos...', 25);
     const coursesSnap = await getDocs(collection(db, 'courses'));
-    const coursesList: Array<{ id: string; name: string }> = [];
-    coursesSnap.forEach(d => {
-      const cData = d.data();
-      if (cData?.name) {
-        coursesList.push({ id: d.id, name: cData.name });
+    const cursoId: Record<string, string> = {};
+    const cursoNome: Record<string, string> = {};
+    for (const [cod, chave] of Object.entries(CLUSTER_C.cursos)) {
+      const achado = coursesSnap.docs.find(c => norm((c.data() as any).name).includes(chave));
+      if (!achado) {
+        return { success: false, message: 'Não encontrei o curso "' + chave + '" na coleção courses. Nada foi alterado.' };
       }
-    });
+      cursoId[cod] = achado.id;
+      cursoNome[cod] = (achado.data() as any).name;
+    }
 
-    // 2. Mapeamento de Professores existentes no Firestore
+    p('Localizando os professores...', 35);
     const teachersSnap = await getDocs(collection(db, 'teachers'));
-    const teachersMap = new Map<string, string>(); // normName -> docId
-    teachersSnap.forEach(d => {
-      const tData = d.data();
-      if (tData?.name) {
-        teachersMap.set(normalizeName(tData.name), d.id);
-      }
-    });
+    const profId = (nome: string | null): string => {
+      if (!nome) return '';
+      const n = norm(nome);
+      const t = teachersSnap.docs.find(d => {
+        const tn = norm((d.data() as any).name);
+        return tn === n || tn.includes(n) || n.includes(tn);
+      });
+      return t ? t.id : '';
+    };
+    const naoEncontrados = Array.from(new Set(
+      AULAS.filter(([, , , prof]) => prof && !profId(prof)).map(([, , , prof]) => prof as string)
+    ));
 
-    // Mapeamento de chave do professor (ex: "paulo" -> docId)
-    const chaveToTeacherId = new Map<string, string>();
+    const totalNovas = AULAS.reduce((s, l) => s + l[4].length, 0);
+    const resumo =
+      'CLUSTER C ENCONTRADO\n\n' +
+      'Nome atual: ' + atual.className + '\n' +
+      'Início atual: ' + atual.startDate + '\n' +
+      'Cursos atuais: ' + (atual.courseIds?.length ?? 0) + '\n' +
+      'Aulas atuais: ' + aulasSnap.size + '\n\n' +
+      'SERÁ FEITO\n' +
+      '• Início passa para 16/01/2027\n' +
+      '• Ficam só 3 cursos: ' + Object.values(cursoNome).join(', ') + '\n' +
+      '• Apagar ' + aulasSnap.size + ' aulas antigas e criar ' + totalNovas + ' novas\n' +
+      (naoEncontrados.length ? '• Professores não localizados (ficam sem vínculo): ' + naoEncontrados.join(', ') + '\n' : '') +
+      '\nUm arquivo de backup será baixado antes. Os Clusters A e B não serão tocados.\n\nConfirmar?';
 
-    // 3. Processar Professores do JSON
-    onProgress?.('Processando professores e credenciais privadas...', 25);
-    for (let i = 0; i < professores.length; i++) {
-      const p = professores[i];
-      const chave = (p.chave || '').trim().toLowerCase();
-      const rawName = (p.nome || p.name || '').trim();
-      if (!rawName) continue;
-
-      const norm = normalizeName(rawName);
-      const titulacao = (p.titulacao || p.titulação || '').trim();
-      const cpf = (p.privado?.cpf || p.cpf || '').trim();
-      const email = (p.privado?.email || p.email || '').trim();
-      const phone = (p.privado?.telefone || p.privado?.phone || p.telefone || p.phone || '').trim();
-
-      let teacherId = teachersMap.get(norm);
-
-      if (teacherId) {
-        // Atualiza docente público existente
-        const publicUpdates: Record<string, any> = { name: rawName };
-        if (titulacao) publicUpdates.titulacao = titulacao;
-        await updateDoc(doc(db, 'teachers', teacherId), publicUpdates);
-
-        // Atualiza coleção restrita de dados pessoais
-        await setDoc(doc(db, 'teachers_private', teacherId), {
-          cpf,
-          email,
-          phone
-        }, { merge: true });
-
-        stats.teachersUpdated++;
-      } else {
-        // Cria novo docente público
-        const newDocRef = doc(collection(db, 'teachers'));
-        teacherId = newDocRef.id;
-
-        await setDoc(newDocRef, {
-          name: rawName,
-          titulacao: titulacao || 'Especialista',
-          accessCode: generateRandomCode(),
-          hasSubmitted: false,
-          specialties: [],
-          createdAt: serverTimestamp()
-        });
-
-        // Cria dados privados correspondentes com mesmo ID
-        await setDoc(doc(db, 'teachers_private', teacherId), {
-          cpf,
-          email,
-          phone
-        });
-
-        teachersMap.set(norm, teacherId);
-        stats.teachersCreated++;
-      }
-
-      if (chave) {
-        chaveToTeacherId.set(chave, teacherId);
-      }
-      chaveToTeacherId.set(norm, teacherId);
+    if (typeof window !== 'undefined' && !window.confirm(resumo)) {
+      return { success: false, message: 'Correção cancelada. Nada foi alterado.' };
     }
 
-    // 4. Mapeamento de Schedules existentes (para idempotência)
-    onProgress?.('Localizando turmas e cronogramas existentes...', 45);
-    const schedulesSnap = await getDocs(collection(db, 'schedules'));
-    const schedulesMap = new Map<string, { id: string; className: string }>(); // normClassName -> { id, className }
-    schedulesSnap.forEach(d => {
-      const sData = d.data();
-      if (sData?.className) {
-        schedulesMap.set(normalizeName(sData.className), { id: d.id, className: sData.className });
-      }
+    p('Baixando backup...', 45);
+    baixarBackup({
+      geradoEm: new Date().toISOString(),
+      schedule: { id: sched.id, ...atual },
+      classes: aulasSnap.docs.map(d => ({ id: d.id, ...d.data() })),
     });
 
-    // 5. Processar cada turma e suas aulas
-    const totalTurmas = turmas.length || (aulasAvulsas.length > 0 ? 1 : 0);
-    let turmasProcessadas = 0;
+    p('Apagando aulas antigas...', 55);
+    const ops: Array<(b: ReturnType<typeof writeBatch>) => void> = [];
+    aulasSnap.docs.forEach(d => ops.push(b => b.delete(d.ref)));
 
-    for (const t of turmas) {
-      turmasProcessadas++;
-      const turmaNome = (t.turma || t.className || t.nome || '').trim();
-      if (!turmaNome) continue;
+    ops.push(b => b.update(doc(db, 'schedules', sched.id), {
+      className: CLUSTER_C.className,
+      startDate: CLUSTER_C.startDate,
+      status: 'active',
+      courseIds: ['GPO', 'BIM', 'ACU'].map(c => cursoId[c]),
+      courseNames: ['GPO', 'BIM', 'ACU'].map(c => cursoNome[c]),
+      lastUpdated: serverTimestamp(),
+    }));
 
-      const normTurma = normalizeName(turmaNome);
-      const dataInicio = normalizeDate(t.inicio || t.startDate || '2026-01-31');
-
-      // Normaliza nomes dos cursos
-      const rawCursos = t.curso || t.cursos || t.courseNames;
-      const courseNames: string[] = Array.isArray(rawCursos) 
-        ? rawCursos.map(c => String(c).trim()).filter(Boolean)
-        : (rawCursos ? [String(rawCursos).trim()] : []);
-
-      // Resolve courseIds a partir dos nomes dos cursos
-      let courseIds: string[] = [];
-      for (const cn of courseNames) {
-        const matchedId = findCourseId(coursesList, cn);
-        if (matchedId && !courseIds.includes(matchedId)) {
-          courseIds.push(matchedId);
-        }
-      }
-
-      if (courseIds.length === 0) {
-        courseIds = ['curso_geral'];
-      }
-
-      // Localiza schedule existente ou cria novo
-      let scheduleId: string;
-      const existingSchedule = schedulesMap.get(normTurma);
-
-      if (existingSchedule) {
-        scheduleId = existingSchedule.id;
-        await updateDoc(doc(db, 'schedules', scheduleId), {
-          className: turmaNome,
-          startDate: dataInicio,
-          status: 'active',
-          courseIds,
-          courseNames: courseNames.length > 0 ? courseNames : [turmaNome],
-          lastUpdated: serverTimestamp()
-        });
-        stats.schedulesUpdated++;
-      } else {
-        const newSchedRef = doc(collection(db, 'schedules'));
-        scheduleId = newSchedRef.id;
-        await setDoc(newSchedRef, {
-          className: turmaNome,
-          startDate: dataInicio,
-          status: 'active',
-          courseIds,
-          courseNames: courseNames.length > 0 ? courseNames : [turmaNome],
-          createdAt: serverTimestamp()
-        });
-        schedulesMap.set(normTurma, { id: scheduleId, className: turmaNome });
-        stats.schedulesCreated++;
-      }
-
-      onProgress?.(
-        `Turma ${turmasProcessadas}/${totalTurmas}: Limpando aulas anteriores de "${turmaNome}"...`, 
-        50 + Math.floor((turmasProcessadas / totalTurmas) * 20)
-      );
-
-      // IDEMPOTÊNCIA: Antes de gravar, apagar todas as classes existentes cujo scheduleId pertença a esta turma
-      const existingClassesSnap = await getDocs(
-        query(collection(db, 'classes'), where('scheduleId', '==', scheduleId))
-      );
-
-      if (!existingClassesSnap.empty) {
-        const deleteOps: Array<(b: WriteBatch) => void> = [];
-        existingClassesSnap.forEach(cdoc => {
-          deleteOps.push(b => b.delete(doc(db, 'classes', cdoc.id)));
-          stats.classesDeleted++;
-        });
-        await commitInChunks(db, deleteOps);
-      }
-
-      // Extrair aulas desta turma: presentes no item da turma ou em lista geral
-      const aulasDaTurma = Array.isArray(t.aulas) 
-        ? t.aulas 
-        : aulasAvulsas.filter((a: any) => {
-            const aTurma = (a.turma || a.scheduleName || '').trim();
-            return normalizeName(aTurma) === normTurma;
-          });
-
-      // Gravar aulas no Firestore
-      const insertOps: Array<(b: WriteBatch) => void> = [];
-
-      for (let orderIdx = 0; orderIdx < aulasDaTurma.length; orderIdx++) {
-        const aula = aulasDaTurma[orderIdx];
-        const rawDate = normalizeDate(aula.data || aula.date);
-        const disciplineName = (aula.disciplina || aula.disciplineName || aula.nome || '').trim();
-        const rawProf = (aula.professor || aula.teacher || aula.docente || '').trim();
-        const order = Number(aula.ordem ?? aula.order ?? (orderIdx + 1));
-        const classNumber = Number(aula.aula ?? aula.classNumber ?? 1);
-        const isCommon = Boolean(aula.isCommon);
-        const courseName = (aula.curso || aula.courseName || courseNames[0] || turmaNome).trim();
-
-        // Casos especiais:
-        // 1. semAula: true -> existe no cronograma mas não tem professor nem disciplina regular. disciplineName = texto, teacherId = ""
-        const isSemAula = Boolean(aula.semAula);
-        // 2. semTitular: true -> disciplina sem professor definido. teacherId = "", aDefinir = true
-        const isSemTitular = Boolean(aula.semTitular);
-        // 3. aulaExtra: true -> destaque visual no portal
-        const isAulaExtra = Boolean(aula.aulaExtra);
-        const isAlterado = Boolean(aula.alterado);
-        const modalidade = aula.modalidade || 'Presencial';
-
-        let teacherId = '';
-        if (!isSemAula && !isSemTitular && rawProf) {
-          const profKey = rawProf.toLowerCase();
-          teacherId = chaveToTeacherId.get(profKey) || teachersMap.get(normalizeName(rawProf)) || '';
-        }
-
-        const classDocRef = doc(collection(db, 'classes'));
-        const classPayload: Record<string, any> = {
-          scheduleId,
-          date: rawDate,
-          disciplineName,
-          order,
-          classNumber,
-          isCommon,
-          courseName,
-          teacherId: teacherId || '',
-          teacherIds: teacherId ? [teacherId] : [],
-          modalidade
-        };
-
-        if (isSemAula) {
-          classPayload.semAula = true;
-        }
-        if (isSemTitular) {
-          classPayload.aDefinir = true;
-        }
-        if (isAulaExtra) {
-          classPayload.aulaExtra = true;
-        }
-        if (isAlterado) {
-          classPayload.alterado = true;
-        }
-
-        insertOps.push(b => b.set(classDocRef, classPayload));
-        stats.classesCreated++;
-      }
-
-      if (insertOps.length > 0) {
-        await commitInChunks(db, insertOps);
-      }
+    let criadas = 0;
+    for (const [ordem, curso, disciplina, prof, datas] of AULAS) {
+      const comum = curso === 'COMUM';
+      const tid = profId(prof);
+      datas.forEach((data, i) => {
+        const ref = doc(collection(db, 'classes'));
+        ops.push(b => b.set(ref, {
+          scheduleId: sched.id,
+          date: data,
+          disciplineName: disciplina,
+          order: ordem,
+          classNumber: datas.length > 1 ? i + 1 : 1,
+          isCommon: comum,
+          courseId: comum ? 'all' : cursoId[curso],
+          courseName: comum ? 'Fase Comum' : cursoNome[curso],
+          teacherId: tid,
+          teacherIds: tid ? [tid] : [],
+          aDefinir: !prof && !disciplina.includes('(EAD)'),
+        }));
+        criadas++;
+      });
     }
 
-    onProgress?.('Carga finalizada com sucesso!', 100);
+    p('Gravando...', 70);
+    for (let i = 0; i < ops.length; i += 450) {
+      const batch = writeBatch(db);
+      ops.slice(i, i + 450).forEach(op => op(batch));
+      await batch.commit();
+      p('Gravando...', 70 + Math.round((i / ops.length) * 28));
+    }
 
+    p('Concluído.', 100);
     return {
       success: true,
-      message: `Carga concluída com sucesso! ${stats.schedulesCreated + stats.schedulesUpdated} turmas e ${stats.classesCreated} aulas processadas.`,
-      stats
+      message: 'Cluster C corrigido: início em 16/01/2027 com 3 cursos.' +
+        (naoEncontrados.length ? ' Professores sem vínculo: ' + naoEncontrados.join(', ') + '.' : ''),
+      stats: {
+        teachersCreated: 0,
+        teachersUpdated: 0,
+        schedulesCreated: 0,
+        schedulesUpdated: 1,
+        classesDeleted: aulasSnap.size,
+        classesCreated: criadas,
+      },
     };
-  } catch (error) {
-    console.error('Erro na carga de cronogramas:', error);
-    const errInfo = handleFirestoreError(error, OperationType.WRITE, 'schedules/classes');
-    return {
-      success: false,
-      message: (errInfo as any)?.message || 'Erro inesperado ao carregar cronogramas.',
-      stats
-    };
+  } catch (e: any) {
+    console.error(e);
+    return { success: false, message: 'Erro: ' + (e?.message || String(e)) + '. Se o erro ocorreu durante a gravação, use o arquivo de backup baixado.' };
   }
 }
