@@ -238,8 +238,7 @@ service cloud.firestore {
     match /mail/{mailId} {
       allow create: if request.resource.data.to == [
                          'possoajudarsecretariapos@esuda.edu.br',
-                         'vdoval@gmail.com',
-                         'EMAIL_DO_MARKETING']
+                         'vdoval@gmail.com']
                     && request.resource.data.bcc == ['emanoel.s.amorim@gmail.com']
                     && request.resource.data.message.subject is string
                     && request.resource.data.message.subject.size() < 200;

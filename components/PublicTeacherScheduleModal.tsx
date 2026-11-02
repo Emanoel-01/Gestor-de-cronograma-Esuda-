@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useAuth } from '@/lib/auth-context';
 import { motion } from 'motion/react';
 import { 
   X, 
@@ -40,6 +41,36 @@ export function PublicTeacherScheduleModal({
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTeacherId, setSelectedTeacherId] = useState<string>('');
   const [expandedClassId, setExpandedClassId] = useState<string | null>(null);
+
+  // Acesso: coordenação logada escolhe qualquer docente; professor entra só com o próprio código
+  const { user } = useAuth();
+  const podeEscolher = !!user;
+  const [codigo, setCodigo] = useState('');
+  const [erroCodigo, setErroCodigo] = useState('');
+
+  const entrarComCodigo = () => {
+    const c = codigo.trim().toUpperCase();
+    const t = c ? teachers.find(tt => (tt.accessCode || '').trim().toUpperCase() === c) : null;
+    if (!t) {
+      setErroCodigo('Código não encontrado. Confira com a coordenação.');
+      return;
+    }
+    setErroCodigo('');
+    setSelectedTeacherId(t.id);
+    setExpandedClassId(null);
+  };
+
+  // Ao fechar, limpa tudo para o próximo visitante do mesmo computador
+  useEffect(() => {
+    if (!isOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setSelectedTeacherId('');
+      setCodigo('');
+      setErroCodigo('');
+      setExpandedClassId(null);
+      setSearchTerm('');
+    }
+  }, [isOpen]);
 
   // Filter teachers based on search term
   const filteredTeachers = useMemo(() => {
@@ -243,7 +274,39 @@ export function PublicTeacherScheduleModal({
 
         {/* Content Area */}
         <div className="print-scroll-area flex-1 overflow-y-auto p-6 space-y-6">
-          {/* Teacher Selection & Search */}
+          {/* Professor sem login: entra apenas com o próprio código */}
+          {!podeEscolher && !selectedTeacher && (
+            <div className="print-hide bg-slate-50 p-6 rounded-2xl border border-slate-200/80 max-w-md mx-auto">
+              <label className="block text-[11px] font-bold uppercase text-slate-500 mb-1.5">
+                Código de acesso do professor
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="password"
+                  autoComplete="off"
+                  placeholder="Digite seu código"
+                  value={codigo}
+                  onChange={(e) => setCodigo(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') entrarComCodigo(); }}
+                  className="flex-1 px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-indigo-500"
+                />
+                <button
+                  type="button"
+                  onClick={entrarComCodigo}
+                  className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold"
+                >
+                  Acessar
+                </button>
+              </div>
+              {erroCodigo && <p className="text-xs text-red-600 mt-2">{erroCodigo}</p>}
+              <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">
+                A agenda e os planos de ensino são de acesso exclusivo dos professores. O código é fornecido pela coordenação.
+              </p>
+            </div>
+          )}
+
+          {/* Teacher Selection & Search — somente coordenação logada */}
+          {podeEscolher && (
           <div className="print-hide grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
             <div>
               <label className="block text-[11px] font-bold uppercase text-slate-500 mb-1.5 flex items-center gap-1.5">
@@ -281,6 +344,7 @@ export function PublicTeacherScheduleModal({
               </select>
             </div>
           </div>
+          )}
 
           {/* Teacher Selected View */}
           {selectedTeacher ? (
@@ -442,7 +506,7 @@ export function PublicTeacherScheduleModal({
                 </div>
               )}
             </div>
-          ) : (
+          ) : podeEscolher ? (
             <div className="p-12 text-center bg-slate-50 rounded-3xl border border-dashed border-slate-200">
               <User className="w-12 h-12 text-indigo-300 mx-auto mb-3" />
               <h4 className="font-bold text-slate-800 text-base">Selecione um Professor</h4>
@@ -450,7 +514,7 @@ export function PublicTeacherScheduleModal({
                 Utilize o seletor ou a barra de busca acima para visualizar todas as datas, disciplinas, turmas e planos de ensino estruturados atribuídos ao docente.
               </p>
             </div>
-          )}
+          ) : null}
         </div>
 
         {/* Footer */}

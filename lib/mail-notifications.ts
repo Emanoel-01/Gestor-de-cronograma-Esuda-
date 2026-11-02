@@ -14,8 +14,7 @@ import { db } from './firebase';
 // Secretaria, Marketing e Valnei (Coordenador Geral de Pós-Graduação)
 export const TEAM_EMAILS = [
   'possoajudarsecretariapos@esuda.edu.br',
-  'vdoval@gmail.com',
-  'EMAIL_DO_MARKETING'
+  'vdoval@gmail.com'
 ];
 
 // Cópia oculta obrigatória
