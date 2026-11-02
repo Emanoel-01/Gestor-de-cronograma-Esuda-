@@ -49,7 +49,7 @@ export function SchedulesList({ schedules, courses, onSelect, isAdmin }: Schedul
             </div>
             <div>
               <h3 className="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">{schedule.className}</h3>
-              <p className="text-sm text-gray-500 mt-1">Início: {format(new Date(schedule.startDate), 'dd/MM/yyyy', { locale: ptBR })}</p>
+              <p className="text-sm text-gray-500 mt-1">Início: {format(new Date(schedule.startDate + 'T12:00:00'), 'dd/MM/yyyy', { locale: ptBR })}</p>
             </div>
             <div className="space-y-2">
               <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Cursos Integrados</p>

@@ -259,7 +259,7 @@ export function PublicPortal({
                         {schedule.className}
                       </h3>
                       <p className="text-sm text-slate-500 mt-2 font-bold uppercase tracking-widest">
-                        Início: {format(new Date(schedule.startDate), 'dd/MM/yyyy', { locale: ptBR })}
+                        Início: {format(new Date(schedule.startDate + 'T12:00:00'), 'dd/MM/yyyy', { locale: ptBR })}
                       </p>
                     </div>
                     <div className="space-y-3">

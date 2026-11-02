@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { 
   BookOpen, 
@@ -62,7 +62,17 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
   const [pendingDownloadType, setPendingDownloadType] = useState<'ementa' | 'docentes' | null>(null);
 
   const [showDisciplines, setShowDisciplines] = useState(true);
-  const [showSyllabus, setShowSyllabus] = useState(true);
+  const [showSyllabusPref, setShowSyllabus] = useState(true);
+  const [leadLiberado, setLeadLiberado] = useState(false);
+  useEffect(() => {
+    try {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (sessionStorage.getItem('esuda_lead_ok') === '1') setLeadLiberado(true);
+    } catch {}
+  }, []);
+  // Ementa visível só para usuário logado ou visitante que já se cadastrou nesta sessão
+  const podeVerEmenta = !!user || leadLiberado;
+  const showSyllabus = podeVerEmenta && showSyllabusPref;
   const [showTeachers, setShowTeachers] = useState(true);
   const [showSchedules, setShowSchedules] = useState(true);
   const [showApps, setShowApps] = useState(false);
@@ -144,6 +154,8 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
   };
 
   const handleLeadSuccess = () => {
+    setLeadLiberado(true);
+    try { sessionStorage.setItem('esuda_lead_ok', '1'); } catch {}
     if (pendingDownloadType === 'ementa') {
       downloadEmenta();
     } else if (pendingDownloadType === 'docentes') {
@@ -361,6 +373,7 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
                     <input type="checkbox" className="hidden" checked={showDisciplines} onChange={() => setShowDisciplines(!showDisciplines)} />
                     <span className="text-[9px] font-black uppercase tracking-widest text-slate-600">Disciplinas</span>
                   </label>
+                  {podeVerEmenta && (
                   <label className="flex items-center gap-2 cursor-pointer group">
                     <div className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${showSyllabus ? 'bg-indigo-600 border-indigo-600' : 'bg-white border-slate-300'}`}>
                       {showSyllabus && <Check className="w-2.5 h-2.5 text-white" />}
@@ -368,6 +381,7 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
                     <input type="checkbox" className="hidden" checked={showSyllabus} onChange={() => setShowSyllabus(!showSyllabus)} />
                     <span className="text-[9px] font-black uppercase tracking-widest text-slate-600">Ementa</span>
                   </label>
+                  )}
                   <label className="flex items-center gap-2 cursor-pointer group">
                     <div className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${showTeachers ? 'bg-indigo-600 border-indigo-600' : 'bg-white border-slate-300'}`}>
                       {showTeachers && <Check className="w-2.5 h-2.5 text-white" />}
@@ -410,12 +424,14 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
                 </div>
               </div>
 
+              {podeVerEmenta && (
               <button 
                 onClick={() => window.print()}
                 className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 shrink-0"
               >
                 <Printer className="w-4 h-4" /> Imprimir
               </button>
+              )}
             </div>
 
             <button 
