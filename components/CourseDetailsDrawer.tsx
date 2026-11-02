@@ -63,9 +63,15 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
 
   const [showDisciplines, setShowDisciplines] = useState(true);
   const [showSyllabusPref, setShowSyllabus] = useState(true);
-  // Ementa completa: somente para usuário logado (coordenação e professores com acesso).
-  // O visitante cadastrado recebe apenas o arquivo resumido.
-  const podeVerEmenta = !!user;
+  const [leadLiberado, setLeadLiberado] = useState(false);
+  useEffect(() => {
+    try {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (sessionStorage.getItem('esuda_lead_ok') === '1') setLeadLiberado(true);
+    } catch {}
+  }, []);
+  // Ementa visível só para usuário logado ou visitante que já se cadastrou nesta sessão
+  const podeVerEmenta = !!user || leadLiberado;
   const showSyllabus = podeVerEmenta && showSyllabusPref;
   const [showTeachers, setShowTeachers] = useState(true);
   const [showSchedules, setShowSchedules] = useState(true);
@@ -148,6 +154,8 @@ export function CourseDetailsDrawer({ course, teachers, schedules, commonDiscipl
   };
 
   const handleLeadSuccess = () => {
+    setLeadLiberado(true);
+    try { sessionStorage.setItem('esuda_lead_ok', '1'); } catch {}
     if (pendingDownloadType === 'ementa') {
       downloadEmenta();
     } else if (pendingDownloadType === 'docentes') {
