@@ -111,6 +111,7 @@ export async function prepararCorrecaoOrdemAB(): Promise<
     const profEmanoel = teachers.find(t => norm(t.name) === norm('Emanoel Silva de Amorim'));
     const profPryscilla = teachers.find(t => norm(t.name) === norm('Pryscilla de Barros Gonçalves'));
     const profVera = teachers.find(t => norm(t.name) === norm('Vera Lúcia Barbosa Silva'));
+    const profTiago = teachers.find(t => norm(t.name) === norm('Tiago Lopes Silva'));
 
     if (!profEmanoel) {
       return { ok: false, message: 'Docente "Emanoel Silva de Amorim" não encontrado no cadastro de professores.' };
@@ -121,16 +122,64 @@ export async function prepararCorrecaoOrdemAB(): Promise<
     if (!profVera) {
       return { ok: false, message: 'Docente "Vera Lúcia Barbosa Silva" não encontrada no cadastro de professores.' };
     }
+    if (!profTiago) {
+      return { ok: false, message: 'Docente "Tiago Lopes Silva" não encontrado no cadastro de professores.' };
+    }
 
-    // Opcional para ILU: Hilma Santos Ferreira
-    const profHilma = teachers.find(t => norm(t.name).includes('hilma'));
+    const teacherNameMap = new Map<string, string>(teachers.map(t => [t.id, t.name || '']));
+
+    const formatProfessores = (ids?: string[], fallbackId?: string): string => {
+      if (Array.isArray(ids) && ids.length > 0) {
+        return ids.map(id => teacherNameMap.get(id) || id).join(', ');
+      }
+      if (fallbackId) {
+        return teacherNameMap.get(fallbackId) || fallbackId;
+      }
+      return 'A definir';
+    };
+
+    const formatAlteracaoLinha = (
+      cluster: 'A' | 'B',
+      cursoTag: string,
+      dadosAtuais: any,
+      novosDados: Record<string, any>
+    ): string => {
+      const dataBr = formatBr(dadosAtuais.date);
+      const discAtual = dadosAtuais.disciplineName || dadosAtuais.subject || 'A definir';
+      const profAtual = formatProfessores(dadosAtuais.teacherIds, dadosAtuais.teacherId);
+
+      const discNova = novosDados.disciplineName !== undefined ? novosDados.disciplineName : discAtual;
+      const profNovo =
+        novosDados.teacherIds !== undefined || novosDados.teacherId !== undefined
+          ? formatProfessores(novosDados.teacherIds, novosDados.teacherId)
+          : profAtual;
+
+      let obsText = '';
+      if (dadosAtuais.observation && novosDados.observation !== undefined) {
+        obsText = ` (observação removida: ${dadosAtuais.observation})`;
+      }
+
+      return `[${cluster}] [${cursoTag}] ${dataBr}: ${discAtual} / ${profAtual} -> ${discNova} / ${profNovo}${obsText}`;
+    };
+
+    const formatExclusaoLinha = (cluster: 'A' | 'B', cursoTag: string, dadosAtuais: any): string => {
+      const dataBr = formatBr(dadosAtuais.date);
+      const disc = dadosAtuais.disciplineName || dadosAtuais.subject || 'A definir';
+      const prof = formatProfessores(dadosAtuais.teacherIds, dadosAtuais.teacherId);
+      return `APAGAR [${cluster}] ${cursoTag} ${dataBr}: ${disc} / ${prof}`;
+    };
+
+    const formatCriacaoLinha = (cluster: 'A' | 'B', cursoTag: string, dados: any): string => {
+      const dataBr = formatBr(dados.date);
+      const disc = dados.disciplineName || 'A definir';
+      const prof = formatProfessores(dados.teacherIds, dados.teacherId);
+      return `CRIAR [${cluster}] [${cursoTag}] ${dataBr}: ${disc} / ${prof}`;
+    };
 
     // 3. Carregar cursos para resolução de IDs e nomes
     const coursesSnap = await getDocs(collection(db, 'courses'));
     const courses = coursesSnap.docs.map(d => ({ id: d.id, ...d.data() } as { id: string; name: string }));
 
-    const cursoMAN = courses.find(c => norm(c.name).includes('manutencao predial'));
-    const cursoGPO = courses.find(c => norm(c.name).includes('gestao de projetos e obras'));
     const cursoACU = courses.find(c => norm(c.name).includes('acustica arquitetonica'));
     const cursoINT = courses.find(c => norm(c.name).includes('design de interiores'));
     const cursoNEU = courses.find(c => norm(c.name).includes('neuroarquitetura'));
@@ -181,45 +230,43 @@ export async function prepararCorrecaoOrdemAB(): Promise<
       };
     }
 
-    // A3: Inverter disciplina e professor entre A1 e A2 (4 atualizações)
-    // a1[0] (24/10) <-> a2[0] (03/10)
-    // a1[1] (07/11) <-> a2[1] (17/10)
+    // A3 (C1):
+    // - aulas do A2 (MAN, 2026-10-03 e 2026-10-17): disciplineName, teacherIds e teacherId copiados das aulas do A1
+    // - aulas do A1 (MAN, 2026-10-24 e 2026-11-07): disciplineName copiado das aulas do A2, teacherIds = [Emanoel], teacherId = Emanoel
     for (let i = 0; i < 2; i++) {
       const docA1 = a1[i];
       const docA2 = a2[i];
 
-      const novosDadosParaA1: Record<string, any> = {
-        disciplineName: docA2.data.disciplineName || '',
-        teacherId: docA2.data.teacherId || '',
-        teacherIds: docA2.data.teacherIds || (docA2.data.teacherId ? [docA2.data.teacherId] : []),
-      };
-      if (docA2.data.subject) novosDadosParaA1.subject = docA2.data.subject;
-
-      alteracoesA.push({
-        id: docA1.id,
-        ref: docA1.ref,
-        dadosAtuais: docA1.data,
-        novosDados: novosDadosParaA1,
-        descricaoLinha: `[Cluster A - MAN] ${formatBr(docA1.data.date)}: disciplina trocada para "${novosDadosParaA1.disciplineName}"`,
-      });
-
       const novosDadosParaA2: Record<string, any> = {
         disciplineName: docA1.data.disciplineName || '',
-        teacherId: docA1.data.teacherId || '',
+        teacherId: docA1.data.teacherId || (docA1.data.teacherIds?.[0] || ''),
         teacherIds: docA1.data.teacherIds || (docA1.data.teacherId ? [docA1.data.teacherId] : []),
       };
-      if (docA1.data.subject) novosDadosParaA2.subject = docA1.data.subject;
 
       alteracoesA.push({
         id: docA2.id,
         ref: docA2.ref,
         dadosAtuais: docA2.data,
         novosDados: novosDadosParaA2,
-        descricaoLinha: `[Cluster A - MAN] ${formatBr(docA2.data.date)}: disciplina trocada para "${novosDadosParaA2.disciplineName}"`,
+        descricaoLinha: formatAlteracaoLinha('A', 'MAN', docA2.data, novosDadosParaA2),
+      });
+
+      const novosDadosParaA1: Record<string, any> = {
+        disciplineName: docA2.data.disciplineName || '',
+        teacherId: profEmanoel.id,
+        teacherIds: [profEmanoel.id],
+      };
+
+      alteracoesA.push({
+        id: docA1.id,
+        ref: docA1.ref,
+        dadosAtuais: docA1.data,
+        novosDados: novosDadosParaA1,
+        descricaoLinha: formatAlteracaoLinha('A', 'MAN', docA1.data, novosDadosParaA1),
       });
     }
 
-    // A4: 6 aulas de GPO nas datas alvo: 03/10, 17/10, 24/10, 07/11, 05/12, 12/12
+    // A4 (C2): 6 aulas de GPO nas datas alvo com disciplina correta, professor e remoção de observation
     const gpoDatasAlvo = ['2026-10-03', '2026-10-17', '2026-10-24', '2026-11-07', '2026-12-05', '2026-12-12'];
     const gpoAulas = rawClassesA.filter(c => {
       const cName = norm(c.data.courseName || '');
@@ -234,33 +281,99 @@ export async function prepararCorrecaoOrdemAB(): Promise<
     }
 
     for (const gpo of gpoAulas) {
+      const d = gpo.data.date;
+      let discName = '';
+      let profTarget: { id: string; name: string };
+
+      if (d === '2026-10-03' || d === '2026-10-17') {
+        discName = 'Lean Construction, Last Planner System e Logística de Canteiro';
+        profTarget = profPryscilla;
+      } else if (d === '2026-10-24' || d === '2026-11-07') {
+        discName = 'Eficiência Energética e Sustentabilidade na Construção Civil';
+        profTarget = profVera;
+      } else if (d === '2026-12-05' || d === '2026-12-12') {
+        discName = 'Sistemas Informatizados de Gestão Integrada e BI (ERP, CDE e Power BI)';
+        profTarget = profVera;
+      } else {
+        return { ok: false, message: `Data inesperada para aula de GPO: ${d}` };
+      }
+
       const novosDadosGpo: Record<string, any> = {
+        disciplineName: discName,
+        teacherId: profTarget.id,
+        teacherIds: [profTarget.id],
         observation: deleteField(),
       };
-      // Se a data for 03/10 ou 17/10, vincular Pryscilla de Barros Gonçalves
-      if (['2026-10-03', '2026-10-17'].includes(gpo.data.date)) {
-        novosDadosGpo.teacherId = profPryscilla.id;
-        novosDadosGpo.teacherIds = [profPryscilla.id];
-      }
-      // Se a data for 05/12 ou 12/12, vincular Vera Lúcia Barbosa Silva
-      if (['2026-12-05', '2026-12-12'].includes(gpo.data.date)) {
-        novosDadosGpo.teacherId = profVera.id;
-        novosDadosGpo.teacherIds = [profVera.id];
-      }
 
       alteracoesA.push({
         id: gpo.id,
         ref: gpo.ref,
         dadosAtuais: gpo.data,
         novosDados: novosDadosGpo,
-        descricaoLinha: `[Cluster A - GPO] ${formatBr(gpo.data.date)} (${gpo.data.disciplineName}): remoção de observação de conflito`,
+        descricaoLinha: formatAlteracaoLinha('A', 'GPO', gpo.data, novosDadosGpo),
       });
     }
 
-    if (alteracoesA.length !== 10) {
+    // A5 (C3): Novo passo A5 — BIM em 19/09 e 26/09 (exatamente 2 aulas). teacherIds = [Tiago], teacherId = Tiago. Não mudar disciplineName.
+    const a5 = rawClassesA.filter(c => {
+      const cName = norm(c.data.courseName || '');
+      const d = c.data.date;
+      return cName.includes('tecnologia bim') && (d === '2026-09-19' || d === '2026-09-26');
+    }).sort((a, b) => (a.data.date || '').localeCompare(b.data.date || ''));
+
+    if (a5.length !== 2) {
       return {
         ok: false,
-        message: `Cluster A: Total de alterações esperado é 10, mas gerou ${alteracoesA.length}. Abortando.`,
+        message: `Cluster A (Passo A5): Esperava 2 aulas de Tecnologia BIM em 19/09 e 26/09, mas encontrou ${a5.length}. Abortando.`,
+      };
+    }
+
+    for (const bim of a5) {
+      const novosDadosBim: Record<string, any> = {
+        teacherId: profTiago.id,
+        teacherIds: [profTiago.id],
+      };
+      alteracoesA.push({
+        id: bim.id,
+        ref: bim.ref,
+        dadosAtuais: bim.data,
+        novosDados: novosDadosBim,
+        descricaoLinha: formatAlteracaoLinha('A', 'BIM', bim.data, novosDadosBim),
+      });
+    }
+
+    // A6 (C4): Novo passo A6 — BIM em 29/08 e 12/09 (exatamente 2 aulas). teacherIds = [Tiago], teacherId = Tiago. Não mudar disciplineName.
+    const a6 = rawClassesA.filter(c => {
+      const cName = norm(c.data.courseName || '');
+      const d = c.data.date;
+      return cName.includes('tecnologia bim') && (d === '2026-08-29' || d === '2026-09-12');
+    }).sort((a, b) => (a.data.date || '').localeCompare(b.data.date || ''));
+
+    if (a6.length !== 2) {
+      return {
+        ok: false,
+        message: `Cluster A (Passo A6): Esperava 2 aulas de Tecnologia BIM em 29/08 e 12/09, mas encontrou ${a6.length}. Abortando.`,
+      };
+    }
+
+    for (const bim of a6) {
+      const novosDadosBim: Record<string, any> = {
+        teacherId: profTiago.id,
+        teacherIds: [profTiago.id],
+      };
+      alteracoesA.push({
+        id: bim.id,
+        ref: bim.ref,
+        dadosAtuais: bim.data,
+        novosDados: novosDadosBim,
+        descricaoLinha: formatAlteracaoLinha('A', 'BIM', bim.data, novosDadosBim),
+      });
+    }
+
+    if (alteracoesA.length !== 14) {
+      return {
+        ok: false,
+        message: `Cluster A: Total de alterações esperado é 14, mas gerou ${alteracoesA.length}. Abortando.`,
       };
     }
 
@@ -299,11 +412,18 @@ export async function prepararCorrecaoOrdemAB(): Promise<
       };
     }
 
-    // B3: 2 aulas comuns em 03/10 e 17/10 com Design Thinking
+    // Snapshot das aulas de B2 lido ANTES de qualquer alteração (para uso no C7)
+    const b2Snapshot = b2.map(c => ({
+      disciplineName: c.data.disciplineName || c.data.subject || '',
+      teacherId: c.data.teacherId || (c.data.teacherIds?.[0] || ''),
+      teacherIds: c.data.teacherIds || (c.data.teacherId ? [c.data.teacherId] : []),
+    }));
+
+    // B3 (C5): 2 aulas comuns em 03/10 e 17/10 com Design Thinking (isCommon === true E contém "design thinking")
     const b3 = rawClassesB.filter(c => {
       const d = c.data.date;
       const isDate = d === '2026-10-03' || d === '2026-10-17';
-      const isDt = norm(c.data.disciplineName || '').includes('design thinking') || c.data.isCommon;
+      const isDt = c.data.isCommon === true && norm(c.data.disciplineName || '').includes('design thinking');
       return isDate && isDt;
     }).sort((a, b) => (a.data.date || '').localeCompare(b.data.date || ''));
 
@@ -313,6 +433,8 @@ export async function prepararCorrecaoOrdemAB(): Promise<
         message: `Cluster B (Passo B3): Esperava 2 aulas comuns de Design Thinking em 03/10 e 17/10, mas encontrou ${b3.length}. Abortando.`,
       };
     }
+
+    const b3ByDate = new Map(b3.map(c => [c.data.date, c.data]));
 
     // Guardar a disciplina original de ACU de B1 para passar para B2
     const discOriginalB1 = b1[0].data.disciplineName || 'Fundamentos de Acústica: Física do Som, Gráficos e Normas de Desempenho';
@@ -340,7 +462,7 @@ export async function prepararCorrecaoOrdemAB(): Promise<
         ref: docB1.ref,
         dadosAtuais: docB1.data,
         novosDados: novosDadosB1,
-        descricaoLinha: `[Cluster B - ACU] ${formatBr(docB1.data.date)}: reatribuída para Design Thinking (EAD - Emanoel Silva de Amorim)`,
+        descricaoLinha: formatAlteracaoLinha('B', 'ACU', docB1.data, novosDadosB1),
       });
     }
 
@@ -367,7 +489,7 @@ export async function prepararCorrecaoOrdemAB(): Promise<
         ref: docB2.ref,
         dadosAtuais: docB2.data,
         novosDados: novosDadosB2,
-        descricaoLinha: `[Cluster B - ACU] ${formatBr(docB2.data.date)}: alocada disciplina presencial "${discOriginalB1}"`,
+        descricaoLinha: formatAlteracaoLinha('B', 'ACU', docB2.data, novosDadosB2),
       });
     }
 
@@ -377,76 +499,89 @@ export async function prepararCorrecaoOrdemAB(): Promise<
         id: docB3.id,
         ref: docB3.ref,
         dadosAtuais: docB3.data,
-        descricaoLinha: `[Cluster B - Comum] ${formatBr(docB3.data.date)} (${docB3.data.disciplineName}): exclusão de aula comum de Design Thinking`,
+        descricaoLinha: formatExclusaoLinha('B', 'COMUM', docB3.data),
       });
     }
 
-    // B5.4: Criar 4 aulas de DT para INT e NEU (EAD) em 19/09 e 26/09
-    const datasDt = ['2026-09-19', '2026-09-26'];
+    // B5.4 (C6): Criar as 4 aulas de DT para INT e NEU (EAD) em 03/10 e 17/10. order e classNumber copiados da aula do B3 da mesma data.
+    const datasDt = ['2026-10-03', '2026-10-17'];
     for (let i = 0; i < datasDt.length; i++) {
       const dtDate = datasDt[i];
+      const b3Ref = b3ByDate.get(dtDate);
+      const targetOrder = b3Ref?.order ?? (i + 1);
+      const targetClassNumber = b3Ref?.classNumber ?? (i + 1);
+
       // Para INT
+      const dadosInt = {
+        scheduleId: CLUSTER_B_ID,
+        courseId: cursoINT.id,
+        courseName: cursoINT.name,
+        disciplineName: 'Solução Criativa de Problemas Complexos (Design Thinking) (EAD)',
+        date: dtDate,
+        classNumber: targetClassNumber,
+        order: targetOrder,
+        isCommon: false,
+        modalidade: 'EAD',
+        teacherId: profEmanoel.id,
+        teacherIds: [profEmanoel.id],
+        sessionCount: 2,
+        sessionGapWeeks: 1,
+      };
       criacoesB.push({
-        dados: {
-          scheduleId: CLUSTER_B_ID,
-          courseId: cursoINT.id,
-          courseName: cursoINT.name,
-          disciplineName: 'Solução Criativa de Problemas Complexos (Design Thinking) (EAD)',
-          date: dtDate,
-          classNumber: i + 1,
-          order: 8,
-          isCommon: false,
-          modalidade: 'EAD',
-          teacherId: profEmanoel.id,
-          teacherIds: [profEmanoel.id],
-          sessionCount: 2,
-          sessionGapWeeks: 1,
-        },
-        descricaoLinha: `[Cluster B - INT] ${formatBr(dtDate)}: criação de aula Design Thinking (EAD - Emanoel Silva de Amorim)`,
+        dados: dadosInt,
+        descricaoLinha: formatCriacaoLinha('B', 'INT', dadosInt),
       });
 
       // Para NEU
+      const dadosNeu = {
+        scheduleId: CLUSTER_B_ID,
+        courseId: cursoNEU.id,
+        courseName: cursoNEU.name,
+        disciplineName: 'Solução Criativa de Problemas Complexos (Design Thinking) (EAD)',
+        date: dtDate,
+        classNumber: targetClassNumber,
+        order: targetOrder,
+        isCommon: false,
+        modalidade: 'EAD',
+        teacherId: profEmanoel.id,
+        teacherIds: [profEmanoel.id],
+        sessionCount: 2,
+        sessionGapWeeks: 1,
+      };
       criacoesB.push({
-        dados: {
-          scheduleId: CLUSTER_B_ID,
-          courseId: cursoNEU.id,
-          courseName: cursoNEU.name,
-          disciplineName: 'Solução Criativa de Problemas Complexos (Design Thinking) (EAD)',
-          date: dtDate,
-          classNumber: i + 1,
-          order: 8,
-          isCommon: false,
-          modalidade: 'EAD',
-          teacherId: profEmanoel.id,
-          teacherIds: [profEmanoel.id],
-          sessionCount: 2,
-          sessionGapWeeks: 1,
-        },
-        descricaoLinha: `[Cluster B - NEU] ${formatBr(dtDate)}: criação de aula Design Thinking (EAD - Emanoel Silva de Amorim)`,
+        dados: dadosNeu,
+        descricaoLinha: formatCriacaoLinha('B', 'NEU', dadosNeu),
       });
     }
 
-    // B5.5: Criar 2 aulas de Iluminação para ACU Presencial em 03/10 e 17/10
-    const datasIlu = ['2026-10-03', '2026-10-17'];
-    for (let i = 0; i < datasIlu.length; i++) {
-      const iluDate = datasIlu[i];
+    // B5.5 (C7): Criar as 2 aulas de ACU em 03/10 e 17/10 copiando disciplina e professores do B2 snapshot da mesma posição. order e classNumber copiados do B3 da mesma data.
+    const datasAcu = ['2026-10-03', '2026-10-17'];
+    for (let i = 0; i < datasAcu.length; i++) {
+      const acuDate = datasAcu[i];
+      const b3Ref = b3ByDate.get(acuDate);
+      const targetOrder = b3Ref?.order ?? (i + 1);
+      const targetClassNumber = b3Ref?.classNumber ?? (i + 1);
+
+      const b2Ref = b2Snapshot[i];
+
+      const dadosAcu = {
+        scheduleId: CLUSTER_B_ID,
+        courseId: cursoACU.id,
+        courseName: cursoACU.name,
+        disciplineName: b2Ref.disciplineName,
+        date: acuDate,
+        classNumber: targetClassNumber,
+        order: targetOrder,
+        isCommon: false,
+        modalidade: 'Presencial',
+        teacherId: b2Ref.teacherId,
+        teacherIds: b2Ref.teacherIds,
+        sessionCount: 2,
+        sessionGapWeeks: 2,
+      };
       criacoesB.push({
-        dados: {
-          scheduleId: CLUSTER_B_ID,
-          courseId: cursoACU.id,
-          courseName: cursoACU.name,
-          disciplineName: 'FUNDAMENTOS DE ILUMINAÇÃO: TEORIA DA LUZ, EFICIÊNCIA E NORMATIZAÇÃO',
-          date: iluDate,
-          classNumber: i + 1,
-          order: 9,
-          isCommon: false,
-          modalidade: 'Presencial',
-          teacherId: profHilma ? profHilma.id : '',
-          teacherIds: profHilma ? [profHilma.id] : [],
-          sessionCount: 2,
-          sessionGapWeeks: 2,
-        },
-        descricaoLinha: `[Cluster B - ACU] ${formatBr(iluDate)}: criação de aula presencial "Fundamentos de Iluminação"`,
+        dados: dadosAcu,
+        descricaoLinha: formatCriacaoLinha('B', 'ACU', dadosAcu),
       });
     }
 
@@ -460,24 +595,22 @@ export async function prepararCorrecaoOrdemAB(): Promise<
       return { ok: false, message: `Cluster B: Esperava 6 criações, mas gerou ${criacoesB.length}. Abortando.` };
     }
 
-    // Construção do resumo linha por linha
+    // Construção do resumo linha por linha (C8)
     const resumoLinhas: string[] = [
       'PLANO DE CORREÇÃO DE ORDEM — CLUSTERS A E B (PDF 01/11)',
       '',
-      '--- CLUSTER A (10 alterações) ---',
-      ...alteracoesA.map(a => `• ${a.descricaoLinha}`),
+      '--- CLUSTER A (14 alterações) ---',
+      ...alteracoesA.map(a => a.descricaoLinha),
       '',
-      '--- CLUSTER B (4 alterações, 2 exclusões, 6 criações) ---',
-      ...alteracoesB.map(a => `• [Atualização] ${a.descricaoLinha}`),
-      ...exclusoesB.map(e => `• [Exclusão] ${e.descricaoLinha}`),
-      ...criacoesB.map(c => `• [Criação] ${c.descricaoLinha}`),
+      '--- CLUSTER B (4 alterações, 2 apagadas, 6 criadas) ---',
+      ...alteracoesB.map(a => a.descricaoLinha),
+      ...exclusoesB.map(e => e.descricaoLinha),
+      ...criacoesB.map(c => c.descricaoLinha),
       '',
       'TOTAIS:',
-      `• Aulas atualizadas: ${alteracoesA.length + alteracoesB.length} (Cluster A: 10, Cluster B: 4)`,
-      `• Aulas excluídas: ${exclusoesB.length} (Cluster B: 2)`,
-      `• Aulas criadas: ${criacoesB.length} (Cluster B: 6)`,
+      'Cluster A 14 alteradas; Cluster B 4 alteradas, 2 apagadas, 6 criadas.',
       '',
-      'Um arquivo de backup JSON ("backup-ordem-ab-antes-da-correcao.json") será baixado automaticamente antes da gravação.'
+      'Um arquivo de backup JSON ("backup-ordem-ab-antes-da-correcao.json") será baixado automaticamente antes da gravação.',
     ];
 
     return {
@@ -525,7 +658,7 @@ export async function aplicarCorrecaoOrdemAB(
     p('Preparando operações em lote...', 40);
     const ops: Array<(b: ReturnType<typeof writeBatch>) => void> = [];
 
-    // Cluster A: 10 alterações
+    // Cluster A: 14 alterações
     for (const alt of plano.clusterA.alteracoes) {
       ops.push(b => b.update(alt.ref, alt.novosDados));
     }
