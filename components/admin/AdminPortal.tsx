@@ -23,7 +23,18 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '../ui/Button';
-import { carregarCronogramas, CargaResult } from '@/lib/carga-cronogramas';
+import { ConfirmationModal } from '../ui/ConfirmationModal';
+import { 
+  prepararCorrecaoClusterC, 
+  aplicarCorrecaoClusterC, 
+  PlanoClusterC, 
+  CargaResult 
+} from '@/lib/carga-cronogramas';
+import {
+  prepararCorrecaoOrdemAB,
+  aplicarCorrecaoOrdemAB,
+  PlanoOrdemAB
+} from '@/lib/correcao-ordem-ab';
 import { SidebarItem } from './SidebarItem';
 import { DashboardOverview } from './DashboardOverview';
 import { SchedulesList } from './SchedulesList';
@@ -70,21 +81,82 @@ export function AdminPortal({
   const [isNewTeacherModalOpen, setIsNewTeacherModalOpen] = useState(false);
   const [viewingScheduleId, setViewingScheduleId] = useState<string | null>(null);
 
-  // Estados para Carga de Cronogramas 2026/2027
+  // Estados para Correção do Cluster C
   const [cargaModalOpen, setCargaModalOpen] = useState(false);
   const [cargaLoading, setCargaLoading] = useState(false);
   const [cargaProgress, setCargaProgress] = useState(0);
   const [cargaMessage, setCargaMessage] = useState('');
   const [cargaResult, setCargaResult] = useState<CargaResult | null>(null);
 
+  const [clusterCConfirmOpen, setClusterCConfirmOpen] = useState(false);
+  const [clusterCResumo, setClusterCResumo] = useState('');
+  const [clusterCPlano, setClusterCPlano] = useState<PlanoClusterC | null>(null);
+
   const handleCarregarCronogramas = async () => {
+    const prep = await prepararCorrecaoClusterC();
+    if (!prep.ok) {
+      setCargaResult({ success: false, message: prep.message });
+      setCargaLoading(false);
+      setCargaModalOpen(true);
+      return;
+    }
+
+    setClusterCResumo(prep.resumo);
+    setClusterCPlano(prep.plano);
+    setClusterCConfirmOpen(true);
+  };
+
+  const handleConfirmarClusterC = async () => {
+    if (!clusterCPlano) return;
+    const plano = clusterCPlano;
+    setClusterCConfirmOpen(false);
+
     setCargaModalOpen(true);
     setCargaLoading(true);
     setCargaProgress(0);
-    setCargaMessage('Iniciando processamento dos dados...');
+    setCargaMessage('Iniciando correção do Cluster C...');
     setCargaResult(null);
 
-    const res = await carregarCronogramas(undefined, (msg, pct) => {
+    const res = await aplicarCorrecaoClusterC(plano, (msg, pct) => {
+      setCargaMessage(msg);
+      setCargaProgress(pct);
+    });
+
+    setCargaLoading(false);
+    setCargaResult(res);
+  };
+
+  // Estados para Correção de Ordem A/B (PDF 01/11)
+  const [ordemABConfirmOpen, setOrdemABConfirmOpen] = useState(false);
+  const [ordemABResumo, setOrdemABResumo] = useState('');
+  const [ordemABPlano, setOrdemABPlano] = useState<PlanoOrdemAB | null>(null);
+
+  const handleCorrigirOrdemAB = async () => {
+    const prep = await prepararCorrecaoOrdemAB();
+    if (!prep.ok) {
+      setCargaResult({ success: false, message: prep.message });
+      setCargaLoading(false);
+      setCargaModalOpen(true);
+      return;
+    }
+
+    setOrdemABResumo(prep.resumo);
+    setOrdemABPlano(prep.plano);
+    setOrdemABConfirmOpen(true);
+  };
+
+  const handleConfirmarOrdemAB = async () => {
+    if (!ordemABPlano) return;
+    const plano = ordemABPlano;
+    setOrdemABConfirmOpen(false);
+
+    setCargaModalOpen(true);
+    setCargaLoading(true);
+    setCargaProgress(0);
+    setCargaMessage('Iniciando correção de ordem dos Clusters A e B...');
+    setCargaResult(null);
+
+    const res = await aplicarCorrecaoOrdemAB(plano, (msg: string, pct: number) => {
       setCargaMessage(msg);
       setCargaProgress(pct);
     });
@@ -263,13 +335,22 @@ export function AdminPortal({
           {isAdmin && activeTab !== 'dashboard' && activeTab !== 'teacher-list' && activeTab !== 'users' && activeTab !== 'leads' && (
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
               {activeTab === 'schedules' && (
-                <Button 
-                  variant="secondary"
-                  className="w-full sm:w-auto cursor-pointer border-indigo-200 text-indigo-700 hover:bg-indigo-50 shadow-xs"
-                  onClick={handleCarregarCronogramas}
-                >
-                  <UploadCloud className="w-5 h-5 text-indigo-600" /> Corrigir Cluster C
-                </Button>
+                <>
+                  <Button 
+                    variant="secondary"
+                    className="w-full sm:w-auto cursor-pointer border-indigo-200 text-indigo-700 hover:bg-indigo-50 shadow-xs"
+                    onClick={handleCarregarCronogramas}
+                  >
+                    <UploadCloud className="w-5 h-5 text-indigo-600" /> Corrigir Cluster C
+                  </Button>
+                  <Button 
+                    variant="secondary"
+                    className="w-full sm:w-auto cursor-pointer border-indigo-200 text-indigo-700 hover:bg-indigo-50 shadow-xs"
+                    onClick={handleCorrigirOrdemAB}
+                  >
+                    <UploadCloud className="w-5 h-5 text-indigo-600" /> Corrigir ordem A/B (PDF 01/11)
+                  </Button>
+                </>
               )}
               <Button className="w-full sm:w-auto cursor-pointer" onClick={() => {
                 if (activeTab === 'schedules') setIsNewScheduleModalOpen(true);
@@ -348,7 +429,43 @@ export function AdminPortal({
         />
       )}
 
-      {/* Modal de Carga de Cronogramas 2026/2027 */}
+      {/* Modal de Confirmação da Correção do Cluster C */}
+      <ConfirmationModal 
+        isOpen={clusterCConfirmOpen}
+        title="Corrigir Cluster C"
+        message={(
+          <span className="whitespace-pre-line block text-left text-xs text-gray-600 leading-relaxed font-normal">
+            {clusterCResumo}
+          </span>
+        ) as unknown as string}
+        confirmText="Aplicar correção"
+        confirmVariant="primary"
+        onConfirm={handleConfirmarClusterC}
+        onCancel={() => {
+          setClusterCConfirmOpen(false);
+          setClusterCPlano(null);
+        }}
+      />
+
+      {/* Modal de Confirmação da Correção de Ordem A/B (PDF 01/11) */}
+      <ConfirmationModal 
+        isOpen={ordemABConfirmOpen}
+        title="Corrigir ordem A/B (PDF 01/11)"
+        message={(
+          <span className="whitespace-pre-line block text-left text-xs text-gray-600 leading-relaxed font-normal">
+            {ordemABResumo}
+          </span>
+        ) as unknown as string}
+        confirmText="Aplicar correção"
+        confirmVariant="primary"
+        onConfirm={handleConfirmarOrdemAB}
+        onCancel={() => {
+          setOrdemABConfirmOpen(false);
+          setOrdemABPlano(null);
+        }}
+      />
+
+      {/* Modal de Execução de Carga / Correção */}
       {cargaModalOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 z-50">
           <motion.div 
@@ -362,8 +479,8 @@ export function AdminPortal({
                   <UploadCloud className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 text-lg">Carga de Cronogramas 2026/2027</h3>
-                  <p className="text-xs text-gray-500">Importação oficial a partir de lib/cronogramas-esuda.json</p>
+                  <h3 className="font-bold text-gray-900 text-lg">Atualização de Cronogramas</h3>
+                  <p className="text-xs text-gray-500">Atualização do cronograma e matriz de aulas</p>
                 </div>
               </div>
               {!cargaLoading && (
@@ -400,31 +517,51 @@ export function AdminPortal({
                     <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="text-sm font-bold text-emerald-900">Importação concluída com sucesso!</h4>
+                        <h4 className="text-sm font-bold text-emerald-900">Processamento concluído com sucesso!</h4>
                         <p className="text-xs text-emerald-700 mt-1">{cargaResult.message}</p>
                       </div>
                     </div>
 
                     {cargaResult.stats && (
                       <div className="grid grid-cols-2 gap-3 text-xs">
-                        <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
-                          <span className="text-gray-400 block font-medium">Docentes Cadastrados</span>
-                          <span className="text-lg font-bold text-gray-800">{cargaResult.stats.teachersCreated} novos</span>
-                        </div>
-                        <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
-                          <span className="text-gray-400 block font-medium">Docentes Atualizados</span>
-                          <span className="text-lg font-bold text-gray-800">{cargaResult.stats.teachersUpdated} existentes</span>
-                        </div>
-                        <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
-                          <span className="text-gray-400 block font-medium">Turmas / Cronogramas</span>
-                          <span className="text-lg font-bold text-indigo-600">
-                            {cargaResult.stats.schedulesCreated + cargaResult.stats.schedulesUpdated} processadas
-                          </span>
-                        </div>
-                        <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
-                          <span className="text-gray-400 block font-medium">Aulas Gravadas</span>
-                          <span className="text-lg font-bold text-indigo-600">{cargaResult.stats.classesCreated} aulas</span>
-                        </div>
+                        {(cargaResult.stats.teachersCreated ?? 0) > 0 && (
+                          <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <span className="text-gray-400 block font-medium">Docentes Cadastrados</span>
+                            <span className="text-lg font-bold text-gray-800">{cargaResult.stats.teachersCreated} novos</span>
+                          </div>
+                        )}
+                        {(cargaResult.stats.teachersUpdated ?? 0) > 0 && (
+                          <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <span className="text-gray-400 block font-medium">Docentes Atualizados</span>
+                            <span className="text-lg font-bold text-gray-800">{cargaResult.stats.teachersUpdated} existentes</span>
+                          </div>
+                        )}
+                        {((cargaResult.stats.schedulesCreated ?? 0) + (cargaResult.stats.schedulesUpdated ?? 0) > 0) && (
+                          <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <span className="text-gray-400 block font-medium">Turmas / Cronogramas</span>
+                            <span className="text-lg font-bold text-indigo-600">
+                              {(cargaResult.stats.schedulesCreated || 0) + (cargaResult.stats.schedulesUpdated || 0)} processadas
+                            </span>
+                          </div>
+                        )}
+                        {((cargaResult.stats as any).classesUpdated ?? 0) > 0 && (
+                          <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <span className="text-gray-400 block font-medium">Aulas Atualizadas</span>
+                            <span className="text-lg font-bold text-indigo-600">{(cargaResult.stats as any).classesUpdated} aulas</span>
+                          </div>
+                        )}
+                        {((cargaResult.stats as any).classesDeleted ?? 0) > 0 && (
+                          <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <span className="text-gray-400 block font-medium">Aulas Excluídas</span>
+                            <span className="text-lg font-bold text-red-600">{(cargaResult.stats as any).classesDeleted} aulas</span>
+                          </div>
+                        )}
+                        {((cargaResult.stats as any).classesCreated ?? 0) > 0 && (
+                          <div className="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                            <span className="text-gray-400 block font-medium">Aulas Gravadas / Criadas</span>
+                            <span className="text-lg font-bold text-emerald-600">{(cargaResult.stats as any).classesCreated} aulas</span>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
